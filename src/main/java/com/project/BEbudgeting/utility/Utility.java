@@ -13,4 +13,12 @@ public class Utility {
         return new BigDecimal(123);
     }
 
+    public Iterable<EntratePersonalBudgetEntity> resultFiltered(Iterable<EntratePersonalBudgetEntity> listToFilter){
+        Iterable<EntratePersonalBudgetEntity> filteredList = listToFilter;
+
+        //TODO IMPLEMENTARE I FILTRI
+
+        return filteredList;
+    }
+
 }

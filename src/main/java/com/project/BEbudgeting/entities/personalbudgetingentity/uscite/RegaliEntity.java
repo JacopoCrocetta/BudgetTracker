@@ -1,4 +1,4 @@
-package com.project.BEbudgeting.entities.personalbudgetingentity;
+package com.project.BEbudgeting.entities.personalbudgetingentity.uscite;
 
 import lombok.Data;
 import lombok.Getter;
@@ -7,21 +7,18 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "Uscita")
+@Table(name = "BustaPagaEntity")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-public class EntratePersonalBudgetEntity {
-
-    LocalDateTime data;
-    BigDecimal importo;
-    String descrizione;
-    CategoriaEntity categoria;
+public class RegaliEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private LocalDate data;
+    private BigDecimal importo;
 }
