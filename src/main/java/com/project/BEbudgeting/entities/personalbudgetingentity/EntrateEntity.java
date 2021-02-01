@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,9 +15,9 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 public class EntrateEntity {
-    AltreCategorieEntity altreCategorieEntity;
-    BonusEntity bonusEntity;
-    BustaPagaEntity bustaPagaEntity;
-    InteressiEntity interessiEntity;
-    RisparmiEntity risparmiEntity;
+    List<AltreCategorieEntity> altreCategorieEntities;
+    List<BonusEntity> bonusEntities;
+    List<BustaPagaEntity> bustaPagaEntities;
+    List<InteressiEntity> interessiEntities;
+    List<RisparmiEntity> risparmiEntities;
 }

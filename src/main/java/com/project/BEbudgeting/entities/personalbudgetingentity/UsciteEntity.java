@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,14 +15,14 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 public class UsciteEntity {
-    AlimentiEntity alimentiEntity;
-    AltreCategorieEntity altreCategorieEntity;
-    AnimaliDomestici animaliDomestici;
-    BolletteEntity bolletteEntity;
-    CasaEntity casaEntity;
-    DebitiEntity debitiEntity;
-    InvestimentiEntity investimentiEntity;
-    RegaliEntity regaliEntity;
-    SaluteEntity saluteEntity;
-    SpesePersonaliEntity spesePersonaliEntity;
+    List<AlimentiEntity> alimentiEntity;
+    List<AltreCategorieEntity> altreCategorieEntity;
+    List<AnimaliDomestici> animaliDomestici;
+    List<BolletteEntity> bolletteEntity;
+    List<CasaEntity> casaEntity;
+    List<DebitiEntity> debitiEntity;
+    List<InvestimentiEntity> investimentiEntity;
+    List<RegaliEntity> regaliEntity;
+    List<SaluteEntity> saluteEntity;
+    List<SpesePersonaliEntity> spesePersonaliEntity;
 }
