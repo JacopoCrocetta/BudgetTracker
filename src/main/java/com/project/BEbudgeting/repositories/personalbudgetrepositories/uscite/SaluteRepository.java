@@ -1,13 +1,14 @@
 package com.project.BEbudgeting.repositories.personalbudgetrepositories.uscite;
 
+import com.project.BEbudgeting.entities.personalbudgetingentity.uscite.SaluteEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface AltreCategorieRepository extends CrudRepository<AltreCategorieRepository, Integer> {
+public interface SaluteRepository extends CrudRepository<SaluteEntity, Integer> {
 
     @Override
-    List<AltreCategorieRepository> findAll();
+    List<SaluteEntity> findAll();
 }

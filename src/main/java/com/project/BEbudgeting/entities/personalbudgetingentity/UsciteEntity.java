@@ -17,7 +17,7 @@ import java.util.List;
 public class UsciteEntity {
     List<AlimentiEntity> alimentiEntity;
     List<AltreCategorieEntity> altreCategorieEntity;
-    List<AnimaliDomestici> animaliDomestici;
+    List<AnimaliDomesticiEntity> animaliDomesticiEntity;
     List<BolletteEntity> bolletteEntity;
     List<CasaEntity> casaEntity;
     List<DebitiEntity> debitiEntity;

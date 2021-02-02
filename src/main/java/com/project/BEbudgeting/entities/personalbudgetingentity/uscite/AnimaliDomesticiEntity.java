@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AnimaliDomestici {
+public class AnimaliDomesticiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
