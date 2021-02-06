@@ -86,6 +86,13 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Collection Utils-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -118,7 +125,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<mainClass>com.project.BEbudgeting.BEbudgetingApplication</mainClass>
+					<mainClass>com.project.bebudgeting.BEbudgetingApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
