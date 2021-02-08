@@ -1,6 +1,6 @@
 package com.project.bebudgeting.repositories.personalbudgetrepositories.entrate;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.BustaPagaEffettiveEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.BustaPagaEffettiveEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

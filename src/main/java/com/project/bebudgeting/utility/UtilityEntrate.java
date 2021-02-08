@@ -1,6 +1,7 @@
 package com.project.bebudgeting.utility;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.*;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.EntrateEffettiveEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,9 +17,9 @@ import java.util.List;
 public class UtilityEntrate {
 
     //Filtri per categorie
-    public List<AltreCategorieEffettiveEntity> getFilteredCategorieByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEffettiveEntity> categorieList){
-        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEffettiveEntity) altreCategorie).getData().isAfter(startDate));
-        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEffettiveEntity) altreCategorie).getData().isBefore(endDate));
+    public List<AltreCategorieEntrateEffettiveEntity> getFilteredCategorieByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntrateEffettiveEntity> categorieList){
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isBefore(endDate));
         return categorieList;
     }
 

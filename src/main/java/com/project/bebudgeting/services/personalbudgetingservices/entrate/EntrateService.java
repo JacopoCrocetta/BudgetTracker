@@ -1,6 +1,6 @@
 package com.project.bebudgeting.services.personalbudgetingservices.entrate;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.EntrateEffettiveEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.EntrateEffettiveEntity;
 import com.project.bebudgeting.repositories.personalbudgetrepositories.entrate.*;
 import com.project.bebudgeting.utility.UtilityEntrate;
 import org.springframework.beans.factory.annotation.Autowired;

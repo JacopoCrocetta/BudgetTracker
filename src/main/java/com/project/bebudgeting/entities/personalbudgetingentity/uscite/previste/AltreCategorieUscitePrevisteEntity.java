@@ -1,4 +1,4 @@
-package com.project.bebudgeting.entities.personalbudgetingentity;
+package com.project.bebudgeting.entities.personalbudgetingentity.uscite.previste;
 
 import lombok.Data;
 import lombok.Getter;
@@ -10,15 +10,17 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "BustaPagaEffettiveEntity")
+@Table(name = "InteressiEffettivoEntity")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-public class BolletteEntity {
+public class AltreCategorieUscitePrevisteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private LocalDate data;
     private BigDecimal importo;
+    private String descrizioneCategoria;
+    private String descrizioneSpesa;
 }

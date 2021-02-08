@@ -1,4 +1,4 @@
-package com.project.bebudgeting.entities.personalbudgetingentity;
+package com.project.bebudgeting.entities.personalbudgetingentity.uscite.effettive;
 
 import lombok.Data;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AlimentiEntity {
+public class AlimentiEffettiviEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

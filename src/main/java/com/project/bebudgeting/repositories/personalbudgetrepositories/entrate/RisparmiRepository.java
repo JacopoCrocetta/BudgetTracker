@@ -1,6 +1,6 @@
 package com.project.bebudgeting.repositories.personalbudgetrepositories.entrate;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.RisparmiEffettiveEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.RisparmiEffettiveEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

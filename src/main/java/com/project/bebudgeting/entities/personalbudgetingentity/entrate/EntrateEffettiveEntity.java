@@ -1,5 +1,6 @@
-package com.project.bebudgeting.entities.personalbudgetingentity;
+package com.project.bebudgeting.entities.personalbudgetingentity.entrate;
 
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 public class EntrateEffettiveEntity {
-    List<AltreCategorieEffettiveEntity> altreCategorieEntities;
+    List<AltreCategorieEntrateEffettiveEntity> altreCategorieEntities;
     List<BonusEffettiveEntity> bonusEntities;
     List<BustaPagaEffettiveEntity> bustaPagaEntities;
     List<InteressiEffettivoEntity> interessiEntities;

@@ -1,4 +1,4 @@
-package com.project.bebudgeting.entities.personalbudgetingentity;
+package com.project.bebudgeting.entities.personalbudgetingentity.entrate.previste;
 
 import lombok.Data;
 import lombok.Getter;

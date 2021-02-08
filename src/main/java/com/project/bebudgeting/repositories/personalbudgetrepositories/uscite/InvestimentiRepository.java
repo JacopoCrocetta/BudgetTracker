@@ -1,14 +1,14 @@
 package com.project.bebudgeting.repositories.personalbudgetrepositories.uscite;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.InvestimentiEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.uscite.effettive.InvestimentiEffettiviEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface InvestimentiRepository extends CrudRepository<InvestimentiEntity, Integer> {
+public interface InvestimentiRepository extends CrudRepository<InvestimentiEffettiviEntity, Integer> {
 
     @Override
-    List<InvestimentiEntity> findAll();
+    List<InvestimentiEffettiviEntity> findAll();
 }
