@@ -39,21 +39,21 @@ public class EntrateService {
         return entrateEffettiveEntityList;
     }
 
-    public EntrateEffettiveEntity getFilteredEntriesByDate(LocalDate startDate, LocalDate endDate){
+    public EntrateEffettiveEntity getFilteredEntriesByDate(LocalDate startDate, LocalDate endDate) {
         EntrateEffettiveEntity ret = new EntrateEffettiveEntity();
         ret.setAltreCategorieEntities(utility.getFilteredCategorieByDate(startDate, endDate, categorieRepository.findAll()));
         ret.setBonusEntities(utility.getFilteredBonusByDate(startDate, endDate, bonusRepository.findAll()));
-        ret.setBustaPagaEntities(utility.getFilteredBustaPagaByDate(startDate, endDate,bustaPagaRepository.findAll()));
-        ret.setInteressiEntities(utility.getFilteredInteressiByDate(startDate, endDate,interessiRepository.findAll()));
-        ret.setRisparmiEntities(utility.getFilteredRisparmiByDate(startDate, endDate,risparmiRepository.findAll()));
+        ret.setBustaPagaEntities(utility.getFilteredBustaPagaByDate(startDate, endDate, bustaPagaRepository.findAll()));
+        ret.setInteressiEntities(utility.getFilteredInteressiByDate(startDate, endDate, interessiRepository.findAll()));
+        ret.setRisparmiEntities(utility.getFilteredRisparmiByDate(startDate, endDate, risparmiRepository.findAll()));
         return ret;
     }
 
-    public BigDecimal getAverageEntriesByDate(LocalDate startDate, LocalDate endDate){
+    public BigDecimal getAverageEntriesByDate(LocalDate startDate, LocalDate endDate) {
         return utility.getFilteredSum(getFilteredEntriesByDate(startDate, endDate)).divide(utility.getTotalSUm(getAllEntrate()));
     }
 
-    public BigDecimal getFilteredSumByDate(LocalDate startDate, LocalDate endDate){
+    public BigDecimal getFilteredSumByDate(LocalDate startDate, LocalDate endDate) {
         return utility.getFilteredSum(getFilteredEntriesByDate(startDate, endDate));
     }
 }

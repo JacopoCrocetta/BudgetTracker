@@ -1,6 +1,5 @@
 package com.project.bebudgeting.entities.personalbudgetingentity.entrate;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
 import com.project.bebudgeting.entities.personalbudgetingentity.entrate.previste.*;
 import lombok.Data;
 import lombok.Getter;

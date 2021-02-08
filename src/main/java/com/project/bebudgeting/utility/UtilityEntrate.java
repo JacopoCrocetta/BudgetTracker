@@ -1,7 +1,7 @@
 package com.project.bebudgeting.utility;
 
-import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
 import com.project.bebudgeting.entities.personalbudgetingentity.entrate.EntrateEffettiveEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,38 +17,38 @@ import java.util.List;
 public class UtilityEntrate {
 
     //Filtri per categorie
-    public List<AltreCategorieEntrateEffettiveEntity> getFilteredCategorieByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntrateEffettiveEntity> categorieList){
+    public List<AltreCategorieEntrateEffettiveEntity> getFilteredCategorieByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntrateEffettiveEntity> categorieList) {
         CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isAfter(startDate));
         CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isBefore(endDate));
         return categorieList;
     }
 
-    public List<BonusEffettiveEntity> getFilteredBonusByDate(LocalDate startDate, LocalDate endDate, List<BonusEffettiveEntity> bonusList){
+    public List<BonusEffettiveEntity> getFilteredBonusByDate(LocalDate startDate, LocalDate endDate, List<BonusEffettiveEntity> bonusList) {
         CollectionUtils.filter(bonusList, bonus -> ((BonusEffettiveEntity) bonus).getData().isAfter(startDate));
         CollectionUtils.filter(bonusList, bonus -> ((BonusEffettiveEntity) bonus).getData().isBefore(endDate));
         return bonusList;
     }
 
-    public List<BustaPagaEffettiveEntity> getFilteredBustaPagaByDate(LocalDate startDate, LocalDate endDate, List<BustaPagaEffettiveEntity> bustaPagaList){
+    public List<BustaPagaEffettiveEntity> getFilteredBustaPagaByDate(LocalDate startDate, LocalDate endDate, List<BustaPagaEffettiveEntity> bustaPagaList) {
         CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isAfter(startDate));
         CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isBefore(endDate));
         return bustaPagaList;
     }
 
-    public List<InteressiEffettivoEntity> getFilteredInteressiByDate(LocalDate startDate, LocalDate endDate, List<InteressiEffettivoEntity> interessiList){
+    public List<InteressiEffettivoEntity> getFilteredInteressiByDate(LocalDate startDate, LocalDate endDate, List<InteressiEffettivoEntity> interessiList) {
         CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettivoEntity) altreCategorie).getData().isAfter(startDate));
         CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettivoEntity) altreCategorie).getData().isBefore(endDate));
         return interessiList;
     }
 
-    public List<RisparmiEffettiveEntity> getFilteredRisparmiByDate(LocalDate startDate, LocalDate endDate, List<RisparmiEffettiveEntity> risparmiList){
+    public List<RisparmiEffettiveEntity> getFilteredRisparmiByDate(LocalDate startDate, LocalDate endDate, List<RisparmiEffettiveEntity> risparmiList) {
         CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isAfter(startDate));
         CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isBefore(endDate));
         return risparmiList;
     }
 
     //Somme
-    public BigDecimal getFilteredSum(EntrateEffettiveEntity filteredEntries){
+    public BigDecimal getFilteredSum(EntrateEffettiveEntity filteredEntries) {
         BigDecimal ret = new BigDecimal(0);
         filteredEntries.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
         filteredEntries.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
@@ -58,7 +58,7 @@ public class UtilityEntrate {
         return ret;
     }
 
-    public BigDecimal getTotalSUm(EntrateEffettiveEntity totalEntity){
+    public BigDecimal getTotalSUm(EntrateEffettiveEntity totalEntity) {
         BigDecimal ret = new BigDecimal(0);
         totalEntity.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
         totalEntity.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
