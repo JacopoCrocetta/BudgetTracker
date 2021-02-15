@@ -1,4 +1,4 @@
-package com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive;
+package com.project.bebudgeting.entities.personalbudgetingentity.entrate.previste;
 
 import lombok.Data;
 import lombok.Getter;
@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "InteressiEffettivoEntity")
+@Table(name = "InteressiPrevisti")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-public class InteressiEffettivoEntity {
+public class InteressiPrevistiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "InteressiEffettivoEntity")
+@Table(name = "AltreCategorieEntrateEffettive")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-public class AltreCategorieEntrateEffettiveEntity {
+public class AltreCategorieEntrateEffettiviEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -1,7 +1,9 @@
 package com.project.bebudgeting.utility;
 
 import com.project.bebudgeting.entities.personalbudgetingentity.entrate.EntrateEffettiveEntity;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.EntratePrevisteEntity;
 import com.project.bebudgeting.entities.personalbudgetingentity.entrate.effettive.*;
+import com.project.bebudgeting.entities.personalbudgetingentity.entrate.previste.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,54 +18,108 @@ import java.util.List;
 @NoArgsConstructor
 public class UtilityEntrate {
 
-    //Filtri per categorie
-    public List<AltreCategorieEntrateEffettiveEntity> getFilteredCategorieByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntrateEffettiveEntity> categorieList) {
-        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isAfter(startDate));
-        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiveEntity) altreCategorie).getData().isBefore(endDate));
+    //Filtri per categorie effettive
+    public List<AltreCategorieEntrateEffettiviEntity> getFilteredCategorieEffettiveByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntrateEffettiviEntity> categorieList) {
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiviEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiviEntity) altreCategorie).getData().isBefore(endDate));
         return categorieList;
     }
 
-    public List<BonusEffettiveEntity> getFilteredBonusByDate(LocalDate startDate, LocalDate endDate, List<BonusEffettiveEntity> bonusList) {
+    public List<BonusEffettiveEntity> getFilteredBonusEffettiveByDate(LocalDate startDate, LocalDate endDate, List<BonusEffettiveEntity> bonusList) {
         CollectionUtils.filter(bonusList, bonus -> ((BonusEffettiveEntity) bonus).getData().isAfter(startDate));
         CollectionUtils.filter(bonusList, bonus -> ((BonusEffettiveEntity) bonus).getData().isBefore(endDate));
         return bonusList;
     }
 
-    public List<BustaPagaEffettiveEntity> getFilteredBustaPagaByDate(LocalDate startDate, LocalDate endDate, List<BustaPagaEffettiveEntity> bustaPagaList) {
+    public List<BustaPagaEffettiveEntity> getFilteredBustaPagaEffettiveByDate(LocalDate startDate, LocalDate endDate, List<BustaPagaEffettiveEntity> bustaPagaList) {
         CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isAfter(startDate));
         CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isBefore(endDate));
         return bustaPagaList;
     }
 
-    public List<InteressiEffettivoEntity> getFilteredInteressiByDate(LocalDate startDate, LocalDate endDate, List<InteressiEffettivoEntity> interessiList) {
-        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettivoEntity) altreCategorie).getData().isAfter(startDate));
-        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettivoEntity) altreCategorie).getData().isBefore(endDate));
+    public List<InteressiEffettiviEntity> getFilteredInteressiEffettiveByDate(LocalDate startDate, LocalDate endDate, List<InteressiEffettiviEntity> interessiList) {
+        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettiviEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettiviEntity) altreCategorie).getData().isBefore(endDate));
         return interessiList;
     }
 
-    public List<RisparmiEffettiveEntity> getFilteredRisparmiByDate(LocalDate startDate, LocalDate endDate, List<RisparmiEffettiveEntity> risparmiList) {
+    public List<RisparmiEffettiveEntity> getFilteredRisparmiEffettiveByDate(LocalDate startDate, LocalDate endDate, List<RisparmiEffettiveEntity> risparmiList) {
         CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isAfter(startDate));
         CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isBefore(endDate));
         return risparmiList;
     }
 
-    //Somme
-    public BigDecimal getFilteredSum(EntrateEffettiveEntity filteredEntries) {
+
+    //Filtri per categorie previste
+    public List<AltreCategorieEntratePrevisteEntity> getFilteredCategoriePrevisteByDate(LocalDate startDate, LocalDate endDate, List<AltreCategorieEntratePrevisteEntity> categorieList) {
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiviEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(categorieList, altreCategorie -> ((AltreCategorieEntrateEffettiviEntity) altreCategorie).getData().isBefore(endDate));
+        return categorieList;
+    }
+
+    public List<BonusPrevistiEntity> getFilteredBonusPrevistiByDate(LocalDate startDate, LocalDate endDate, List<BonusPrevistiEntity> bonusList) {
+        CollectionUtils.filter(bonusList, bonus -> ((BonusPrevistiEntity) bonus).getData().isAfter(startDate));
+        CollectionUtils.filter(bonusList, bonus -> ((BonusPrevistiEntity) bonus).getData().isBefore(endDate));
+        return bonusList;
+    }
+
+    public List<BustaPagaPrevisteEntity> getFilteredBustaPagaPrevisteByDate(LocalDate startDate, LocalDate endDate, List<BustaPagaPrevisteEntity> bustaPagaList) {
+        CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isAfter(startDate));
+        CollectionUtils.filter(bustaPagaList, bustaPaga -> ((BustaPagaEffettiveEntity) bustaPaga).getData().isBefore(endDate));
+        return bustaPagaList;
+    }
+
+    public List<InteressiPrevistiEntity> getFilteredInteressiPrevistiByDate(LocalDate startDate, LocalDate endDate, List<InteressiPrevistiEntity> interessiList) {
+        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettiviEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(interessiList, altreCategorie -> ((InteressiEffettiviEntity) altreCategorie).getData().isBefore(endDate));
+        return interessiList;
+    }
+
+    public List<RisparmiPrevistiEntity> getFilteredRisparmiPrevistiByDate(LocalDate startDate, LocalDate endDate, List<RisparmiPrevistiEntity> risparmiList) {
+        CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isAfter(startDate));
+        CollectionUtils.filter(risparmiList, altreCategorie -> ((RisparmiEffettiveEntity) altreCategorie).getData().isBefore(endDate));
+        return risparmiList;
+    }
+
+
+    //Somme per entrate effettive
+    public BigDecimal getFilteredActualRevenueSum(EntrateEffettiveEntity filteredEntries) {
         BigDecimal ret = new BigDecimal(0);
         filteredEntries.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
         filteredEntries.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
         filteredEntries.getBustaPagaEntities().forEach(bustaPagaEffettiveEntity -> ret.add(bustaPagaEffettiveEntity.getImporto()));
-        filteredEntries.getInteressiEntities().forEach(interessiEffettivoEntity -> ret.add(interessiEffettivoEntity.getImporto()));
+        filteredEntries.getInteressiEntities().forEach(interessiEffettiviEntity -> ret.add(interessiEffettiviEntity.getImporto()));
         filteredEntries.getRisparmiEntities().forEach(risparmiEffettiveEntity -> ret.add(risparmiEffettiveEntity.getImporto()));
         return ret;
     }
 
-    public BigDecimal getTotalSUm(EntrateEffettiveEntity totalEntity) {
+    public BigDecimal getTotalForActualRevenueSum(EntrateEffettiveEntity totalEntity) {
         BigDecimal ret = new BigDecimal(0);
         totalEntity.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
         totalEntity.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
         totalEntity.getBustaPagaEntities().forEach(bustaPagaEffettiveEntity -> ret.add(bustaPagaEffettiveEntity.getImporto()));
-        totalEntity.getInteressiEntities().forEach(interessiEffettivoEntity -> ret.add(interessiEffettivoEntity.getImporto()));
+        totalEntity.getInteressiEntities().forEach(interessiEffettiviEntity -> ret.add(interessiEffettiviEntity.getImporto()));
+        totalEntity.getRisparmiEntities().forEach(risparmiEffettiveEntity -> ret.add(risparmiEffettiveEntity.getImporto()));
+        return ret;
+    }
+
+    //Somme per entrate previste
+    public BigDecimal getFilteredEstimatedRevenue(EntratePrevisteEntity filteredEntries) {
+        BigDecimal ret = new BigDecimal(0);
+        filteredEntries.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
+        filteredEntries.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
+        filteredEntries.getBustaPagaEntities().forEach(bustaPagaEffettiveEntity -> ret.add(bustaPagaEffettiveEntity.getImporto()));
+        filteredEntries.getInteressiEntities().forEach(interessiEffettiviEntity -> ret.add(interessiEffettiviEntity.getImporto()));
+        filteredEntries.getRisparmiEntities().forEach(risparmiEffettiveEntity -> ret.add(risparmiEffettiveEntity.getImporto()));
+        return ret;
+    }
+
+    public BigDecimal getTotalEstimatedRevenueSum(EntratePrevisteEntity totalEntity) {
+        BigDecimal ret = new BigDecimal(0);
+        totalEntity.getAltreCategorieEntities().forEach(categoryEntity -> ret.add(categoryEntity.getImporto()));
+        totalEntity.getBonusEntities().forEach(bonusEntity -> ret.add(bonusEntity.getImporto()));
+        totalEntity.getBustaPagaEntities().forEach(bustaPagaEffettiveEntity -> ret.add(bustaPagaEffettiveEntity.getImporto()));
+        totalEntity.getInteressiEntities().forEach(interessiEffettiviEntity -> ret.add(interessiEffettiviEntity.getImporto()));
         totalEntity.getRisparmiEntities().forEach(risparmiEffettiveEntity -> ret.add(risparmiEffettiveEntity.getImporto()));
         return ret;
     }
