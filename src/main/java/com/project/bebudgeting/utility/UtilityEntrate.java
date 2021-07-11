@@ -192,8 +192,7 @@ public class UtilityEntrate {
         return totalEntity;
     }
 
-    public EntrateEffettiveEntity
-    retreiveOneElementByID(int id, EntrateEffettiveEntity elementToPopulate, AltreCategorieEffettiveRepository categorieRepository, BonusEffettiviRepository bonusEffettiviRepository, BustaPagaEffettiviRepository bustaPagaEffettiviRepository, InteressiEffettiviRepository interessiEffettiviRepository, RisparmiEffettiviRepository risparmiEffettiviRepository) {
+    public EntrateEffettiveEntity retreiveOneElementByID(int id, EntrateEffettiveEntity elementToPopulate, AltreCategorieEffettiveRepository categorieRepository, BonusEffettiviRepository bonusEffettiviRepository, BustaPagaEffettiviRepository bustaPagaEffettiviRepository, InteressiEffettiviRepository interessiEffettiviRepository, RisparmiEffettiviRepository risparmiEffettiviRepository) {
         List<AltreCategorieEntrateEffettiviEntity> altreCategorieEntities = new LinkedList<>();
         List<BonusEffettiveEntity> bonusEntities = new LinkedList<>();
         List<BustaPagaEffettiveEntity> bustaPagaEntities = new LinkedList<>();

@@ -1,12 +1,14 @@
 package com.project.bebudgeting.annuale.entity.entrate;
 
 import com.project.bebudgeting.annuale.entity.EntrataAnnuale;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,4 +24,19 @@ public class SalarioEntity {
     @ManyToOne
     @JoinColumn(name = "idEntrata")
     private EntrataAnnuale entrata;
+
+    @OneToMany(mappedBy="Altro")
+    private Set<AltroEntity> altroEntities;
+
+    @OneToMany(mappedBy="Bonus")
+    private Set<BonusEntity> bonusEntities;
+
+    @OneToMany(mappedBy="BustaPaga")
+    private Set<BustaPagaEntity> bustaPagaEntities;
+
+    @OneToMany(mappedBy="Commissioni")
+    private Set<CommissioniEntity> commissioniEntities;
+
+    @OneToMany(mappedBy="Mance")
+    private Set<ManceEntity> manceEntities;
 }
