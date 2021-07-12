@@ -1,4 +1,4 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi;
 
-public class TrasportiEntity {
+public class DivertimentoEntity {
 }

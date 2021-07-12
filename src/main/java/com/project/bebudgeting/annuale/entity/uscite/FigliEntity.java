@@ -1,14 +1,16 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
+import com.project.bebudgeting.annuale.entity.EntrataAnnuale;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.*;
+
+import java.util.Set;
 
 @Entity
 @Data

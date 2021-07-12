@@ -1,5 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettagliofigli;
 
+import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
