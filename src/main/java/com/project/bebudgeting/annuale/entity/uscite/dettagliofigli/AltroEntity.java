@@ -13,10 +13,11 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Asilo")
+@Table(name = "Altre_Uscite_Figli")
 @NoArgsConstructor
-public class AsiloEntity {
+public class AltroEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne
@@ -26,5 +27,5 @@ public class AsiloEntity {
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
+    String descrizioneEntrata;
 }

@@ -13,9 +13,9 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Asilo")
+@Table(name = "Vestiti")
 @NoArgsConstructor
-public class AsiloEntity {
+public class VestitiEntity {
     @Id
     private int id;
 
@@ -26,5 +26,4 @@ public class AsiloEntity {
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
 }
