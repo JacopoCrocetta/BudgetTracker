@@ -1,6 +1,5 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
-import com.project.bebudgeting.annuale.entity.EntrataAnnuale;
 import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.*;
 import lombok.Data;
@@ -26,18 +25,18 @@ public class AnimaliDomesticiEntity {
     @JoinColumn(name = "idUscita")
     private UscitaAnnuale uscitaAnnuale;
 
-    @OneToMany(mappedBy="Alimenti")
+    @OneToMany(mappedBy = "Alimenti")
     Set<AlimentiEntity> alimentiEntities;
 
-    @OneToMany(mappedBy="Altro")
+    @OneToMany(mappedBy = "Altro")
     Set<AltroEntity> altroEntities;
 
-    @OneToMany(mappedBy="Forniture")
+    @OneToMany(mappedBy = "Forniture")
     Set<FornitureEntity> fornitureEntities;
 
-    @OneToMany(mappedBy="Giocattoli")
+    @OneToMany(mappedBy = "Giocattoli")
     Set<GiocattoliEntity> gioterEntities;
 
-    @OneToMany(mappedBy="Veterinario")
+    @OneToMany(mappedBy = "Veterinario")
     Set<VeterinarioEntity> veterinarioEntities;
 }

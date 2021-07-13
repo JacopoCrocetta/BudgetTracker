@@ -1,7 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione;
 
 import com.project.bebudgeting.annuale.entity.uscite.AssicurazioneEntity;
-import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,5 +28,5 @@ public class AltreAssicurazioniEntity {
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
+    String descrizioneAltraAssicurazione;
 }

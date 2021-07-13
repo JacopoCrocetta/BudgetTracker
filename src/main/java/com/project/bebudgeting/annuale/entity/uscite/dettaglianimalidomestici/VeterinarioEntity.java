@@ -1,7 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici;
 
 import com.project.bebudgeting.annuale.entity.uscite.AnimaliDomesticiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

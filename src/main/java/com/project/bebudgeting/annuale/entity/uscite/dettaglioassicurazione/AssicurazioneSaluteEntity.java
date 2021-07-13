@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione;
 
-import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.AssicurazioneEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Alimenti")
+@Table(name = "Assiurazione_Salute")
 @NoArgsConstructor
 public class AssicurazioneSaluteEntity {
     @Id
@@ -22,11 +22,10 @@ public class AssicurazioneSaluteEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idFigli")
-    private FigliEntity figliEntity;
+    @JoinColumn(name = "idAssicurazione")
+    private AssicurazioneEntity assicurazioneEntity;
 
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
 }
