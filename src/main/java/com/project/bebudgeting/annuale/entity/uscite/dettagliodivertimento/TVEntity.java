@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Teatro")
+@Table(name = "Televisione")
 @NoArgsConstructor
 public class TVEntity {
     @Id
@@ -36,5 +36,4 @@ public class TVEntity {
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-
 }

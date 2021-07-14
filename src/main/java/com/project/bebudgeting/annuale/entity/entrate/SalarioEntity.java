@@ -7,8 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Data
@@ -25,18 +33,18 @@ public class SalarioEntity {
     @JoinColumn(name = "idEntrata")
     private EntrataAnnuale entrata;
 
-    @OneToMany(mappedBy="Altro")
+    @OneToMany(mappedBy = "Altro")
     private Set<AltroEntity> altroEntities;
 
-    @OneToMany(mappedBy="Bonus")
+    @OneToMany(mappedBy = "Bonus")
     private Set<BonusEntity> bonusEntities;
 
-    @OneToMany(mappedBy="BustaPaga")
+    @OneToMany(mappedBy = "BustaPaga")
     private Set<BustaPagaEntity> bustaPagaEntities;
 
-    @OneToMany(mappedBy="Commissioni")
+    @OneToMany(mappedBy = "Commissioni")
     private Set<CommissioniEntity> commissioniEntities;
 
-    @OneToMany(mappedBy="Mance")
+    @OneToMany(mappedBy = "Mance")
     private Set<ManceEntity> manceEntities;
 }
