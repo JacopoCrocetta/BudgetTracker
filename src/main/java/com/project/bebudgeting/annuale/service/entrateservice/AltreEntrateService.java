@@ -1,21 +1,14 @@
 package com.project.bebudgeting.annuale.service.entrateservice;
 
-import java.util.Optional;
-
 import com.project.bebudgeting.annuale.entity.entrate.AltreEntrateEntity;
 import com.project.bebudgeting.annuale.repository.entrateannuali.AltreEntrateRepository;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.InteressiService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.RegaliService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.RimborsiService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.TrasferimentoRisparmiService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.AltroEService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.DividendiService;
-
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.*;
+import javassist.NotFoundException;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import org.apache.commons.lang3.NotImplementedException;
-import javassist.NotFoundException;
+import java.util.Optional;
 
 @Service
 public class AltreEntrateService {
@@ -130,6 +123,7 @@ public class AltreEntrateService {
                     }
                 });
             }
+            repository.deleteById(id);
         }
         throw new NotFoundException("Item not found");
     }

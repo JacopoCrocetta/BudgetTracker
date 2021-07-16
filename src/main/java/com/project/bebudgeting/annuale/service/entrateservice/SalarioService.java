@@ -1,17 +1,14 @@
 package com.project.bebudgeting.annuale.service.entrateservice;
 
-import java.util.Optional;
-
 import com.project.bebudgeting.annuale.entity.entrate.SalarioEntity;
 import com.project.bebudgeting.annuale.repository.entrateannuali.SalarioRepository;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.AltroSalarioService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.BonusService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.BustaPagaService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.CommissioniService;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.ManceService;
-
+import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.*;
+import javassist.NotFoundException;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class SalarioService {
@@ -31,7 +28,7 @@ public class SalarioService {
     CommissioniService commissioniService;
 
     @Autowired
-    ManceService mancheService;
+    ManceService manceService;
 
     public long count() {
         return repository.count();
@@ -56,15 +53,141 @@ public class SalarioService {
     }
 
     public void deleteAll(Iterable<SalarioEntity> entities) {
-        // da definire
+        entities.forEach(entity -> {
+            if (!entity.getAltroEntities().isEmpty()) {
+                altroSalarioService.deleteAll(entity.getAltroEntities());
+            }
+            if (!entity.getBonusEntities().isEmpty()) {
+                bonusService.deleteAll(entity.getBonusEntities());
+            }
+            if (!entity.getBustaPagaEntities().isEmpty()) {
+                bustaPagaService.deleteAll(entity.getBustaPagaEntities());
+            }
+            if (!entity.getCommissioniEntities().isEmpty()) {
+                commissioniService.deleteAll(entity.getCommissioniEntities());
+            }
+            if (!entity.getManceEntities().isEmpty()) {
+                manceService.deleteAll(entity.getManceEntities());
+            }
+        });
     }
 
     public void deleteAllById(Iterable<Integer> ids) {
-        // da definire
+        ids.forEach(id -> {
+            try {
+                this.deleteById(id);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    public void delete(SalarioEntity entityToDelete) {
-        // da definire
+    public void deleteById(int id) {
+        if (repository.existsById(id)) {
+            if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
+                repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
+                    try {
+                        altroSalarioService.deleteById(altroEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                });
+            }
+            if (!repository.findById(id).get().getBonusEntities().isEmpty()) {
+                repository.findById(id).get().getBonusEntities().forEach(bonusEntity -> {
+                    try {
+                        bonusService.deleteById(bonusEntity.getId());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!repository.findById(id).get().getBustaPagaEntities().isEmpty()) {
+                repository.findById(id).get().getBustaPagaEntities().forEach(bustaPagaEntities -> {
+                    try {
+                        bustaPagaService.deleteById(bustaPagaEntities.getId());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!repository.findById(id).get().getCommissioniEntities().isEmpty()) {
+                repository.findById(id).get().getCommissioniEntities().forEach(commissioniEntity -> {
+                    try {
+                        commissioniService.deleteById(commissioniEntity.getId());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!repository.findById(id).get().getManceEntities().isEmpty()) {
+                repository.findById(id).get().getManceEntities().forEach(manceEntity -> {
+                    try {
+                        manceService.deleteById(manceEntity.getId());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                });
+            }
+            repository.deleteById(id);
+        }
+    }
+
+    public void delete(SalarioEntity entityToDelete) throws NotFoundException, NullPointerException, NotImplementedException {
+        if (entityToDelete == null) {
+            throw new NullPointerException("Item is not set");
+        }
+        if (!repository.findById(entityToDelete.getId()).isPresent()) {
+            throw new NotFoundException("Item is not set");
+        }
+        if (!entityToDelete.getAltroEntities().isEmpty()) {
+            entityToDelete.getAltroEntities().forEach(altroEntity -> {
+                try {
+                    altroSalarioService.delete(altroEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        if (!entityToDelete.getBonusEntities().isEmpty()) {
+            entityToDelete.getBonusEntities().forEach(bonusEntity -> {
+                try {
+                    bonusService.delete(bonusEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        if (!entityToDelete.getBustaPagaEntities().isEmpty()) {
+            entityToDelete.getBustaPagaEntities().forEach(bustaPagaEntity -> {
+                try {
+                    bustaPagaService.delete(bustaPagaEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        if (!entityToDelete.getCommissioniEntities().isEmpty()) {
+            entityToDelete.getCommissioniEntities().forEach(commissioniEntity -> {
+                try {
+                    commissioniService.delete(commissioniEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        if (!entityToDelete.getManceEntities().isEmpty()) {
+            entityToDelete.getManceEntities().forEach(manceEntity -> {
+                try {
+                    manceService.delete(manceEntity);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+        repository.delete(entityToDelete);
     }
 
     // SAVE
