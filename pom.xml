@@ -13,7 +13,7 @@
 	<name>BEbudgeting</name>
 	<description>BE development project for your own monthly and annual budget</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<!-- Tomcat embedded -->
