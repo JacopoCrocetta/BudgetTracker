@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.AltroEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.DonazioniBeneficenzaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.RegaliDBEntity;
@@ -34,7 +34,7 @@ public class RegaliEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Donazioni_Benefiche")
     private Set<DonazioniBeneficenzaEntity> donazioniBeneficenzaEntities;

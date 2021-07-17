@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AffittoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AltroEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.ArredamentoEntity;
@@ -40,7 +40,7 @@ public class CasaEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Affitto")
     private Set<AffittoEntity> affittoEntities;

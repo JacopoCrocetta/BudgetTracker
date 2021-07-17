@@ -70,6 +70,7 @@ public class SalarioService {
                 manceService.deleteAll(entity.getManceEntities());
             }
         });
+        repository.deleteAll(entities);
     }
 
     public void deleteAllById(Iterable<Integer> ids) {
@@ -82,7 +83,7 @@ public class SalarioService {
         });
     }
 
-    public void deleteById(int id) {
+    public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
                 repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
@@ -133,9 +134,11 @@ public class SalarioService {
             }
             repository.deleteById(id);
         }
+        throw new NotFoundException("Item Not Found");
     }
 
-    public void delete(SalarioEntity entityToDelete) throws NotFoundException, NullPointerException, NotImplementedException {
+    public void delete(SalarioEntity entityToDelete)
+            throws NotFoundException, NullPointerException, NotImplementedException {
         if (entityToDelete == null) {
             throw new NullPointerException("Item is not set");
         }
@@ -192,10 +195,28 @@ public class SalarioService {
 
     // SAVE
     public SalarioEntity save(SalarioEntity entityToSave) {
+        if (!entityToSave.getAltroEntities().isEmpty()) {
+            altroSalarioService.saveAll(entityToSave.getAltroEntities());
+        }
+        if (!entityToSave.getBonusEntities().isEmpty()) {
+            bonusService.saveAll(entityToSave.getBonusEntities());
+        }
+        if (!entityToSave.getBustaPagaEntities().isEmpty()) {
+            bustaPagaService.saveAll(entityToSave.getBustaPagaEntities());
+        }
+        if (!entityToSave.getCommissioniEntities().isEmpty()) {
+            commissioniService.saveAll(entityToSave.getCommissioniEntities());
+        }
+        if (!entityToSave.getManceEntities().isEmpty()) {
+            manceService.saveAll(entityToSave.getManceEntities());
+        }
         return repository.save(entityToSave);
     }
 
     public Iterable<SalarioEntity> saveAll(Iterable<SalarioEntity> entitiesToSave) {
-        return repository.saveAll(entitiesToSave);
+        entitiesToSave.forEach(entityToSave -> {
+            this.save(entityToSave);
+        });
+        return entitiesToSave;
     }
 }

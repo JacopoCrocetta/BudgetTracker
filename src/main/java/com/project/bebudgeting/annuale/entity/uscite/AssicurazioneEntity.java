@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AltreAssicurazioniEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneCasaEntity;
@@ -28,7 +28,7 @@ public class AssicurazioneEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Altre_Assicurazioni")
     private Set<AltreAssicurazioniEntity> altreAssicurazioniEntities;

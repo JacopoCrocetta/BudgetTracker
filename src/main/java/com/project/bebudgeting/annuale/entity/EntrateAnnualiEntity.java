@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-public class EntrataAnnuale {
+public class EntrateAnnualiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

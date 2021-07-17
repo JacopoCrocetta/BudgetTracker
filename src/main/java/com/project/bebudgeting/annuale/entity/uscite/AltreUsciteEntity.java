@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -31,7 +31,7 @@ public class AltreUsciteEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     BigDecimal totale_mensile;
     LocalDate data_spesa;

@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.*;
 import lombok.Data;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public class AnimaliDomesticiEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Alimenti")
     Set<AlimentiEntity> alimentiEntities;

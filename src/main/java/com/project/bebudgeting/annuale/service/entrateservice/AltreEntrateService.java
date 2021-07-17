@@ -207,6 +207,6 @@ public class AltreEntrateService {
         entitiesToSave.forEach(entityToSave -> {
             this.save(entityToSave);
         });
-        return repository.saveAll(entitiesToSave);
+        return entitiesToSave;
     }
 }

@@ -36,7 +36,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class UscitaAnnuale {
+public class UsciteAnnualiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
-import com.project.bebudgeting.annuale.entity.EntrataAnnuale;
+import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,29 +25,29 @@ public class FigliEntity {
 
     @ManyToOne
     @JoinColumn(name = "idEntrata")
-    private EntrataAnnuale entrata;
+    private EntrateAnnualiEntity entrata;
 
-    @OneToMany(mappedBy="Altro")
+    @OneToMany(mappedBy = "Altro")
     private Set<AltroEntity> altroEntities;
 
-    @OneToMany(mappedBy="Asilo")
+    @OneToMany(mappedBy = "Asilo")
     private Set<AsiloEntity> asiloEntities;
 
-    @OneToMany(mappedBy="Attivita")
+    @OneToMany(mappedBy = "Attivita")
     private Set<AttivitaEntity> attivitaEntities;
 
-    @OneToMany(mappedBy="Giocattoli")
+    @OneToMany(mappedBy = "Giocattoli")
     private Set<GiocattoliEntity> giocattoliEntities;
 
-    @OneToMany(mappedBy="Paghetta")
+    @OneToMany(mappedBy = "Paghetta")
     private Set<PaghettaEntity> paghettaEntities;
 
-    @OneToMany(mappedBy="Scuola")
+    @OneToMany(mappedBy = "Scuola")
     private Set<ScuolaEntity> scuolaEntities;
 
-    @OneToMany(mappedBy="SpeseMedicheFigli")
+    @OneToMany(mappedBy = "SpeseMedicheFigli")
     private Set<SpeseMedicheFigliEntity> speseMedicheFigliEntities;
-    
-    @OneToMany(mappedBy="Vestiti")
+
+    @OneToMany(mappedBy = "Vestiti")
     private Set<VestitiEntity> vestitiEntities;
 }

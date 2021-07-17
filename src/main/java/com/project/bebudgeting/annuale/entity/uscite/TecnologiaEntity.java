@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UscitaAnnuale;
+import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.AltroEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.HardwareEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.HostingEntity;
@@ -36,7 +36,7 @@ public class TecnologiaEntity {
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
-    private UscitaAnnuale uscitaAnnuale;
+    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Hardware")
     private Set<HardwareEntity> hardwareEntities;
