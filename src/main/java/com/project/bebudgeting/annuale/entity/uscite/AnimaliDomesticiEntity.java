@@ -35,7 +35,7 @@ public class AnimaliDomesticiEntity {
     Set<FornitureEntity> fornitureEntities;
 
     @OneToMany(mappedBy = "Giocattoli")
-    Set<GiocattoliEntity> gioterEntities;
+    Set<GiocattoliEntity> giocattoliEntity;
 
     @OneToMany(mappedBy = "Veterinario")
     Set<VeterinarioEntity> veterinarioEntities;

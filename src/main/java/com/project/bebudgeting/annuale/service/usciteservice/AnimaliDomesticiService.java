@@ -61,8 +61,63 @@ public class AnimaliDomesticiService {
                     }
                 });
             }
+            if(!entityToDelete.getGiocattoliEntity().isEmpty()){
+                entityToDelete.getGiocattoliEntity().forEach(giocattoliEntity -> {
+                    try {
+                        giocattoliService.delete(giocattoliEntity);
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!entityToDelete.getVeterinarioEntities().isEmpty()){
+                entityToDelete.getVeterinarioEntities().forEach(veterinarioEntity -> {
+                    try {
+                        veterinarioService.delete(veterinarioEntity);
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
             repository.delete(entityToDelete);
         }
         throw new NotFoundException("Item Not Found");
+    }
+
+    public void deleteAll(){
+        repository.deleteAll();
+    }
+
+    public void deleteAll(Iterable<AnimaliDomesticiEntity> entitiesToDelete){
+        entitiesToDelete.forEach(entityToDelete -> {
+            try {
+                this.delete(entityToDelete);
+            } catch (NotFoundException notFoundException) {
+                notFoundException.printStackTrace();
+            }
+        });
+    }
+
+    public void deleteById(int id) throws NotFoundException {
+        if (repository.existsById(id)){
+            repository.findById(id).get().getAltroEntities();
+            if(alimentiService.findById(id).isPresent()){
+                alimentiService.deleteById(alimentiService.findById(id).get().getId());
+            }
+            if(altroAnimaliDomesticiService.findById(id).isPresent()){
+                altroAnimaliDomesticiService.deleteById(altroAnimaliDomesticiService.findById(id).get().getId());
+            }
+            if(fornitureService.findById(id).isPresent()){
+                fornitureService.deleteById(fornitureService.findById(id).get().getId());
+            }
+            if(giocattoliService.findById(id).isPresent()){
+                giocattoliService.deleteById(giocattoliService.findById(id).get().getId());
+            }
+            if(veterinarioService.findById(id).isPresent()){
+                veterinarioService.deleteById(veterinarioService.findById(id).get().getId());
+            }
+            repository.deleteById(id);
+        }
+
     }
 }
