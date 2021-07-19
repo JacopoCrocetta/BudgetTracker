@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.service.usciteservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.uscite.AltreUsciteEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.AltreUsciteRepository;
 
@@ -29,8 +31,34 @@ public class AltreUsciteService {
     }
 
     public void deleteAllById(Iterable<Integer> ids) {
+        ids.forEach(id -> {
+            this.deleteById(id);
+        });
     }
 
-    public void deleteById() {
+    public void deleteById(int id) {
+        repository.deleteById(id);
+    }
+
+    // FIND
+    public Iterable<AltreUsciteEntity> findAll() {
+        return repository.findAll();
+    }
+
+    public Iterable<AltreUsciteEntity> findAllById(Iterable<Integer> ids) {
+        return repository.findAllById(ids);
+    }
+
+    public Optional<AltreUsciteEntity> findById(int id) {
+        return repository.findById(id);
+    }
+
+    // SAVE
+    public AltreUsciteEntity save(AltreUsciteEntity entityToSave) {
+        return repository.save(entityToSave);
+    }
+
+    public Iterable<AltreUsciteEntity> saveAll(Iterable<AltreUsciteEntity> entitiesToSave) {
+        return repository.saveAll(entitiesToSave);
     }
 }

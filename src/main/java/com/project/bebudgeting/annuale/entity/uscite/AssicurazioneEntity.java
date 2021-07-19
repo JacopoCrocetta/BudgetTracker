@@ -4,6 +4,7 @@ import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AltreAssicurazioniEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneCasaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneSaluteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneVitaEntity;
 
 import lombok.Data;
@@ -40,7 +41,7 @@ public class AssicurazioneEntity {
     private Set<AssicurazioneCasaEntity> assicurazioneCasaEntities;
 
     @OneToMany(mappedBy = "Assicurazione_Salute")
-    private Set<AltreAssicurazioniEntity> assicurazioneSaluteEntities;
+    private Set<AssicurazioneSaluteEntity> assicurazioneSaluteEntities;
 
     @OneToMany(mappedBy = "Assicurazione_Vita")
     private Set<AssicurazioneVitaEntity> assicurazioneVitaEntities;

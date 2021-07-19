@@ -1,8 +1,15 @@
 package com.project.bebudgeting.annuale.service.usciteservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.uscite.AnimaliDomesticiEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.AnimaliDomesticiRepository;
-import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.*;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.AlimentiService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.AltroAnimaliDomesticiService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.FornitureService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.GiocattoliService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.VeterinarioService;
+
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,15 +34,15 @@ public class AnimaliDomesticiService {
     @Autowired
     VeterinarioService veterinarioService;
 
-    public long count(){
+    public long count() {
         return repository.count();
     }
 
-    //DELETE
+    // DELETE
     public void delete(AnimaliDomesticiEntity entityToDelete) throws NotFoundException {
-        if(repository.existsById(entityToDelete.getId())){
-            if(!entityToDelete.getAlimentiEntities().isEmpty()){
-                entityToDelete.getAlimentiEntities().forEach(alimentiEntity->{
+        if (repository.existsById(entityToDelete.getId())) {
+            if (!entityToDelete.getAlimentiEntities().isEmpty()) {
+                entityToDelete.getAlimentiEntities().forEach(alimentiEntity -> {
                     try {
                         alimentiService.delete(alimentiEntity);
                     } catch (NotFoundException e) {
@@ -43,7 +50,7 @@ public class AnimaliDomesticiService {
                     }
                 });
             }
-            if(!entityToDelete.getAltroEntities().isEmpty()){
+            if (!entityToDelete.getAltroEntities().isEmpty()) {
                 entityToDelete.getAltroEntities().forEach(altroEntity -> {
                     try {
                         altroAnimaliDomesticiService.delete(altroEntity);
@@ -52,7 +59,7 @@ public class AnimaliDomesticiService {
                     }
                 });
             }
-            if(!entityToDelete.getFornitureEntities().isEmpty()){
+            if (!entityToDelete.getFornitureEntities().isEmpty()) {
                 entityToDelete.getFornitureEntities().forEach(fornitureEntity -> {
                     try {
                         fornitureService.delete(fornitureEntity);
@@ -61,7 +68,7 @@ public class AnimaliDomesticiService {
                     }
                 });
             }
-            if(!entityToDelete.getGiocattoliEntity().isEmpty()){
+            if (!entityToDelete.getGiocattoliEntity().isEmpty()) {
                 entityToDelete.getGiocattoliEntity().forEach(giocattoliEntity -> {
                     try {
                         giocattoliService.delete(giocattoliEntity);
@@ -70,7 +77,7 @@ public class AnimaliDomesticiService {
                     }
                 });
             }
-            if (!entityToDelete.getVeterinarioEntities().isEmpty()){
+            if (!entityToDelete.getVeterinarioEntities().isEmpty()) {
                 entityToDelete.getVeterinarioEntities().forEach(veterinarioEntity -> {
                     try {
                         veterinarioService.delete(veterinarioEntity);
@@ -84,11 +91,11 @@ public class AnimaliDomesticiService {
         throw new NotFoundException("Item Not Found");
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AnimaliDomesticiEntity> entitiesToDelete){
+    public void deleteAll(Iterable<AnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entityToDelete -> {
             try {
                 this.delete(entityToDelete);
@@ -99,25 +106,125 @@ public class AnimaliDomesticiService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)){
-            repository.findById(id).get().getAltroEntities();
-            if(alimentiService.findById(id).isPresent()){
-                alimentiService.deleteById(alimentiService.findById(id).get().getId());
+        if (repository.existsById(id)) {
+            repository.findById(id).get().getAltroEntities().isEmpty();
+            if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
+                repository.findById(id).get().getAltroEntities().forEach(entity -> {
+                    try {
+                        altroAnimaliDomesticiService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
-            if(altroAnimaliDomesticiService.findById(id).isPresent()){
-                altroAnimaliDomesticiService.deleteById(altroAnimaliDomesticiService.findById(id).get().getId());
+            if (!repository.findById(id).get().getAlimentiEntities().isEmpty()) {
+                repository.findById(id).get().getAlimentiEntities().forEach(entity -> {
+                    try {
+                        altroAnimaliDomesticiService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
-            if(fornitureService.findById(id).isPresent()){
-                fornitureService.deleteById(fornitureService.findById(id).get().getId());
+            if (!repository.findById(id).get().getFornitureEntities().isEmpty()) {
+                repository.findById(id).get().getFornitureEntities().forEach(entity -> {
+                    try {
+                        altroAnimaliDomesticiService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
-            if(giocattoliService.findById(id).isPresent()){
-                giocattoliService.deleteById(giocattoliService.findById(id).get().getId());
+            if (!repository.findById(id).get().getGiocattoliEntity().isEmpty()) {
+                repository.findById(id).get().getGiocattoliEntity().forEach(entity -> {
+                    try {
+                        altroAnimaliDomesticiService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
-            if(veterinarioService.findById(id).isPresent()){
-                veterinarioService.deleteById(veterinarioService.findById(id).get().getId());
+            if (!repository.findById(id).get().getVeterinarioEntities().isEmpty()) {
+                repository.findById(id).get().getVeterinarioEntities().forEach(entity -> {
+                    try {
+                        altroAnimaliDomesticiService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
             repository.deleteById(id);
         }
+        throw new NotFoundException("Item not foud");
+    }
 
+    public void deleteAllById(Iterable<Integer> ids) {
+        ids.forEach(id -> {
+            try {
+                this.deleteById(id);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    // FIND
+    public Iterable<AnimaliDomesticiEntity> findAll() {
+        return repository.findAll();
+    }
+
+    public Iterable<AnimaliDomesticiEntity> findAllById(Iterable<Integer> ids) {
+        return repository.findAllById(ids);
+    }
+
+    public Optional<AnimaliDomesticiEntity> findById(int id) {
+        return repository.findById(id);
+    }
+
+    // SAVE
+    public AnimaliDomesticiEntity save(AnimaliDomesticiEntity entityToSave) {
+        if (!entityToSave.getAlimentiEntities().isEmpty()) {
+            entityToSave.getAlimentiEntities().forEach(entity -> {
+                if (!alimentiService.findById(entity.getId()).isPresent()) {
+                    alimentiService.save(entity);
+                }
+            });
+        }
+        if (!entityToSave.getAltroEntities().isEmpty()) {
+            entityToSave.getAltroEntities().forEach(entity -> {
+                if (!altroAnimaliDomesticiService.findById(entity.getId()).isPresent()) {
+                    altroAnimaliDomesticiService.save(entity);
+                }
+            });
+        }
+        if (!entityToSave.getFornitureEntities().isEmpty()) {
+            entityToSave.getFornitureEntities().forEach(entity -> {
+                if (!fornitureService.findById(entity.getId()).isPresent()) {
+                    fornitureService.save(entity);
+                }
+            });
+        }
+        if (!entityToSave.getGiocattoliEntity().isEmpty()) {
+            entityToSave.getGiocattoliEntity().forEach(entity -> {
+                if (!giocattoliService.findById(entity.getId()).isPresent()) {
+                    giocattoliService.save(entity);
+                }
+            });
+        }
+        if (!entityToSave.getVeterinarioEntities().isEmpty()) {
+            entityToSave.getVeterinarioEntities().forEach(entity -> {
+                if (!veterinarioService.findById(entity.getId()).isPresent()) {
+                    veterinarioService.save(entity);
+                }
+            });
+        }
+        return repository.save(entityToSave);
+    }
+
+    public Iterable<AnimaliDomesticiEntity> saveAll(Iterable<AnimaliDomesticiEntity> entitiesToSave) {
+        entitiesToSave.forEach(entity -> {
+            this.save(entity);
+        });
+        return entitiesToSave;
     }
 }

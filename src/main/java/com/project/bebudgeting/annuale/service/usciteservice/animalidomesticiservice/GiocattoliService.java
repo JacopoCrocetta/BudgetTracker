@@ -1,13 +1,14 @@
 package com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.FornitureEntity;
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.GiocattoliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.GiocattoliRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javassist.NotFoundException;
 
 @Service
 public class GiocattoliService {
@@ -18,7 +19,7 @@ public class GiocattoliService {
         return repository.count();
     }
 
-    //DELETE
+    // DELETE
     public void delete(GiocattoliEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
             repository.delete(entityToDelete);
@@ -57,7 +58,7 @@ public class GiocattoliService {
         });
     }
 
-    //FIND
+    // FIND
     public Iterable<GiocattoliEntity> findAll() {
         return repository.findAll();
     }
@@ -70,7 +71,7 @@ public class GiocattoliService {
         return repository.findById(id);
     }
 
-    //SAVE
+    // SAVE
     public GiocattoliEntity save(GiocattoliEntity entity) {
         return repository.save(entity);
     }

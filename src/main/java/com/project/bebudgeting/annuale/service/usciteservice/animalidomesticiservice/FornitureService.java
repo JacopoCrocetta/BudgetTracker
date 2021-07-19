@@ -1,13 +1,14 @@
 package com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroEntity;
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.FornitureEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.FornitureRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javassist.NotFoundException;
 
 @Service
 public class FornitureService {
@@ -18,7 +19,7 @@ public class FornitureService {
         return repository.count();
     }
 
-    //DELETE
+    // DELETE
     public void delete(FornitureEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
             repository.delete(entityToDelete);
@@ -57,7 +58,7 @@ public class FornitureService {
         });
     }
 
-    //FIND
+    // FIND
     public Iterable<FornitureEntity> findAll() {
         return repository.findAll();
     }
@@ -70,7 +71,7 @@ public class FornitureService {
         return repository.findById(id);
     }
 
-    //SAVE
+    // SAVE
     public FornitureEntity save(FornitureEntity entity) {
         return repository.save(entity);
     }

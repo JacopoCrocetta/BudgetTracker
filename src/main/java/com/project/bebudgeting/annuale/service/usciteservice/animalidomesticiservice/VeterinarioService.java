@@ -1,13 +1,13 @@
 package com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.GiocattoliEntity;
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.VeterinarioEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.GiocattoliRepository;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.VeterinarioRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.Optional;
+import javassist.NotFoundException;
 
 public class VeterinarioService {
     @Autowired
@@ -17,7 +17,7 @@ public class VeterinarioService {
         return repository.count();
     }
 
-    //DELETE
+    // DELETE
     public void delete(VeterinarioEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
             repository.delete(entityToDelete);
@@ -56,7 +56,7 @@ public class VeterinarioService {
         });
     }
 
-    //FIND
+    // FIND
     public Iterable<VeterinarioEntity> findAll() {
         return repository.findAll();
     }
@@ -69,7 +69,7 @@ public class VeterinarioService {
         return repository.findById(id);
     }
 
-    //SAVE
+    // SAVE
     public VeterinarioEntity save(VeterinarioEntity entity) {
         return repository.save(entity);
     }
