@@ -270,9 +270,7 @@ public class BolletteService {
     }
 
     public Iterable<BolletteEntity> saveAll(Iterable<BolletteEntity> entities) {
-        entities.forEach(entity -> {
-            this.save(entity);
-        });
+        entities.forEach(this::save);
         return entities;
     }
 }

@@ -222,9 +222,7 @@ public class DebitiService {
     }
 
     public Iterable<DebitiEntity> saveAll(Iterable<DebitiEntity> entities) {
-        entities.forEach(entity -> {
-            this.save(entity);
-        });
+        entities.forEach(this::save);
         return entities;
     }
 }

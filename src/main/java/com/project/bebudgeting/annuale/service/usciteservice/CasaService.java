@@ -246,9 +246,7 @@ public class CasaService {
     }
 
     public Iterable<CasaEntity> saveAll(Iterable<CasaEntity> entities) {
-        entities.forEach(entity -> {
-            this.save(entity);
-        });
+        entities.forEach(this::save);
         return entities;
     }
 }
