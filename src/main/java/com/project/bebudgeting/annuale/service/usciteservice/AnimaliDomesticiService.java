@@ -87,8 +87,9 @@ public class AnimaliDomesticiService {
                 });
             }
             repository.delete(entityToDelete);
+        } else {
+            throw new NotFoundException("Item Not Found");
         }
-        throw new NotFoundException("Item Not Found");
     }
 
     public void deleteAll() {
@@ -154,8 +155,9 @@ public class AnimaliDomesticiService {
                 });
             }
             repository.deleteById(id);
+        } else {
+            throw new NotFoundException("Item Not Found");
         }
-        throw new NotFoundException("Item not foud");
     }
 
     public void deleteAllById(Iterable<Integer> ids) {

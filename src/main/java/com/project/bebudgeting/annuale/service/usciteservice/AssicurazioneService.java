@@ -88,8 +88,9 @@ public class AssicurazioneService {
                 });
             }
             repository.delete(entity);
+        } else {
+            throw new NotFoundException("Item Not Found");
         }
-        throw new NotFoundException("Item Not Found");
     }
 
     public void deleteAll() {
@@ -153,8 +154,9 @@ public class AssicurazioneService {
                     }
                 });
             }
+        } else {
+            throw new NotFoundException("Item Not Found");
         }
-        throw new NotFoundException("Item not foud");
     }
 
     public void deleteAllById(Iterable<Integer> ids) {

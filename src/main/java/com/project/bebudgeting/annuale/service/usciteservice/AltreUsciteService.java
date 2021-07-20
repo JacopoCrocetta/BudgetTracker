@@ -8,6 +8,8 @@ import com.project.bebudgeting.annuale.repository.usciteannuali.AltreUsciteRepos
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javassist.NotFoundException;
+
 @Service
 public class AltreUsciteService {
     @Autowired
@@ -18,8 +20,12 @@ public class AltreUsciteService {
     }
 
     // DELETE
-    public void delete(AltreUsciteEntity entityToDelete) {
-        repository.delete(entityToDelete);
+    public void delete(AltreUsciteEntity entityToDelete) throws NotFoundException {
+        if (repository.existsById(entityToDelete.getId())) {
+            repository.delete(entityToDelete);
+        } else {
+            throw new NotFoundException("Item not found");
+        }
     }
 
     public void deleteAll() {
@@ -32,12 +38,20 @@ public class AltreUsciteService {
 
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            this.deleteById(id);
+            try {
+                this.deleteById(id);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
         });
     }
 
-    public void deleteById(int id) {
-        repository.deleteById(id);
+    public void deleteById(int id) throws NotFoundException {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        } else {
+            throw new NotFoundException("Item not found");
+        }
     }
 
     // FIND
