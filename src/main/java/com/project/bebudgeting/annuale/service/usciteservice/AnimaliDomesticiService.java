@@ -107,7 +107,7 @@ public class AnimaliDomesticiService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
+        if (repository.existsById(id)||repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
                 repository.findById(id).get().getAltroEntities().forEach(entity -> {
                     try {

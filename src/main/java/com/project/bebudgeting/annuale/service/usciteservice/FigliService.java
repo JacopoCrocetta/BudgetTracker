@@ -1,22 +1,13 @@
 package com.project.bebudgeting.annuale.service.usciteservice;
 
-import java.util.Optional;
-
 import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.FigliRepository;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.AltroFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.AsiloService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.AttivitaFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.GiocattoliFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.PaghettaFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.ScuolaFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.SpeseMedicheFigliService;
-import com.project.bebudgeting.annuale.service.usciteservice.figliservice.VestitiFigliService;
-
+import com.project.bebudgeting.annuale.service.usciteservice.figliservice.*;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
+import java.util.Optional;
 
 @Service
 public class FigliService {
@@ -143,68 +134,64 @@ public class FigliService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            if (repository.findById(id).isPresent()) {
-                repository.findById(id).get().getAltroEntities().forEach(entity -> {
-                    try {
-                        altroFigliService.deleteById(entity.getId());
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
+            repository.findById(id).get().getAltroEntities().forEach(entity -> {
+                try {
+                    altroFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getAsiloEntities().forEach(entity -> {
+                try {
+                    asiloService.deleteById(entity.getId());
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 });
-                repository.findById(id).get().getAsiloEntities().forEach(entity -> {
-                    try {
-                        asiloService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getAttivitaEntities().forEach(entity -> {
-                    try {
-                        attivitaFigliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getGiocattoliEntities().forEach(entity -> {
-                    try {
-                        giocattoliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getPaghettaEntities().forEach(entity -> {
-                    try {
-                        paghettaFigliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getScuolaEntities().forEach(entity -> {
-                    try {
-                        scuolaFigliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getSpeseMedicheFigliEntities().forEach(entity -> {
-                    try {
-                        speseMedicheFigliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getVestitiEntities().forEach(entity -> {
-                    try {
-                        vestitiFigliService.deleteById(entity.getId());
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.deleteById(id);
-            } else {
-                throw new NotFoundException("Item not present");
-            }
+            repository.findById(id).get().getAttivitaEntities().forEach(entity -> {
+                try {
+                    attivitaFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getGiocattoliEntities().forEach(entity -> {
+                try {
+                    giocattoliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getPaghettaEntities().forEach(entity -> {
+                try {
+                    paghettaFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getScuolaEntities().forEach(entity -> {
+                try {
+                    scuolaFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getSpeseMedicheFigliEntities().forEach(entity -> {
+                try {
+                    speseMedicheFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getVestitiEntities().forEach(entity -> {
+                try {
+                    vestitiFigliService.deleteById(entity.getId());
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item not found");
         }

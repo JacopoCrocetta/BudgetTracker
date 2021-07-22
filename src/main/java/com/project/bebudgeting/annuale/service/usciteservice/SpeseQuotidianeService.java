@@ -156,36 +156,32 @@ public class SpeseQuotidianeService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            if (repository.findById(id).isPresent()) {
-                if (!repository.findById(id).get().getAbbonamentiEntities().isEmpty()) {
-                    abbonamentiService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
-                    altreSpeseQuotidianeService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getIgienePersonaleEntities().isEmpty()) {
-                    igienePersonaleService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getLavanderiaEntities().isEmpty()) {
-                    lavanderiaService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getParrucchiereEntities().isEmpty()) {
-                    parrucchiereService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getRistorantiEntities().isEmpty()) {
-                    ristorantiService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getSupermercatoEntities().isEmpty()) {
-                    supermercatoService.deleteById(id);
-                }
-                if (!repository.findById(id).get().getVestitiEntities().isEmpty()) {
-                    vestitiService.deleteById(id);
-                }
-                repository.deleteById(id);
-            } else {
-                throw new NotFoundException("Item not found");
+        if (repository.existsById(id)||repository.findById(id).isPresent()) {
+            if (!repository.findById(id).get().getAbbonamentiEntities().isEmpty()) {
+                abbonamentiService.deleteById(id);
             }
+            if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
+                altreSpeseQuotidianeService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getIgienePersonaleEntities().isEmpty()) {
+                igienePersonaleService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getLavanderiaEntities().isEmpty()) {
+                lavanderiaService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getParrucchiereEntities().isEmpty()) {
+                parrucchiereService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getRistorantiEntities().isEmpty()) {
+                ristorantiService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getSupermercatoEntities().isEmpty()) {
+                supermercatoService.deleteById(id);
+            }
+            if (!repository.findById(id).get().getVestitiEntities().isEmpty()) {
+                vestitiService.deleteById(id);
+            }
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item not found");
         }

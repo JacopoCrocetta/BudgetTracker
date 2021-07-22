@@ -95,48 +95,44 @@ public class IstruzioneService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            if (repository.findById(id).isPresent()) {
-                if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
-                    repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
-                        try {
-                            altroIstruzioneService.deleteById(altroEntity.getId());
-                        } catch (NotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                }
-                if (!repository.findById(id).get().getLezioniIndipendentiEntities().isEmpty()) {
-                    repository.findById(id).get().getLezioniIndipendentiEntities().forEach(lezioniEntity -> {
-                        try {
-                            lezioniIndipendentiService.deleteById(lezioniEntity.getId());
-                        } catch (NotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                }
-                if (!repository.findById(id).get().getLibriEntities().isEmpty()) {
-                    repository.findById(id).get().getLibriEntities().forEach(libriEntity -> {
-                        try {
-                            libriService.deleteById(libriEntity.getId());
-                        } catch (NotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                }
-                if (!repository.findById(id).get().getRetteEntities().isEmpty()) {
-                    repository.findById(id).get().getRetteEntities().forEach(retteEntity -> {
-                        try {
-                            retteService.deleteById(retteEntity.getId());
-                        } catch (NotFoundException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                }
-                repository.deleteById(id);
-            } else {
-                throw new NotFoundException("Item not present");
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
+            if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
+                repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
+                    try {
+                        altroIstruzioneService.deleteById(altroEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
+            if (!repository.findById(id).get().getLezioniIndipendentiEntities().isEmpty()) {
+                repository.findById(id).get().getLezioniIndipendentiEntities().forEach(lezioniEntity -> {
+                    try {
+                        lezioniIndipendentiService.deleteById(lezioniEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!repository.findById(id).get().getLibriEntities().isEmpty()) {
+                repository.findById(id).get().getLibriEntities().forEach(libriEntity -> {
+                    try {
+                        libriService.deleteById(libriEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if (!repository.findById(id).get().getRetteEntities().isEmpty()) {
+                repository.findById(id).get().getRetteEntities().forEach(retteEntity -> {
+                    try {
+                        retteService.deleteById(retteEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item not found");
         }

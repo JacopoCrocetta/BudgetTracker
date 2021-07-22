@@ -132,7 +132,7 @@ public class DebitiService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
+        if (repository.existsById(id)||repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltriPrestitiEntities().isEmpty()) {
                 repository.findById(id).get().getAltriPrestitiEntities().forEach(entity -> {
                     try {

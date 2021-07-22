@@ -108,7 +108,7 @@ public class AssicurazioneService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
+        if (repository.existsById(id)||repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltreAssicurazioniEntities().isEmpty()) {
                 repository.findById(id).get().getAltreAssicurazioniEntities().forEach(entity -> {
                     try {

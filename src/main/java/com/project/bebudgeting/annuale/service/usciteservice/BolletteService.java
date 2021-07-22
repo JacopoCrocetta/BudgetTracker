@@ -156,7 +156,7 @@ public class BolletteService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
+        if (repository.existsById(id)||repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltreBolletteEntities().isEmpty()) {
                 repository.findById(id).get().getAltreBolletteEntities().forEach(entity -> {
                     try {

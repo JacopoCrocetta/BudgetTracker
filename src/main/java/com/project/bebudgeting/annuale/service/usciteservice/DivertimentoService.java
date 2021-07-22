@@ -311,7 +311,6 @@ public class DivertimentoService {
                     repository.findById(id).get().getTeatroEntities().forEach(teatroEntity -> {
                         try {
                             teatroService.deleteById(teatroEntity.getId());
-                            ;
                         } catch (NotFoundException e) {
                             e.printStackTrace();
                         }

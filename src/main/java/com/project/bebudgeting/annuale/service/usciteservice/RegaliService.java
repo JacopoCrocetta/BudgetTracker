@@ -83,33 +83,29 @@ public class RegaliService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            if (repository.findById(id).isPresent()) {
-                repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
-                    try {
-                        altroRegaliService.delete(altroEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getDonazioniBeneficenzaEntities().forEach(donazioniEntity -> {
-                    try {
-                        donazioniBeneficienzaService.delete(donazioniEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.findById(id).get().getRegaliDBEntities().forEach(regaliEntity -> {
-                    try {
-                        regaliService.delete(regaliEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-                repository.deleteById(id);
-            } else {
-                throw new NotFoundException("Item not present");
-            }
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
+            repository.findById(id).get().getAltroEntities().forEach(altroEntity -> {
+                try {
+                    altroRegaliService.delete(altroEntity);
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getDonazioniBeneficenzaEntities().forEach(donazioniEntity -> {
+                try {
+                    donazioniBeneficienzaService.delete(donazioniEntity);
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.findById(id).get().getRegaliDBEntities().forEach(regaliEntity -> {
+                try {
+                    regaliService.delete(regaliEntity);
+                } catch (NotFoundException e) {
+                    e.printStackTrace();
+                }
+            });
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item not found");
         }
