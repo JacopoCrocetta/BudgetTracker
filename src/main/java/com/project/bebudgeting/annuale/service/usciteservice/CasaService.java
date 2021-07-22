@@ -113,6 +113,7 @@ public class CasaService {
                     }
                 });
             }
+            repository.delete(entity);
         } else {
             throw new NotFoundException("Item not found");
         }
@@ -205,6 +206,7 @@ public class CasaService {
                     }
                 });
             }
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item Not Found");
         }

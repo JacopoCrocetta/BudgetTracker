@@ -63,6 +63,7 @@ public class RegaliService {
                         e.printStackTrace();
                     }
                 });
+                repository.delete(entity);
             } else {
                 throw new NotFoundException("Item not present");
             }
@@ -105,6 +106,7 @@ public class RegaliService {
                         e.printStackTrace();
                     }
                 });
+                repository.deleteById(id);
             } else {
                 throw new NotFoundException("Item not present");
             }
@@ -138,6 +140,9 @@ public class RegaliService {
 
     // SAVE
     public RegaliEntity save(RegaliEntity entity) {
+        altroRegaliService.saveAll(entity.getAltroEntities());
+        donazioniBeneficienzaService.saveAll(entity.getDonazioniBeneficenzaEntities());
+        regaliService.saveAll(entity.getRegaliDBEntities());
         return repository.save(entity);
     }
 

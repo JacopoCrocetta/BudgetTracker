@@ -123,6 +123,7 @@ public class FigliService {
                         e.printStackTrace();
                     }
                 });
+                repository.delete(entity);
             } else {
                 throw new NotFoundException("Item not present");
             }
@@ -200,6 +201,7 @@ public class FigliService {
                         e.printStackTrace();
                     }
                 });
+                repository.deleteById(id);
             } else {
                 throw new NotFoundException("Item not present");
             }

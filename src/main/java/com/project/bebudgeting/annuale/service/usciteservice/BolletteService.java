@@ -126,6 +126,7 @@ public class BolletteService {
                     }
                 });
             }
+            repository.delete(entity);
         } else {
             throw new NotFoundException("Item not found");
         }
@@ -228,6 +229,7 @@ public class BolletteService {
                     }
                 });
             }
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item Not Found");
         }

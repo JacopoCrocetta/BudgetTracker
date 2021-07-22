@@ -194,6 +194,7 @@ public class DivertimentoService {
                         }
                     });
                 }
+                repository.delete(entity);
             } else {
                 throw new NotFoundException("Item not present");
             }
@@ -325,6 +326,7 @@ public class DivertimentoService {
                         }
                     });
                 }
+                repository.deleteById(id);
             } else {
                 throw new NotFoundException("Item not present");
             }

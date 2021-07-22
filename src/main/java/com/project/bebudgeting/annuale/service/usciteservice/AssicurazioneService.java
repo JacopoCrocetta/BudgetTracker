@@ -153,6 +153,7 @@ public class AssicurazioneService {
                         e.printStackTrace();
                     }
                 });
+                repository.deleteById(id);
             }
         } else {
             throw new NotFoundException("Item Not Found");

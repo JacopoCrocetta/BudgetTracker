@@ -46,59 +46,64 @@ public class DebitiService {
     // DELETE
     public void delete(DebitiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
-            if (!entity.getAltriPrestitiEntities().isEmpty()) {
-                entity.getAltriPrestitiEntities().forEach(altriPrestitiEntity -> {
-                    try {
-                        altriPrestitiService.delete(altriPrestitiEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-            if (!entity.getAltroEntities().isEmpty()) {
-                entity.getAltroEntities().forEach(altroEntity -> {
-                    try {
-                        altroService.delete(altroEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-            if (!entity.getCarteCreditoEntities().isEmpty()) {
-                entity.getCarteCreditoEntities().forEach(carteCreditoEntity -> {
-                    try {
-                        carteCreditoService.delete(carteCreditoEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-            if (!entity.getImposteLocaliEntities().isEmpty()) {
-                entity.getImposteLocaliEntities().forEach(imposteLocaliEntity -> {
-                    try {
-                        imposteLocaliService.delete(imposteLocaliEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-            if (!entity.getImposteStataliEntities().isEmpty()) {
-                entity.getImposteStataliEntities().forEach(imposteStataliEntity -> {
-                    try {
-                        imposteStataliService.delete(imposteStataliEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-            if (!entity.getPrestitiPerStudiareEntities().isEmpty()) {
-                entity.getPrestitiPerStudiareEntities().forEach(prestitiStudioEntity -> {
-                    try {
-                        prestitiPerStudioService.delete(prestitiStudioEntity);
-                    } catch (NotFoundException e) {
-                        e.printStackTrace();
-                    }
-                });
+            if (repository.findById(entity.getId()).isPresent()) {
+                if (!entity.getAltriPrestitiEntities().isEmpty()) {
+                    entity.getAltriPrestitiEntities().forEach(altriPrestitiEntity -> {
+                        try {
+                            altriPrestitiService.delete(altriPrestitiEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                if (!entity.getAltroEntities().isEmpty()) {
+                    entity.getAltroEntities().forEach(altroEntity -> {
+                        try {
+                            altroService.delete(altroEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                if (!entity.getCarteCreditoEntities().isEmpty()) {
+                    entity.getCarteCreditoEntities().forEach(carteCreditoEntity -> {
+                        try {
+                            carteCreditoService.delete(carteCreditoEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                if (!entity.getImposteLocaliEntities().isEmpty()) {
+                    entity.getImposteLocaliEntities().forEach(imposteLocaliEntity -> {
+                        try {
+                            imposteLocaliService.delete(imposteLocaliEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                if (!entity.getImposteStataliEntities().isEmpty()) {
+                    entity.getImposteStataliEntities().forEach(imposteStataliEntity -> {
+                        try {
+                            imposteStataliService.delete(imposteStataliEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                if (!entity.getPrestitiPerStudiareEntities().isEmpty()) {
+                    entity.getPrestitiPerStudiareEntities().forEach(prestitiStudioEntity -> {
+                        try {
+                            prestitiPerStudioService.delete(prestitiStudioEntity);
+                        } catch (NotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+                repository.delete(entity);
+            } else {
+                throw new NotFoundException("Item not present");
             }
         } else {
             throw new NotFoundException("Item not found");
@@ -182,6 +187,7 @@ public class DebitiService {
                     }
                 });
             }
+            repository.deleteById(id);
         } else {
             throw new NotFoundException("Item Not Found");
         }
