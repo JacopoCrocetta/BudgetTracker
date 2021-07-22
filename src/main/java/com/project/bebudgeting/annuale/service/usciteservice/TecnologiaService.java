@@ -2,16 +2,12 @@ package com.project.bebudgeting.annuale.service.usciteservice;
 
 import com.project.bebudgeting.annuale.entity.uscite.TecnologiaEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.TecnologiaRepository;
-import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.AltroTecnologiaService;
-import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.HardwareService;
-import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.HostingService;
-import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.ServiziOnlineService;
-import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.SoftwareService;
-
+import com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice.*;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
+import java.util.Optional;
 
 @Service
 public class TecnologiaService {
@@ -113,9 +109,76 @@ public class TecnologiaService {
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id) || repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
+                repository.findById(id).get().getAltroEntities().forEach(entity -> {
+                    try {
+                        altroTecnologiaService.deleteById(entity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
+            if(!repository.findById(id).get().getHardwareEntities().isEmpty()){
+                repository.findById(id).get().getHardwareEntities().forEach(hardwareEntity -> {
+                    try {
+                        hardwareService.deleteById(hardwareEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if(!repository.findById(id).get().getHostingEntities().isEmpty()){
+                repository.findById(id).get().getHostingEntities().forEach(hostingEntity -> {
+                    try {
+                        hostingService.deleteById(hostingEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if(!repository.findById(id).get().getServiziOnlineEntities().isEmpty()){
+                repository.findById(id).get().getServiziOnlineEntities().forEach(serviziOnlineEntity -> {
+                    try {
+                        serviziOnlineService.deleteById(serviziOnlineEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            if(!repository.findById(id).get().getSoftwareEntities().isEmpty()){
+                repository.findById(id).get().getSoftwareEntities().forEach(softwareEntity -> {
+                    try {
+                        softwareService.deleteById(softwareEntity.getId());
+                    } catch (NotFoundException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+            repository.deleteById(id);
         } else {
-            throw new NotFoundException("msg");
+            throw new NotFoundException("Item not found");
         }
+    }
+
+    public void deleteAllById(Iterable<Integer> ids){
+        ids.forEach(integer -> {
+            try {
+                this.deleteById(integer);
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    //FIND
+    public Iterable<TecnologiaEntity> findAll(){
+        return repository.findAll();
+    }
+
+    public Iterable<TecnologiaEntity> findAllById(Iterable<Integer> ids){
+        return repository.findAllById(ids);
+    }
+
+    public Optional<TecnologiaEntity> findById(int id){
+        return repository.findById(id);
     }
 }
