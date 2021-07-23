@@ -23,7 +23,7 @@ import com.project.bebudgeting.annuale.entity.uscite.SpeseMedicheEntity;
 import com.project.bebudgeting.annuale.entity.uscite.SpeseQuotidianeEntity;
 import com.project.bebudgeting.annuale.entity.uscite.TecnologiaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.ViaggiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.TrasportiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.TrasportiEntity;
 
 import lombok.Data;
 import lombok.Getter;

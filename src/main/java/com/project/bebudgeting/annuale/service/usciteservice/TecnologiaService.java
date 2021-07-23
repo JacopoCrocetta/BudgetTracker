@@ -117,7 +117,7 @@ public class TecnologiaService {
                     }
                 });
             }
-            if(!repository.findById(id).get().getHardwareEntities().isEmpty()){
+            if (!repository.findById(id).get().getHardwareEntities().isEmpty()) {
                 repository.findById(id).get().getHardwareEntities().forEach(hardwareEntity -> {
                     try {
                         hardwareService.deleteById(hardwareEntity.getId());
@@ -126,7 +126,7 @@ public class TecnologiaService {
                     }
                 });
             }
-            if(!repository.findById(id).get().getHostingEntities().isEmpty()){
+            if (!repository.findById(id).get().getHostingEntities().isEmpty()) {
                 repository.findById(id).get().getHostingEntities().forEach(hostingEntity -> {
                     try {
                         hostingService.deleteById(hostingEntity.getId());
@@ -135,7 +135,7 @@ public class TecnologiaService {
                     }
                 });
             }
-            if(!repository.findById(id).get().getServiziOnlineEntities().isEmpty()){
+            if (!repository.findById(id).get().getServiziOnlineEntities().isEmpty()) {
                 repository.findById(id).get().getServiziOnlineEntities().forEach(serviziOnlineEntity -> {
                     try {
                         serviziOnlineService.deleteById(serviziOnlineEntity.getId());
@@ -144,7 +144,7 @@ public class TecnologiaService {
                     }
                 });
             }
-            if(!repository.findById(id).get().getSoftwareEntities().isEmpty()){
+            if (!repository.findById(id).get().getSoftwareEntities().isEmpty()) {
                 repository.findById(id).get().getSoftwareEntities().forEach(softwareEntity -> {
                     try {
                         softwareService.deleteById(softwareEntity.getId());
@@ -159,7 +159,7 @@ public class TecnologiaService {
         }
     }
 
-    public void deleteAllById(Iterable<Integer> ids){
+    public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(integer -> {
             try {
                 this.deleteById(integer);
@@ -169,16 +169,31 @@ public class TecnologiaService {
         });
     }
 
-    //FIND
-    public Iterable<TecnologiaEntity> findAll(){
+    // FIND
+    public Iterable<TecnologiaEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<TecnologiaEntity> findAllById(Iterable<Integer> ids){
+    public Iterable<TecnologiaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<TecnologiaEntity> findById(int id){
+    public Optional<TecnologiaEntity> findById(int id) {
         return repository.findById(id);
+    }
+
+    // SAVE
+    public TecnologiaEntity save(TecnologiaEntity entity) {
+        altroTecnologiaService.saveAll(entity.getAltroEntities());
+        hardwareService.saveAll(entity.getHardwareEntities());
+        hostingService.saveAll(entity.getHostingEntities());
+        serviziOnlineService.saveAll(entity.getServiziOnlineEntities());
+        softwareService.saveAll(entity.getSoftwareEntities());
+        return repository.save(entity);
+    }
+
+    public Iterable<TecnologiaEntity> saveAll(Iterable<TecnologiaEntity> entities) {
+        entities.forEach(this::save);
+        return entities;
     }
 }
