@@ -1,5 +1,6 @@
 package com.project.bebudgeting.annuale.entity;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -85,4 +86,6 @@ public class UsciteAnnualiEntity {
 
     @OneToMany(mappedBy = "Viaggi")
     private Set<ViaggiEntity> viaggiEntities;
+
+    LocalDate data_inserimento;
 }

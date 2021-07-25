@@ -19,6 +19,8 @@ import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DivertimentoService {
     @Autowired
@@ -332,5 +334,39 @@ public class DivertimentoService {
         } else {
             throw new NotFoundException("Item not found");
         }
+    }
+
+    //FIND
+    public Iterable<DivertimentoEntity> findAll(){
+        return repository.findAll();
+    }
+
+    public Iterable<DivertimentoEntity> findAllById(Iterable<Integer> ids){
+        return repository.findAllById(ids);
+    }
+
+    public Optional<DivertimentoEntity> findById(int id){
+        return repository.findById(id);
+    }
+
+    //SAVE
+    public DivertimentoEntity save(DivertimentoEntity entity){
+        altroDivertimentoService.saveAll(entity.getAltroEntities());
+        attivitaOutsideService.saveAll(entity.getAttivitaOutsideEntities());
+        filmService.saveAll(entity.getFilmEntities());
+        fotografiaService.saveAll(entity.getFotografiaEntities());
+        hobbyService.saveAll(entity.getHobbyEntities());
+        libriService.saveAll(entity.getLibriEntities());
+        musicaService.saveAll(entity.getMusicaEntities());
+        partiteService.saveAll(entity.getPartiteEntities());
+        sportService.saveAll(entity.getSportEntities());
+        teatroService.saveAll(entity.getTeatroEntities());
+        tvService.saveAll(entity.getTvEntities());
+        return repository.save(entity);
+    }
+
+    public Iterable<DivertimentoEntity> saveAll(Iterable<DivertimentoEntity> entities){
+        entities.forEach(this::save);
+        return entities;
     }
 }

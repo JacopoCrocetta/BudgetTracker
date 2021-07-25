@@ -1,21 +1,14 @@
 package com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate;
 
-import com.project.bebudgeting.annuale.entity.entrate.SalarioEntity;
+import com.project.bebudgeting.annuale.entity.entrate.AltreEntrateEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Data
@@ -28,9 +21,9 @@ public class AltroEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "idSalario")
-    private SalarioEntity salarioEntity;
+    @OneToMany
+    @JoinColumn(name = "id_Altre_Entrate")
+    private AltreEntrateEntity altreEntrateEntityEntity;
 
     BigDecimal totale_mensile;
     LocalDate data_spesa;

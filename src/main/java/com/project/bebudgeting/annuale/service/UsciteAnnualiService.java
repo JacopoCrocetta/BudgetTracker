@@ -443,6 +443,4 @@ public class UsciteAnnualiService {
         entities.forEach(this::save);
         return entities;
     }
-
-    // TODO: finire di implementare i save del service divertimento
 }

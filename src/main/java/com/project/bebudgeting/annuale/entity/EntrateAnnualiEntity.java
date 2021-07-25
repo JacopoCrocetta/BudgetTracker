@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -32,4 +33,6 @@ public class EntrateAnnualiEntity {
 
     @OneToMany(mappedBy = "ALtreEntrate")
     private Set<AltreEntrateEntity> altreEntrateEntities;
+
+    LocalDate data_inserimento;
 }
