@@ -66,7 +66,8 @@ public class EntrateAnnualiService {
 
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
-            if (repository.findById(id).isPresent()||!repository.findById(id).get().getAltreEntrateEntities().isEmpty()) {
+            if (repository.findById(id).isPresent()
+                    || !repository.findById(id).get().getAltreEntrateEntities().isEmpty()) {
                 repository.findById(id).get().getAltreEntrateEntities().forEach(altreEntrateEntity -> {
                     try {
                         altreEntrateService.deleteById(id);
@@ -75,7 +76,7 @@ public class EntrateAnnualiService {
                     }
                 });
             }
-            if (repository.findById(id).isPresent()||!repository.findById(id).get().getSalarioEntities().isEmpty()) {
+            if (repository.findById(id).isPresent() || !repository.findById(id).get().getSalarioEntities().isEmpty()) {
                 repository.findById(id).get().getSalarioEntities().forEach(salarioEntity -> {
                     try {
                         salarioService.deleteById(id);
@@ -114,12 +115,13 @@ public class EntrateAnnualiService {
 
     // SAVE
     public EntrateAnnualiEntity save(EntrateAnnualiEntity entityToSave) {
-        entityToSave.getAltreEntrateEntities().forEach(altreEntrateEntity -> altreEntrateService.save(altreEntrateEntity));
+        entityToSave.getAltreEntrateEntities()
+                .forEach(altreEntrateEntity -> altreEntrateService.save(altreEntrateEntity));
         entityToSave.getSalarioEntities().forEach(salarioEntity -> salarioService.save(salarioEntity));
         return repository.save(entityToSave);
     }
 
-    public Iterable<EntrateAnnualiEntity> savAll(Iterable<EntrateAnnualiEntity> entitiesToSave) {
+    public Iterable<EntrateAnnualiEntity> saveAll(Iterable<EntrateAnnualiEntity> entitiesToSave) {
         entitiesToSave.forEach(this::save);
         return entitiesToSave;
     }

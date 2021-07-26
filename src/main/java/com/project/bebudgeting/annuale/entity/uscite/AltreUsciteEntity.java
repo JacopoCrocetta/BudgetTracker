@@ -36,5 +36,5 @@ public class AltreUsciteEntity {
     BigDecimal totale_mensile;
     LocalDate data_spesa;
     LocalDate data_inserimento;
-    String descrizioneAltroViaggio;
+    String descrizione;
 }
