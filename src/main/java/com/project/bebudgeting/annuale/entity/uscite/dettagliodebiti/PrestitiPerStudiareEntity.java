@@ -34,6 +34,6 @@ public class PrestitiPerStudiareEntity {
     private DebitiEntity entity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
+    String descrizione;
 }

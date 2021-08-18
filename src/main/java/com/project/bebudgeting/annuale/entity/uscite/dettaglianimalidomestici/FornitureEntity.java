@@ -33,7 +33,6 @@ public class FornitureEntity {
     private AnimaliDomesticiEntity animaliDomesticiEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
     String descrizione;
 }

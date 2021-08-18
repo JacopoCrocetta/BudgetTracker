@@ -1,5 +1,6 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -34,6 +35,8 @@ public class ViaggiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    LocalDate data_inserimento;
 
     @ManyToOne
     @JoinColumn(name = "idUscita")

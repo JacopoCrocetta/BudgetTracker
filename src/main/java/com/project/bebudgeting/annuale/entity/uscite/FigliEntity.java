@@ -10,6 +10,7 @@ import javax.persistence.*;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.*;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,8 @@ public class FigliEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    LocalDate data_inserimento;
 
     @ManyToOne
     @JoinColumn(name = "idEntrata")

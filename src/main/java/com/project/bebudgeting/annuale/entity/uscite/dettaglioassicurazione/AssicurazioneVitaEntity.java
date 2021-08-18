@@ -33,7 +33,6 @@ public class AssicurazioneVitaEntity {
     private AssicurazioneEntity assicurazioneEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
+    String descrizione;
 }

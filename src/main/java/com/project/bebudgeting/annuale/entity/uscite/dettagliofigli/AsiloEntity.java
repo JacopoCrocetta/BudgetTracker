@@ -25,7 +25,6 @@ public class AsiloEntity {
     private FigliEntity figliEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
-    Boolean isAsilo;
+    String descrizione;
 }

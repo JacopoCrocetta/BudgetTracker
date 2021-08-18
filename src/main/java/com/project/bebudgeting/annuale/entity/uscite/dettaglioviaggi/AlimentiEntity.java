@@ -34,6 +34,6 @@ public class AlimentiEntity {
     private ViaggiEntity entity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
+    String descrizione;
 }

@@ -34,7 +34,6 @@ public class BolletteTelefonoEntity {
     private BolletteEntity bolletteEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
     String descrizione;
 }

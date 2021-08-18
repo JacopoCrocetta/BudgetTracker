@@ -34,7 +34,6 @@ public class AltroEntity {
     private SpeseQuotidianeEntity entity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
-    String descrizioneAltroDivertimento;
+    String descrizione;
 }

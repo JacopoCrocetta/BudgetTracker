@@ -26,7 +26,6 @@ public class AltroEntity {
     private AltreEntrateEntity altreEntrateEntityEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
     String descrizioneEntrata;
 }

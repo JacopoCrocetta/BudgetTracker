@@ -25,6 +25,6 @@ public class VestitiEntity {
     private FigliEntity figliEntity;
 
     BigDecimal totale_mensile;
-    LocalDate data_spesa;
     LocalDate data_inserimento;
+    String descrizione;
 }

@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -25,6 +27,8 @@ public class AnimaliDomesticiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    LocalDate data_inserimento;
 
     @ManyToOne
     @JoinColumn(name = "idUscita")
