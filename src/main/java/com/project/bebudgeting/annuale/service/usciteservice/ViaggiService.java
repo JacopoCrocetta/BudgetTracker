@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.ViaggiEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.ViaggiRepository;
-import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.AlimentiService;
+import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.AlimentiViaggiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.AltroViaggiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.BigliettiAereiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.DivertimentoService;
@@ -22,7 +22,7 @@ public class ViaggiService {
     ViaggiRepository repository;
 
     @Autowired
-    AlimentiService alimentiService;
+    AlimentiViaggiService alimentiService;
 
     @Autowired
     AltroViaggiService altroViaggiService;

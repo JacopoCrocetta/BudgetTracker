@@ -7,7 +7,7 @@ import com.project.bebudgeting.annuale.repository.usciteannuali.TrasportiReposit
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.AltroTrasportiService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.BolloService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.CarburanteService;
-import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.FornitureService;
+import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.FornitureTrasportiService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.PrestitoAutoService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.RiparazioniService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.TrasportoPubblicoService;
@@ -32,7 +32,7 @@ public class TrasportiService {
     CarburanteService carburanteService;
 
     @Autowired
-    FornitureService fornitureService;
+    FornitureTrasportiService fornitureService;
 
     @Autowired
     PrestitoAutoService prestitoAutoService;

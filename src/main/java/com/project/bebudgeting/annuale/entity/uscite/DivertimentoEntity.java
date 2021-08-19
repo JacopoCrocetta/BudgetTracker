@@ -13,13 +13,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AltroDivertimentoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AttivitaOutsideEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.ConcertiOSpettacoliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.FilmEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.FotografiaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.HobbyEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.LibriEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.LibriDivertimentoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.MusicaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.PartiteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.SportEntity;
@@ -49,7 +49,7 @@ public class DivertimentoEntity {
     private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroDivertimentoEntity> altroEntities;
 
     @OneToMany(mappedBy = "Attivita_Outside")
     private Set<AttivitaOutsideEntity> attivitaOutsideEntities;
@@ -67,7 +67,7 @@ public class DivertimentoEntity {
     private Set<HobbyEntity> hobbyEntities;
 
     @OneToMany(mappedBy = "Libri")
-    private Set<LibriEntity> libriEntities;
+    private Set<LibriDivertimentoEntity> libriEntities;
 
     @OneToMany(mappedBy = "Musica")
     private Set<MusicaEntity> musicaEntities;

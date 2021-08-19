@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.AltroSpeseMedicheEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.CureSpecialisticheEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.DottoriEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.EmergenzeEntity;
@@ -45,7 +45,7 @@ public class SpeseMedicheEntity {
     private Set<CureSpecialisticheEntity> cureSpecialisticheEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroSpeseMedicheEntity> altroEntities;
 
     @OneToMany(mappedBy = "Dottore")
     private Set<DottoriEntity> dottoriEntities;

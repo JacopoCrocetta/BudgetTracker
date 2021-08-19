@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.AltroIstruzioneEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryistruzione.AltroRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class AltroIstruzioneService {
     }
 
     // DELETE
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroIstruzioneEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroIstruzioneService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroIstruzioneEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroIstruzioneService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroIstruzioneEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroIstruzioneEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroIstruzioneEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroIstruzioneEntity save(AltroIstruzioneEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroIstruzioneEntity> saveAll(Iterable<AltroIstruzioneEntity> entities) {
         return repository.saveAll(entities);
     }
 }

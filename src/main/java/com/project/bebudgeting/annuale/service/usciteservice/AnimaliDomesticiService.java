@@ -4,11 +4,11 @@ import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.AnimaliDomesticiEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.AnimaliDomesticiRepository;
-import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.AlimentiService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.AlimentiAnimaliDomesticiService;
 import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.AltroAnimaliDomesticiService;
-import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.FornitureService;
-import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.GiocattoliService;
-import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.VeterinarioService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.FornitureAnimaliDomesticiService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.GiocattoliAnimaliDomesticiService;
+import com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice.VeterinarioAnimaliDomesticiService;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +20,19 @@ public class AnimaliDomesticiService {
     AnimaliDomesticiRepository repository;
 
     @Autowired
-    AlimentiService alimentiService;
+    AlimentiAnimaliDomesticiService alimentiService;
 
     @Autowired
     AltroAnimaliDomesticiService altroAnimaliDomesticiService;
 
     @Autowired
-    FornitureService fornitureService;
+    FornitureAnimaliDomesticiService fornitureService;
 
     @Autowired
-    GiocattoliService giocattoliService;
+    GiocattoliAnimaliDomesticiService giocattoliService;
 
     @Autowired
-    VeterinarioService veterinarioService;
+    VeterinarioAnimaliDomesticiService veterinarioService;
 
     public long count() {
         return repository.count();
@@ -107,7 +107,7 @@ public class AnimaliDomesticiService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)||repository.findById(id).isPresent()) {
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltroEntities().isEmpty()) {
                 repository.findById(id).get().getAltroEntities().forEach(entity -> {
                     try {

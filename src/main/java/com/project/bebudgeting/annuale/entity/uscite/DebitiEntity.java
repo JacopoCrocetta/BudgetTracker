@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltriPrestitiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltroDebitiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.CarteCreditoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.ImposteLocaliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.ImposteStataliEntity;
@@ -46,7 +46,7 @@ public class DebitiEntity {
     private Set<AltriPrestitiEntity> altriPrestitiEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroDebitiEntity> altroEntities;
 
     @OneToMany(mappedBy = "Carte_Credito_O_Debito")
     private Set<CarteCreditoEntity> carteCreditoEntities;

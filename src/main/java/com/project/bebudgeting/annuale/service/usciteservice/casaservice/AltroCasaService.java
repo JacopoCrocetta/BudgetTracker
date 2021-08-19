@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.casaservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositorycasa.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AltroCasaEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositorycasa.AltroCasaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import javassist.NotFoundException;
 @Service
 public class AltroCasaService {
     @Autowired
-    AltroRepository repository;
+    AltroCasaRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroCasaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroCasaService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroCasaEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroCasaService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroCasaEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroCasaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroCasaEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroCasaEntity save(AltroCasaEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroCasaEntity> saveAll(Iterable<AltroCasaEntity> entities) {
         return repository.saveAll(entities);
     }
 }

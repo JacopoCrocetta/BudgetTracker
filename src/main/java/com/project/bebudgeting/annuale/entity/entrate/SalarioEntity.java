@@ -37,7 +37,7 @@ public class SalarioEntity {
     private EntrateAnnualiEntity entrata;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroSalarioEntity> altroEntities;
 
     @OneToMany(mappedBy = "Bonus")
     private Set<BonusEntity> bonusEntities;

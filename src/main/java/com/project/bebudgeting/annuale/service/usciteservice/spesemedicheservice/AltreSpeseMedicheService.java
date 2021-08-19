@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.spesemedicheservic
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryspesemediche.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliospesemediche.AltroSpeseMedicheEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryspesemediche.AltroSpeseMedicheRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class AltreSpeseMedicheService {
     @Autowired
-    AltroRepository repository;
+    AltroSpeseMedicheRepository repository;
 
     public long count() {
         return repository.count();
@@ -24,7 +24,7 @@ public class AltreSpeseMedicheService {
         repository.deleteAll();
     }
 
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroSpeseMedicheEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltreSpeseMedicheService {
         }
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroSpeseMedicheEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltreSpeseMedicheService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroSpeseMedicheEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroSpeseMedicheEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroSpeseMedicheEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroSpeseMedicheEntity save(AltroSpeseMedicheEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroSpeseMedicheEntity> saveAll(Iterable<AltroSpeseMedicheEntity> entities) {
         return repository.saveAll(entities);
     }
 }

@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.spesequotidianeser
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.VestitiEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryspesequotidiane.VestitiRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.VestitiSpeseQuotidianeEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryspesequotidiane.VestitiSpeseQuotidianeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class VestitiService {
     @Autowired
-    VestitiRepository repository;
+    VestitiSpeseQuotidianeRepository repository;
 
     public long count() {
         return repository.count();
@@ -24,7 +24,7 @@ public class VestitiService {
         repository.deleteAll();
     }
 
-    public void delete(VestitiEntity entity) throws NotFoundException {
+    public void delete(VestitiSpeseQuotidianeEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class VestitiService {
         }
     }
 
-    public void deleteAll(Iterable<VestitiEntity> entities) {
+    public void deleteAll(Iterable<VestitiSpeseQuotidianeEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class VestitiService {
     }
 
     // FIND
-    public Iterable<VestitiEntity> findAll() {
+    public Iterable<VestitiSpeseQuotidianeEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<VestitiEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<VestitiSpeseQuotidianeEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<VestitiEntity> findById(int id) {
+    public Optional<VestitiSpeseQuotidianeEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public VestitiEntity save(VestitiEntity entity) {
+    public VestitiSpeseQuotidianeEntity save(VestitiSpeseQuotidianeEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<VestitiEntity> saveAll(Iterable<VestitiEntity> entities) {
+    public Iterable<VestitiSpeseQuotidianeEntity> saveAll(Iterable<VestitiSpeseQuotidianeEntity> entities) {
         return repository.saveAll(entities);
     }
 }

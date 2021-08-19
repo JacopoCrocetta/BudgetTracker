@@ -14,13 +14,13 @@ import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.AbbonamentiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.AltroSpeseQuotidianeEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.IgienePersonaleEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.LavanderiaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.ParrucchiereEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.RistorantiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.SupermercatoEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.VestitiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliospesequotidiane.VestitiSpeseQuotidianeEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -45,7 +45,7 @@ public class SpeseQuotidianeEntity {
     private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroSpeseQuotidianeEntity> altroEntities;
 
     @OneToMany(mappedBy = "Abbonamenti")
     private Set<AbbonamentiEntity> abbonamentiEntities;
@@ -66,5 +66,5 @@ public class SpeseQuotidianeEntity {
     private Set<SupermercatoEntity> supermercatoEntities;
 
     @OneToMany(mappedBy = "Vestiti")
-    private Set<VestitiEntity> vestitiEntities;
+    private Set<VestitiSpeseQuotidianeEntity> vestitiEntities;
 }

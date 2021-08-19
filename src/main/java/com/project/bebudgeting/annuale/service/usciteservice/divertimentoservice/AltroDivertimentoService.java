@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.divertimentoservic
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositorydivertimento.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AltroDivertimentoEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositorydivertimento.AltroDivertimentoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import javassist.NotFoundException;
 @Service
 public class AltroDivertimentoService {
     @Autowired
-    AltroRepository repository;
+    AltroDivertimentoRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroDivertimentoEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroDivertimentoService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroDivertimentoEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroDivertimentoService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroDivertimentoEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroDivertimentoEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroDivertimentoEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroDivertimentoEntity save(AltroDivertimentoEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroDivertimentoEntity> saveAll(Iterable<AltroDivertimentoEntity> entities) {
         return repository.saveAll(entities);
     }
 }

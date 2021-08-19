@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.service.usciteservice.animalidomesticiservice;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroAnimaliDomesticiEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.AltroAnimaliDomesticiRepository;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +11,14 @@ import java.util.Optional;
 @Service
 public class AltroAnimaliDomesticiService {
     @Autowired
-    AltroRepository repository;
+    AltroAnimaliDomesticiRepository repository;
 
     public long count() {
         return repository.count();
     }
 
-    //DELETE
-    public void delete(AltroEntity entityToDelete) throws NotFoundException {
+    // DELETE
+    public void delete(AltroAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
             repository.delete(entityToDelete);
         }
@@ -29,7 +29,7 @@ public class AltroAnimaliDomesticiService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> entitiesToDelete) {
+    public void deleteAll(Iterable<AltroAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(altroEntity -> {
             try {
                 this.delete(altroEntity);
@@ -56,25 +56,25 @@ public class AltroAnimaliDomesticiService {
         });
     }
 
-    //FIND
-    public Iterable<AltroEntity> findAll() {
+    // FIND
+    public Iterable<AltroAnimaliDomesticiEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroAnimaliDomesticiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroAnimaliDomesticiEntity> findById(int id) {
         return repository.findById(id);
     }
 
-    //SAVE
-    public AltroEntity save(AltroEntity entity) {
+    // SAVE
+    public AltroAnimaliDomesticiEntity save(AltroAnimaliDomesticiEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroAnimaliDomesticiEntity> saveAll(Iterable<AltroAnimaliDomesticiEntity> entities) {
         return repository.saveAll(entities);
     }
 }

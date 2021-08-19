@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.tecnologiaservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositorytecnologia.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.AltroTecnologiaEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositorytecnologia.AltroTecnologiaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class AltroTecnologiaService {
     @Autowired
-    AltroRepository repository;
+    AltroTecnologiaRepository repository;
 
     public long count() {
         return repository.count();
@@ -24,7 +24,7 @@ public class AltroTecnologiaService {
         repository.deleteAll();
     }
 
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroTecnologiaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroTecnologiaService {
         }
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroTecnologiaEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroTecnologiaService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroTecnologiaEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroTecnologiaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroTecnologiaEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroTecnologiaEntity save(AltroTecnologiaEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroTecnologiaEntity> saveAll(Iterable<AltroTecnologiaEntity> entities) {
         return repository.saveAll(entities);
     }
 }

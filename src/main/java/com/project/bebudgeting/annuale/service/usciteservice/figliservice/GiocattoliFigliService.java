@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.GiocattoliEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.GiocattoliRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.GiocattoliFigliEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.GiocattoliFigliRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import javassist.NotFoundException;
 @Service
 public class GiocattoliFigliService {
     @Autowired
-    GiocattoliRepository repository;
+    GiocattoliFigliRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(GiocattoliEntity entity) throws NotFoundException {
+    public void delete(GiocattoliFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class GiocattoliFigliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<GiocattoliEntity> entities) {
+    public void deleteAll(Iterable<GiocattoliFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class GiocattoliFigliService {
     }
 
     // FIND
-    public Iterable<GiocattoliEntity> findAll() {
+    public Iterable<GiocattoliFigliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<GiocattoliEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<GiocattoliFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<GiocattoliEntity> findById(int id) {
+    public Optional<GiocattoliFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public GiocattoliEntity save(GiocattoliEntity entity) {
+    public GiocattoliFigliEntity save(GiocattoliFigliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<GiocattoliEntity> saveAll(Iterable<GiocattoliEntity> entities) {
+    public Iterable<GiocattoliFigliEntity> saveAll(Iterable<GiocattoliFigliEntity> entities) {
         return repository.saveAll(entities);
     }
 }

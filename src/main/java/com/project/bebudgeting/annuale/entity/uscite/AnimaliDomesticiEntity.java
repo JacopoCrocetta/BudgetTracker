@@ -1,11 +1,11 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AlimentiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.FornitureEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.GiocattoliEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.VeterinarioEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AlimentiAnimaliDomesticiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroAnimaliDomesticiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.FornitureAnimaliDomesticiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.GiocattoliAnimaliDomesticiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.VeterinarioAnimaliDomesticiEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -35,17 +35,17 @@ public class AnimaliDomesticiEntity {
     private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Alimenti")
-    Set<AlimentiEntity> alimentiEntities;
+    Set<AlimentiAnimaliDomesticiEntity> alimentiEntities;
 
     @OneToMany(mappedBy = "Altro")
-    Set<AltroEntity> altroEntities;
+    Set<AltroAnimaliDomesticiEntity> altroEntities;
 
     @OneToMany(mappedBy = "Forniture")
-    Set<FornitureEntity> fornitureEntities;
+    Set<FornitureAnimaliDomesticiEntity> fornitureEntities;
 
     @OneToMany(mappedBy = "Giocattoli")
-    Set<GiocattoliEntity> giocattoliEntity;
+    Set<GiocattoliAnimaliDomesticiEntity> giocattoliEntity;
 
     @OneToMany(mappedBy = "Veterinario")
-    Set<VeterinarioEntity> veterinarioEntities;
+    Set<VeterinarioAnimaliDomesticiEntity> veterinarioEntities;
 }

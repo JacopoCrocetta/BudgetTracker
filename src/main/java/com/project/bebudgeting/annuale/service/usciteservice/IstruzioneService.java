@@ -6,7 +6,7 @@ import com.project.bebudgeting.annuale.entity.uscite.IstruzioneEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.IstruzioneRepository;
 import com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice.AltroIstruzioneService;
 import com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice.LezioniIndipendentiService;
-import com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice.LibriService;
+import com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice.LibriIstruzioneService;
 import com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice.RetteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class IstruzioneService {
     LezioniIndipendentiService lezioniIndipendentiService;
 
     @Autowired
-    LibriService libriService;
+    LibriIstruzioneService libriService;
 
     @Autowired
     RetteService retteService;

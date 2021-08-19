@@ -13,9 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.AltroIstruzioneEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.LezioniIndipendentiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.LibriEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.LibriIstruzioneEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.RetteEntity;
 
 import lombok.Data;
@@ -44,10 +44,10 @@ public class IstruzioneEntity {
     private Set<LezioniIndipendentiEntity> lezioniIndipendentiEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroIstruzioneEntity> altroEntities;
 
     @OneToMany(mappedBy = "Libri_Comprati")
-    private Set<LibriEntity> libriEntities;
+    private Set<LibriIstruzioneEntity> libriEntities;
 
     @OneToMany(mappedBy = "Rette_Scolastiche")
     private Set<RetteEntity> retteEntities;

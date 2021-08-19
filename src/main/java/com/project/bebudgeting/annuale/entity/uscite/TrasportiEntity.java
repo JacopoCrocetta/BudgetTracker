@@ -13,10 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.AltroTrasportiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.BolloEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.CarburanteEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.FornitureEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.FornitureTrasportiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.PrestitoAutoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.RiparazioniEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.TrasportoPubblicoEntity;
@@ -47,13 +47,13 @@ public class TrasportiEntity {
     private Set<BolloEntity> bolloEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroTrasportiEntity> altroEntities;
 
     @OneToMany(mappedBy = "Carburante")
     private Set<CarburanteEntity> carburanteEntities;
 
     @OneToMany(mappedBy = "Forniture")
-    private Set<FornitureEntity> fornitureEntities;
+    private Set<FornitureTrasportiEntity> fornitureEntities;
 
     @OneToMany(mappedBy = "Prestito_Auto")
     private Set<PrestitoAutoEntity> prestitoAutoEntities;

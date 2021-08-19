@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AlimentiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AlimentiViaggiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AltroViaggiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.BigliettiAereiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.DivertimentoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.HotelEntity;
@@ -43,10 +43,10 @@ public class ViaggiEntity {
     private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Alimenti")
-    private Set<AlimentiEntity> alimentiEntities;
+    private Set<AlimentiViaggiEntity> alimentiEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroViaggiEntity> altroEntities;
 
     @OneToMany(mappedBy = "Biglietti_Aerei")
     private Set<BigliettiAereiEntity> bigliettiAereiEntities;

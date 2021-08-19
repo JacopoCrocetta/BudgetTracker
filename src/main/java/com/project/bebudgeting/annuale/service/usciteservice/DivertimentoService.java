@@ -8,7 +8,7 @@ import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.FilmService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.FotografiaService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.HobbyService;
-import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.LibriService;
+import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.LibriDivertimentoService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.MusicaService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.PartiteService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.SportService;
@@ -45,7 +45,7 @@ public class DivertimentoService {
     HobbyService hobbyService;
 
     @Autowired
-    LibriService libriService;
+    LibriDivertimentoService libriService;
 
     @Autowired
     MusicaService musicaService;
@@ -336,21 +336,21 @@ public class DivertimentoService {
         }
     }
 
-    //FIND
-    public Iterable<DivertimentoEntity> findAll(){
+    // FIND
+    public Iterable<DivertimentoEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<DivertimentoEntity> findAllById(Iterable<Integer> ids){
+    public Iterable<DivertimentoEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<DivertimentoEntity> findById(int id){
+    public Optional<DivertimentoEntity> findById(int id) {
         return repository.findById(id);
     }
 
-    //SAVE
-    public DivertimentoEntity save(DivertimentoEntity entity){
+    // SAVE
+    public DivertimentoEntity save(DivertimentoEntity entity) {
         altroDivertimentoService.saveAll(entity.getAltroEntities());
         attivitaOutsideService.saveAll(entity.getAttivitaOutsideEntities());
         filmService.saveAll(entity.getFilmEntities());
@@ -365,7 +365,7 @@ public class DivertimentoService {
         return repository.save(entity);
     }
 
-    public Iterable<DivertimentoEntity> saveAll(Iterable<DivertimentoEntity> entities){
+    public Iterable<DivertimentoEntity> saveAll(Iterable<DivertimentoEntity> entities) {
         entities.forEach(this::save);
         return entities;
     }

@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.trasportiservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositorytrasporti.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliotrasporti.AltroTrasportiEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositorytrasporti.AltroTrasportiRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class AltroTrasportiService {
     @Autowired
-    AltroRepository repository;
+    AltroTrasportiRepository repository;
 
     public long count() {
         return repository.count();
@@ -24,7 +24,7 @@ public class AltroTrasportiService {
         repository.deleteAll();
     }
 
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroTrasportiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroTrasportiService {
         }
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroTrasportiEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroTrasportiService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroTrasportiEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroTrasportiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroTrasportiEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroTrasportiEntity save(AltroTrasportiEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroTrasportiEntity> saveAll(Iterable<AltroTrasportiEntity> entities) {
         return repository.saveAll(entities);
     }
 }

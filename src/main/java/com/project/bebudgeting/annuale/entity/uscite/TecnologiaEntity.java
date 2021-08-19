@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.AltroTecnologiaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.HardwareEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.HostingEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliotecnologia.ServiziOnlineEntity;
@@ -45,7 +45,7 @@ public class TecnologiaEntity {
     private Set<HardwareEntity> hardwareEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroTecnologiaEntity> altroEntities;
 
     @OneToMany(mappedBy = "Hosting")
     private Set<HostingEntity> hostingEntities;

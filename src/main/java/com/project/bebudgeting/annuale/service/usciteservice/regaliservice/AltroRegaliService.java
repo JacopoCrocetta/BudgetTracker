@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice.regaliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.AltroEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryregali.AltroRepository;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.AltroRegaliEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryregali.AltroRegaliRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ import javassist.NotFoundException;
 @Service
 public class AltroRegaliService {
     @Autowired
-    AltroRepository repository;
+    AltroRegaliRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(AltroEntity entity) throws NotFoundException {
+    public void delete(AltroRegaliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AltroRegaliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> entities) {
+    public void deleteAll(Iterable<AltroRegaliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AltroRegaliService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroRegaliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroRegaliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroRegaliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entity) {
+    public AltroRegaliEntity save(AltroRegaliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entities) {
+    public Iterable<AltroRegaliEntity> saveAll(Iterable<AltroRegaliEntity> entities) {
         return repository.saveAll(entities);
     }
 }

@@ -5,7 +5,7 @@ import java.util.Optional;
 import com.project.bebudgeting.annuale.entity.uscite.DebitiEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.DebitiRepository;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.AltriPrestitiService;
-import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.AltroService;
+import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.AltroDebitiService;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.CarteCreditoService;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.ImposteLocaliService;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.ImposteStataliService;
@@ -25,7 +25,7 @@ public class DebitiService {
     AltriPrestitiService altriPrestitiService;
 
     @Autowired
-    AltroService altroService;
+    AltroDebitiService altroService;
 
     @Autowired
     CarteCreditoService carteCreditoService;
@@ -132,7 +132,7 @@ public class DebitiService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)||repository.findById(id).isPresent()) {
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAltriPrestitiEntities().isEmpty()) {
                 repository.findById(id).get().getAltriPrestitiEntities().forEach(entity -> {
                     try {

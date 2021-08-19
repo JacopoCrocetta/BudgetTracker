@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.VestitiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.VestitiFigliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.VestitiRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class VestitiFigliService {
     }
 
     // DELETE
-    public void delete(VestitiEntity entity) throws NotFoundException {
+    public void delete(VestitiFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class VestitiFigliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<VestitiEntity> entities) {
+    public void deleteAll(Iterable<VestitiFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class VestitiFigliService {
     }
 
     // FIND
-    public Iterable<VestitiEntity> findAll() {
+    public Iterable<VestitiFigliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<VestitiEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<VestitiFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<VestitiEntity> findById(int id) {
+    public Optional<VestitiFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public VestitiEntity save(VestitiEntity entity) {
+    public VestitiFigliEntity save(VestitiFigliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<VestitiEntity> saveAll(Iterable<VestitiEntity> entities) {
+    public Iterable<VestitiFigliEntity> saveAll(Iterable<VestitiFigliEntity> entities) {
         return repository.saveAll(entities);
     }
 }

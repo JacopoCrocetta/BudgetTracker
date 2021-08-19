@@ -31,7 +31,7 @@ public class FigliEntity {
     private EntrateAnnualiEntity entrata;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroFigliEntity> altroEntities;
 
     @OneToMany(mappedBy = "Asilo")
     private Set<AsiloEntity> asiloEntities;
@@ -40,7 +40,7 @@ public class FigliEntity {
     private Set<AttivitaEntity> attivitaEntities;
 
     @OneToMany(mappedBy = "Giocattoli")
-    private Set<GiocattoliEntity> giocattoliEntities;
+    private Set<GiocattoliFigliEntity> giocattoliEntities;
 
     @OneToMany(mappedBy = "Paghetta")
     private Set<PaghettaEntity> paghettaEntities;
@@ -52,5 +52,5 @@ public class FigliEntity {
     private Set<SpeseMedicheFigliEntity> speseMedicheFigliEntities;
 
     @OneToMany(mappedBy = "Vestiti")
-    private Set<VestitiEntity> vestitiEntities;
+    private Set<VestitiFigliEntity> vestitiEntities;
 }

@@ -3,7 +3,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.regaliservice;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.RegaliDBEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryregali.RegaliRepository;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryregali.RegaliDBRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class RegaliDBService {
     @Autowired
-    RegaliRepository repository;
+    RegaliDBRepository repository;
 
     public long count() {
         return repository.count();

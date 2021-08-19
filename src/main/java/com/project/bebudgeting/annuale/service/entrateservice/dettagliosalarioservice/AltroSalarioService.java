@@ -8,7 +8,7 @@ import javassist.NotFoundException;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
 import com.project.bebudgeting.annuale.repository.entrateannuali.repositorydettaglisalario.AltroSalarioRepository;
 
 @Service
@@ -21,7 +21,7 @@ public class AltroSalarioService {
     }
 
     // DELETE
-    public void delete(AltroEntity entityToDelete)
+    public void delete(AltroSalarioEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
         if (entityToDelete == null)
             throw new NullPointerException("Item is not set");
@@ -34,7 +34,7 @@ public class AltroSalarioService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> enitiesToDelete) {
+    public void deleteAll(Iterable<AltroSalarioEntity> enitiesToDelete) {
         enitiesToDelete.forEach(entity -> {
             try {
                 delete(entity);
@@ -61,24 +61,24 @@ public class AltroSalarioService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroSalarioEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroSalarioEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroSalarioEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entityToSave) {
+    public AltroSalarioEntity save(AltroSalarioEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entitiesToSave) {
+    public Iterable<AltroSalarioEntity> saveAll(Iterable<AltroSalarioEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }
 }

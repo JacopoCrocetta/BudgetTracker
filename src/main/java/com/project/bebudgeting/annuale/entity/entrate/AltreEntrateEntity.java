@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.entity.entrate;
 
 import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.*;
-import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.AltroEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.AltroAltreEntrateEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +38,7 @@ public class AltreEntrateEntity {
     private EntrateAnnualiEntity entrata;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroAltreEntrateEntity> altroEntities;
 
     @OneToMany(mappedBy = "Dividendi")
     private Set<DividendiEntity> dividendiEntities;

@@ -19,9 +19,9 @@ import javax.persistence.Table;
 
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AffittoEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AltroEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.AltroCasaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.ArredamentoEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.FornitureEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.FornitureCasaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.GiardinaggioEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.ImposteImmobiliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.ManutenzioneEntity;
@@ -49,13 +49,13 @@ public class CasaEntity {
     private Set<AffittoEntity> affittoEntities;
 
     @OneToMany(mappedBy = "Altro")
-    private Set<AltroEntity> altroEntities;
+    private Set<AltroCasaEntity> altroEntities;
 
     @OneToMany(mappedBy = "Arredamento")
     private Set<ArredamentoEntity> arredamentoEntities;
 
     @OneToMany(mappedBy = "Forniture")
-    private Set<FornitureEntity> fornitureEntities;
+    private Set<FornitureCasaEntity> fornitureEntities;
 
     @OneToMany(mappedBy = "Giardinaggio")
     private Set<GiardinaggioEntity> giardinaggioEntities;

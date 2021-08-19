@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreent
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.AltroEntity;
-import com.project.bebudgeting.annuale.repository.entrateannuali.repositoryaltreentrate.AltroERepository;
+import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.AltroAltreEntrateEntity;
+import com.project.bebudgeting.annuale.repository.entrateannuali.repositoryaltreentrate.AltroAltreEntrateRepository;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +14,14 @@ import javassist.NotFoundException;
 @Service
 public class AltroEService {
     @Autowired
-    AltroERepository repository;
+    AltroAltreEntrateRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(AltroEntity entityToDelete)
+    public void delete(AltroAltreEntrateEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
         if (entityToDelete == null)
             throw new NullPointerException("Item is not set");
@@ -34,7 +34,7 @@ public class AltroEService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AltroEntity> enitiesToDelete) {
+    public void deleteAll(Iterable<AltroAltreEntrateEntity> enitiesToDelete) {
         enitiesToDelete.forEach(entity -> {
             try {
                 delete(entity);
@@ -61,24 +61,24 @@ public class AltroEService {
     }
 
     // FIND
-    public Iterable<AltroEntity> findAll() {
+    public Iterable<AltroAltreEntrateEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AltroEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AltroAltreEntrateEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AltroEntity> findById(int id) {
+    public Optional<AltroAltreEntrateEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AltroEntity save(AltroEntity entityToSave) {
+    public AltroAltreEntrateEntity save(AltroAltreEntrateEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
-    public Iterable<AltroEntity> saveAll(Iterable<AltroEntity> entitiesToSave) {
+    public Iterable<AltroAltreEntrateEntity> saveAll(Iterable<AltroAltreEntrateEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }
 }
