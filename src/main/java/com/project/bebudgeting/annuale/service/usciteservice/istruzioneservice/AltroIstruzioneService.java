@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class AltroIstruzioneService {
     @Autowired
-    AltroRepository repository;
+    AltroIstruzioneRepository repository;
 
     public long count() {
         return repository.count();

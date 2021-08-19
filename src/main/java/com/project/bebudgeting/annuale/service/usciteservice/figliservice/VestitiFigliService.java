@@ -13,7 +13,7 @@ import javassist.NotFoundException;
 @Service
 public class VestitiFigliService {
     @Autowired
-    VestitiRepository repository;
+    VestitiFigliRepository repository;
 
     public long count() {
         return repository.count();
