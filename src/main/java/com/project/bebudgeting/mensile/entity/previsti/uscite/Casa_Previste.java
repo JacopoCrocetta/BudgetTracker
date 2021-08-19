@@ -1,4 +1,4 @@
-package com.project.bebudgeting.mensile.entity.effettivi.entrate;
+package com.project.bebudgeting.mensile.entity.previsti.uscite;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.mensile.entity.previsti.EntratePreviste;
+import com.project.bebudgeting.mensile.entity.effettivi.UsciteEffettive;
 
 import lombok.Data;
 import lombok.Getter;
@@ -19,19 +19,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Interessi_Effettivi")
+@Table(name = "Spese_Casa_Previste")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-public class Interessi_Effettivi {
+public class Casa_Previste {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idEntrataEffettiva")
-    private EntratePreviste entity;
+    @JoinColumn(name = "idUsciteMensiliPreviste")
+    private UsciteEffettive entity;
 
     BigDecimal totale_mensile;
     LocalDate data_inserimento;

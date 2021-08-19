@@ -30,7 +30,7 @@ public class Alimenti_Effettivi {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idUscitaPrevista")
+    @JoinColumn(name = "idUsciteMensiliEffettive")
     private UsciteEffettive entity;
 
     BigDecimal totale_mensile;

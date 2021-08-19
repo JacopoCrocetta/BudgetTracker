@@ -30,7 +30,7 @@ public class Altre_Entrate_Effettive {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idEntrataPrevista")
+    @JoinColumn(name = "idEntrataEffettiva")
     private EntratePreviste entity;
 
     BigDecimal totale_mensile;
