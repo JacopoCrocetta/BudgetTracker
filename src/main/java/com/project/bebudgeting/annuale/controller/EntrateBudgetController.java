@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javassist.NotFoundException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/entrateAnnuali")
+@Slf4j
 public class EntrateBudgetController {
     @Autowired
     EntrateAnnualiService entrateAnnualiService;
@@ -27,6 +29,7 @@ public class EntrateBudgetController {
     // FIND
     @GetMapping(value = "/getAllEntrate", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntrateAnnualiEntity> findAll() {
+        log.trace("Turn into findAll Method");
         return entrateAnnualiService.findAll();
     }
 
