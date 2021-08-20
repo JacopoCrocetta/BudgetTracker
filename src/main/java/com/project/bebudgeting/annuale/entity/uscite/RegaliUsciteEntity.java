@@ -28,7 +28,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Regali")
 @NoArgsConstructor
-public class RegaliEntity {
+public class RegaliUsciteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

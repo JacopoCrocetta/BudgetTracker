@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreent
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.RegaliEntity;
-import com.project.bebudgeting.annuale.repository.entrateannuali.repositoryaltreentrate.RegaliRepository;
+import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.RegaliAltreEntrateEntity;
+import com.project.bebudgeting.annuale.repository.entrateannuali.repositoryaltreentrate.RegaliAltreEntrateRepository;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,16 @@ import org.springframework.stereotype.Service;
 import javassist.NotFoundException;
 
 @Service
-public class RegaliService {
+public class RegaliAltreEntrateService {
     @Autowired
-    RegaliRepository repository;
+    RegaliAltreEntrateRepository repository;
 
     public long count() {
         return repository.count();
     }
 
     // DELETE
-    public void delete(RegaliEntity entityToDelete)
+    public void delete(RegaliAltreEntrateEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
         if (entityToDelete == null)
             throw new NullPointerException("Item is not set");
@@ -34,7 +34,7 @@ public class RegaliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<RegaliEntity> enitiesToDelete) {
+    public void deleteAll(Iterable<RegaliAltreEntrateEntity> enitiesToDelete) {
         enitiesToDelete.forEach(entity -> {
             try {
                 delete(entity);
@@ -61,24 +61,24 @@ public class RegaliService {
     }
 
     // FIND
-    public Iterable<RegaliEntity> findAll() {
+    public Iterable<RegaliAltreEntrateEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<RegaliEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<RegaliAltreEntrateEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<RegaliEntity> findById(int id) {
+    public Optional<RegaliAltreEntrateEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public RegaliEntity save(RegaliEntity entityToSave) {
+    public RegaliAltreEntrateEntity save(RegaliAltreEntrateEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
-    public Iterable<RegaliEntity> saveAll(Iterable<RegaliEntity> entitiesToSave) {
+    public Iterable<RegaliAltreEntrateEntity> saveAll(Iterable<RegaliAltreEntrateEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }
 }

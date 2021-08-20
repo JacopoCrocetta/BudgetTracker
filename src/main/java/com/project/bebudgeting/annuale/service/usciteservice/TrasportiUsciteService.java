@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.TrasportiEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.TrasportiRepository;
+import com.project.bebudgeting.annuale.entity.uscite.TrasportiUsciteEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.TrasportiUsciteRepository;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.AltroTrasportiService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.BolloService;
 import com.project.bebudgeting.annuale.service.usciteservice.trasportiservice.CarburanteService;
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
 import javassist.NotFoundException;
 
 @Service
-public class TrasportiService {
+public class TrasportiUsciteService {
     @Autowired
-    TrasportiRepository repository;
+    TrasportiUsciteRepository repository;
 
     @Autowired
     AltroTrasportiService altroTrasportiService;
@@ -59,7 +59,7 @@ public class TrasportiService {
         repository.deleteAll();
     }
 
-    public void delete(TrasportiEntity entity) throws NotFoundException {
+    public void delete(TrasportiUsciteEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId()) || repository.findById(entity.getId()).isPresent()) {
             if (!repository.findById(entity.getId()).get().getAltroEntities().isEmpty()) {
                 repository.findById(entity.getId()).get().getAltroEntities().forEach(altroEntity -> {
@@ -130,7 +130,7 @@ public class TrasportiService {
         }
     }
 
-    public void deleteAll(Iterable<TrasportiEntity> entities) {
+    public void deleteAll(Iterable<TrasportiUsciteEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -222,20 +222,20 @@ public class TrasportiService {
     }
 
     // FIND
-    public Iterable<TrasportiEntity> findAll() {
+    public Iterable<TrasportiUsciteEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<TrasportiEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<TrasportiUsciteEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<TrasportiEntity> findById(int id) {
+    public Optional<TrasportiUsciteEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public TrasportiEntity save(TrasportiEntity entity) {
+    public TrasportiUsciteEntity save(TrasportiUsciteEntity entity) {
         altroTrasportiService.saveAll(entity.getAltroEntities());
         bolloService.saveAll(entity.getBolloEntities());
         carburanteService.saveAll(entity.getCarburanteEntities());
@@ -246,7 +246,7 @@ public class TrasportiService {
         return repository.save(entity);
     }
 
-    public Iterable<TrasportiEntity> saveAll(Iterable<TrasportiEntity> entities) {
+    public Iterable<TrasportiUsciteEntity> saveAll(Iterable<TrasportiUsciteEntity> entities) {
         entities.forEach(this::save);
         return entities;
     }

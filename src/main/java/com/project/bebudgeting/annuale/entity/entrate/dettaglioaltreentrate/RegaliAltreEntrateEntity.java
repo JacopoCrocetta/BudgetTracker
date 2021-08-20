@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Setter
 @Table(name = "Interessi")
 @NoArgsConstructor
-public class RegaliEntity {
+public class RegaliAltreEntrateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

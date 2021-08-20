@@ -2,8 +2,8 @@ package com.project.bebudgeting.annuale.service.usciteservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.RegaliEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.RegaliRepository;
+import com.project.bebudgeting.annuale.entity.uscite.RegaliUsciteEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.RegaliUsciteRepository;
 import com.project.bebudgeting.annuale.service.usciteservice.regaliservice.AltroRegaliService;
 import com.project.bebudgeting.annuale.service.usciteservice.regaliservice.DonazioniBeneficienzaService;
 import com.project.bebudgeting.annuale.service.usciteservice.regaliservice.RegaliDBService;
@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import javassist.NotFoundException;
 
 @Service
-public class RegaliService {
+public class RegaliUsciteService {
     @Autowired
-    RegaliRepository repository;
+    RegaliUsciteRepository repository;
 
     @Autowired
     AltroRegaliService altroRegaliService;
@@ -25,7 +25,7 @@ public class RegaliService {
     DonazioniBeneficienzaService donazioniBeneficienzaService;
 
     @Autowired
-    RegaliDBService regaliService;
+    RegaliDBService regaliDBService;
 
     public long count() {
         return repository.count();
@@ -35,11 +35,11 @@ public class RegaliService {
     public void deleteAll() {
         altroRegaliService.deleteAll();
         donazioniBeneficienzaService.deleteAll();
-        regaliService.deleteAll();
+        regaliDBService.deleteAll();
         repository.deleteAll();
     }
 
-    public void delete(RegaliEntity entity) throws NotFoundException {
+    public void delete(RegaliUsciteEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             if (repository.findById(entity.getId()).isPresent()) {
                 entity.getAltroEntities().forEach(altroEntity -> {
@@ -58,7 +58,7 @@ public class RegaliService {
                 });
                 entity.getRegaliDBEntities().forEach(regaliEntity -> {
                     try {
-                        regaliService.delete(regaliEntity);
+                        regaliDBService.delete(regaliEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
@@ -72,7 +72,7 @@ public class RegaliService {
         }
     }
 
-    public void deleteAll(Iterable<RegaliEntity> entities) {
+    public void deleteAll(Iterable<RegaliUsciteEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -100,7 +100,7 @@ public class RegaliService {
             });
             repository.findById(id).get().getRegaliDBEntities().forEach(regaliEntity -> {
                 try {
-                    regaliService.delete(regaliEntity);
+                    regaliDBService.delete(regaliEntity);
                 } catch (NotFoundException e) {
                     e.printStackTrace();
                 }
@@ -122,27 +122,27 @@ public class RegaliService {
     }
 
     // FIND
-    public Iterable<RegaliEntity> findAll() {
+    public Iterable<RegaliUsciteEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<RegaliEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<RegaliUsciteEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<RegaliEntity> findById(int id) {
+    public Optional<RegaliUsciteEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public RegaliEntity save(RegaliEntity entity) {
+    public RegaliUsciteEntity save(RegaliUsciteEntity entity) {
         altroRegaliService.saveAll(entity.getAltroEntities());
         donazioniBeneficienzaService.saveAll(entity.getDonazioniBeneficenzaEntities());
-        regaliService.saveAll(entity.getRegaliDBEntities());
+        regaliDBService.saveAll(entity.getRegaliDBEntities());
         return repository.save(entity);
     }
 
-    public Iterable<RegaliEntity> saveAll(Iterable<RegaliEntity> entities) {
+    public Iterable<RegaliUsciteEntity> saveAll(Iterable<RegaliUsciteEntity> entities) {
         entities.forEach(this::save);
         return entities;
     }

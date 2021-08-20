@@ -16,15 +16,15 @@ import com.project.bebudgeting.annuale.entity.uscite.AssicurazioneEntity;
 import com.project.bebudgeting.annuale.entity.uscite.BolletteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.CasaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.DebitiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.DivertimentoEntity;
+import com.project.bebudgeting.annuale.entity.uscite.DivertimentoUsciteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.IstruzioneEntity;
-import com.project.bebudgeting.annuale.entity.uscite.RegaliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.RegaliUsciteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.SpeseMedicheEntity;
 import com.project.bebudgeting.annuale.entity.uscite.SpeseQuotidianeEntity;
 import com.project.bebudgeting.annuale.entity.uscite.TecnologiaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.ViaggiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.TrasportiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.TrasportiUsciteEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -61,7 +61,7 @@ public class UsciteAnnualiEntity {
     private Set<DebitiEntity> debitiEntities;
 
     @OneToMany(mappedBy = "Divertimento")
-    private Set<DivertimentoEntity> divertimentoEntities;
+    private Set<DivertimentoUsciteEntity> divertimentoEntities;
 
     @OneToMany(mappedBy = "Figli")
     private Set<FigliEntity> figliEntities;
@@ -70,7 +70,7 @@ public class UsciteAnnualiEntity {
     private Set<IstruzioneEntity> istruzioneEntities;
 
     @OneToMany(mappedBy = "Regali")
-    private Set<RegaliEntity> regaliEntities;
+    private Set<RegaliUsciteEntity> regaliEntities;
 
     @OneToMany(mappedBy = "Spese_Mediche")
     private Set<SpeseMedicheEntity> speseMedicheEntities;
@@ -82,7 +82,7 @@ public class UsciteAnnualiEntity {
     private Set<TecnologiaEntity> tecnologiaEntities;
 
     @OneToMany(mappedBy = "Trasporti")
-    private Set<TrasportiEntity> trasportiEntities;
+    private Set<TrasportiUsciteEntity> trasportiEntities;
 
     @OneToMany(mappedBy = "Viaggi")
     private Set<ViaggiEntity> viaggiEntities;

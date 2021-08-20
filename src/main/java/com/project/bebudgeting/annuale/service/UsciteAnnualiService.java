@@ -10,14 +10,14 @@ import com.project.bebudgeting.annuale.service.usciteservice.AssicurazioneServic
 import com.project.bebudgeting.annuale.service.usciteservice.BolletteService;
 import com.project.bebudgeting.annuale.service.usciteservice.CasaService;
 import com.project.bebudgeting.annuale.service.usciteservice.DebitiService;
-import com.project.bebudgeting.annuale.service.usciteservice.DivertimentoService;
+import com.project.bebudgeting.annuale.service.usciteservice.DivertimentoUsciteService;
 import com.project.bebudgeting.annuale.service.usciteservice.FigliService;
 import com.project.bebudgeting.annuale.service.usciteservice.IstruzioneService;
-import com.project.bebudgeting.annuale.service.usciteservice.RegaliService;
+import com.project.bebudgeting.annuale.service.usciteservice.RegaliUsciteService;
 import com.project.bebudgeting.annuale.service.usciteservice.SpeseMedicheService;
 import com.project.bebudgeting.annuale.service.usciteservice.SpeseQuotidianeService;
 import com.project.bebudgeting.annuale.service.usciteservice.TecnologiaService;
-import com.project.bebudgeting.annuale.service.usciteservice.TrasportiService;
+import com.project.bebudgeting.annuale.service.usciteservice.TrasportiUsciteService;
 import com.project.bebudgeting.annuale.service.usciteservice.ViaggiService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +49,7 @@ public class UsciteAnnualiService {
     DebitiService debitiService;
 
     @Autowired
-    DivertimentoService divertimentoService;
+    DivertimentoUsciteService divertimentoService;
 
     @Autowired
     FigliService figliService;
@@ -58,7 +58,7 @@ public class UsciteAnnualiService {
     IstruzioneService istruzioneService;
 
     @Autowired
-    RegaliService regaliService;
+    RegaliUsciteService regaliService;
 
     @Autowired
     SpeseMedicheService speseMedicheService;
@@ -70,7 +70,7 @@ public class UsciteAnnualiService {
     TecnologiaService tecnologiaService;
 
     @Autowired
-    TrasportiService trasportiService;
+    TrasportiUsciteService trasportiService;
 
     @Autowired
     ViaggiService viaggiService;

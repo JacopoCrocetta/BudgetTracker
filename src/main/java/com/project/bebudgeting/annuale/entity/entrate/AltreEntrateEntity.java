@@ -47,7 +47,7 @@ public class AltreEntrateEntity {
     private Set<InteressiEntity> interessiEntities;
 
     @OneToMany(mappedBy = "Regali")
-    private Set<RegaliEntity> regaliEntities;
+    private Set<RegaliAltreEntrateEntity> regaliEntities;
 
     @OneToMany(mappedBy = "Rimborsi")
     private Set<RimborsiEntity> rimborsiEntities;

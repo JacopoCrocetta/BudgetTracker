@@ -37,7 +37,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Divertimento")
 @NoArgsConstructor
-public class DivertimentoEntity {
+public class DivertimentoUsciteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

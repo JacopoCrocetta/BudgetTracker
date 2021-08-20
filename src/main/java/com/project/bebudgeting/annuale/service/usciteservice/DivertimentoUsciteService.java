@@ -1,7 +1,9 @@
 package com.project.bebudgeting.annuale.service.usciteservice;
 
-import com.project.bebudgeting.annuale.entity.uscite.DivertimentoEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.DivertimentoRepository;
+import java.util.Optional;
+
+import com.project.bebudgeting.annuale.entity.uscite.DivertimentoUsciteEntity;
+import com.project.bebudgeting.annuale.repository.usciteannuali.DivertimentoUsciteRepository;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.AltroDivertimentoService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.AttivitaOutsideService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.ConcertiOSpettacoliService;
@@ -15,16 +17,15 @@ import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.TVService;
 import com.project.bebudgeting.annuale.service.usciteservice.divertimentoservice.TeatroService;
 
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javassist.NotFoundException;
 
 @Service
-public class DivertimentoService {
+public class DivertimentoUsciteService {
     @Autowired
-    DivertimentoRepository repository;
+    DivertimentoUsciteRepository repository;
 
     @Autowired
     AltroDivertimentoService altroDivertimentoService;
@@ -83,7 +84,7 @@ public class DivertimentoService {
         repository.deleteAll();
     }
 
-    public void delete(DivertimentoEntity entity) throws NotFoundException {
+    public void delete(DivertimentoUsciteEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             if (repository.findById(entity.getId()).isPresent()) {
                 if (!repository.findById(entity.getId()).get().getAltroEntities().isEmpty()) {
@@ -205,7 +206,7 @@ public class DivertimentoService {
         }
     }
 
-    public void deleteAll(Iterable<DivertimentoEntity> entities) {
+    public void deleteAll(Iterable<DivertimentoUsciteEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -337,20 +338,20 @@ public class DivertimentoService {
     }
 
     // FIND
-    public Iterable<DivertimentoEntity> findAll() {
+    public Iterable<DivertimentoUsciteEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<DivertimentoEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<DivertimentoUsciteEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<DivertimentoEntity> findById(int id) {
+    public Optional<DivertimentoUsciteEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public DivertimentoEntity save(DivertimentoEntity entity) {
+    public DivertimentoUsciteEntity save(DivertimentoUsciteEntity entity) {
         altroDivertimentoService.saveAll(entity.getAltroEntities());
         attivitaOutsideService.saveAll(entity.getAttivitaOutsideEntities());
         filmService.saveAll(entity.getFilmEntities());
@@ -365,7 +366,7 @@ public class DivertimentoService {
         return repository.save(entity);
     }
 
-    public Iterable<DivertimentoEntity> saveAll(Iterable<DivertimentoEntity> entities) {
+    public Iterable<DivertimentoUsciteEntity> saveAll(Iterable<DivertimentoUsciteEntity> entities) {
         entities.forEach(this::save);
         return entities;
     }

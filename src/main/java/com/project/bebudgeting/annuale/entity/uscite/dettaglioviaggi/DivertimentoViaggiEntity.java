@@ -24,7 +24,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "Divertimento")
 @NoArgsConstructor
-public class DivertimentoEntity {
+public class DivertimentoViaggiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

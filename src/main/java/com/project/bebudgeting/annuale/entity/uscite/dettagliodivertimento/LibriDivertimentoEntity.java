@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.uscite.DivertimentoEntity;
+import com.project.bebudgeting.annuale.entity.uscite.DivertimentoUsciteEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -31,7 +31,7 @@ public class LibriDivertimentoEntity {
 
     @ManyToOne
     @JoinColumn(name = "idDivertimento")
-    private DivertimentoEntity entity;
+    private DivertimentoUsciteEntity entity;
 
     BigDecimal totale_mensile;
     LocalDate data_inserimento;

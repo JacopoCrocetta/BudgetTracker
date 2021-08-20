@@ -7,9 +7,9 @@ import com.project.bebudgeting.annuale.repository.usciteannuali.ViaggiRepository
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.AlimentiViaggiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.AltroViaggiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.BigliettiAereiService;
-import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.DivertimentoService;
+import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.DivertimentoViaggiService;
 import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.HotelService;
-import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.TrasportiService;
+import com.project.bebudgeting.annuale.service.usciteservice.viaggiservice.TrasportiViaggiService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,13 +31,13 @@ public class ViaggiService {
     BigliettiAereiService bigliettiAereiService;
 
     @Autowired
-    DivertimentoService divertimentoService;
+    DivertimentoViaggiService divertimentoService;
 
     @Autowired
     HotelService hotelService;
 
     @Autowired
-    TrasportiService trasportiService;
+    TrasportiViaggiService trasportiService;
 
     public long count() {
         return repository.count();

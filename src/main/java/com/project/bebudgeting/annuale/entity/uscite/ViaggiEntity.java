@@ -16,9 +16,9 @@ import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AlimentiViaggiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.AltroViaggiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.BigliettiAereiEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.DivertimentoEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.DivertimentoViaggiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.HotelEntity;
-import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.TrasportiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettaglioviaggi.TrasportiViaggiEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -52,11 +52,11 @@ public class ViaggiEntity {
     private Set<BigliettiAereiEntity> bigliettiAereiEntities;
 
     @OneToMany(mappedBy = "Divertimento")
-    private Set<DivertimentoEntity> divertimentoEntities;
+    private Set<DivertimentoViaggiEntity> divertimentoEntities;
 
     @OneToMany(mappedBy = "Hotel")
     private Set<HotelEntity> hotelEntities;
 
     @OneToMany(mappedBy = "Trasporti")
-    private Set<TrasportiEntity> trasportiEntities;
+    private Set<TrasportiViaggiEntity> trasportiEntities;
 }

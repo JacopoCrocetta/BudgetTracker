@@ -28,7 +28,7 @@ public class AltreEntrateService {
     RimborsiService rimborsiService;
 
     @Autowired
-    RegaliService regaliService;
+    RegaliAltreEntrateService regaliService;
 
     @Autowired
     TrasferimentoRisparmiService trasferimentoRisparmiService;
