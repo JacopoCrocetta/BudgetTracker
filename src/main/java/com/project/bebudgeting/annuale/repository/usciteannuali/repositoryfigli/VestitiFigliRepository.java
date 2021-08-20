@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VestitiRepository extends CrudRepository<VestitiFigliEntity, Integer> {
+public interface VestitiFigliRepository extends CrudRepository<VestitiFigliEntity, Integer> {
 
 }

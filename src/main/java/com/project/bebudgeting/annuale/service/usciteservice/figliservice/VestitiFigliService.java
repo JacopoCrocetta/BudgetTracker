@@ -3,7 +3,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.VestitiFigliEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.VestitiRepository;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.VestitiFigliRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.istruzioneservice;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioistruzione.AltroIstruzioneEntity;
-import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryistruzione.AltroRepository;
+import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryistruzione.AltroIstruzioneRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

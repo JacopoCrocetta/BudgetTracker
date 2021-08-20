@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AltroRepository extends CrudRepository<AltroIstruzioneEntity, Integer> {
+public interface AltroIstruzioneRepository extends CrudRepository<AltroIstruzioneEntity, Integer> {
 
 }
