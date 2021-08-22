@@ -9,4 +9,8 @@ import org.springframework.stereotype.Service;
 public class BustaPagaEffettiveService {
     @Autowired
     BustaPagaEffettiviRepository repository;
+
+    public long count() {
+        return repository.count();
+    }
 }

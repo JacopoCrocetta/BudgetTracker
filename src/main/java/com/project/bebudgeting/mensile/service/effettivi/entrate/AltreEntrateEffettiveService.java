@@ -9,4 +9,8 @@ import org.springframework.stereotype.Service;
 public class AltreEntrateEffettiveService {
     @Autowired
     AltreEntrateEffettiveRepository repository;
+
+    public long count() {
+        return repository.count();
+    }
 }

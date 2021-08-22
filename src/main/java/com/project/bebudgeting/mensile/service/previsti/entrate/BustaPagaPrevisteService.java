@@ -1,0 +1,12 @@
+package com.project.bebudgeting.mensile.service.previsti.entrate;
+
+import com.project.bebudgeting.mensile.repository.previsti.entrate.BustaPagaPrevisteRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BustaPagaPrevisteService {
+    @Autowired
+    BustaPagaPrevisteRepository repository;
+}

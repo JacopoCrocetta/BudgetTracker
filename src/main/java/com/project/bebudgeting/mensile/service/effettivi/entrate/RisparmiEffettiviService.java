@@ -9,4 +9,8 @@ import org.springframework.stereotype.Service;
 public class RisparmiEffettiviService {
     @Autowired
     RisparmiEffettiviRepository repository;
+
+    public long count() {
+        return repository.count();
+    }
 }
