@@ -80,7 +80,6 @@ public class SpeseQuotidianeService {
                     try {
                         altreSpeseQuotidianeService.delete(altroEntity);
                     } catch (NotFoundException e) {
-                        // TODO: handle exception
                         e.printStackTrace();
                     }
                 });
@@ -156,7 +155,7 @@ public class SpeseQuotidianeService {
     }
 
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)||repository.findById(id).isPresent()) {
+        if (repository.existsById(id) || repository.findById(id).isPresent()) {
             if (!repository.findById(id).get().getAbbonamentiEntities().isEmpty()) {
                 abbonamentiService.deleteById(id);
             }
