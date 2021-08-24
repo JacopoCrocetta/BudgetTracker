@@ -21,19 +21,19 @@ public class EntratePrevisteService {
     EntratePrevisteRepository repository;
 
     @Autowired
-    AltreEntratePrevisteService altreEntrateEffettiveService;
+    AltreEntratePrevisteService altreEntratePrevisteService;
 
     @Autowired
-    BonusPrevistiService bonusEffettiviService;
+    BonusPrevistiService bonusPrevistiService;
 
     @Autowired
-    BustaPagaPrevisteService bustaPagaEffettiveService;
+    BustaPagaPrevisteService bustaPagaPrevisteService;
 
     @Autowired
-    InteressiPrevistiService interessiEffettiviService;
+    InteressiPrevistiService interessiPrevistiService;
 
     @Autowired
-    RisparmiPrevistiService risparmiEffettiviService;
+    RisparmiPrevistiService risparmiPrevistiService;
 
     public long count() {
         return repository.count();
@@ -41,56 +41,56 @@ public class EntratePrevisteService {
 
     // DELETE
     public void deleteAll() {
-        altreEntrateEffettiveService.deleteAll();
-        bonusEffettiviService.deleteAll();
-        bustaPagaEffettiveService.deleteAll();
-        interessiEffettiviService.deleteAll();
-        risparmiEffettiviService.deleteAll();
+        altreEntratePrevisteService.deleteAll();
+        bonusPrevistiService.deleteAll();
+        bustaPagaPrevisteService.deleteAll();
+        interessiPrevistiService.deleteAll();
+        risparmiPrevistiService.deleteAll();
         repository.deleteAll();
     }
 
     public void delete(EntratePrevisteEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             entity.getAltreEntratePrevisteEntities().forEach(altreEntrateEntity -> {
-                if (altreEntrateEffettiveService.findById(altreEntrateEntity.getId()).isPresent()) {
+                if (altreEntratePrevisteService.findById(altreEntrateEntity.getId()).isPresent()) {
                     try {
-                        altreEntrateEffettiveService.delete(altreEntrateEntity);
+                        altreEntratePrevisteService.delete(altreEntrateEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             entity.getBonusPrevistiEntities().forEach(bonusEntity -> {
-                if (bonusEffettiviService.findById(bonusEntity.getId()).isPresent()) {
+                if (bonusPrevistiService.findById(bonusEntity.getId()).isPresent()) {
                     try {
-                        bonusEffettiviService.delete(bonusEntity);
+                        bonusPrevistiService.delete(bonusEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             entity.getBustaPagaPrevisteEntities().forEach(bustaPagaEntity -> {
-                if (bustaPagaEffettiveService.findById(bustaPagaEntity.getId()).isPresent()) {
+                if (bustaPagaPrevisteService.findById(bustaPagaEntity.getId()).isPresent()) {
                     try {
-                        bustaPagaEffettiveService.delete(bustaPagaEntity);
+                        bustaPagaPrevisteService.delete(bustaPagaEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             entity.getInteressiPrevistiEntities().forEach(interessiEntity -> {
-                if (interessiEffettiviService.findById(interessiEntity.getId()).isPresent()) {
+                if (interessiPrevistiService.findById(interessiEntity.getId()).isPresent()) {
                     try {
-                        interessiEffettiviService.delete(interessiEntity);
+                        interessiPrevistiService.delete(interessiEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             entity.getRisparmiPrevistiEntities().forEach(risparmiEntity -> {
-                if (risparmiEffettiviService.findById(risparmiEntity.getId()).isPresent()) {
+                if (risparmiPrevistiService.findById(risparmiEntity.getId()).isPresent()) {
                     try {
-                        risparmiEffettiviService.delete(risparmiEntity);
+                        risparmiPrevistiService.delete(risparmiEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
@@ -104,45 +104,45 @@ public class EntratePrevisteService {
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.findById(id).get().getAltreEntratePrevisteEntities().forEach(altreEntrateEntity -> {
-                if (altreEntrateEffettiveService.findById(altreEntrateEntity.getId()).isPresent()) {
+                if (altreEntratePrevisteService.findById(altreEntrateEntity.getId()).isPresent()) {
                     try {
-                        altreEntrateEffettiveService.delete(altreEntrateEntity);
+                        altreEntratePrevisteService.delete(altreEntrateEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             repository.findById(id).get().getBonusPrevistiEntities().forEach(bonusEntity -> {
-                if (bonusEffettiviService.findById(bonusEntity.getId()).isPresent()) {
+                if (bonusPrevistiService.findById(bonusEntity.getId()).isPresent()) {
                     try {
-                        bonusEffettiviService.delete(bonusEntity);
+                        bonusPrevistiService.delete(bonusEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             repository.findById(id).get().getBustaPagaPrevisteEntities().forEach(bustaPagaEntity -> {
-                if (bustaPagaEffettiveService.findById(bustaPagaEntity.getId()).isPresent()) {
+                if (bustaPagaPrevisteService.findById(bustaPagaEntity.getId()).isPresent()) {
                     try {
-                        bustaPagaEffettiveService.delete(bustaPagaEntity);
+                        bustaPagaPrevisteService.delete(bustaPagaEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             repository.findById(id).get().getInteressiPrevistiEntities().forEach(interessiEntity -> {
-                if (interessiEffettiviService.findById(interessiEntity.getId()).isPresent()) {
+                if (interessiPrevistiService.findById(interessiEntity.getId()).isPresent()) {
                     try {
-                        interessiEffettiviService.delete(interessiEntity);
+                        interessiPrevistiService.delete(interessiEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
                 }
             });
             repository.findById(id).get().getRisparmiPrevistiEntities().forEach(risparmiEntity -> {
-                if (risparmiEffettiviService.findById(risparmiEntity.getId()).isPresent()) {
+                if (risparmiPrevistiService.findById(risparmiEntity.getId()).isPresent()) {
                     try {
-                        risparmiEffettiviService.delete(risparmiEntity);
+                        risparmiPrevistiService.delete(risparmiEntity);
                     } catch (NotFoundException e) {
                         e.printStackTrace();
                     }
@@ -188,11 +188,11 @@ public class EntratePrevisteService {
 
     // SAVE
     public EntratePrevisteEntity save(EntratePrevisteEntity entity) {
-        altreEntrateEffettiveService.saveAll(entity.getAltreEntratePrevisteEntities());
-        bonusEffettiviService.saveAll(entity.getBonusPrevistiEntities());
-        bustaPagaEffettiveService.saveAll(entity.getBustaPagaPrevisteEntities());
-        interessiEffettiviService.saveAll(entity.getInteressiPrevistiEntities());
-        risparmiEffettiviService.saveAll(entity.getRisparmiPrevistiEntities());
+        altreEntratePrevisteService.saveAll(entity.getAltreEntratePrevisteEntities());
+        bonusPrevistiService.saveAll(entity.getBonusPrevistiEntities());
+        bustaPagaPrevisteService.saveAll(entity.getBustaPagaPrevisteEntities());
+        interessiPrevistiService.saveAll(entity.getInteressiPrevistiEntities());
+        risparmiPrevistiService.saveAll(entity.getRisparmiPrevistiEntities());
         return repository.save(entity);
     }
 
