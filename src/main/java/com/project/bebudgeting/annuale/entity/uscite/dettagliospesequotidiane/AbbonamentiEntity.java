@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Abbonamenti")
+@Table(name = "abbonamenti")
 @NoArgsConstructor
 public class AbbonamentiEntity {
     @Id

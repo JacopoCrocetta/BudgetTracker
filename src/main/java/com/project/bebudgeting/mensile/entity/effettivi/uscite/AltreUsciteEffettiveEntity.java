@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Altre_Spese_Effettive")
+@Table(name = "altre_spese_effettive")
 @Data
 @NoArgsConstructor
 @Getter
@@ -30,7 +30,7 @@ public class AltreUsciteEffettiveEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idUsciteMensiliEffettive")
+    @JoinColumn(name = "iduscitemensilieffettive", insertable = false, updatable = false)
     private UsciteEffettiveEntity entity;
 
     BigDecimal totale_mensile;

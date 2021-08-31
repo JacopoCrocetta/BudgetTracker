@@ -7,9 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.project.bebudgeting.mensile.entity.UsciteMensiliEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.uscite.AlimentiEffettiviEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.uscite.AltreUsciteEffettiveEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.uscite.AnimaliDomesticiEffettiviEntity;
@@ -28,7 +31,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Uscita_Effettive")
+@Table(name = "uscite_mensili_effettive")
 @Data
 @NoArgsConstructor
 @Getter
@@ -40,36 +43,51 @@ public class UsciteEffettiveEntity {
 
     LocalDate data_inserimento;
 
-    @OneToMany(mappedBy = "AlimentiEffettiviEntity")
+    @ManyToOne
+    @JoinColumn(name = "iduscitemensile", insertable = false, updatable = false)
+    private UsciteMensiliEntity usciteMensiliEntity;
+
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<AlimentiEffettiviEntity> alimentiEffettiviEntities;
 
-    @OneToMany(mappedBy = "AltreUsciteEffettiveEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<AltreUsciteEffettiveEntity> altreUsciteEffettiveEntities;
 
-    @OneToMany(mappedBy = "AnimaliDomesticiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<AnimaliDomesticiEffettiviEntity> animaliDomesticiEffettiviEntities;
 
-    @OneToMany(mappedBy = "BolletteEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<BolletteEffettiviEntity> bolletteEffettiviEntities;
 
-    @OneToMany(mappedBy = "CasaEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<CasaEffettiviEntity> casaEffettiviEntities;
 
-    @OneToMany(mappedBy = "DebitiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<DebitiEffettiviEntity> debitiEffettiviEntities;
 
-    @OneToMany(mappedBy = "RegaliEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<RegaliEffettiviEntity> regaliEffettiviEntities;
 
-    @OneToMany(mappedBy = "SpeseMedicheEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<SpeseMedicheEffettiviEntity> speseMedicheEffettiviEntities;
 
-    @OneToMany(mappedBy = "SpesePersonaliEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<SpesePersonaliEffettiviEntity> spesePersonaliEffettiviEntities;
 
-    @OneToMany(mappedBy = "TrasportiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<TrasportiEffettiviEntity> trasportiEffettiviEntities;
 
-    @OneToMany(mappedBy = "ViaggiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "iduscitemensilieffettive")
     private Set<ViaggiEffettiviEntity> viaggiEffettiviEntities;
 }

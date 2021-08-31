@@ -7,9 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.project.bebudgeting.mensile.entity.EntrateMensiliEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.entrate.AltreEntrateEffettiveEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.entrate.BonusEffettiviEntity;
 import com.project.bebudgeting.mensile.entity.effettivi.entrate.BustaPagaEffettiveEntity;
@@ -22,7 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Entrate_Effettive")
+@Table(name = "entrate_mensili_effettive")
 @Data
 @NoArgsConstructor
 @Getter
@@ -34,18 +37,27 @@ public class EntrateEffettiveEntity {
 
     LocalDate data_inserimento;
 
-    @OneToMany(mappedBy = "AltreEntrateEffettiveEntity")
+    @ManyToOne
+    @JoinColumn(name = "identratemensile", insertable = false, updatable = false)
+    private EntrateMensiliEntity entrateMensiliEntity;
+
+    @OneToMany
+    @JoinColumn(name = "identrataeffettiva")
     private Set<AltreEntrateEffettiveEntity> altreEntrateEffettiveEntities;
 
-    @OneToMany(mappedBy = "BonusEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataeffettiva")
     private Set<BonusEffettiviEntity> bonusEffettiviEntities;
 
-    @OneToMany(mappedBy = "BustaPagaEffettiveEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataeffettiva")
     private Set<BustaPagaEffettiveEntity> bustaPagaEffettiveEntities;
 
-    @OneToMany(mappedBy = "InteressiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataeffettiva")
     private Set<InteressiEffettiviEntity> interessiEffettiviEntities;
 
-    @OneToMany(mappedBy = "RisparmiEffettiviEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataeffettiva")
     private Set<RisparmiEffettiviEntity> risparmiEffettiviEntities;
 }

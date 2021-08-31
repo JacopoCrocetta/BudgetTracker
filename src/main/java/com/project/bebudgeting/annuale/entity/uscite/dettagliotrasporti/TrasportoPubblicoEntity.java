@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Trasporto_Pubblico")
+@Table(name = "trasporto_pubblico")
 @NoArgsConstructor
 public class TrasportoPubblicoEntity {
     @Id

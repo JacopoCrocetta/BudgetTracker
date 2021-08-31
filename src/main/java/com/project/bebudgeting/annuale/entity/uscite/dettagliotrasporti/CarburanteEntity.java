@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Carburante")
+@Table(name = "carburante")
 @NoArgsConstructor
 public class CarburanteEntity {
     @Id

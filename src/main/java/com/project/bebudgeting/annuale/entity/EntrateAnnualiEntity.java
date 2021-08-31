@@ -36,6 +36,7 @@ public class EntrateAnnualiEntity {
     @JoinColumn(name = "entrateid")
     private Set<SalarioEntity> salarioEntities;
 
+    @OneToMany
     @JoinColumn(name = "entrateid")
     private Set<AltreEntrateEntity> altreEntrateEntities;
 

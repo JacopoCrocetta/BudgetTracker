@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Hardware")
+@Table(name = "hardware")
 @NoArgsConstructor
 public class HardwareEntity {
     @Id

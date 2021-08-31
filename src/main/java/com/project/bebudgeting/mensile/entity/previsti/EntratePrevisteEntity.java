@@ -7,9 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.project.bebudgeting.mensile.entity.EntrateMensiliEntity;
 import com.project.bebudgeting.mensile.entity.previsti.entrate.AltreEntratePrevisteEntity;
 import com.project.bebudgeting.mensile.entity.previsti.entrate.BonusPrevistiEntity;
 import com.project.bebudgeting.mensile.entity.previsti.entrate.BustaPagaPrevisteEntity;
@@ -22,7 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Entrate_Previste")
+@Table(name = "entrate_mensili_previste")
 @Data
 @NoArgsConstructor
 @Getter
@@ -34,18 +37,27 @@ public class EntratePrevisteEntity {
 
     LocalDate data_inserimento;
 
-    @OneToMany(mappedBy = "AltreEntratePrevisteEntity")
+    @ManyToOne
+    @JoinColumn(name = "identratemensile", insertable = false, updatable = false)
+    private EntrateMensiliEntity entrateMensiliEntity;
+
+    @OneToMany
+    @JoinColumn(name = "identrataprevista")
     private Set<AltreEntratePrevisteEntity> altreEntratePrevisteEntities;
 
-    @OneToMany(mappedBy = "BonusPrevistiEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataprevista")
     private Set<BonusPrevistiEntity> bonusPrevistiEntities;
 
-    @OneToMany(mappedBy = "BustaPagaPrevisteEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataprevista")
     private Set<BustaPagaPrevisteEntity> bustaPagaPrevisteEntities;
 
-    @OneToMany(mappedBy = "InteressiPrevistiEntity")
+    @OneToMany
+    @JoinColumn(name = "identrataprevista")
     private Set<InteressiPrevistiEntity> interessiPrevistiEntities;
 
-    @OneToMany(mappedBy = "RisparmiPrevistiEntity")
+    @OneToMany
+    @JoinColumn(name = "RisparmiPrevistiEntity")
     private Set<RisparmiPrevistiEntity> risparmiPrevistiEntities;
 }

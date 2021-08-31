@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Hotel")
+@Table(name = "hotel_viaggi")
 @NoArgsConstructor
 public class HotelEntity {
     @Id
