@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Interessi")
+@Table(name = "regali")
 @NoArgsConstructor
 public class RegaliAltreEntrateEntity {
     @Id

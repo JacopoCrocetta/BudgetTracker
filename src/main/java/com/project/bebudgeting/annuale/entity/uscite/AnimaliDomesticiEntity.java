@@ -21,7 +21,7 @@ import java.util.Set;
 @Data
 @Getter
 @Setter
-@Table(name = "Animali_Domestici")
+@Table(name = "animali_domestici")
 @NoArgsConstructor
 public class AnimaliDomesticiEntity {
     @Id
@@ -31,21 +31,26 @@ public class AnimaliDomesticiEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita", insertable = false, updatable = false)
+    @JoinColumn(name = "iduscita", insertable = false, updatable = false)
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Alimenti")
+    @OneToMany
+    @JoinColumn(name = "idanimali")
     Set<AlimentiAnimaliDomesticiEntity> alimentiEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idanimali")
     Set<AltroAnimaliDomesticiEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Forniture")
+    @OneToMany
+    @JoinColumn(name = "idanimali")
     Set<FornitureAnimaliDomesticiEntity> fornitureEntities;
 
-    @OneToMany(mappedBy = "Giocattoli")
+    @OneToMany
+    @JoinColumn(name = "idanimali")
     Set<GiocattoliAnimaliDomesticiEntity> giocattoliEntity;
 
-    @OneToMany(mappedBy = "Veterinario")
+    @OneToMany
+    @JoinColumn(name = "idanimali")
     Set<VeterinarioAnimaliDomesticiEntity> veterinarioEntities;
 }

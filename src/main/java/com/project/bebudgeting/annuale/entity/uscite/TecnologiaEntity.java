@@ -28,7 +28,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Tecnologia")
+@Table(name = "tecnologia")
 @NoArgsConstructor
 public class TecnologiaEntity {
     @Id
@@ -38,21 +38,26 @@ public class TecnologiaEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Hardware")
+    @OneToMany
+    @JoinColumn(name = "idtecnologia")
     private Set<HardwareEntity> hardwareEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idtecnologia")
     private Set<AltroTecnologiaEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Hosting")
+    @OneToMany
+    @JoinColumn(name = "idtecnologia")
     private Set<HostingEntity> hostingEntities;
 
-    @OneToMany(mappedBy = "Servizi_Online")
+    @OneToMany
+    @JoinColumn(name = "idtecnologia")
     private Set<ServiziOnlineEntity> serviziOnlineEntities;
 
-    @OneToMany(mappedBy = "Software")
+    @OneToMany
+    @JoinColumn(name = "idtecnologia")
     private Set<SoftwareEntity> softwareEntities;
 }

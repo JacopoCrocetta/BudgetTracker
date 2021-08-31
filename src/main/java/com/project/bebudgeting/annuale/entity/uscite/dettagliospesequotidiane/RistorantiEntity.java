@@ -30,7 +30,7 @@ public class RistorantiEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idSpesaQuotidiana")
+    @JoinColumn(name = "idspesequotidiane", insertable = false, updatable = false)
     private SpeseQuotidianeEntity entity;
 
     BigDecimal totale_mensile;

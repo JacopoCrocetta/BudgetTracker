@@ -31,7 +31,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Bollette")
+@Table(name = "bollette")
 @NoArgsConstructor
 public class BolletteEntity {
     @Id
@@ -41,30 +41,38 @@ public class BolletteEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Altre_Bollette")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<AltreBolletteEntity> altreBolletteEntities;
 
-    @OneToMany(mappedBy = "Bollette_Acqua")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteAcquaEntity> bolletteAcquaEntities;
 
-    @OneToMany(mappedBy = "Bollette_Elettricita")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteElettricitaEntity> bolletteElettricitaEntities;
 
-    @OneToMany(mappedBy = "Bollette_Gas")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteGASEntity> bolletteGASEntities;
 
-    @OneToMany(mappedBy = "Bollette_Internet")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteInternetEntity> bolletteInternetEntities;
 
-    @OneToMany(mappedBy = "Bollette_Rifiuti")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteRifiutiEntity> bolletteRifiutiEntities;
 
-    @OneToMany(mappedBy = "Bollette_Telefono")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteTelefonoEntity> bolletteTelefonoEntities;
 
-    @OneToMany(mappedBy = "Bollette_TV")
+    @OneToMany
+    @JoinColumn(name = "idbollette")
     private Set<BolletteTVEntity> bolletteTVEntities;
 }

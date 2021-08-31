@@ -32,7 +32,7 @@ import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.TraslocoEntit
 @Data
 @Getter
 @Setter
-@Table(name = "Casa")
+@Table(name = "casa")
 @NoArgsConstructor
 public class CasaEntity {
     @Id
@@ -42,33 +42,42 @@ public class CasaEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Affitto")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<AffittoEntity> affittoEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<AltroCasaEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Arredamento")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<ArredamentoEntity> arredamentoEntities;
 
-    @OneToMany(mappedBy = "Forniture")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<FornitureCasaEntity> fornitureEntities;
 
-    @OneToMany(mappedBy = "Giardinaggio")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<GiardinaggioEntity> giardinaggioEntities;
 
-    @OneToMany(mappedBy = "Imposte_Immobiliari")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<ImposteImmobiliEntity> imposteImmobiliEntities;
 
-    @OneToMany(mappedBy = "Manutenzione")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<ManutenzioneEntity> manutenzioneEntities;
 
-    @OneToMany(mappedBy = "Miglioramenti")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<MiglioramentiEntity> miglioramentiEntities;
 
-    @OneToMany(mappedBy = "Trasloco")
+    @OneToMany
+    @JoinColumn(name = "idcasa")
     private Set<TraslocoEntity> traslocoEntities;
 }

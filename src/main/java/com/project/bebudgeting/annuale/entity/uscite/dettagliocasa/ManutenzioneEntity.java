@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Manutenzione_Casa")
+@Table(name = "manutenzione_casa")
 @NoArgsConstructor
 public class ManutenzioneEntity {
     @Id
@@ -30,7 +30,7 @@ public class ManutenzioneEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idCasa")
+    @JoinColumn(name = "idcasa", insertable = false, updatable = false)
     private CasaEntity entity;
 
     BigDecimal totale_mensile;

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Data
 @Getter
 @Setter
-@Table(name = "Assicurazione_Auto")
+@Table(name = "assicurazione_auto")
 @NoArgsConstructor
 public class AssicurazioneAutoEntity {
     @Id
@@ -29,7 +29,7 @@ public class AssicurazioneAutoEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idAssicurazione")
+    @JoinColumn(name = "idassicurazione", insertable = false, updatable = false)
     private AssicurazioneEntity assicurazioneEntity;
 
     BigDecimal totale_mensile;

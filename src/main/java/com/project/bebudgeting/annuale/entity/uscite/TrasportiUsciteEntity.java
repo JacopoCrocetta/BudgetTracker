@@ -30,7 +30,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Trasporti")
+@Table(name = "trasporti")
 @NoArgsConstructor
 public class TrasportiUsciteEntity {
     @Id
@@ -40,27 +40,34 @@ public class TrasportiUsciteEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Bollo")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<BolloEntity> bolloEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<AltroTrasportiEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Carburante")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<CarburanteEntity> carburanteEntities;
 
-    @OneToMany(mappedBy = "Forniture")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<FornitureTrasportiEntity> fornitureEntities;
 
-    @OneToMany(mappedBy = "Prestito_Auto")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<PrestitoAutoEntity> prestitoAutoEntities;
 
-    @OneToMany(mappedBy = "Riparazioni")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<RiparazioniEntity> riparazioniEntities;
 
-    @OneToMany(mappedBy = "Trasporto_Pubblico")
+    @OneToMany
+    @JoinColumn(name = "idtrasporti")
     private Set<TrasportoPubblicoEntity> trasportoPubblicoEntities;
 }

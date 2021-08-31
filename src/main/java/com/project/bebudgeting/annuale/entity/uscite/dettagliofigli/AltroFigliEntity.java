@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Altre_Uscite_Figli")
+@Table(name = "altro_figli")
 @NoArgsConstructor
 public class AltroFigliEntity {
     @Id
@@ -22,7 +22,7 @@ public class AltroFigliEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idFigli")
+    @JoinColumn(name = "idfigli", insertable = false, updatable = false)
     private FigliEntity figliEntity;
 
     BigDecimal totale_mensile;

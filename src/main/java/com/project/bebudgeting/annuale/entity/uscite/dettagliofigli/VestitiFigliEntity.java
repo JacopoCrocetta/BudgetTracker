@@ -21,7 +21,7 @@ public class VestitiFigliEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idFigli")
+    @JoinColumn(name = "idfigli", insertable = false, updatable = false)
     private FigliEntity figliEntity;
 
     BigDecimal totale_mensile;

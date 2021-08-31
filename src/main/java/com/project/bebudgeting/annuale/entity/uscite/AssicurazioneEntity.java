@@ -21,7 +21,7 @@ import javax.persistence.*;
 @Data
 @Getter
 @Setter
-@Table(name = "Assicurazioni")
+@Table(name = "assicurazione")
 @NoArgsConstructor
 public class AssicurazioneEntity {
     @Id
@@ -31,21 +31,26 @@ public class AssicurazioneEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Altre_Assicurazioni")
+    @OneToMany
+    @JoinColumn(name = "idassicurazione")
     private Set<AltreAssicurazioniEntity> altreAssicurazioniEntities;
 
-    @OneToMany(mappedBy = "Assicurazione_Auto")
+    @OneToMany
+    @JoinColumn(name = "idassicurazione")
     private Set<AssicurazioneAutoEntity> assicurazioneAutoEntities;
 
-    @OneToMany(mappedBy = "Assicurazione_Casa")
+    @OneToMany
+    @JoinColumn(name = "idassicurazione")
     private Set<AssicurazioneCasaEntity> assicurazioneCasaEntities;
 
-    @OneToMany(mappedBy = "Assicurazione_Salute")
+    @OneToMany
+    @JoinColumn(name = "idassicurazione")
     private Set<AssicurazioneSaluteEntity> assicurazioneSaluteEntities;
 
-    @OneToMany(mappedBy = "Assicurazione_Vita")
+    @OneToMany
+    @JoinColumn(name = "idassicurazione")
     private Set<AssicurazioneVitaEntity> assicurazioneVitaEntities;
 }

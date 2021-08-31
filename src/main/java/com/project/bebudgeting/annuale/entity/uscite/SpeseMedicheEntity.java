@@ -28,7 +28,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Spese_Mediche")
+@Table(name = "spese_mediche")
 @NoArgsConstructor
 public class SpeseMedicheEntity {
     @Id
@@ -38,21 +38,26 @@ public class SpeseMedicheEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Cure_Specialistiche")
+    @OneToMany
+    @JoinColumn(name = "idspesemediche")
     private Set<CureSpecialisticheEntity> cureSpecialisticheEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idspesemediche")
     private Set<AltroSpeseMedicheEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Dottore")
+    @OneToMany
+    @JoinColumn(name = "idspesemediche")
     private Set<DottoriEntity> dottoriEntities;
 
-    @OneToMany(mappedBy = "Emergente")
+    @OneToMany
+    @JoinColumn(name = "idspesemediche")
     private Set<EmergenzeEntity> emergenzeEntities;
 
-    @OneToMany(mappedBy = "Farmaci")
+    @OneToMany
+    @JoinColumn(name = "idspesemediche")
     private Set<FarmaciEntity> farmaciEntities;
 }

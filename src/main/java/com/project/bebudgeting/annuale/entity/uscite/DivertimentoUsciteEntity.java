@@ -35,7 +35,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Divertimento")
+@Table(name = "divertimento")
 @NoArgsConstructor
 public class DivertimentoUsciteEntity {
     @Id
@@ -45,42 +45,54 @@ public class DivertimentoUsciteEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<AltroDivertimentoEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Attivita_Outside")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<AttivitaOutsideEntity> attivitaOutsideEntities;
 
-    @OneToMany(mappedBy = "Concerti")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<ConcertiOSpettacoliEntity> concertiOSpettacoliEntities;
 
-    @OneToMany(mappedBy = "Film")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<FilmEntity> filmEntities;
 
-    @OneToMany(mappedBy = "Fotografia")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<FotografiaEntity> fotografiaEntities;
 
-    @OneToMany(mappedBy = "Hobby")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<HobbyEntity> hobbyEntities;
 
-    @OneToMany(mappedBy = "Libri")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<LibriDivertimentoEntity> libriEntities;
 
-    @OneToMany(mappedBy = "Musica")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<MusicaEntity> musicaEntities;
 
-    @OneToMany(mappedBy = "Partite")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<PartiteEntity> partiteEntities;
 
-    @OneToMany(mappedBy = "Sport")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<SportEntity> sportEntities;
 
-    @OneToMany(mappedBy = "Teatro")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<TeatroEntity> teatroEntities;
 
-    @OneToMany(mappedBy = "Televisione")
+    @OneToMany
+    @JoinColumn(name = "iddivertimento")
     private Set<TVEntity> tvEntities;
 }

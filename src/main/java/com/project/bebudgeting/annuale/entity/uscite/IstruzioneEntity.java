@@ -27,7 +27,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Istruzione")
+@Table(name = "istruzione")
 @NoArgsConstructor
 public class IstruzioneEntity {
     @Id
@@ -37,18 +37,22 @@ public class IstruzioneEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Lezioni_Indipendenti")
+    @OneToMany
+    @JoinColumn(name = "idistruzione")
     private Set<LezioniIndipendentiEntity> lezioniIndipendentiEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idistruzione")
     private Set<AltroIstruzioneEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Libri_Comprati")
+    @OneToMany
+    @JoinColumn(name = "idistruzione")
     private Set<LibriIstruzioneEntity> libriEntities;
 
-    @OneToMany(mappedBy = "Rette_Scolastiche")
+    @OneToMany
+    @JoinColumn(name = "idistruzione")
     private Set<RetteEntity> retteEntities;
 }

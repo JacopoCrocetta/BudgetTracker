@@ -31,7 +31,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Spese_Quotidiane")
+@Table(name = "spese_quotidiane")
 @NoArgsConstructor
 public class SpeseQuotidianeEntity {
     @Id
@@ -41,30 +41,38 @@ public class SpeseQuotidianeEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<AltroSpeseQuotidianeEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Abbonamenti")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<AbbonamentiEntity> abbonamentiEntities;
 
-    @OneToMany(mappedBy = "Igiene_Personale")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<IgienePersonaleEntity> igienePersonaleEntities;
 
-    @OneToMany(mappedBy = "Lavanderia")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<LavanderiaEntity> lavanderiaEntities;
 
-    @OneToMany(mappedBy = "Parrucchiere")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<ParrucchiereEntity> parrucchiereEntities;
 
-    @OneToMany(mappedBy = "Ristoranti")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<RistorantiEntity> ristorantiEntities;
 
-    @OneToMany(mappedBy = "Supermercato")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<SupermercatoEntity> supermercatoEntities;
 
-    @OneToMany(mappedBy = "Vestiti")
+    @OneToMany
+    @JoinColumn(name = "idspesequotidiane")
     private Set<VestitiSpeseQuotidianeEntity> vestitiEntities;
 }

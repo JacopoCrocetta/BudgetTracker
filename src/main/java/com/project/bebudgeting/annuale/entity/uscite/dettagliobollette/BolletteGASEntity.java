@@ -22,7 +22,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Bollette_Gas")
+@Table(name = "bollette_gas")
 @NoArgsConstructor
 public class BolletteGASEntity {
     @Id
@@ -30,7 +30,7 @@ public class BolletteGASEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idBollette")
+    @JoinColumn(name = "idbollette", insertable = false, updatable = false)
     private BolletteEntity bolletteEntity;
 
     BigDecimal totale_mensile;

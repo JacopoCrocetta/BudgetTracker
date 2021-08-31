@@ -19,14 +19,14 @@ import javax.persistence.Table;
 @Data
 @Getter
 @Setter
-@Table(name = "Assicurazione_Casa")
+@Table(name = "assicurazione_casa")
 @NoArgsConstructor
 public class AssicurazioneCasaEntity {
     @Id
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idAssicurazione")
+    @JoinColumn(name = "idassicurazione", insertable = false, updatable = false)
     private AssicurazioneEntity assicurazioneEntity;
 
     BigDecimal totale_mensile;

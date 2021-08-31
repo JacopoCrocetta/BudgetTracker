@@ -17,7 +17,7 @@ import java.util.Set;
 @Data
 @Getter
 @Setter
-@Table(name = "Figli")
+@Table(name = "figli")
 @NoArgsConstructor
 public class FigliEntity {
     @Id
@@ -27,30 +27,38 @@ public class FigliEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idEntrata")
+    @JoinColumn(name = "iduscita")
     private EntrateAnnualiEntity entrata;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<AltroFigliEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Asilo")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<AsiloEntity> asiloEntities;
 
-    @OneToMany(mappedBy = "Attivita")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<AttivitaEntity> attivitaEntities;
 
-    @OneToMany(mappedBy = "Giocattoli")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<GiocattoliFigliEntity> giocattoliEntities;
 
-    @OneToMany(mappedBy = "Paghetta")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<PaghettaEntity> paghettaEntities;
 
-    @OneToMany(mappedBy = "Scuola")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<ScuolaEntity> scuolaEntities;
 
-    @OneToMany(mappedBy = "SpeseMedicheFigli")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<SpeseMedicheFigliEntity> speseMedicheFigliEntities;
 
-    @OneToMany(mappedBy = "Vestiti")
+    @OneToMany
+    @JoinColumn(name = "idfigli")
     private Set<VestitiFigliEntity> vestitiEntities;
 }

@@ -30,7 +30,7 @@ public class HardwareEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idTecnologia")
+    @JoinColumn(name = "idtecnologia", insertable = false, updatable = false)
     private TecnologiaEntity entity;
 
     BigDecimal totale_mensile;

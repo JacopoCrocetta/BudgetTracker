@@ -14,14 +14,14 @@ import java.time.LocalDate;
 @Data
 @Getter
 @Setter
-@Table(name = "Giocattoli")
+@Table(name = "giocattoli_figli")
 @NoArgsConstructor
 public class GiocattoliFigliEntity {
     @Id
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idFigli")
+    @JoinColumn(name = "idfigli", insertable = false, updatable = false)
     private FigliEntity figliEntity;
 
     BigDecimal totale_mensile;

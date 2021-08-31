@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Altre_Entrate")
+@Table(name = "altre_entrate")
 @Data
 @Getter
 @Setter

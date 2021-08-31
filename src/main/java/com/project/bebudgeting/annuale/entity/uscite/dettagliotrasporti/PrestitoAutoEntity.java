@@ -30,7 +30,7 @@ public class PrestitoAutoEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idTecnologia")
+    @JoinColumn(name = "idtrasporti", insertable = false, updatable = false)
     private TrasportiUsciteEntity entity;
 
     BigDecimal totale_mensile;

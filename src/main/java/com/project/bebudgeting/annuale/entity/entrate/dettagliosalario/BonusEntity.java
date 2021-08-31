@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Data
 @Getter
 @Setter
-@Table(name = "Bonus")
+@Table(name = "bonus")
 @NoArgsConstructor
 public class BonusEntity {
     @Id

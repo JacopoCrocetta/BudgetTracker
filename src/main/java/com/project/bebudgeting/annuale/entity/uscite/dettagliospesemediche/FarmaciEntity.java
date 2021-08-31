@@ -30,7 +30,7 @@ public class FarmaciEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idSpesaMedica")
+    @JoinColumn(name = "idspesemediche", insertable = false, updatable = false)
     private SpeseMedicheEntity entity;
 
     BigDecimal totale_mensile;

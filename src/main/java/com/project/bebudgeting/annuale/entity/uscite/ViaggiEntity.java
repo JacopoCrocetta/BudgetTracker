@@ -29,7 +29,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-@Table(name = "Viaggi")
+@Table(name = "viaggi")
 @NoArgsConstructor
 public class ViaggiEntity {
     @Id
@@ -39,24 +39,30 @@ public class ViaggiEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Alimenti")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<AlimentiViaggiEntity> alimentiEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<AltroViaggiEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Biglietti_Aerei")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<BigliettiAereiEntity> bigliettiAereiEntities;
 
-    @OneToMany(mappedBy = "Divertimento")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<DivertimentoViaggiEntity> divertimentoEntities;
 
-    @OneToMany(mappedBy = "Hotel")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<HotelEntity> hotelEntities;
 
-    @OneToMany(mappedBy = "Trasporti")
+    @OneToMany
+    @JoinColumn(name = "idviaggio")
     private Set<TrasportiViaggiEntity> trasportiEntities;
 }

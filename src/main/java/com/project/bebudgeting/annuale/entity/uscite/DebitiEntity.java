@@ -29,7 +29,7 @@ import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.PrestitiPer
 @Data
 @Getter
 @Setter
-@Table(name = "Debiti")
+@Table(name = "debiti")
 @NoArgsConstructor
 public class DebitiEntity {
     @Id
@@ -39,24 +39,30 @@ public class DebitiEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "iduscita")
     private UsciteAnnualiEntity uscitaAnnuale;
 
-    @OneToMany(mappedBy = "Altri_Prestiti")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<AltriPrestitiEntity> altriPrestitiEntities;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<AltroDebitiEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Carte_Credito_O_Debito")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<CarteCreditoEntity> carteCreditoEntities;
 
-    @OneToMany(mappedBy = "Imposte_Locali")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<ImposteLocaliEntity> imposteLocaliEntities;
 
-    @OneToMany(mappedBy = "Imposte_Statali")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<ImposteStataliEntity> imposteStataliEntities;
 
-    @OneToMany(mappedBy = "Prestiti_Studio")
+    @OneToMany
+    @JoinColumn(name = "iddebiti")
     private Set<PrestitiPerStudiareEntity> prestitiPerStudiareEntities;
 }

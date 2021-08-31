@@ -30,7 +30,7 @@ public class BigliettiAereiEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idViaggio")
+    @JoinColumn(name = "idviaggio", insertable = false, updatable = false)
     private ViaggiEntity entity;
 
     BigDecimal totale_mensile;
