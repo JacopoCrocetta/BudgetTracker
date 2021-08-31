@@ -37,21 +37,27 @@ public class AltreEntrateEntity {
     @JoinColumn(name = "entrateid", insertable = false, updatable = false)
     private EntrateAnnualiEntity entrata;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<AltroAltreEntrateEntity> altroEntities;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<DividendiEntity> dividendiEntities;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<InteressiEntity> interessiEntities;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<RegaliAltreEntrateEntity> regaliEntities;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<RimborsiEntity> rimborsiEntities;
 
-    @OneToMany(mappedBy = "id_altre_entrate")
+    @OneToMany
+    @JoinColumn(name = "id_altre_entrate")
     private Set<TrasferimentoRisparmiEntity> trasferimentoRisparmiEntities;
 }

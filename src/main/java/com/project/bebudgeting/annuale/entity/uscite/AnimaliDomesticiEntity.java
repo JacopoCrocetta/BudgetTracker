@@ -29,6 +29,7 @@ public class AnimaliDomesticiEntity {
     private int id;
 
     LocalDate data_inserimento;
+    String descrizione;
 
     @ManyToOne
     @JoinColumn(name = "iduscita", insertable = false, updatable = false)

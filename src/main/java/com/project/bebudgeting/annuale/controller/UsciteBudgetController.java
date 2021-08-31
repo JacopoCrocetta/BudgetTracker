@@ -25,58 +25,58 @@ public class UsciteBudgetController {
     UsciteAnnualiService usciteAnnualiService;
 
     // FIND
-    @GetMapping(value = "/getAllEntrate", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getAllUsciteAnnualiEntity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UsciteAnnualiEntity> findAll() {
         return usciteAnnualiService.findAll();
     }
 
-    @GetMapping(value = "/getAllEntrateById", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getAllUsciteAnnualiEntityById", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UsciteAnnualiEntity> findAll(@RequestBody Iterable<Integer> ids) {
         return usciteAnnualiService.findAllById(ids);
     }
 
-    @GetMapping(value = "/getEntrateById", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getUsciteAnnualiEntityById", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<UsciteAnnualiEntity> findById(@RequestParam int id) {
         return usciteAnnualiService.findById(id);
     }
 
     // DELETE
-    @DeleteMapping(value = "/deleteAll")
+    @DeleteMapping(value = "/deleteAllUsciteAnnualiEntity")
     public void deleteAll() {
         usciteAnnualiService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/deleteOneUsciteAnnualiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody UsciteAnnualiEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         usciteAnnualiService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/deleteSomeUsciteAnnualiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<UsciteAnnualiEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         usciteAnnualiService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteById")
+    @DeleteMapping(value = "/deleteUsciteAnnualiEntityById")
     public void getFilteredSumEstimatedRevenueByDate(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         usciteAnnualiService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/deleteSomeUsciteAnnualiEntityByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntityById(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         usciteAnnualiService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/saveOneUsciteAnnualiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public UsciteAnnualiEntity addOneEntity(@RequestBody UsciteAnnualiEntity entity) {
         return usciteAnnualiService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/saveMoreUsciteAnnualiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UsciteAnnualiEntity> addMoreEntity(@RequestBody Iterable<UsciteAnnualiEntity> entities) {
         return usciteAnnualiService.saveAll(entities);
     }

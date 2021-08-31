@@ -22,7 +22,7 @@ public class TrasferimentoRisparmiEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_Altre_Entrate", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "id_altre_entrate", referencedColumnName = "id", insertable = false, updatable = false)
     private AltreEntrateEntity altreEntrateEntityEntity;
 
     BigDecimal totale_mensile;

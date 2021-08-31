@@ -6,9 +6,11 @@ import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.Ve
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryanimalidomestici.VeterinarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javassist.NotFoundException;
 
+@Service
 public class VeterinarioAnimaliDomesticiService {
     @Autowired
     VeterinarioRepository repository;

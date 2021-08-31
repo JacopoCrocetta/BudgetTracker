@@ -25,6 +25,7 @@ public class FigliEntity {
     private int id;
 
     LocalDate data_inserimento;
+    String descrizione;
 
     @ManyToOne
     @JoinColumn(name = "iduscita")

@@ -39,6 +39,7 @@ public class SpeseQuotidianeEntity {
     private int id;
 
     LocalDate data_inserimento;
+    String descrizione;
 
     @ManyToOne
     @JoinColumn(name = "iduscita")

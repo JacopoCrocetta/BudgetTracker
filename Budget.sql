@@ -1644,64 +1644,64 @@ ALTER TABLE `vestiti_figli`
   ADD FOREIGN KEY (`idfigli`) REFERENCES `figli` (`id`);
 
 ALTER TABLE `altro_istruzione`
-  ADD FOREIGN KEY (`idistruzione`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idistruzione`) REFERENCES `istruzione` (`id`);
 
 ALTER TABLE `lezioni_indipendenti`
-  ADD FOREIGN KEY (`idistruzione`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idistruzione`) REFERENCES `istruzione` (`id`);
 
 ALTER TABLE `libri_istruzione`
-  ADD FOREIGN KEY (`idistruzione`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idistruzione`) REFERENCES `istruzione` (`id`);
 
 ALTER TABLE `rette_istruzione`
-  ADD FOREIGN KEY (`idistruzione`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idistruzione`) REFERENCES `istruzione` (`id`);
 
 ALTER TABLE `altro_regali`
-  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `regali_uscite` (`id`);
 
 ALTER TABLE `donazioni_benefiche`
-  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `regali_uscite` (`id`);
 
 ALTER TABLE `regali_t`
-  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idregaliuscite`) REFERENCES `regali_uscite` (`id`);
 
 ALTER TABLE `altro_spese_mediche`
-  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `spese_mediche` (`id`);
 
 ALTER TABLE `cure_specialistiche`
-  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `spese_mediche` (`id`);
 
 ALTER TABLE `dottori`
-  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `spese_mediche` (`id`);
 
 ALTER TABLE `emergenze`
-  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `spese_mediche` (`id`);
 
 ALTER TABLE `farmaci`
-  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesemediche`) REFERENCES `spese_mediche` (`id`);
 
 ALTER TABLE `abbonamenti`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `altro_spese_quotidiane`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `igiene_personale`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `lavanderia`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `parrucchiere`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `ristoranti`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `supermercati`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `vestiti_spese_quotidiane`
-  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `figli` (`id`);
+  ADD FOREIGN KEY (`idspesequotidiane`) REFERENCES `spese_quotidiane` (`id`);
 
 ALTER TABLE `altro_tecnologia`
   ADD FOREIGN KEY (`idtecnologia`) REFERENCES `tecnologia` (`id`);

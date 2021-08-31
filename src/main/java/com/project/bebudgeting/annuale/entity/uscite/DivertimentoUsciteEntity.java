@@ -43,6 +43,7 @@ public class DivertimentoUsciteEntity {
     private int id;
 
     LocalDate data_inserimento;
+    String descrizione;
 
     @ManyToOne
     @JoinColumn(name = "iduscita")

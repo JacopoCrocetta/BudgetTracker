@@ -34,6 +34,7 @@ public class AltroDivertimentoEntity {
     private DivertimentoUsciteEntity entity;
 
     BigDecimal totale_mensile;
+    LocalDate data_spesa;
     LocalDate data_inserimento;
     String descrizione;
 }

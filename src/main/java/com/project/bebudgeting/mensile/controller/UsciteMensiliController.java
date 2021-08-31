@@ -150,12 +150,12 @@ public class UsciteMensiliController {
     }
 
     // Entrate Previste
-    @PutMapping(value = "/saveoneentrataeffettiva", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/saveoneentratapreviste", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public UscitePrevisteEntity saveOneUscitePrevistaEntity(@RequestBody UscitePrevisteEntity entityToSave) {
         return uscitePrevisteService.save(entityToSave);
     }
 
-    @PutMapping(value = "/savesomeentrateeffettive", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/savesomeentratepreviste", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<UscitePrevisteEntity> saveSomeUscitePrevisteEntities(
             @RequestBody Iterable<UscitePrevisteEntity> entitiesToSave) {
         return uscitePrevisteService.saveAll(entitiesToSave);
