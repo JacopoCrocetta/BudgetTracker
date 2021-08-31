@@ -30,7 +30,7 @@ public class AltreUsciteEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "idUscita", insertable = false, updatable = false)
     private UsciteAnnualiEntity uscitaAnnuale;
 
     BigDecimal totale_mensile;

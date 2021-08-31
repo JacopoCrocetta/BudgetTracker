@@ -21,8 +21,8 @@ public class InteressiEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToMany
-    @JoinColumn(name = "id_Altre_Entrate")
+    @ManyToOne
+    @JoinColumn(name = "id_Altre_Entrate", referencedColumnName = "id", insertable = false, updatable = false)
     private AltreEntrateEntity altreEntrateEntityEntity;
 
     BigDecimal totale_mensile;

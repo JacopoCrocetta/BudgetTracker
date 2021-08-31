@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -42,50 +43,65 @@ public class UsciteAnnualiEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToMany(mappedBy = "Altre_Uscite")
+    LocalDate data_inserimento;
+
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<AltreUsciteEntity> altreUsciteEntities;
 
-    @OneToMany(mappedBy = "Animali_Domestici")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<AnimaliDomesticiEntity> animaliDomesticiEntities;
 
-    @OneToMany(mappedBy = "Assicurazione")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<AssicurazioneEntity> assicurazioneEntities;
 
-    @OneToMany(mappedBy = "Bollette")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<BolletteEntity> bolletteEntities;
 
-    @OneToMany(mappedBy = "Casa")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<CasaEntity> casaEntities;
 
-    @OneToMany(mappedBy = "Debiti")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<DebitiEntity> debitiEntities;
 
-    @OneToMany(mappedBy = "Divertimento")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<DivertimentoUsciteEntity> divertimentoEntities;
 
-    @OneToMany(mappedBy = "Figli")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<FigliEntity> figliEntities;
 
-    @OneToMany(mappedBy = "Istruzione")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<IstruzioneEntity> istruzioneEntities;
 
-    @OneToMany(mappedBy = "Regali")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<RegaliUsciteEntity> regaliEntities;
 
-    @OneToMany(mappedBy = "Spese_Mediche")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<SpeseMedicheEntity> speseMedicheEntities;
 
-    @OneToMany(mappedBy = "Spese_Quotiiane")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<SpeseQuotidianeEntity> speseQuotidianeEntities;
 
-    @OneToMany(mappedBy = "Tecnologia")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<TecnologiaEntity> tecnologiaEntities;
 
-    @OneToMany(mappedBy = "Trasporti")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<TrasportiUsciteEntity> trasportiEntities;
 
-    @OneToMany(mappedBy = "Viaggi")
+    @OneToMany
+    @JoinColumn(name = "iduscita")
     private Set<ViaggiEntity> viaggiEntities;
-
-    LocalDate data_inserimento;
 }

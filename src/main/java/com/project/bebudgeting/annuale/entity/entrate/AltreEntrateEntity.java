@@ -34,24 +34,24 @@ public class AltreEntrateEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idEntrata")
+    @JoinColumn(name = "entrateid", insertable = false, updatable = false)
     private EntrateAnnualiEntity entrata;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<AltroAltreEntrateEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Dividendi")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<DividendiEntity> dividendiEntities;
 
-    @OneToMany(mappedBy = "Interessi")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<InteressiEntity> interessiEntities;
 
-    @OneToMany(mappedBy = "Regali")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<RegaliAltreEntrateEntity> regaliEntities;
 
-    @OneToMany(mappedBy = "Rimborsi")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<RimborsiEntity> rimborsiEntities;
 
-    @OneToMany(mappedBy = "TrasferimentoRisparmi")
+    @OneToMany(mappedBy = "id_altre_entrate")
     private Set<TrasferimentoRisparmiEntity> trasferimentoRisparmiEntities;
 }

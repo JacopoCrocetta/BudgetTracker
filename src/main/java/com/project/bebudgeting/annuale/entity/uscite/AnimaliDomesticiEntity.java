@@ -31,7 +31,7 @@ public class AnimaliDomesticiEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idUscita")
+    @JoinColumn(name = "idUscita", insertable = false, updatable = false)
     private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany(mappedBy = "Alimenti")

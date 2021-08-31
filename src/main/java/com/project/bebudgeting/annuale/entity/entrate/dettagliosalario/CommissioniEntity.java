@@ -29,7 +29,7 @@ public class CommissioniEntity {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "idSalario")
+    @JoinColumn(name = "idSalario", referencedColumnName = "id", insertable = false, updatable = false)
     private SalarioEntity salarioEntity;
 
     BigDecimal totale_mensile;

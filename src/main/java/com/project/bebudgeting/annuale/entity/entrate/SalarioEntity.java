@@ -1,12 +1,5 @@
 package com.project.bebudgeting.annuale.entity.entrate;
 
-import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
-import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -18,6 +11,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BonusEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BustaPagaEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.CommissioniEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.ManceEntity;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Data
@@ -33,21 +38,26 @@ public class SalarioEntity {
     LocalDate data_inserimento;
 
     @ManyToOne
-    @JoinColumn(name = "idEntrata")
+    @JoinColumn(name = "entrateid", insertable = false, updatable = false)
     private EntrateAnnualiEntity entrata;
 
-    @OneToMany(mappedBy = "Altro")
+    @OneToMany
+    @JoinColumn(name = "idSalario")
     private Set<AltroSalarioEntity> altroEntities;
 
-    @OneToMany(mappedBy = "Bonus")
+    @OneToMany
+    @JoinColumn(name = "idSalario")
     private Set<BonusEntity> bonusEntities;
 
-    @OneToMany(mappedBy = "BustaPaga")
+    @OneToMany
+    @JoinColumn(name = "idSalario")
     private Set<BustaPagaEntity> bustaPagaEntities;
 
-    @OneToMany(mappedBy = "Commissioni")
+    @OneToMany
+    @JoinColumn(name = "idSalario")
     private Set<CommissioniEntity> commissioniEntities;
 
-    @OneToMany(mappedBy = "Mance")
+    @OneToMany
+    @JoinColumn(name = "idSalario")
     private Set<ManceEntity> manceEntities;
 }
