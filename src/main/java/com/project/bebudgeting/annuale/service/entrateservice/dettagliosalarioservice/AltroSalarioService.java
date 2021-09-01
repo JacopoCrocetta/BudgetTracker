@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import javassist.NotFoundException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
@@ -61,6 +63,16 @@ public class AltroSalarioService {
     }
 
     // FIND
+    public List<AltroSalarioEntity> findByEntrateAnnualiId(int entrateAnnualiId) {
+        List<AltroSalarioEntity> ret = new ArrayList<AltroSalarioEntity>();
+        repository.findAll().forEach(entity -> {
+            if (entity.getSalarioEntity().getId() == entrateAnnualiId) {
+                ret.add(entity);
+            }
+        });
+        return ret;
+    }
+
     public Iterable<AltroSalarioEntity> findAll() {
         return repository.findAll();
     }

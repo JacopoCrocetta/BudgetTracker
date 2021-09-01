@@ -8,6 +8,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,6 +37,16 @@ public class SalarioService {
     }
 
     // FIND
+    public List<SalarioEntity> findByEntrateAnnualiId(int entrateAnnualiId) {
+        List<SalarioEntity> ret = new ArrayList<SalarioEntity>();
+        repository.findAll().forEach(entity -> {
+            if (entity.getEntrata().getId() == entrateAnnualiId) {
+                ret.add(entity);
+            }
+        });
+        return ret;
+    }
+
     public Iterable<SalarioEntity> findAll() {
         return repository.findAll();
     }
