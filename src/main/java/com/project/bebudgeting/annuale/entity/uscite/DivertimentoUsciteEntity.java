@@ -1,8 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -51,49 +50,49 @@ public class DivertimentoUsciteEntity {
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<AltroDivertimentoEntity> altroEntities;
+    private List<AltroDivertimentoEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<AttivitaOutsideEntity> attivitaOutsideEntities;
+    private List<AttivitaOutsideEntity> attivitaOutsideEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<ConcertiOSpettacoliEntity> concertiOSpettacoliEntities;
+    private List<ConcertiOSpettacoliEntity> concertiOSpettacoliEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<FilmEntity> filmEntities;
+    private List<FilmEntity> filmEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<FotografiaEntity> fotografiaEntities;
+    private List<FotografiaEntity> fotografiaEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<HobbyEntity> hobbyEntities;
+    private List<HobbyEntity> hobbyEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<LibriDivertimentoEntity> libriEntities;
+    private List<LibriDivertimentoEntity> libriEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<MusicaEntity> musicaEntities;
+    private List<MusicaEntity> musicaEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<PartiteEntity> partiteEntities;
+    private List<PartiteEntity> partiteEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<SportEntity> sportEntities;
+    private List<SportEntity> sportEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<TeatroEntity> teatroEntities;
+    private List<TeatroEntity> teatroEntities;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")
-    private Set<TVEntity> tvEntities;
+    private List<TVEntity> tvEntities;
 }

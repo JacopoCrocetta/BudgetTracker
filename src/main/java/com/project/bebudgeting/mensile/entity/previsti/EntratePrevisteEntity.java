@@ -1,7 +1,7 @@
 package com.project.bebudgeting.mensile.entity.previsti;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,21 +43,21 @@ public class EntratePrevisteEntity {
 
     @OneToMany
     @JoinColumn(name = "identrataprevista")
-    private Set<AltreEntratePrevisteEntity> altreEntratePrevisteEntities;
+    private List<AltreEntratePrevisteEntity> altreEntratePrevisteEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataprevista")
-    private Set<BonusPrevistiEntity> bonusPrevistiEntities;
+    private List<BonusPrevistiEntity> bonusPrevistiEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataprevista")
-    private Set<BustaPagaPrevisteEntity> bustaPagaPrevisteEntities;
+    private List<BustaPagaPrevisteEntity> bustaPagaPrevisteEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataprevista")
-    private Set<InteressiPrevistiEntity> interessiPrevistiEntities;
+    private List<InteressiPrevistiEntity> interessiPrevistiEntities;
 
     @OneToMany
     @JoinColumn(name = "RisparmiPrevistiEntity")
-    private Set<RisparmiPrevistiEntity> risparmiPrevistiEntities;
+    private List<RisparmiPrevistiEntity> risparmiPrevistiEntities;
 }

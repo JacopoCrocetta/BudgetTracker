@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,13 +42,13 @@ public class RegaliUsciteEntity {
 
     @OneToMany
     @JoinColumn(name = "idregaliuscite")
-    private Set<DonazioniBeneficenzaEntity> donazioniBeneficenzaEntities;
+    private List<DonazioniBeneficenzaEntity> donazioniBeneficenzaEntities;
 
     @OneToMany
     @JoinColumn(name = "idregaliuscite")
-    private Set<AltroRegaliEntity> altroEntities;
+    private List<AltroRegaliEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idregaliuscite")
-    private Set<RegaliDBEntity> regaliDBEntities;
+    private List<RegaliDBEntity> regaliDBEntities;
 }

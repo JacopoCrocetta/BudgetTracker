@@ -1,7 +1,7 @@
 package com.project.bebudgeting.mensile.entity.effettivi;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,21 +43,21 @@ public class EntrateEffettiveEntity {
 
     @OneToMany
     @JoinColumn(name = "identrataeffettiva")
-    private Set<AltreEntrateEffettiveEntity> altreEntrateEffettiveEntities;
+    private List<AltreEntrateEffettiveEntity> altreEntrateEffettiveEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataeffettiva")
-    private Set<BonusEffettiviEntity> bonusEffettiviEntities;
+    private List<BonusEffettiviEntity> bonusEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataeffettiva")
-    private Set<BustaPagaEffettiveEntity> bustaPagaEffettiveEntities;
+    private List<BustaPagaEffettiveEntity> bustaPagaEffettiveEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataeffettiva")
-    private Set<InteressiEffettiviEntity> interessiEffettiviEntities;
+    private List<InteressiEffettiviEntity> interessiEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "identrataeffettiva")
-    private Set<RisparmiEffettiviEntity> risparmiEffettiviEntities;
+    private List<RisparmiEffettiviEntity> risparmiEffettiviEntities;
 }

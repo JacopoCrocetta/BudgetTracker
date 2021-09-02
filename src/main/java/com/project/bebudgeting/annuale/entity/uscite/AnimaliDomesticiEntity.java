@@ -1,5 +1,17 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AlimentiAnimaliDomesticiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroAnimaliDomesticiEntity;
@@ -11,11 +23,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-
-import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Data
@@ -37,21 +44,21 @@ public class AnimaliDomesticiEntity {
 
     @OneToMany
     @JoinColumn(name = "idanimali")
-    Set<AlimentiAnimaliDomesticiEntity> alimentiEntities;
+    List<AlimentiAnimaliDomesticiEntity> alimentiEntities;
 
     @OneToMany
     @JoinColumn(name = "idanimali")
-    Set<AltroAnimaliDomesticiEntity> altroEntities;
+    List<AltroAnimaliDomesticiEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idanimali")
-    Set<FornitureAnimaliDomesticiEntity> fornitureEntities;
+    List<FornitureAnimaliDomesticiEntity> fornitureEntities;
 
     @OneToMany
     @JoinColumn(name = "idanimali")
-    Set<GiocattoliAnimaliDomesticiEntity> giocattoliEntity;
+    List<GiocattoliAnimaliDomesticiEntity> giocattoliEntity;
 
     @OneToMany
     @JoinColumn(name = "idanimali")
-    Set<VeterinarioAnimaliDomesticiEntity> veterinarioEntities;
+    List<VeterinarioAnimaliDomesticiEntity> veterinarioEntities;
 }

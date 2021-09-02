@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -47,33 +47,33 @@ public class SpeseQuotidianeEntity {
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<AltroSpeseQuotidianeEntity> altroEntities;
+    private List<AltroSpeseQuotidianeEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<AbbonamentiEntity> abbonamentiEntities;
+    private List<AbbonamentiEntity> abbonamentiEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<IgienePersonaleEntity> igienePersonaleEntities;
+    private List<IgienePersonaleEntity> igienePersonaleEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<LavanderiaEntity> lavanderiaEntities;
+    private List<LavanderiaEntity> lavanderiaEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<ParrucchiereEntity> parrucchiereEntities;
+    private List<ParrucchiereEntity> parrucchiereEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<RistorantiEntity> ristorantiEntities;
+    private List<RistorantiEntity> ristorantiEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<SupermercatoEntity> supermercatoEntities;
+    private List<SupermercatoEntity> supermercatoEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesequotidiane")
-    private Set<VestitiSpeseQuotidianeEntity> vestitiEntities;
+    private List<VestitiSpeseQuotidianeEntity> vestitiEntities;
 }

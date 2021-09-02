@@ -1,17 +1,31 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AltroFigliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AsiloEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AttivitaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.GiocattoliFigliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.PaghettaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.ScuolaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.SpeseMedicheFigliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.VestitiFigliEntity;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.*;
-
-import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Data
@@ -33,33 +47,33 @@ public class FigliEntity {
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<AltroFigliEntity> altroEntities;
+    private List<AltroFigliEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<AsiloEntity> asiloEntities;
+    private List<AsiloEntity> asiloEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<AttivitaEntity> attivitaEntities;
+    private List<AttivitaEntity> attivitaEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<GiocattoliFigliEntity> giocattoliEntities;
+    private List<GiocattoliFigliEntity> giocattoliEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<PaghettaEntity> paghettaEntities;
+    private List<PaghettaEntity> paghettaEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<ScuolaEntity> scuolaEntities;
+    private List<ScuolaEntity> scuolaEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<SpeseMedicheFigliEntity> speseMedicheFigliEntities;
+    private List<SpeseMedicheFigliEntity> speseMedicheFigliEntities;
 
     @OneToMany
     @JoinColumn(name = "idfigli")
-    private Set<VestitiFigliEntity> vestitiEntities;
+    private List<VestitiFigliEntity> vestitiEntities;
 }

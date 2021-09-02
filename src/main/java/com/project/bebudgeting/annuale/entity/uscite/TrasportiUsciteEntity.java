@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,29 +46,29 @@ public class TrasportiUsciteEntity {
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<BolloEntity> bolloEntities;
+    private List<BolloEntity> bolloEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<AltroTrasportiEntity> altroEntities;
+    private List<AltroTrasportiEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<CarburanteEntity> carburanteEntities;
+    private List<CarburanteEntity> carburanteEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<FornitureTrasportiEntity> fornitureEntities;
+    private List<FornitureTrasportiEntity> fornitureEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<PrestitoAutoEntity> prestitoAutoEntities;
+    private List<PrestitoAutoEntity> prestitoAutoEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<RiparazioniEntity> riparazioniEntities;
+    private List<RiparazioniEntity> riparazioniEntities;
 
     @OneToMany
     @JoinColumn(name = "idtrasporti")
-    private Set<TrasportoPubblicoEntity> trasportoPubblicoEntities;
+    private List<TrasportoPubblicoEntity> trasportoPubblicoEntities;
 }

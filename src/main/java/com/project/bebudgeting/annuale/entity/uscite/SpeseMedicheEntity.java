@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,21 +44,21 @@ public class SpeseMedicheEntity {
 
     @OneToMany
     @JoinColumn(name = "idspesemediche")
-    private Set<CureSpecialisticheEntity> cureSpecialisticheEntities;
+    private List<CureSpecialisticheEntity> cureSpecialisticheEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesemediche")
-    private Set<AltroSpeseMedicheEntity> altroEntities;
+    private List<AltroSpeseMedicheEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesemediche")
-    private Set<DottoriEntity> dottoriEntities;
+    private List<DottoriEntity> dottoriEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesemediche")
-    private Set<EmergenzeEntity> emergenzeEntities;
+    private List<EmergenzeEntity> emergenzeEntities;
 
     @OneToMany
     @JoinColumn(name = "idspesemediche")
-    private Set<FarmaciEntity> farmaciEntities;
+    private List<FarmaciEntity> farmaciEntities;
 }

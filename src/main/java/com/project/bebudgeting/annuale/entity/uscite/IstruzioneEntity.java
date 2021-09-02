@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,17 +43,17 @@ public class IstruzioneEntity {
 
     @OneToMany
     @JoinColumn(name = "idistruzione")
-    private Set<LezioniIndipendentiEntity> lezioniIndipendentiEntities;
+    private List<LezioniIndipendentiEntity> lezioniIndipendentiEntities;
 
     @OneToMany
     @JoinColumn(name = "idistruzione")
-    private Set<AltroIstruzioneEntity> altroEntities;
+    private List<AltroIstruzioneEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idistruzione")
-    private Set<LibriIstruzioneEntity> libriEntities;
+    private List<LibriIstruzioneEntity> libriEntities;
 
     @OneToMany
     @JoinColumn(name = "idistruzione")
-    private Set<RetteEntity> retteEntities;
+    private List<RetteEntity> retteEntities;
 }

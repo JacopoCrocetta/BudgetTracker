@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,21 +44,21 @@ public class TecnologiaEntity {
 
     @OneToMany
     @JoinColumn(name = "idtecnologia")
-    private Set<HardwareEntity> hardwareEntities;
+    private List<HardwareEntity> hardwareEntities;
 
     @OneToMany
     @JoinColumn(name = "idtecnologia")
-    private Set<AltroTecnologiaEntity> altroEntities;
+    private List<AltroTecnologiaEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idtecnologia")
-    private Set<HostingEntity> hostingEntities;
+    private List<HostingEntity> hostingEntities;
 
     @OneToMany
     @JoinColumn(name = "idtecnologia")
-    private Set<ServiziOnlineEntity> serviziOnlineEntities;
+    private List<ServiziOnlineEntity> serviziOnlineEntities;
 
     @OneToMany
     @JoinColumn(name = "idtecnologia")
-    private Set<SoftwareEntity> softwareEntities;
+    private List<SoftwareEntity> softwareEntities;
 }

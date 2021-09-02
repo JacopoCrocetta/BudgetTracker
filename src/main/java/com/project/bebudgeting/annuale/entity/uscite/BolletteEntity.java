@@ -1,8 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,33 +46,33 @@ public class BolletteEntity {
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<AltreBolletteEntity> altreBolletteEntities;
+    private List<AltreBolletteEntity> altreBolletteEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteAcquaEntity> bolletteAcquaEntities;
+    private List<BolletteAcquaEntity> bolletteAcquaEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteElettricitaEntity> bolletteElettricitaEntities;
+    private List<BolletteElettricitaEntity> bolletteElettricitaEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteGASEntity> bolletteGASEntities;
+    private List<BolletteGASEntity> bolletteGASEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteInternetEntity> bolletteInternetEntities;
+    private List<BolletteInternetEntity> bolletteInternetEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteRifiutiEntity> bolletteRifiutiEntities;
+    private List<BolletteRifiutiEntity> bolletteRifiutiEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteTelefonoEntity> bolletteTelefonoEntities;
+    private List<BolletteTelefonoEntity> bolletteTelefonoEntities;
 
     @OneToMany
     @JoinColumn(name = "idbollette")
-    private Set<BolletteTVEntity> bolletteTVEntities;
+    private List<BolletteTVEntity> bolletteTVEntities;
 }

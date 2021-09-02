@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,10 +34,10 @@ public class EntrateAnnualiEntity {
 
     @OneToMany
     @JoinColumn(name = "entrateid")
-    private Set<SalarioEntity> salarioEntities;
+    private List<SalarioEntity> salarioEntities;
 
     @OneToMany
     @JoinColumn(name = "entrateid")
-    private Set<AltreEntrateEntity> altreEntrateEntities;
+    private List<AltreEntrateEntity> altreEntrateEntities;
 
 }

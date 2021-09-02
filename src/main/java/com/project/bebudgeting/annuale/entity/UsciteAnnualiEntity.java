@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,8 +24,8 @@ import com.project.bebudgeting.annuale.entity.uscite.RegaliUsciteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.SpeseMedicheEntity;
 import com.project.bebudgeting.annuale.entity.uscite.SpeseQuotidianeEntity;
 import com.project.bebudgeting.annuale.entity.uscite.TecnologiaEntity;
-import com.project.bebudgeting.annuale.entity.uscite.ViaggiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.TrasportiUsciteEntity;
+import com.project.bebudgeting.annuale.entity.uscite.ViaggiEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -47,61 +47,61 @@ public class UsciteAnnualiEntity {
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<AltreUsciteEntity> altreUsciteEntities;
+    private List<AltreUsciteEntity> altreUsciteEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<AnimaliDomesticiEntity> animaliDomesticiEntities;
+    private List<AnimaliDomesticiEntity> animaliDomesticiEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<AssicurazioneEntity> assicurazioneEntities;
+    private List<AssicurazioneEntity> assicurazioneEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<BolletteEntity> bolletteEntities;
+    private List<BolletteEntity> bolletteEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<CasaEntity> casaEntities;
+    private List<CasaEntity> casaEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<DebitiEntity> debitiEntities;
+    private List<DebitiEntity> debitiEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<DivertimentoUsciteEntity> divertimentoEntities;
+    private List<DivertimentoUsciteEntity> divertimentoEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<FigliEntity> figliEntities;
+    private List<FigliEntity> figliEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<IstruzioneEntity> istruzioneEntities;
+    private List<IstruzioneEntity> istruzioneEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<RegaliUsciteEntity> regaliEntities;
+    private List<RegaliUsciteEntity> regaliEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<SpeseMedicheEntity> speseMedicheEntities;
+    private List<SpeseMedicheEntity> speseMedicheEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<SpeseQuotidianeEntity> speseQuotidianeEntities;
+    private List<SpeseQuotidianeEntity> speseQuotidianeEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<TecnologiaEntity> tecnologiaEntities;
+    private List<TecnologiaEntity> tecnologiaEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<TrasportiUsciteEntity> trasportiEntities;
+    private List<TrasportiUsciteEntity> trasportiEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscita")
-    private Set<ViaggiEntity> viaggiEntities;
+    private List<ViaggiEntity> viaggiEntities;
 }

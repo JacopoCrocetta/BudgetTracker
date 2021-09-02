@@ -1,7 +1,7 @@
 package com.project.bebudgeting.mensile.entity.effettivi;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,45 +49,45 @@ public class UsciteEffettiveEntity {
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<AlimentiEffettiviEntity> alimentiEffettiviEntities;
+    private List<AlimentiEffettiviEntity> alimentiEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<AltreUsciteEffettiveEntity> altreUsciteEffettiveEntities;
+    private List<AltreUsciteEffettiveEntity> altreUsciteEffettiveEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<AnimaliDomesticiEffettiviEntity> animaliDomesticiEffettiviEntities;
+    private List<AnimaliDomesticiEffettiviEntity> animaliDomesticiEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<BolletteEffettiviEntity> bolletteEffettiviEntities;
+    private List<BolletteEffettiviEntity> bolletteEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<CasaEffettiviEntity> casaEffettiviEntities;
+    private List<CasaEffettiviEntity> casaEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<DebitiEffettiviEntity> debitiEffettiviEntities;
+    private List<DebitiEffettiviEntity> debitiEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<RegaliEffettiviEntity> regaliEffettiviEntities;
+    private List<RegaliEffettiviEntity> regaliEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<SpeseMedicheEffettiviEntity> speseMedicheEffettiviEntities;
+    private List<SpeseMedicheEffettiviEntity> speseMedicheEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<SpesePersonaliEffettiviEntity> spesePersonaliEffettiviEntities;
+    private List<SpesePersonaliEffettiviEntity> spesePersonaliEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<TrasportiEffettiviEntity> trasportiEffettiviEntities;
+    private List<TrasportiEffettiviEntity> trasportiEffettiviEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensilieffettive")
-    private Set<ViaggiEffettiviEntity> viaggiEffettiviEntities;
+    private List<ViaggiEffettiviEntity> viaggiEffettiviEntities;
 }

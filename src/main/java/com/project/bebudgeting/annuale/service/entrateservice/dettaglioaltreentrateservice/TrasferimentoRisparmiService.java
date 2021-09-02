@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.TrasferimentoRisparmiEntity;
@@ -61,6 +63,16 @@ public class TrasferimentoRisparmiService {
     }
 
     // FIND
+    public List<TrasferimentoRisparmiEntity> findAllByAltreEntrateId(int altreEntrateId) {
+        List<TrasferimentoRisparmiEntity> ret = new ArrayList<TrasferimentoRisparmiEntity>();
+        repository.findAll().forEach(entity -> {
+            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
+                ret.add(entity);
+            }
+        });
+        return ret;
+    }
+
     public Iterable<TrasferimentoRisparmiEntity> findAll() {
         return repository.findAll();
     }

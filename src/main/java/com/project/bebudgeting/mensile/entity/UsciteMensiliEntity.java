@@ -1,7 +1,7 @@
 package com.project.bebudgeting.mensile.entity;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,9 +34,9 @@ public class UsciteMensiliEntity {
 
     @OneToMany
     @JoinColumn(name = "iduscitemensile")
-    private Set<UsciteEffettiveEntity> usciteEffettiveEntities;
+    private List<UsciteEffettiveEntity> usciteEffettiveEntities;
 
     @OneToMany
     @JoinColumn(name = "iduscitemensile")
-    private Set<UscitePrevisteEntity> uscitePrevisteEntities;
+    private List<UscitePrevisteEntity> uscitePrevisteEntities;
 }

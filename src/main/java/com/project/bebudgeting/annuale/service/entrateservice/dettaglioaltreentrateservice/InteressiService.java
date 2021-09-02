@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.InteressiEntity;
@@ -61,6 +63,16 @@ public class InteressiService {
     }
 
     // FIND
+    public List<InteressiEntity> findAllByAltreEntrateId(int altreEntrateId) {
+        List<InteressiEntity> ret = new ArrayList<InteressiEntity>();
+        repository.findAll().forEach(entity -> {
+            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
+                ret.add(entity);
+            }
+        });
+        return ret;
+    }
+
     public Iterable<InteressiEntity> findAll() {
         return repository.findAll();
     }

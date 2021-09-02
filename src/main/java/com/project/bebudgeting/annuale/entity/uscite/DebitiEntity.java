@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -45,25 +44,25 @@ public class DebitiEntity {
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<AltriPrestitiEntity> altriPrestitiEntities;
+    private List<AltriPrestitiEntity> altriPrestitiEntities;
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<AltroDebitiEntity> altroEntities;
+    private List<AltroDebitiEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<CarteCreditoEntity> carteCreditoEntities;
+    private List<CarteCreditoEntity> carteCreditoEntities;
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<ImposteLocaliEntity> imposteLocaliEntities;
+    private List<ImposteLocaliEntity> imposteLocaliEntities;
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<ImposteStataliEntity> imposteStataliEntities;
+    private List<ImposteStataliEntity> imposteStataliEntities;
 
     @OneToMany
     @JoinColumn(name = "iddebiti")
-    private Set<PrestitiPerStudiareEntity> prestitiPerStudiareEntities;
+    private List<PrestitiPerStudiareEntity> prestitiPerStudiareEntities;
 }

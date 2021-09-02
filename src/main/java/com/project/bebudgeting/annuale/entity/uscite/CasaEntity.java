@@ -1,12 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +23,11 @@ import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.ManutenzioneE
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.MiglioramentiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliocasa.TraslocoEntity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Data
 @Getter
@@ -48,37 +48,37 @@ public class CasaEntity {
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<AffittoEntity> affittoEntities;
+    private List<AffittoEntity> affittoEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<AltroCasaEntity> altroEntities;
+    private List<AltroCasaEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<ArredamentoEntity> arredamentoEntities;
+    private List<ArredamentoEntity> arredamentoEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<FornitureCasaEntity> fornitureEntities;
+    private List<FornitureCasaEntity> fornitureEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<GiardinaggioEntity> giardinaggioEntities;
+    private List<GiardinaggioEntity> giardinaggioEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<ImposteImmobiliEntity> imposteImmobiliEntities;
+    private List<ImposteImmobiliEntity> imposteImmobiliEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<ManutenzioneEntity> manutenzioneEntities;
+    private List<ManutenzioneEntity> manutenzioneEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<MiglioramentiEntity> miglioramentiEntities;
+    private List<MiglioramentiEntity> miglioramentiEntities;
 
     @OneToMany
     @JoinColumn(name = "idcasa")
-    private Set<TraslocoEntity> traslocoEntities;
+    private List<TraslocoEntity> traslocoEntities;
 }

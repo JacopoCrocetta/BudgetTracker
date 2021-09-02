@@ -1,14 +1,23 @@
 package com.project.bebudgeting.annuale.service.entrateservice;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import com.project.bebudgeting.annuale.entity.entrate.AltreEntrateEntity;
 import com.project.bebudgeting.annuale.repository.entrateannuali.AltreEntrateRepository;
-import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.*;
-import javassist.NotFoundException;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.AltroEService;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.DividendiService;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.InteressiService;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.RegaliAltreEntrateService;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.RimborsiService;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.TrasferimentoRisparmiService;
+
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import javassist.NotFoundException;
 
 @Service
 public class AltreEntrateService {
@@ -38,6 +47,16 @@ public class AltreEntrateService {
     }
 
     // FIND
+    public List<AltreEntrateEntity> findAllByEntrateAnnualiId(int entrateAnnualiId) {
+        List<AltreEntrateEntity> ret = new ArrayList<>();
+        repository.findAll().forEach(entity -> {
+            if (entity.getEntrata().getId() == entrateAnnualiId) {
+                ret.add(entity);
+            }
+        });
+        return ret;
+    }
+
     public Iterable<AltreEntrateEntity> findAll() {
         return repository.findAll();
     }

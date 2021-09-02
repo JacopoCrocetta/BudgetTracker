@@ -1,7 +1,7 @@
 package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,25 +45,25 @@ public class ViaggiEntity {
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<AlimentiViaggiEntity> alimentiEntities;
+    private List<AlimentiViaggiEntity> alimentiEntities;
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<AltroViaggiEntity> altroEntities;
+    private List<AltroViaggiEntity> altroEntities;
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<BigliettiAereiEntity> bigliettiAereiEntities;
+    private List<BigliettiAereiEntity> bigliettiAereiEntities;
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<DivertimentoViaggiEntity> divertimentoEntities;
+    private List<DivertimentoViaggiEntity> divertimentoEntities;
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<HotelEntity> hotelEntities;
+    private List<HotelEntity> hotelEntities;
 
     @OneToMany
     @JoinColumn(name = "idviaggio")
-    private Set<TrasportiViaggiEntity> trasportiEntities;
+    private List<TrasportiViaggiEntity> trasportiEntities;
 }
