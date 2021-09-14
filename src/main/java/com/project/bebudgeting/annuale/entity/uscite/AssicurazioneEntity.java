@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AltreAssicurazioniEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneCasaEntity;
@@ -37,10 +35,6 @@ public class AssicurazioneEntity {
 
     LocalDate data_inserimento;
     String descrizione;
-
-    @ManyToOne
-    @JoinColumn(name = "iduscita")
-    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany
     @JoinColumn(name = "idassicurazione")

@@ -7,11 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.project.bebudgeting.annuale.entity.uscite.CasaEntity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -26,12 +22,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ManutenzioneEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "idcasa", insertable = false, updatable = false)
-    private CasaEntity entity;
 
     BigDecimal totale_mensile;
     LocalDate data_inserimento;

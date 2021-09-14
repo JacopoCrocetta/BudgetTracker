@@ -66,9 +66,9 @@ public class TrasferimentoRisparmiService {
     public List<TrasferimentoRisparmiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<TrasferimentoRisparmiEntity> ret = new ArrayList<TrasferimentoRisparmiEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

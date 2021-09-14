@@ -66,9 +66,9 @@ public class RegaliAltreEntrateService {
     public List<RegaliAltreEntrateEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<RegaliAltreEntrateEntity> ret = new ArrayList<RegaliAltreEntrateEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

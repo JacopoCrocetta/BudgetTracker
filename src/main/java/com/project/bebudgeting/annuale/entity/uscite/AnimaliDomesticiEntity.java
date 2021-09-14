@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AlimentiAnimaliDomesticiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.AltroAnimaliDomesticiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglianimalidomestici.FornitureAnimaliDomesticiEntity;
@@ -37,10 +35,6 @@ public class AnimaliDomesticiEntity {
 
     LocalDate data_inserimento;
     String descrizione;
-
-    @ManyToOne
-    @JoinColumn(name = "iduscita", insertable = false, updatable = false)
-    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany
     @JoinColumn(name = "idanimali")

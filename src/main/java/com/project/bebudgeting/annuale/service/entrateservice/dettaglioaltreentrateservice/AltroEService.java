@@ -66,9 +66,9 @@ public class AltroEService {
     public List<AltroAltreEntrateEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<AltroAltreEntrateEntity> ret = new ArrayList<AltroAltreEntrateEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

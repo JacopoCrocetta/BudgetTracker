@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.AltroRegaliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.DonazioniBeneficenzaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioregali.RegaliDBEntity;
@@ -30,15 +28,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class RegaliUsciteEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     LocalDate data_inserimento;
     String descrizione;
-
-    @ManyToOne
-    @JoinColumn(name = "iduscita")
-    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany
     @JoinColumn(name = "idregaliuscite")

@@ -2,16 +2,15 @@ package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.time.LocalDate;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.UsciteAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AltroDivertimentoEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.AttivitaOutsideEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodivertimento.ConcertiOSpettacoliEntity;
@@ -43,10 +42,6 @@ public class DivertimentoUsciteEntity {
 
     LocalDate data_inserimento;
     String descrizione;
-
-    @ManyToOne
-    @JoinColumn(name = "iduscita")
-    private UsciteAnnualiEntity uscitaAnnuale;
 
     @OneToMany
     @JoinColumn(name = "iddivertimento")

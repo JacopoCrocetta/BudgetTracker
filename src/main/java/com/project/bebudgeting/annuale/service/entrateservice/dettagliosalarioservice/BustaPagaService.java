@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BustaPagaEntity;
@@ -71,6 +73,16 @@ public class BustaPagaService {
 
     public Optional<BustaPagaEntity> findById(int id) {
         return repository.findById(id);
+    }
+
+    public List<BustaPagaEntity> findBySalarioId(int salarioId) {
+        List<BustaPagaEntity> ret = new ArrayList<BustaPagaEntity>();
+        repository.findAll().forEach(entity -> {
+
+            ret.add(entity);
+
+        });
+        return ret;
     }
 
     // SAVE

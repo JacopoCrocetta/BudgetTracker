@@ -66,9 +66,9 @@ public class RimborsiService {
     public List<RimborsiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<RimborsiEntity> ret = new ArrayList<RimborsiEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

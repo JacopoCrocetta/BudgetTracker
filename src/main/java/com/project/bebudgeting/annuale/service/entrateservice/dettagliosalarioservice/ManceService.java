@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.ManceEntity;
@@ -71,6 +73,16 @@ public class ManceService {
 
     public Optional<ManceEntity> findById(int id) {
         return repository.findById(id);
+    }
+
+    public List<ManceEntity> findBySalarioId(int salarioId) {
+        List<ManceEntity> ret = new ArrayList<ManceEntity>();
+        repository.findAll().forEach(entity -> {
+
+            ret.add(entity);
+
+        });
+        return ret;
     }
 
     // SAVE

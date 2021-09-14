@@ -1,7 +1,7 @@
-package com.project.bebudgeting.annuale.controller.entrate.dettagliosalario;
+package com.project.bebudgeting.annuale.controller.entrate.dettaglioaltreentrate;
 
-import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
-import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.AltroSalarioService;
+import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.TrasferimentoRisparmiEntity;
+import com.project.bebudgeting.annuale.service.entrateservice.dettaglioaltreentrateservice.TrasferimentoRisparmiService;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,49 +16,50 @@ import org.springframework.web.bind.annotation.RestController;
 import javassist.NotFoundException;
 
 @RestController
-@RequestMapping("/altrosalario")
-public class AltroSalarioController {
+@RequestMapping("/trasferimentirisparmi")
+public class TrasferimentiRisparmiController {
     @Autowired
-    AltroSalarioService altroSalarioService;
+    TrasferimentoRisparmiService trasferimentoRisparmiService;
 
     // DELETE
     @DeleteMapping(value = "/deleteAllDividendiEntities")
     public void deleteAll() {
-        altroSalarioService.deleteAll();
+        trasferimentoRisparmiService.deleteAll();
     }
 
     @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneEntity(@RequestBody AltroSalarioEntity entity)
+    public void deleteOneEntity(@RequestBody TrasferimentoRisparmiEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
-        altroSalarioService.delete(entity);
+        trasferimentoRisparmiService.delete(entity);
     }
 
     @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteSomeEntity(@RequestBody Iterable<AltroSalarioEntity> entities)
+    public void deleteSomeEntity(@RequestBody Iterable<TrasferimentoRisparmiEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
-        altroSalarioService.deleteAll(entities);
+        trasferimentoRisparmiService.deleteAll(entities);
     }
 
     @DeleteMapping(value = "/deleteOneDividendiEntityById")
     public void deleteOneDividendiEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
-        altroSalarioService.deleteById(id);
+        trasferimentoRisparmiService.deleteById(id);
     }
 
     @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
-        altroSalarioService.deleteAllById(entitiesId);
+        trasferimentoRisparmiService.deleteAllById(entitiesId);
     }
 
     // SAVE
     @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public AltroSalarioEntity addOneEntity(@RequestBody AltroSalarioEntity entity) {
-        return altroSalarioService.save(entity);
+    public TrasferimentoRisparmiEntity addOneEntity(@RequestBody TrasferimentoRisparmiEntity entity) {
+        return trasferimentoRisparmiService.save(entity);
     }
 
     @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<AltroSalarioEntity> addMoreEntity(@RequestBody Iterable<AltroSalarioEntity> entities) {
-        return altroSalarioService.saveAll(entities);
+    public Iterable<TrasferimentoRisparmiEntity> addMoreEntity(
+            @RequestBody Iterable<TrasferimentoRisparmiEntity> entities) {
+        return trasferimentoRisparmiService.saveAll(entities);
     }
 }

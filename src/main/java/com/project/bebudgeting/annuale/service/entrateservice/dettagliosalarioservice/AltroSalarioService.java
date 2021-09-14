@@ -63,12 +63,12 @@ public class AltroSalarioService {
     }
 
     // FIND
-    public List<AltroSalarioEntity> findByEntrateAnnualiId(int entrateAnnualiId) {
+    public List<AltroSalarioEntity> findBySalarioId(int salarioId) {
         List<AltroSalarioEntity> ret = new ArrayList<AltroSalarioEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getSalarioEntity().getId() == entrateAnnualiId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

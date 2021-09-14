@@ -66,9 +66,9 @@ public class InteressiService {
     public List<InteressiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<InteressiEntity> ret = new ArrayList<InteressiEntity>();
         repository.findAll().forEach(entity -> {
-            if (entity.getAltreEntrateEntityEntity().getId() == altreEntrateId) {
-                ret.add(entity);
-            }
+
+            ret.add(entity);
+
         });
         return ret;
     }

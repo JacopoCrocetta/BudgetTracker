@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.project.bebudgeting.annuale.entity.EntrateAnnualiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AltroFigliEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AsiloEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AttivitaEntity;
@@ -40,10 +38,6 @@ public class FigliEntity {
 
     LocalDate data_inserimento;
     String descrizione;
-
-    @ManyToOne
-    @JoinColumn(name = "iduscita")
-    private EntrateAnnualiEntity entrata;
 
     @OneToMany
     @JoinColumn(name = "idfigli")

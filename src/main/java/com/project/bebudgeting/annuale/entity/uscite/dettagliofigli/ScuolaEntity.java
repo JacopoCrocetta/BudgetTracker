@@ -1,14 +1,18 @@
 package com.project.bebudgeting.annuale.entity.uscite.dettagliofigli;
 
-import com.project.bebudgeting.annuale.entity.uscite.FigliEntity;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Entity
 @Data
@@ -18,13 +22,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class ScuolaEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "idfigli", insertable = false, updatable = false)
-    private FigliEntity figliEntity;
-
     BigDecimal totale_mensile;
+    LocalDate data_spesa;
     LocalDate data_inserimento;
     String descrizione;
 }
