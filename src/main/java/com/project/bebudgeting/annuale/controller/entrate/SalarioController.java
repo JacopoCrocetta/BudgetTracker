@@ -1,7 +1,10 @@
 package com.project.bebudgeting.annuale.controller.entrate;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
+import com.project.bebudgeting.annuale.entity.entrate.SalarioEntity;
+import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BonusEntity;
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BustaPagaEntity;
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.CommissioniEntity;
@@ -61,6 +64,17 @@ public class SalarioController {
         return manceService.findAll();
     }
 
+    @GetMapping(value = "/getAllSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    public SalarioEntity findAllSalarioEntities() {
+        SalarioEntity ret = new SalarioEntity();
+        ret.setAltroSalarioEntity((ArrayList<AltroSalarioEntity>) altroSalarioService.findAll());
+        ret.setBonusEntity((ArrayList<BonusEntity>) bonusService.findAll());
+        ret.setBustaPagaEntity((ArrayList<BustaPagaEntity>) bustaPagaService.findAll());
+        ret.setCommissioniEntity((ArrayList<CommissioniEntity>) commissioniService.findAll());
+        ret.setManceEntity((ArrayList<ManceEntity>) manceService.findAll());
+        return ret;
+    }
+
     // FIND ONE ENTITY
     @GetMapping(value = "/getOneBustaPagaEntity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<BustaPagaEntity> getOneBustaPagaEntity(@RequestParam int id) {
@@ -82,6 +96,30 @@ public class SalarioController {
         return manceService.findById(id);
     }
 
+    @GetMapping(value = "/getOneSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    public SalarioEntity findOneSalarioEntity(@RequestParam int id) {
+        SalarioEntity ret = new SalarioEntity();
+
+        ArrayList<AltroSalarioEntity> altroSalarioEntities = new ArrayList<>();
+        ArrayList<BonusEntity> bonusEntities = new ArrayList<>();
+        ArrayList<BustaPagaEntity> bustaPagaEntities = new ArrayList<>();
+        ArrayList<CommissioniEntity> commissioniEntities = new ArrayList<>();
+        ArrayList<ManceEntity> manceEntities = new ArrayList<>();
+
+        altroSalarioEntities.add(altroSalarioService.findById(id).get());
+        bonusEntities.add(bonusService.findById(id).get());
+        bustaPagaEntities.add(bustaPagaService.findById(id).get());
+        commissioniEntities.add(commissioniService.findById(id).get());
+        manceEntities.add(manceService.findById(id).get());
+
+        ret.setAltroSalarioEntity(altroSalarioEntities);
+        ret.setBonusEntity(bonusEntities);
+        ret.setBustaPagaEntity(bustaPagaEntities);
+        ret.setCommissioniEntity(commissioniEntities);
+        ret.setManceEntity(manceEntities);
+        return ret;
+    }
+
     // SAVE ONE ENTITY
     @PutMapping(value = "/saveOneBustaPagaEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BustaPagaEntity addOneBustaPagaEntity(@RequestBody BustaPagaEntity entity) {
@@ -101,5 +139,22 @@ public class SalarioController {
     @PutMapping(value = "/saveOneManceEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ManceEntity addOneManceEntity(@RequestBody ManceEntity entity) {
         return manceService.save(entity);
+    }
+
+    @PutMapping(value = "/saveOneSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public SalarioEntity addOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
+        Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
+        Iterable<BonusEntity> bonusIterable = salarioEntity.getBonusEntity();
+        Iterable<BustaPagaEntity> bustaPagaIterable = salarioEntity.getBustaPagaEntity();
+        Iterable<CommissioniEntity> commissioniIterable = salarioEntity.getCommissioniEntity();
+        Iterable<ManceEntity> manceIterable = salarioEntity.getManceEntity();
+
+        altroSalarioService.saveAll(altroSalarioIterable);
+        bonusService.saveAll(bonusIterable);
+        bustaPagaService.saveAll(bustaPagaIterable);
+        commissioniService.saveAll(commissioniIterable);
+        manceService.saveAll(manceIterable);
+
+        return salarioEntity;
     }
 }

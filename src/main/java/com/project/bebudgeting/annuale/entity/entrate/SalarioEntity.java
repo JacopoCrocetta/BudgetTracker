@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuale.entity.entrate;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.AltroSalarioEntity;
 import com.project.bebudgeting.annuale.entity.entrate.dettagliosalario.BonusEntity;
@@ -18,9 +18,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class SalarioEntity {
-    List<AltroSalarioEntity> altroSalarioEntity;
-    List<BonusEntity> bonusEntity;
-    List<BustaPagaEntity> bustaPagaEntity;
-    List<CommissioniEntity> commissioniEntity;
-    List<ManceEntity> manceEntity;
+    ArrayList<AltroSalarioEntity> altroSalarioEntity;
+    ArrayList<BonusEntity> bonusEntity;
+    ArrayList<BustaPagaEntity> bustaPagaEntity;
+    ArrayList<CommissioniEntity> commissioniEntity;
+    ArrayList<ManceEntity> manceEntity;
 }
