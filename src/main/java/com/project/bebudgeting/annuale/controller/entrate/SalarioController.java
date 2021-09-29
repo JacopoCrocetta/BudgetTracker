@@ -16,12 +16,17 @@ import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalariose
 import com.project.bebudgeting.annuale.service.entrateservice.dettagliosalarioservice.ManceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -44,6 +49,12 @@ public class SalarioController {
     ManceService manceService;
 
     // FIND ALL ENTITY
+
+    @GetMapping(value = "/getAllAltroSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<AltroSalarioEntity> findAllaAltroSalario() {
+        return altroSalarioService.findAll();
+    }
+
     @GetMapping(value = "/getAllBustaPagaEntity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BustaPagaEntity> findAllBustaPagaEntity() {
         return bustaPagaService.findAll();
@@ -97,6 +108,7 @@ public class SalarioController {
     }
 
     @GetMapping(value = "/getOneSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     public SalarioEntity findOneSalarioEntity(@RequestParam int id) {
         SalarioEntity ret = new SalarioEntity();
 
@@ -121,6 +133,11 @@ public class SalarioController {
     }
 
     // SAVE ONE ENTITY
+    @PutMapping(value = "/saveOneAltroSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AltroSalarioEntity addOneAltroSalarioEntity(@RequestBody AltroSalarioEntity entity) {
+        return altroSalarioService.save(entity);
+    }
+
     @PutMapping(value = "/saveOneBustaPagaEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BustaPagaEntity addOneBustaPagaEntity(@RequestBody BustaPagaEntity entity) {
         return bustaPagaService.save(entity);
@@ -141,7 +158,8 @@ public class SalarioController {
         return manceService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    // SAVE MORE ENTITY
+    @PutMapping(value = "/saveSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public SalarioEntity addOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
         Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
         Iterable<BonusEntity> bonusIterable = salarioEntity.getBonusEntity();
@@ -156,5 +174,25 @@ public class SalarioController {
         manceService.saveAll(manceIterable);
 
         return salarioEntity;
+    }
+
+    // DELETE
+    @DeleteMapping(value = "/deleteSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> deleteOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
+        Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
+        Iterable<BonusEntity> bonusIterable = salarioEntity.getBonusEntity();
+        Iterable<BustaPagaEntity> bustaPagaIterable = salarioEntity.getBustaPagaEntity();
+        Iterable<CommissioniEntity> commissioniIterable = salarioEntity.getCommissioniEntity();
+        Iterable<ManceEntity> manceIterable = salarioEntity.getManceEntity();
+
+        if (altroSalarioService.deleteAll(altroSalarioIterable) && bonusService.deleteAll(bonusIterable)
+                && bustaPagaService.deleteAll(bustaPagaIterable) && commissioniService.deleteAll(commissioniIterable)
+                && manceService.deleteAll(manceIterable)) {
+            return ((BodyBuilder) new ResponseEntity<String>(HttpStatus.ACCEPTED))
+                    .body("Operazioni eseguite e cancellate");
+        } else {
+            return ((BodyBuilder) new ResponseEntity<String>(HttpStatus.BAD_REQUEST))
+                    .body("Operazioni non eseguite e cancellate");
+        }
     }
 }

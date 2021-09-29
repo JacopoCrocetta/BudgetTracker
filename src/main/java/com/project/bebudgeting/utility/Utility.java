@@ -14,10 +14,6 @@ import com.project.bebudgeting.annuale.entity.entrate.dettaglioaltreentrate.Tras
 public class Utility {
     public List<AltreEntrateEntity> filterEntrateConAltreEntrate(List<AltreEntrateEntity> unfilteredList,
             Iterable<AltroAltreEntrateEntity> altreEntrate) {
-        for (AltreEntrateEntity altroAltreEntrateEntity : unfilteredList) {
-
-            altroAltreEntrateEntity.getId();
-        }
         return unfilteredList;
     }
 

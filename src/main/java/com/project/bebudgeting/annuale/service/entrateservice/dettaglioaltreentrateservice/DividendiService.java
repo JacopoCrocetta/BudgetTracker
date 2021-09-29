@@ -36,14 +36,23 @@ public class DividendiService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<DividendiEntity> enitiesToDelete) {
-        enitiesToDelete.forEach(entity -> {
+    public boolean deleteAll(Iterable<DividendiEntity> entitiesToDelete) {
+        List<Integer> ids = new ArrayList<>();
+        entitiesToDelete.forEach(entity -> {
+            ids.add(entity.getId());
+        });
+        entitiesToDelete.forEach(entity -> {
             try {
                 delete(entity);
             } catch (NotImplementedException | NullPointerException | NotFoundException e) {
                 e.printStackTrace();
             }
         });
+        if (repository.findAllById(ids) != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void deleteById(int id) throws NotFoundException {
