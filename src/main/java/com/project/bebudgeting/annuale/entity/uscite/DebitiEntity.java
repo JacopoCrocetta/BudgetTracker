@@ -2,8 +2,6 @@ package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltriPrestitiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltroDebitiEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.CarteCreditoEntity;
@@ -15,7 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor

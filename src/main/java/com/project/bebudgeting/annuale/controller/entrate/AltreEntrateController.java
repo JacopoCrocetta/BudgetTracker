@@ -27,6 +27,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+
+@Api(value = "Altre Entrate", tags = "Altre Entrate", description = "REST APIs related to Altre Entrate Entity")
 @RestController
 @RequestMapping("/altreentrate")
 public class AltreEntrateController {

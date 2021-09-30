@@ -2,8 +2,6 @@ package com.project.bebudgeting.annuale.entity.uscite;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-
 import com.project.bebudgeting.annuale.entity.uscite.dettagliobollette.AltreBolletteEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliobollette.BolletteAcquaEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettagliobollette.BolletteElettricitaEntity;
@@ -17,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import javassist.NotFoundException;
 
+@Api(value = "Busta paga", tags = "Busta paga", description = "REST APIs related to Busta Paga Entity")
 @RestController
 @RequestMapping("/bustapaga")
 public class BustaPagaController {

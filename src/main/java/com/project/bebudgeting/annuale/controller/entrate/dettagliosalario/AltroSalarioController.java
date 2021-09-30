@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import javassist.NotFoundException;
 
+@Api(value = "Altro salario", tags = "Altro salario", description = "REST APIs related to Altro Salario Entity")
 @RestController
 @RequestMapping("/altrosalario")
 public class AltroSalarioController {

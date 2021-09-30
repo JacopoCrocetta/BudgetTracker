@@ -29,6 +29,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+
+@Api(value = "Salario", tags = "Salario", description = "REST APIs related to Salario Entity")
 @RestController
 @RequestMapping("/salario")
 public class SalarioController {

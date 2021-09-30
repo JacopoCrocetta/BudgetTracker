@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import javassist.NotFoundException;
 
+@Api(value = "Bonus", tags = "Bonus", description = "REST APIs related to Bonus Entity")
 @RestController
 @RequestMapping("/bonus")
 public class BonusController {
