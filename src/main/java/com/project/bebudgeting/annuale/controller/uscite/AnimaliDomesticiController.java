@@ -14,7 +14,7 @@ import io.swagger.annotations.Api;
 
 @Api(value = "Animali Domestici", tags = "Animali Domestici", description = "REST APIs related to Salario Entity")
 @RestController
-@RequestMapping("/animaliDomestici")
+@RequestMapping("/animali-domestici")
 public class AnimaliDomesticiController {
     @Autowired
     AlimentiAnimaliDomesticiService animaliDomesticiService;

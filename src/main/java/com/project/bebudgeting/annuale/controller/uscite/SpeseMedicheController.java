@@ -14,7 +14,7 @@ import io.swagger.annotations.Api;
 
 @Api(value = "Spese Mediche", tags = "Spese Mediche", description = "REST APIs related to Salario Entity")
 @RestController
-@RequestMapping("/speseMediche")
+@RequestMapping("/spese-mediche")
 public class SpeseMedicheController {
     @Autowired
     AltreSpeseMedicheService altreSpeseMedicheService;

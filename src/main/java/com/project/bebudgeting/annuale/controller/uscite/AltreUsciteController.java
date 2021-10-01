@@ -10,7 +10,7 @@ import io.swagger.annotations.Api;
 
 @Api(value = "Altre Uscite", tags = "Altre Uscite", description = "REST APIs related to Salario Entity")
 @RestController
-@RequestMapping("/altreUscite")
+@RequestMapping("/altre-uscite")
 public class AltreUsciteController {
     @Autowired
     AltreUsciteService altreUsciteService;
