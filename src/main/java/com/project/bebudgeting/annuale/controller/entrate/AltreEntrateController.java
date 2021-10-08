@@ -31,7 +31,7 @@ import io.swagger.annotations.Api;
 
 @Api(value = "Altre Entrate", tags = "Altre Entrate", description = "REST APIs related to Altre Entrate Entity")
 @RestController
-@RequestMapping("/altreentrate")
+@RequestMapping("/altre-entrate")
 public class AltreEntrateController {
     @Autowired
     AltroEService altroEService;
@@ -52,12 +52,12 @@ public class AltreEntrateController {
     TrasferimentoRisparmiService trasferimentoRisparmiService;
 
     // FIND ALL ENTITY
-    @GetMapping(value = "/findAllALtroEService", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-altro-eservice", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroAltreEntrateEntity> findAllAltroEntrateEntity() {
         return altroEService.findAll();
     }
 
-    @GetMapping(value = "/findAllDividendiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-dividendi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<DividendiEntity> findAllDividendiEntity() {
         return dividendiService.findAll();
     }

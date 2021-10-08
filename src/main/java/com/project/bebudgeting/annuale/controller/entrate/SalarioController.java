@@ -53,27 +53,27 @@ public class SalarioController {
 
     // FIND ALL ENTITY
 
-    @GetMapping(value = "/getAllAltroSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-altro-salario-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroSalarioEntity> findAllaAltroSalario() {
         return altroSalarioService.findAll();
     }
 
-    @GetMapping(value = "/getAllBustaPagaEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-busta-paga-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BustaPagaEntity> findAllBustaPagaEntity() {
         return bustaPagaService.findAll();
     }
 
-    @GetMapping(value = "/getAllBonusEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-bonus-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BonusEntity> findAllBonusEntity() {
         return bonusService.findAll();
     }
 
-    @GetMapping(value = "/getAllCommissioniEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-commissioni-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CommissioniEntity> findAllCommissioniEntity() {
         return commissioniService.findAll();
     }
 
-    @GetMapping(value = "/getAllManceEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-mance-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ManceEntity> findAllManceEntity() {
         return manceService.findAll();
     }
