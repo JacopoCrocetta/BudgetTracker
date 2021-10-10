@@ -18,24 +18,24 @@ import javassist.NotFoundException;
 
 @Api(value = "Altro Altre Entrate", tags = "Altro Altre Entrate", description = "REST APIs related to Altre Entrate Entity")
 @RestController
-@RequestMapping("/altroaltreentrate")
+@RequestMapping("/altro-altre-entrate")
 public class AltreEController {
         @Autowired
         AltroEService altroEService;
 
         // DELETE
-        @DeleteMapping(value = "/deleteAllAltroAltreEntrateEntities")
+        @DeleteMapping(value = "/delete-all")
         public void deleteAll() {
                 altroEService.deleteAll();
         }
 
-        @DeleteMapping(value = "/deleteOneAltroAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+        @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteOneEntity(@RequestBody AltroAltreEntrateEntity entity)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.delete(entity);
         }
 
-        @DeleteMapping(value = "/deleteSomeAltroAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+        @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteSomeEntity(@RequestBody Iterable<AltroAltreEntrateEntity> entities)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteAll(entities);

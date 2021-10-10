@@ -19,6 +19,6 @@ public class AnimaliDomesticiEntity {
     private List<AlimentiAnimaliDomesticiEntity> alimentiEntities;
     private List<AltroAnimaliDomesticiEntity> altroEntities;
     private List<FornitureAnimaliDomesticiEntity> fornitureEntities;
-    private List<GiocattoliAnimaliDomesticiEntity> giocattoliEntity;
+    private List<GiocattoliAnimaliDomesticiEntity> giocattoliEntities;
     private List<VeterinarioAnimaliDomesticiEntity> veterinarioEntities;
 }

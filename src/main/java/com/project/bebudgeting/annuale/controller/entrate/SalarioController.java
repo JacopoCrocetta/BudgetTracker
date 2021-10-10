@@ -78,7 +78,7 @@ public class SalarioController {
         return manceService.findAll();
     }
 
-    @GetMapping(value = "/getAllSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-all-salario-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public SalarioEntity findAllSalarioEntities() {
         SalarioEntity ret = new SalarioEntity();
         ret.setAltroSalarioEntity((ArrayList<AltroSalarioEntity>) altroSalarioService.findAll());
@@ -90,27 +90,27 @@ public class SalarioController {
     }
 
     // FIND ONE ENTITY
-    @GetMapping(value = "/getOneBustaPagaEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-one-busta-paga-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<BustaPagaEntity> getOneBustaPagaEntity(@RequestParam int id) {
         return bustaPagaService.findById(id);
     }
 
-    @GetMapping(value = "/getOneBonusEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-one-bonus-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<BonusEntity> getOneBonusEntity(@RequestParam int id) {
         return bonusService.findById(id);
     }
 
-    @GetMapping(value = "/getOneCommissioniEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-one-commissioni-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<CommissioniEntity> getCommissioniEntity(@RequestParam int id) {
         return commissioniService.findById(id);
     }
 
-    @GetMapping(value = "/getOneManceEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-one-Mance-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<ManceEntity> getOneManceEntity(@RequestParam int id) {
         return manceService.findById(id);
     }
 
-    @GetMapping(value = "/getOneSalarioEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get-one-Salario-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public SalarioEntity findOneSalarioEntity(@RequestParam int id) {
         SalarioEntity ret = new SalarioEntity();
@@ -136,33 +136,33 @@ public class SalarioController {
     }
 
     // SAVE ONE ENTITY
-    @PutMapping(value = "/saveOneAltroSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-altro-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltroSalarioEntity addOneAltroSalarioEntity(@RequestBody AltroSalarioEntity entity) {
         return altroSalarioService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneBustaPagaEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-busta-paga-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BustaPagaEntity addOneBustaPagaEntity(@RequestBody BustaPagaEntity entity) {
         return bustaPagaService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneBonusEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-bonus-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BonusEntity addOneBonusEntity(@RequestBody BonusEntity entity) {
         return bonusService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneCommissioniEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-commissioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public CommissioniEntity addOneCommissioniEntity(@RequestBody CommissioniEntity entity) {
         return commissioniService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneManceEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-mance-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ManceEntity addOneManceEntity(@RequestBody ManceEntity entity) {
         return manceService.save(entity);
     }
 
     // SAVE MORE ENTITY
-    @PutMapping(value = "/saveSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public SalarioEntity addOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
         Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
         Iterable<BonusEntity> bonusIterable = salarioEntity.getBonusEntity();
@@ -180,7 +180,7 @@ public class SalarioController {
     }
 
     // DELETE
-    @DeleteMapping(value = "/deleteSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
         Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
         Iterable<BonusEntity> bonusIterable = salarioEntity.getBonusEntity();

@@ -62,27 +62,27 @@ public class AltreEntrateController {
         return dividendiService.findAll();
     }
 
-    @GetMapping(value = "/findAllInteressiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-interessi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InteressiEntity> findAllInteressiEntity() {
         return interessiService.findAll();
     }
 
-    @GetMapping(value = "/findAllRegaliAltreEntrateEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-regali-altre-entrate-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<RegaliAltreEntrateEntity> findAllRegaliAltreEntrateEntity() {
         return regaliAltreEntrateService.findAll();
     }
 
-    @GetMapping(value = "/findAllRimborsiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-rimborsi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<RimborsiEntity> findAllRimborsiEntities() {
         return rimborsiService.findAll();
     }
 
-    @GetMapping(value = "/findAllTrasferimentoRisparmiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-trasferimento-risparmi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TrasferimentoRisparmiEntity> findAllTrasferimentoRisparmiEntities() {
         return trasferimentoRisparmiService.findAll();
     }
 
-    @GetMapping(value = "/findAllALtreEntrateEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-all-altre-entrate-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public AltreEntrateEntity findAllALtreEntrateEntities() {
         AltreEntrateEntity ret = new AltreEntrateEntity();
         ret.setAltroEntities((List<AltroAltreEntrateEntity>) altroEService.findAll());
@@ -96,37 +96,37 @@ public class AltreEntrateController {
     }
 
     // FIND ONE ENTITY
-    @GetMapping(value = "/findOneAltroAltreEntrateEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-altro-altre-entrate-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<AltroAltreEntrateEntity> findOneAltroAltreEntrateEntity(@RequestParam int id) {
         return altroEService.findById(id);
     }
 
-    @GetMapping(value = "/findOneDividendiEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-dividendi-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<DividendiEntity> findOneDividendiEntity(@RequestParam int id) {
         return dividendiService.findById(id);
     }
 
-    @GetMapping(value = "/findOneInteressiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-interessi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<InteressiEntity> findOneInteressiEntities(@RequestParam int id) {
         return interessiService.findById(id);
     }
 
-    @GetMapping(value = "/findOneRegaliAltreEntrateEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-regali-altre-entrate-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<RegaliAltreEntrateEntity> findOneRegaliAltreEntrateEntity(@RequestParam int id) {
         return regaliAltreEntrateService.findById(id);
     }
 
-    @GetMapping(value = "/findOneRimborsiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-rimborsi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<RimborsiEntity> findOneRimborsiEntities(@RequestParam int id) {
         return rimborsiService.findById(id);
     }
 
-    @GetMapping(value = "/findOneTrasferimentoRisparmiEntities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-trasferimento-risparmi-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<TrasferimentoRisparmiEntity> findOneTrasferimentoRisparmiEntities(@RequestParam int id) {
         return trasferimentoRisparmiService.findById(id);
     }
 
-    @GetMapping(value = "/findOneAltreEntrateEntity", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/find-one-altre-entrate-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public AltreEntrateEntity findOneAltreEntrateEntity(@RequestParam int id) {
         AltreEntrateEntity ret = new AltreEntrateEntity();
 
@@ -154,40 +154,40 @@ public class AltreEntrateController {
     }
 
     // SAVE ONE ENTITY
-    @PutMapping(value = "/saveOneAltroAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-altro-altre-entrate-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltroAltreEntrateEntity saveOneAltroAltreEntrateEntity(@RequestBody AltroAltreEntrateEntity entity) {
         return altroEService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneDividendoEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-dividendo-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public DividendiEntity saveOneDividendoEntity(@RequestBody DividendiEntity entity) {
         return dividendiService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneInteressiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-interessi-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public InteressiEntity saveOneInteressiEntity(@RequestBody InteressiEntity entity) {
         return interessiService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneRegaliAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-RegaliAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public RegaliAltreEntrateEntity saveOneRegaliAltreEntrateEntity(@RequestBody RegaliAltreEntrateEntity entity) {
         return regaliAltreEntrateService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneRimborsiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-RimborsiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public RimborsiEntity saveOneRimborsiEntity(@RequestBody RimborsiEntity entity) {
         return rimborsiService.save(entity);
     }
 
-    @PutMapping(value = "/saveOneTrasferimentoRisparmiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-TrasferimentoRisparmiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public TrasferimentoRisparmiEntity saveOneTrasferimentoRisparmiEntity(
             @RequestBody TrasferimentoRisparmiEntity entity) {
         return trasferimentoRisparmiService.save(entity);
     }
 
     // SAVE MORE ENTITY
-    @PutMapping(value = "/saveSalarioEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public AltreEntrateEntity addOneSalarioEntity(@RequestBody AltreEntrateEntity altreEntrateEntity) {
+    @PutMapping(value = "/save-altra-entrata-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AltreEntrateEntity addOneAltreEntrateEntity(@RequestBody AltreEntrateEntity altreEntrateEntity) {
         Iterable<AltroAltreEntrateEntity> altroAltreEntrateEntities = altreEntrateEntity.getAltroEntities();
         Iterable<DividendiEntity> dividendiEntities = altreEntrateEntity.getDividendiEntities();
         Iterable<InteressiEntity> interessiEntities = altreEntrateEntity.getInteressiEntities();
