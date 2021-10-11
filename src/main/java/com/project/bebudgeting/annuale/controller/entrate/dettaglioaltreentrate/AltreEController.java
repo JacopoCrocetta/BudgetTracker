@@ -41,25 +41,25 @@ public class AltreEController {
                 altroEService.deleteAll(entities);
         }
 
-        @DeleteMapping(value = "/deleteAltroAltreEntrateEntityById")
-        public void deleteAltroAltreEntrateEntityById(@RequestParam int id)
+        @DeleteMapping(value = "/delete-one-entity-by-Id")
+        public void deleteOneEntityById(@RequestParam int id)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteById(id);
         }
 
-        @DeleteMapping(value = "/deleteSomeAltroAltreEntrateEntityByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
+        @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteSomeEntityById(@RequestBody Iterable<Integer> entitiesId)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteAllById(entitiesId);
         }
 
         // SAVE
-        @PutMapping(value = "/saveOneAltroAltreEntrateEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+        @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
         public AltroAltreEntrateEntity addOneEntity(@RequestBody AltroAltreEntrateEntity entity) {
                 return altroEService.save(entity);
         }
 
-        @PutMapping(value = "/saveMoreAltroAltreEntrateEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+        @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<AltroAltreEntrateEntity> addMoreEntity(
                         @RequestBody Iterable<AltroAltreEntrateEntity> entities) {
                 return altroEService.saveAll(entities);

@@ -24,42 +24,42 @@ public class RimborsiController {
     RimborsiService rimborsiService;
 
     // DELETE
-    @DeleteMapping(value = "/deleteAllDividendiEntities")
+    @DeleteMapping(value = "/delete-all-entities")
     public void deleteAll() {
         rimborsiService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody RimborsiEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         rimborsiService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<RimborsiEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         rimborsiService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntityById")
-    public void deleteOneDividendiEntityById(@RequestParam int id)
+    @DeleteMapping(value = "/delete-one-entity-by-Id")
+    public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         rimborsiService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
+    @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteSomeEntityByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         rimborsiService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public RimborsiEntity addOneEntity(@RequestBody RimborsiEntity entity) {
         return rimborsiService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<RimborsiEntity> addMoreEntity(@RequestBody Iterable<RimborsiEntity> entities) {
         return rimborsiService.saveAll(entities);
     }

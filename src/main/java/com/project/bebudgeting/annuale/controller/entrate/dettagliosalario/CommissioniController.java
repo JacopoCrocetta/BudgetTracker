@@ -24,42 +24,42 @@ public class CommissioniController {
     CommissioniService commissioniService;
 
     // DELETE
-    @DeleteMapping(value = "/deleteAllDividendiEntities")
+    @DeleteMapping(value = "/delete-all")
     public void deleteAll() {
         commissioniService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody CommissioniEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         commissioniService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<CommissioniEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         commissioniService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntityById")
-    public void deleteOneDividendiEntityById(@RequestParam int id)
+    @DeleteMapping(value = "/delete-one-entity-by-Id")
+    public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         commissioniService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
+    @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteSomeEntityByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         commissioniService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public CommissioniEntity addOneEntity(@RequestBody CommissioniEntity entity) {
         return commissioniService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CommissioniEntity> addMoreEntity(@RequestBody Iterable<CommissioniEntity> entities) {
         return commissioniService.saveAll(entities);
     }

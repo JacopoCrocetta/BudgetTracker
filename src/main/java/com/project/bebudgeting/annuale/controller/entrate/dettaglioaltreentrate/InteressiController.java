@@ -24,42 +24,42 @@ public class InteressiController {
     InteressiService interessiService;
 
     // DELETE
-    @DeleteMapping(value = "/deleteAllDividendiEntities")
+    @DeleteMapping(value = "/delete-all-entities")
     public void deleteAll() {
         interessiService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody InteressiEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         interessiService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<InteressiEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         interessiService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntityById")
+    @DeleteMapping(value = "/delete-one-entity-by-Id")
     public void deleteOneDividendiEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         interessiService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         interessiService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public InteressiEntity addOneEntity(@RequestBody InteressiEntity entity) {
         return interessiService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<InteressiEntity> addMoreEntity(@RequestBody Iterable<InteressiEntity> entities) {
         return interessiService.saveAll(entities);
     }

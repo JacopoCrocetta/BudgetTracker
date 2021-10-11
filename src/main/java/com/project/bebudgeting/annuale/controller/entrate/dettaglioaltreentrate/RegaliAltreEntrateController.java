@@ -18,48 +18,48 @@ import javassist.NotFoundException;
 
 @Api(value = "Regali altre entrate", tags = "Regali altre entrate", description = "REST APIs related to Regali Altre Entrate Entity")
 @RestController
-@RequestMapping("/regalialtreentrate")
+@RequestMapping("/regali-altre-entrate")
 public class RegaliAltreEntrateController {
     @Autowired
     RegaliAltreEntrateService regaliAltreEntrateService;
 
     // DELETE
-    @DeleteMapping(value = "/deleteAllDividendiEntities")
+    @DeleteMapping(value = "/delete-all")
     public void deleteAll() {
         regaliAltreEntrateService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody RegaliAltreEntrateEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         regaliAltreEntrateService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<RegaliAltreEntrateEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         regaliAltreEntrateService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntityById")
-    public void deleteOneDividendiEntityById(@RequestParam int id)
+    @DeleteMapping(value = "/delete-one-entity-by-Id")
+    public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         regaliAltreEntrateService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
+    @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteSomeEntityByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         regaliAltreEntrateService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public RegaliAltreEntrateEntity addOneEntity(@RequestBody RegaliAltreEntrateEntity entity) {
         return regaliAltreEntrateService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<RegaliAltreEntrateEntity> addMoreEntity(@RequestBody Iterable<RegaliAltreEntrateEntity> entities) {
         return regaliAltreEntrateService.saveAll(entities);
     }

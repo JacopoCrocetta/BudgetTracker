@@ -18,48 +18,48 @@ import javassist.NotFoundException;
 
 @Api(value = "Trasferimento risparmi", tags = "Trasferimento risparmi", description = "REST APIs related to Trasferimento Risparmi Entity")
 @RestController
-@RequestMapping("/trasferimentirisparmi")
+@RequestMapping("/trasferimento-risparmi")
 public class TrasferimentiRisparmiController {
     @Autowired
     TrasferimentoRisparmiService trasferimentoRisparmiService;
 
     // DELETE
-    @DeleteMapping(value = "/deleteAllDividendiEntities")
+    @DeleteMapping(value = "/delete-all-entities")
     public void deleteAll() {
         trasferimentoRisparmiService.deleteAll();
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody TrasferimentoRisparmiEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         trasferimentoRisparmiService.delete(entity);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<TrasferimentoRisparmiEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         trasferimentoRisparmiService.deleteAll(entities);
     }
 
-    @DeleteMapping(value = "/deleteOneDividendiEntityById")
-    public void deleteOneDividendiEntityById(@RequestParam int id)
+    @DeleteMapping(value = "/delete-one-entity-by-Id")
+    public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         trasferimentoRisparmiService.deleteById(id);
     }
 
-    @DeleteMapping(value = "/deleteSomeDividendiEntitiesByIds", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteSomeDividendiEntitiesByIds(@RequestBody Iterable<Integer> entitiesId)
+    @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteSomeEntityByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         trasferimentoRisparmiService.deleteAllById(entitiesId);
     }
 
     // SAVE
-    @PutMapping(value = "/saveOneDividendiEntity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public TrasferimentoRisparmiEntity addOneEntity(@RequestBody TrasferimentoRisparmiEntity entity) {
         return trasferimentoRisparmiService.save(entity);
     }
 
-    @PutMapping(value = "/saveMoreDividendiEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<TrasferimentoRisparmiEntity> addMoreEntity(
             @RequestBody Iterable<TrasferimentoRisparmiEntity> entities) {
         return trasferimentoRisparmiService.saveAll(entities);
