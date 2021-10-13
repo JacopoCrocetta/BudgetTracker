@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.controller.uscite;
 
+import com.project.bebudgeting.annuale.entity.uscite.dettagliobollette.AltreBolletteEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliobollette.BolletteAcquaEntity;
 import com.project.bebudgeting.annuale.service.usciteservice.bolletteservice.AltreBolletteService;
 import com.project.bebudgeting.annuale.service.usciteservice.bolletteservice.BolletteAcquaService;
 import com.project.bebudgeting.annuale.service.usciteservice.bolletteservice.BolletteElettricitaService;
@@ -9,6 +11,8 @@ import com.project.bebudgeting.annuale.service.usciteservice.bolletteservice.Bol
 import com.project.bebudgeting.annuale.service.usciteservice.bolletteservice.BolletteTelefonoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,4 +42,25 @@ public class BolletteController {
 
     @Autowired
     BolletteTelefonoService bolletteTelefonoService;
+
+    // GET
+    @GetMapping(value = "/get-all-altre-bollette-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<AltreBolletteEntity> getAllAltreBolletteEntities() {
+        return altreBolletteService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<BolletteAcquaEntity> getAllBolletteAcquaEntities() {
+        return bolletteAcquaService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-altre-bollette-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<AltreBolletteEntity> grtAllElettricitaEntities() {
+        return altreBolletteService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<BolletteAcquaEntity> getAllBolletteGasEntities() {
+        return bolletteAcquaService.findAll();
+    }
 }

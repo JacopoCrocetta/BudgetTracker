@@ -1,5 +1,7 @@
 package com.project.bebudgeting.annuale.controller.uscite;
 
+import java.util.List;
+
 import com.project.bebudgeting.annuale.entity.uscite.AssicurazioneEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AltreAssicurazioniEntity;
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
@@ -14,11 +16,14 @@ import com.project.bebudgeting.annuale.service.usciteservice.assicurazioneservic
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import javassist.NotFoundException;
 
 @Api(value = "Assicurazione", tags = "Assicurazione", description = "REST APIs related to Salario Entity")
 @RestController
@@ -66,7 +71,89 @@ public class AssicurazioneController {
     }
 
     @GetMapping(value = "/get-all-assicurazioni-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<AssicurazioneEntity> getAllAssicurazioniEntity() {
-        return null;
+    public AssicurazioneEntity getAllAssicurazioniEntity() {
+        AssicurazioneEntity response = new AssicurazioneEntity();
+        response.setAltreAssicurazioniEntities((List<AltreAssicurazioniEntity>) altreAssicurazioniService.findAll());
+        response.setAssicurazioneAutoEntities((List<AssicurazioneAutoEntity>) assicurazioneAutoService.findAll());
+        response.setAssicurazioneCasaEntities((List<AssicurazioneCasaEntity>) assicurazioneCasaService.findAll());
+        response.setAssicurazioneSaluteEntities((List<AssicurazioneSaluteEntity>) assicurazioneSaluteService.findAll());
+        response.setAssicurazioneVitaEntities((List<AssicurazioneVitaEntity>) assicurazioneVitaService.findAll());
+        return response;
+    }
+
+    // DELETE ALL
+    @DeleteMapping(value = "/delete-all-altre-assicurazioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllAltreAssicurazioni(@RequestBody List<AltreAssicurazioniEntity> entitiesToDelete) {
+        altreAssicurazioniService.deleteAll(entitiesToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-all-assicurazioni-auto-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllAssicurazioniAuto(@RequestBody List<AssicurazioneAutoEntity> entitiesToDelete) {
+        assicurazioneAutoService.deleteAll(entitiesToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-all-assicurazioni-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllAssicurazioneCasa(@RequestBody List<AssicurazioneCasaEntity> entitiesToDelete) {
+        assicurazioneCasaService.deleteAll(entitiesToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-all-assicurazioni-salute-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllAssicurazioneSalute(@RequestBody List<AssicurazioneSaluteEntity> entitiesToDelete) {
+        assicurazioneSaluteService.deleteAll(entitiesToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-all-altre-assicurazioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllAssicurazioneVita(@RequestBody List<AssicurazioneVitaEntity> entitiesToDelete) {
+        assicurazioneVitaService.deleteAll(entitiesToDelete);
+    }
+
+    // DELETE ONE ENTITY
+    @DeleteMapping(value = "/delete-one-altre-assicurazioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAltreAssicurazioni(@RequestBody AltreAssicurazioniEntity entityToDelete)
+            throws NotFoundException {
+        altreAssicurazioniService.delete(entityToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-one-assicurazioni-auto-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAssicurazioniAuto(@RequestBody AssicurazioneAutoEntity entityToDelete)
+            throws NotFoundException {
+        assicurazioneAutoService.delete(entityToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-one-assicurazioni-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAssicurazioneCasa(@RequestBody AssicurazioneCasaEntity entityToDelete)
+            throws NotFoundException {
+        assicurazioneCasaService.delete(entityToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-one-assicurazioni-salute-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAssicurazioneSalute(@RequestBody AssicurazioneSaluteEntity entityToDelete)
+            throws NotFoundException {
+        assicurazioneSaluteService.delete(entityToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-one-assicurazione-vita-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAssicurazioneVita(@RequestBody AssicurazioneVitaEntity entityToDelete)
+            throws NotFoundException {
+        assicurazioneVitaService.delete(entityToDelete);
+    }
+
+    @DeleteMapping(value = "/delete-one-assicurazioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAssicurazione(@RequestBody AssicurazioneEntity entityToDelete) throws NotFoundException {
+        if (!entityToDelete.getAltreAssicurazioniEntities().isEmpty()) {
+            altreAssicurazioniService.deleteAll(entityToDelete.getAltreAssicurazioniEntities());
+        }
+        if (!entityToDelete.getAssicurazioneAutoEntities().isEmpty()) {
+            assicurazioneAutoService.deleteAll(entityToDelete.getAssicurazioneAutoEntities());
+        }
+        if (!entityToDelete.getAssicurazioneCasaEntities().isEmpty()) {
+            assicurazioneCasaService.deleteAll(entityToDelete.getAssicurazioneCasaEntities());
+        }
+        if (!entityToDelete.getAssicurazioneSaluteEntities().isEmpty()) {
+            assicurazioneSaluteService.deleteAll(entityToDelete.getAssicurazioneSaluteEntities());
+        }
+        if (!entityToDelete.getAssicurazioneVitaEntities().isEmpty()) {
+            assicurazioneVitaService.deleteAll(entityToDelete.getAssicurazioneVitaEntities());
+        }
     }
 }

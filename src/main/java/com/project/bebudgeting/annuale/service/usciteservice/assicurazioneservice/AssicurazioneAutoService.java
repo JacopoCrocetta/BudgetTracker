@@ -1,5 +1,6 @@
 package com.project.bebudgeting.annuale.service.usciteservice.assicurazioneservice;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.annuale.entity.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
@@ -27,7 +28,7 @@ public class AssicurazioneAutoService {
         throw new NotFoundException("Item Not Found");
     }
 
-    public void deleteAll(Iterable<AssicurazioneAutoEntity> entitiesToDelete) {
+    public void deleteAll(List<AssicurazioneAutoEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
             try {
                 this.delete(entity);

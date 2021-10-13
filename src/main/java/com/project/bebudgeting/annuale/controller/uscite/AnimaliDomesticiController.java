@@ -153,4 +153,23 @@ public class AnimaliDomesticiController {
             throws NotFoundException {
         veterinarioAnimaliDomestici.delete(entity);
     }
+
+    @DeleteMapping(value = "/delete-one-animali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneAnimaliDomesticiEntity(@RequestBody AnimaliDomesticiEntity entity) {
+        if (!entity.getAlimentiEntities().isEmpty()) {
+            alimentiAnimaliDomesticiService.deleteAll(entity.getAlimentiEntities());
+        }
+        if (!entity.getAltroEntities().isEmpty()) {
+            altroAnimaliDomesticiService.deleteAll(entity.getAltroEntities());
+        }
+        if (!entity.getFornitureEntities().isEmpty()) {
+            fornitureAnimaliDomesticiService.deleteAll(entity.getFornitureEntities());
+        }
+        if (!entity.getGiocattoliEntities().isEmpty()) {
+            giocattoliAnimaliDomesticiService.deleteAll(entity.getGiocattoliEntities());
+        }
+        if (!entity.getVeterinarioEntities().isEmpty()) {
+            veterinarioAnimaliDomestici.deleteAll(entity.getVeterinarioEntities());
+        }
+    }
 }
