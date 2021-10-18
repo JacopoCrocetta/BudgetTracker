@@ -91,12 +91,6 @@ public class CasaController {
     // DELETE ALL
 
     /*
-     * @Autowired AffittoService affittoService;
-     * 
-     * @Autowired AltroCasaService altroCasaService;
-     * 
-     * @Autowired ArredamentoService arredamentoService;
-     * 
      * @Autowired FornitureCasaService fornitureCasaService;
      * 
      * @Autowired ManutenzioneService manutenzioneService;
@@ -120,25 +114,24 @@ public class CasaController {
         arredamentoService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteAllBolletteGasEntities(@RequestBody Iterable<Integer> ids) {
-        bolletteAcquaService.deleteAllById(ids);
+    @DeleteMapping(value = "/delete-all-forniture-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllFornitureCasaEntities(@RequestBody Iterable<Integer> ids) {
+        fornitureCasaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-elettriche-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<BolletteElettricitaEntity> deleteAllBolletteElettricheEntities(@RequestBody Iterable<Integer> ids) {
-        altreBolletteService.deleteAllById(ids);
-        return bolletteElettricitaService.findAll();
+    @DeleteMapping(value = "/delete-all-manutenzione-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllManutenzioneCasaEntities(@RequestBody Iterable<Integer> ids) {
+        manutenzioneService.deleteAllById(ids);
     }
 
     @DeleteMapping(value = "/delete-all-bollette-gas-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteGASEntities(@RequestBody Iterable<Integer> ids) {
-        bolletteGASService.deleteAllById(ids);
+        miglioramentiService.deleteAllById(ids);
     }
 
     @DeleteMapping(value = "/delete-all-bollette-internet-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteInternetEntities(@RequestBody Iterable<Integer> ids) {
-        bolletteInternetService.deleteAllById(ids);
+        traslocoService.deleteAllById(ids);
     }
 
     // DELETE ONE ENTITY
