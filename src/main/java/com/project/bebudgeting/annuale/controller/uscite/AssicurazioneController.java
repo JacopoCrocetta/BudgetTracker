@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -155,5 +156,54 @@ public class AssicurazioneController {
         if (!entityToDelete.getAssicurazioneVitaEntities().isEmpty()) {
             assicurazioneVitaService.deleteAll(entityToDelete.getAssicurazioneVitaEntities());
         }
+    }
+
+    // SAVE ONE
+    @PutMapping(value = "/save-one-altre-assicurazioni-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AltreAssicurazioniEntity addOneAltroSalarioEntity(@RequestBody AltreAssicurazioniEntity entity) {
+        return altreAssicurazioniService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-auto-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AssicurazioneAutoEntity addOneAssicurazioneAutoEntity(@RequestBody AssicurazioneAutoEntity entity) {
+        return assicurazioneAutoService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AssicurazioneCasaEntity addOneAssicurazioneCasaEntity(@RequestBody AssicurazioneCasaEntity entity) {
+        return assicurazioneCasaService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-salute-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AssicurazioneSaluteEntity addOneAssicurazioneSaluteEntity(@RequestBody AssicurazioneSaluteEntity entity) {
+        return assicurazioneSaluteService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-vita-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AssicurazioneVitaEntity addOneAssicurazioneVitaEntity(@RequestBody AssicurazioneVitaEntity entity) {
+        return assicurazioneVitaService.save(entity);
+    }
+
+    // SAVE MORE ENTITY
+    @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AssicurazioneEntity addOneSalarioEntity(@RequestBody AssicurazioneEntity assicurazioneEntity) {
+        Iterable<AltreAssicurazioniEntity> altreAssicurazioniEntities = assicurazioneEntity
+                .getAltreAssicurazioniEntities();
+        Iterable<AssicurazioneAutoEntity> assicurazioniAutoEntities = assicurazioneEntity
+                .getAssicurazioneAutoEntities();
+        Iterable<AssicurazioneCasaEntity> assicurazioneCasaEntities = assicurazioneEntity
+                .getAssicurazioneCasaEntities();
+        Iterable<AssicurazioneSaluteEntity> assicurazioneSaluteEntities = assicurazioneEntity
+                .getAssicurazioneSaluteEntities();
+        Iterable<AssicurazioneVitaEntity> assicurazioneVitaEntities = assicurazioneEntity
+                .getAssicurazioneVitaEntities();
+
+        altreAssicurazioniService.saveAll(altreAssicurazioniEntities);
+        assicurazioneAutoService.saveAll(assicurazioniAutoEntities);
+        assicurazioneCasaService.saveAll(assicurazioneCasaEntities);
+        assicurazioneSaluteService.saveAll(assicurazioneSaluteEntities);
+        assicurazioneVitaService.saveAll(assicurazioneVitaEntities);
+
+        return assicurazioneEntity;
     }
 }

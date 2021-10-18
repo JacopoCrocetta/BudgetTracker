@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -172,4 +173,56 @@ public class AnimaliDomesticiController {
             veterinarioAnimaliDomestici.deleteAll(entity.getVeterinarioEntities());
         }
     }
+
+    // SAVE ONE
+    @PutMapping(value = "/save-one-alimenti-animali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AlimentiAnimaliDomesticiEntity addOneAltroSalarioEntity(@RequestBody AlimentiAnimaliDomesticiEntity entity) {
+        return alimentiAnimaliDomesticiService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-altro-amimali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AltroAnimaliDomesticiEntity addOneAssicurazioneAutoEntity(@RequestBody AltroAnimaliDomesticiEntity entity) {
+        return altroAnimaliDomesticiService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public FornitureAnimaliDomesticiEntity addOneAssicurazioneCasaEntity(
+            @RequestBody FornitureAnimaliDomesticiEntity entity) {
+        return fornitureAnimaliDomesticiService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-salute-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public GiocattoliAnimaliDomesticiEntity addOneAssicurazioneSaluteEntity(
+            @RequestBody GiocattoliAnimaliDomesticiEntity entity) {
+        return giocattoliAnimaliDomesticiService.save(entity);
+    }
+
+    @PutMapping(value = "/save-one-assicurazione-vita-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public VeterinarioAnimaliDomesticiEntity addOneAssicurazioneVitaEntity(
+            @RequestBody VeterinarioAnimaliDomesticiEntity entity) {
+        return veterinarioAnimaliDomestici.save(entity);
+    }
+
+    // SAVE MORE ENTITY
+    @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public AnimaliDomesticiEntity addOneSalarioEntity(@RequestBody AnimaliDomesticiEntity animaliDomesticiEntity) {
+        Iterable<AlimentiAnimaliDomesticiEntity> alimentiAlimentiEntities = animaliDomesticiEntity
+                .getAlimentiEntities();
+        Iterable<AltroAnimaliDomesticiEntity> altroAnimaliDomesticiEntities = animaliDomesticiEntity.getAltroEntities();
+        Iterable<FornitureAnimaliDomesticiEntity> fornitureAnimaliDomesticiEntities = animaliDomesticiEntity
+                .getFornitureEntities();
+        Iterable<GiocattoliAnimaliDomesticiEntity> giocattoliAnimaliDomesticiEntities = animaliDomesticiEntity
+                .getGiocattoliEntities();
+        Iterable<VeterinarioAnimaliDomesticiEntity> veterinarioAnimaliDomesticiEntities = animaliDomesticiEntity
+                .getVeterinarioEntities();
+
+        alimentiAnimaliDomesticiService.saveAll(alimentiAlimentiEntities);
+        altroAnimaliDomesticiService.saveAll(altroAnimaliDomesticiEntities);
+        fornitureAnimaliDomesticiService.saveAll(fornitureAnimaliDomesticiEntities);
+        giocattoliAnimaliDomesticiService.saveAll(giocattoliAnimaliDomesticiEntities);
+        veterinarioAnimaliDomestici.saveAll(veterinarioAnimaliDomesticiEntities);
+
+        return animaliDomesticiEntity;
+    }
+
 }
