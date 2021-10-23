@@ -90,6 +90,16 @@ public class CasaController {
     }
 
     // DELETE ALL
+
+    /*
+     * @Autowired FornitureCasaService fornitureCasaService;
+     * 
+     * @Autowired ManutenzioneService manutenzioneService;
+     * 
+     * @Autowired MiglioramentiService miglioramentiService;
+     * 
+     * @Autowired TraslocoService traslocoService;
+     */
     @DeleteMapping(value = "/delete-all-affitto-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAffittoEntities(@RequestBody Iterable<Integer> ids) {
         affittoService.deleteAllById(ids);
@@ -115,13 +125,13 @@ public class CasaController {
         manutenzioneService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-miglioramenti-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteAllMiglioramentiCasaEntities(@RequestBody Iterable<Integer> ids) {
+    @DeleteMapping(value = "/delete-all-bollette-gas-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllBolletteGASEntities(@RequestBody Iterable<Integer> ids) {
         miglioramentiService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-trasloco-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteAllTraslocoEntities(@RequestBody Iterable<Integer> ids) {
+    @DeleteMapping(value = "/delete-all-bollette-internet-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllBolletteInternetEntities(@RequestBody Iterable<Integer> ids) {
         traslocoService.deleteAllById(ids);
     }
 
