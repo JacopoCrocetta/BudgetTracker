@@ -1,5 +1,11 @@
 package com.project.bebudgeting.annuale.controller.uscite;
 
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltriPrestitiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.AltroDebitiEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.CarteCreditoEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.ImposteLocaliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.ImposteStataliEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliodebiti.PrestitiPerStudiareEntity;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.AltriPrestitiService;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.AltroDebitiService;
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.CarteCreditoService;
@@ -8,6 +14,8 @@ import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.Impos
 import com.project.bebudgeting.annuale.service.usciteservice.debitiservice.PrestitiPerStudioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,4 +42,37 @@ public class DebitiController {
 
     @Autowired
     PrestitiPerStudioService prestitiPerStudioService;
+
+    // GET ALL
+    @GetMapping(value = "/get-all-altri-prestiti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<AltriPrestitiEntity> getAllAltriPrestiti() {
+        return altriPrestitiService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-altro-debiti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<AltroDebitiEntity> getAllAltriDebiti() {
+        return altroDebitiService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-carte-credito-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<CarteCreditoEntity> getAllArredamentoCasaEntities() {
+        return carteCreditoService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-imposte-locali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<ImposteLocaliEntity> getAllFornitureCasaEntities() {
+        return imposteLocaliService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-imposte-statali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<ImposteStataliEntity> getAllManutenzioneCasaEntities() {
+        return imposteStataliService.findAll();
+    }
+
+    @GetMapping(value = "/get-all-prestiti-studio-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<PrestitiPerStudiareEntity> getAllMiglioramentiCasaEntities() {
+        return prestitiPerStudioService.findAll();
+    }
+
+    // DELETE ALL
 }
