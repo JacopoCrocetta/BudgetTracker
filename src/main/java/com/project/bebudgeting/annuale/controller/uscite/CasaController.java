@@ -90,16 +90,6 @@ public class CasaController {
     }
 
     // DELETE ALL
-
-    /*
-     * @Autowired FornitureCasaService fornitureCasaService;
-     * 
-     * @Autowired ManutenzioneService manutenzioneService;
-     * 
-     * @Autowired MiglioramentiService miglioramentiService;
-     * 
-     * @Autowired TraslocoService traslocoService;
-     */
     @DeleteMapping(value = "/delete-all-affitto-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAffittoEntities(@RequestBody Iterable<Integer> ids) {
         affittoService.deleteAllById(ids);
