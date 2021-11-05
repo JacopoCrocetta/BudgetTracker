@@ -137,8 +137,8 @@ public class IstruzioneController {
     }
 
     @PutMapping(value = "/save-one-rette-entitiy", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void saveOneRetteEntity(@RequestBody RetteEntity entity) throws NotFoundException {
-        retteService.save(entity);
+    public RetteEntity saveOneRetteEntity(@RequestBody RetteEntity entity) {
+        return retteService.save(entity);
     }
 
     @PutMapping(value = "/save-one-istruzione-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
