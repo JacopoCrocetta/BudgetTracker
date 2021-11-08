@@ -90,82 +90,81 @@ public class CasaController {
     }
 
     // DELETE ALL
-    @DeleteMapping(value = "/delete-all-affitto-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-affitto-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAffittoEntities(@RequestBody Iterable<Integer> ids) {
         affittoService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-altro-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-altro-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltroCasaService(@RequestBody Iterable<Integer> ids) {
         altroCasaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-arredamento-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-arredamento-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllArredamentoEntities(@RequestBody Iterable<Integer> ids) {
         arredamentoService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-forniture-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-forniture-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllFornitureCasaEntities(@RequestBody Iterable<Integer> ids) {
         fornitureCasaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-manutenzione-casa-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-manutenzione-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllManutenzioneCasaEntities(@RequestBody Iterable<Integer> ids) {
         manutenzioneService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-gas-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteAllBolletteGASEntities(@RequestBody Iterable<Integer> ids) {
+    @DeleteMapping(value = "/delete-all-miglioramenti-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllMiglioramentiCasaEntities(@RequestBody Iterable<Integer> ids) {
         miglioramentiService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-internet-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteAllBolletteInternetEntities(@RequestBody Iterable<Integer> ids) {
+    @DeleteMapping(value = "/delete-all-trasloco-casa-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllTraslocoCasaEntities(@RequestBody Iterable<Integer> ids) {
         traslocoService.deleteAllById(ids);
     }
 
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-affitto-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneAltreBolletteEntity(@RequestBody AffittoEntity entityToDelete) throws NotFoundException {
+    public void deleteOneAffittoCasaEntity(@RequestBody AffittoEntity entityToDelete) throws NotFoundException {
         affittoService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-altro-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteAcquaEntity(@RequestBody AltroCasaEntity entityToDelete) throws NotFoundException {
+    public void deleteOneAltroCasaEntity(@RequestBody AltroCasaEntity entityToDelete) throws NotFoundException {
         altroCasaService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-arredamento-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteElettricheEntity(@RequestBody ArredamentoEntity entityToDelete)
-            throws NotFoundException {
+    public void deleteOneArredamentoCasaEntity(@RequestBody ArredamentoEntity entityToDelete) throws NotFoundException {
         arredamentoService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-forniture-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteGASEntity(@RequestBody FornitureCasaEntity entityToDelete) throws NotFoundException {
+    public void deleteOneFornitureCasaEntity(@RequestBody FornitureCasaEntity entityToDelete) throws NotFoundException {
         fornitureCasaService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-manutenzione-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteInternetEntity(@RequestBody ManutenzioneEntity entityToDelete)
+    public void deleteOneManutenzioneCasaEntity(@RequestBody ManutenzioneEntity entityToDelete)
             throws NotFoundException {
         manutenzioneService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-miglioramenti-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteRifiutiEntity(@RequestBody MiglioramentiEntity entityToDelete)
+    public void deleteOneMiglioramentiCasaEntity(@RequestBody MiglioramentiEntity entityToDelete)
             throws NotFoundException {
         miglioramentiService.delete(entityToDelete);
     }
 
     @DeleteMapping(value = "/delete-one-trasloco-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneBolletteTelefonoEntity(@RequestBody TraslocoEntity entityToDelete) throws NotFoundException {
+    public void deleteOneTraslocoCasaEntity(@RequestBody TraslocoEntity entityToDelete) throws NotFoundException {
         traslocoService.delete(entityToDelete);
     }
 
-    @DeleteMapping(value = "/delete-one-bollette-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteOneAssicurazione(@RequestBody CasaEntity entityToDelete) throws NotFoundException {
+    @DeleteMapping(value = "/delete-one-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneCasaEntity(@RequestBody CasaEntity entityToDelete) throws NotFoundException {
         if (!entityToDelete.getAffittoEntities().isEmpty()) {
             affittoService.deleteAll(entityToDelete.getAffittoEntities());
         }
@@ -197,7 +196,7 @@ public class CasaController {
         return altroCasaService.save(entity);
     }
 
-    @PutMapping(value = "/save-one-bollette-elettriche-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/save-one-arredamento-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ArredamentoEntity addOneArredamentoEntity(@RequestBody ArredamentoEntity entity) {
         return arredamentoService.save(entity);
     }
@@ -217,14 +216,14 @@ public class CasaController {
         return miglioramentiService.save(entity);
     }
 
-    @PutMapping(value = "/save-one-bollette-telefono-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public TraslocoEntity addOneBolletteTelefoEntity(@RequestBody TraslocoEntity entity) {
+    @PutMapping(value = "/save-one-trasloco-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public TraslocoEntity addOneTraslocoCasaEntity(@RequestBody TraslocoEntity entity) {
         return traslocoService.save(entity);
     }
 
     // SAVE MORE ENTITY
-    @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public CasaEntity addOneSalarioEntity(@RequestBody CasaEntity casaEntity) {
+    @PutMapping(value = "/save-one-casa-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public CasaEntity addOneCasaEntity(@RequestBody CasaEntity casaEntity) {
         Iterable<AffittoEntity> affittoEntities = casaEntity.getAffittoEntities();
         Iterable<AltroCasaEntity> altroCasaEntities = casaEntity.getAltroEntities();
         Iterable<ArredamentoEntity> arredamentoEntities = casaEntity.getArredamentoEntities();

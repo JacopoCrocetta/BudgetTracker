@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AttivitaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AttivitaFigliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.AttivitaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class AttivitaFigliService {
     }
 
     // DELETE
-    public void delete(AttivitaEntity entity) throws NotFoundException {
+    public void delete(AttivitaFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AttivitaFigliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AttivitaEntity> entities) {
+    public void deleteAll(Iterable<AttivitaFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AttivitaFigliService {
     }
 
     // FIND
-    public Iterable<AttivitaEntity> findAll() {
+    public Iterable<AttivitaFigliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AttivitaEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AttivitaFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AttivitaEntity> findById(int id) {
+    public Optional<AttivitaFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AttivitaEntity save(AttivitaEntity entity) {
+    public AttivitaFigliEntity save(AttivitaFigliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AttivitaEntity> saveAll(Iterable<AttivitaEntity> entities) {
+    public Iterable<AttivitaFigliEntity> saveAll(Iterable<AttivitaFigliEntity> entities) {
         return repository.saveAll(entities);
     }
 }

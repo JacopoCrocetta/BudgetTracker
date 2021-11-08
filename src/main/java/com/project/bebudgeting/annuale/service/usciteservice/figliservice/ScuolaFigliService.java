@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.ScuolaEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.ScuolaFigliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.ScuolaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class ScuolaFigliService {
     }
 
     // DELETE
-    public void delete(ScuolaEntity entity) throws NotFoundException {
+    public void delete(ScuolaFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class ScuolaFigliService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<ScuolaEntity> entities) {
+    public void deleteAll(Iterable<ScuolaFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class ScuolaFigliService {
     }
 
     // FIND
-    public Iterable<ScuolaEntity> findAll() {
+    public Iterable<ScuolaFigliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<ScuolaEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<ScuolaFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<ScuolaEntity> findById(int id) {
+    public Optional<ScuolaFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public ScuolaEntity save(ScuolaEntity entity) {
+    public ScuolaFigliEntity save(ScuolaFigliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<ScuolaEntity> saveAll(Iterable<ScuolaEntity> entities) {
+    public Iterable<ScuolaFigliEntity> saveAll(Iterable<ScuolaFigliEntity> entities) {
         return repository.saveAll(entities);
     }
 }

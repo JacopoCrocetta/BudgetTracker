@@ -100,48 +100,48 @@ public class BolletteController {
     }
 
     // DELETE ALL
-    @DeleteMapping(value = "/delete-all-altre-bollette-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-altre-bollette-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltreBolletteEntities(@RequestBody Iterable<Integer> ids) {
         altreBolletteService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-acqua-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteAcquaEntities(@RequestBody Iterable<Integer> ids) {
         bolletteAcquaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-altre-bollette-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-altre-bollette-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllElettricitaEntities(@RequestBody Iterable<Integer> ids) {
         bolletteElettricitaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-acqua-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteGasEntities(@RequestBody Iterable<Integer> ids) {
         bolletteAcquaService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-elettriche-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-elettriche-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteElettricitaEntity> deleteAllBolletteElettricheEntities(@RequestBody Iterable<Integer> ids) {
         altreBolletteService.deleteAllById(ids);
         return bolletteElettricitaService.findAll();
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-gas-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-gas-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteGASEntities(@RequestBody Iterable<Integer> ids) {
         bolletteGASService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-internet-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-internet-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteInternetEntities(@RequestBody Iterable<Integer> ids) {
         bolletteInternetService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-rifiuti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-rifiuti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteRifiutiEntities(@RequestBody Iterable<Integer> ids) {
         bolletteRifiutiService.deleteAllById(ids);
     }
 
-    @DeleteMapping(value = "/delete-all-bollette-telefono-entities", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/delete-all-bollette-telefono-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteTelefonoEntities(@RequestBody Iterable<Integer> ids) {
         bolletteTelefonoService.deleteAllById(ids);
     }

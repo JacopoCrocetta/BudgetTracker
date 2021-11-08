@@ -54,95 +54,95 @@ public class DebitiController {
         return altriPrestitiService.findAll();
     }
 
-    @GetMapping(value = "/get-all-altri-debiti-entity")
+    @GetMapping(value = "/get-all-altri-debiti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroDebitiEntity> getAllAltriDebitiEntity() {
         return altroDebitiService.findAll();
     }
 
-    @GetMapping()
+    @GetMapping(value = "/get-all-carte-credito-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CarteCreditoEntity> getAllCarteCreditoEntity() {
         return carteCreditoService.findAll();
     }
 
-    @GetMapping()
+    @GetMapping(value = "/get-all-imposte-locali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ImposteLocaliEntity> getAllImposteLocaliEntity() {
         return imposteLocaliService.findAll();
     }
 
-    @GetMapping()
+    @GetMapping(value = "/get-all-imposte-statali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ImposteStataliEntity> getAllImposteStataliEntity() {
         return imposteStataliService.findAll();
     }
 
-    @GetMapping()
+    @GetMapping(value = "/get-all-prestiti-studio-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<PrestitiPerStudiareEntity> getAllPrestitiPerStudioEntity() {
         return prestitiPerStudioService.findAll();
     }
 
     // DELETE ALL
-    @DeleteMapping()
+    @DeleteMapping(value = "/delete-all-selected-altri-prestiti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltriPrestitiEntity(@RequestBody Iterable<Integer> ids) {
         altriPrestitiService.deleteAllById(ids);
     }
 
-    @DeleteMapping()
+    @DeleteMapping(value = "/delete-all-selected-altri-debiti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltriDebitiEntity(@RequestBody Iterable<Integer> ids) {
         altroDebitiService.findAllById(ids);
     }
 
-    @DeleteMapping()
+    @DeleteMapping(value = "/delete-all-selected-carte-credito-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllCarteCreditoEntity(@RequestBody Iterable<Integer> ids) {
         carteCreditoService.deleteAllById(ids);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-all-selected-imposte-locali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllImposteLocaliEntity(@RequestBody Iterable<Integer> ids) {
         imposteLocaliService.deleteAllById(ids);
 
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-all-selected-imposte-statali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllImposteStataliEntity(@RequestBody Iterable<Integer> ids) {
         imposteStataliService.deleteAllById(ids);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-all-selected-prestiti-studio-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllPrestitiPerStudioEntity(@RequestBody Iterable<Integer> ids) {
         prestitiPerStudioService.deleteAllById(ids);
     }
 
     // DELETE ONE ENTITY
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-selected-altri-prestiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltriPrestitiEntity(@RequestBody AltriPrestitiEntity entity) throws NotFoundException {
         altriPrestitiService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-altri-debiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltriDebitiEntity(@RequestBody AltroDebitiEntity entity) throws NotFoundException {
         altroDebitiService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-carte-credito-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneCarteCreditoEntity(@RequestBody CarteCreditoEntity entity) throws NotFoundException {
         carteCreditoService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-imposte-locali-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneImposteLocaliEntity(@RequestBody ImposteLocaliEntity entity) throws NotFoundException {
         imposteLocaliService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-imposte-statali-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneImposteStataliEntity(@RequestBody ImposteStataliEntity entity) throws NotFoundException {
         imposteStataliService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-prestiti-studio-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOnePrestitiPerStudio(@RequestBody PrestitiPerStudiareEntity entity) throws NotFoundException {
         prestitiPerStudioService.delete(entity);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/delete-one-debiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneDebitiEntity(@RequestBody DebitiEntity entity) {
         if (!entity.getAltriPrestitiEntities().isEmpty()) {
             altriPrestitiService.deleteAll(entity.getAltriPrestitiEntities());
@@ -165,38 +165,38 @@ public class DebitiController {
     }
 
     // SAVE ONE ENTITY
-    @PutMapping
-    public AltriPrestitiEntity saveOnePrestitiEntity(@RequestBody AltriPrestitiEntity entity) {
+    @PutMapping(value = "/save-one-altri-prestiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public AltriPrestitiEntity saveOneAltriPrestitiEntity(@RequestBody AltriPrestitiEntity entity) {
         return altriPrestitiService.save(entity);
     }
 
-    @PutMapping
+    @PutMapping(value = "/save-one-altri-debiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AltroDebitiEntity saveOneAltroDebitiEntity(@RequestBody AltroDebitiEntity entity) {
         return altroDebitiService.save(entity);
     }
 
-    @PutMapping
+    @PutMapping(value = "/save-one-carte-credito-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarteCreditoEntity saveOneCarteCreditoEntity(@RequestBody CarteCreditoEntity entity) {
         return carteCreditoService.save(entity);
     }
 
-    @PutMapping
+    @PutMapping(value = "/save-one-imposte-locali-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ImposteLocaliEntity saveOneImposteLocaliEntity(@RequestBody ImposteLocaliEntity entity) {
         return imposteLocaliService.save(entity);
     }
 
-    @PutMapping
+    @PutMapping(value = "/save-one-imposte-statali-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ImposteStataliEntity saveOneImposteStataliEntity(@RequestBody ImposteStataliEntity entity) {
         return imposteStataliService.save(entity);
     }
 
-    @PutMapping
+    @PutMapping(value = "/save-one-prestiti-studio-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public PrestitiPerStudiareEntity saveOnePrestitiPerStudiareEntity(@RequestBody PrestitiPerStudiareEntity entity) {
         return prestitiPerStudioService.save(entity);
     }
 
     // SAVE MORE ENTITY
-    @RequestMapping
+    @RequestMapping(value = "/save-one-debiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public DebitiEntity saveOneDebitiEntity(@RequestBody DebitiEntity entity) {
         Iterable<AltriPrestitiEntity> altriPrestitiEntities = entity.getAltriPrestitiEntities();
         Iterable<AltroDebitiEntity> altroDebitiEntities = entity.getAltroEntities();

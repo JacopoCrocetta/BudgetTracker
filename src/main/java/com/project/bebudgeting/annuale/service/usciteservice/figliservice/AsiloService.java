@@ -2,7 +2,7 @@ package com.project.bebudgeting.annuale.service.usciteservice.figliservice;
 
 import java.util.Optional;
 
-import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AsiloEntity;
+import com.project.bebudgeting.annuale.entity.uscite.dettagliofigli.AsiloFigliEntity;
 import com.project.bebudgeting.annuale.repository.usciteannuali.repositoryfigli.AsiloRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class AsiloService {
     }
 
     // DELETE
-    public void delete(AsiloEntity entity) throws NotFoundException {
+    public void delete(AsiloFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
         } else {
@@ -32,7 +32,7 @@ public class AsiloService {
         repository.deleteAll();
     }
 
-    public void deleteAll(Iterable<AsiloEntity> entities) {
+    public void deleteAll(Iterable<AsiloFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
                 this.delete(entity);
@@ -61,24 +61,24 @@ public class AsiloService {
     }
 
     // FIND
-    public Iterable<AsiloEntity> findAll() {
+    public Iterable<AsiloFigliEntity> findAll() {
         return repository.findAll();
     }
 
-    public Iterable<AsiloEntity> findAllById(Iterable<Integer> ids) {
+    public Iterable<AsiloFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
-    public Optional<AsiloEntity> findById(int id) {
+    public Optional<AsiloFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
     // SAVE
-    public AsiloEntity save(AsiloEntity entity) {
+    public AsiloFigliEntity save(AsiloFigliEntity entity) {
         return repository.save(entity);
     }
 
-    public Iterable<AsiloEntity> saveAll(Iterable<AsiloEntity> entities) {
+    public Iterable<AsiloFigliEntity> saveAll(Iterable<AsiloFigliEntity> entities) {
         return repository.saveAll(entities);
     }
 }
