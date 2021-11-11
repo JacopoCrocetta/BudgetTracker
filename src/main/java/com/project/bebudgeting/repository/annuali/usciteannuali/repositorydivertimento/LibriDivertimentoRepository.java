@@ -1,0 +1,11 @@
+package com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivertimento;
+
+import com.project.bebudgeting.entity.annuali.uscite.dettagliodivertimento.LibriDivertimentoEntity;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LibriDivertimentoRepository extends CrudRepository<LibriDivertimentoEntity, Integer> {
+
+}
