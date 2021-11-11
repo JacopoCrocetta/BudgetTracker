@@ -35,6 +35,9 @@ public class EntratePrevisteService {
     @Autowired
     RisparmiPrevistiService risparmiPrevistiService;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -49,6 +52,10 @@ public class EntratePrevisteService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(EntratePrevisteEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             entity.getAltreEntratePrevisteEntities().forEach(altreEntrateEntity -> {
@@ -101,6 +108,10 @@ public class EntratePrevisteService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.findById(id).get().getAltreEntratePrevisteEntities().forEach(altreEntrateEntity -> {
@@ -153,6 +164,9 @@ public class EntratePrevisteService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<EntratePrevisteEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -163,6 +177,9 @@ public class EntratePrevisteService {
         });
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -173,19 +190,34 @@ public class EntratePrevisteService {
         });
     }
 
+    /**
+     * @return Iterable<EntratePrevisteEntity>
+     */
     // FIND
     public Iterable<EntratePrevisteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<EntratePrevisteEntity>
+     */
     public Iterable<EntratePrevisteEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<EntratePrevisteEntity>
+     */
     public Optional<EntratePrevisteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return EntratePrevisteEntity
+     */
     // SAVE
     public EntratePrevisteEntity save(EntratePrevisteEntity entity) {
         altreEntratePrevisteService.saveAll(entity.getAltreEntratePrevisteEntities());
@@ -196,6 +228,10 @@ public class EntratePrevisteService {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<EntratePrevisteEntity>
+     */
     public Iterable<EntratePrevisteEntity> saveAll(Iterable<EntratePrevisteEntity> entities) {
         entities.forEach(this::save);
         return entities;

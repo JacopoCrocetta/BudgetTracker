@@ -15,10 +15,17 @@ public class FornitureCasaService {
     @Autowired
     FornitureCasaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(FornitureCasaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class FornitureCasaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<FornitureCasaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class FornitureCasaService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class FornitureCasaService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class FornitureCasaService {
         });
     }
 
+    /**
+     * @return Iterable<FornitureCasaEntity>
+     */
     // FIND
     public Iterable<FornitureCasaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<FornitureCasaEntity>
+     */
     public Iterable<FornitureCasaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<FornitureCasaEntity>
+     */
     public Optional<FornitureCasaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return FornitureCasaEntity
+     */
     // SAVE
     public FornitureCasaEntity save(FornitureCasaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<FornitureCasaEntity>
+     */
     public Iterable<FornitureCasaEntity> saveAll(Iterable<FornitureCasaEntity> entities) {
         return repository.saveAll(entities);
     }

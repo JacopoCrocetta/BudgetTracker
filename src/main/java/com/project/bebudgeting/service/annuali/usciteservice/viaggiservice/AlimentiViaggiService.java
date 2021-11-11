@@ -15,10 +15,17 @@ public class AlimentiViaggiService {
     @Autowired
     AlimentiViaggiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AlimentiViaggiEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
@@ -31,6 +38,9 @@ public class AlimentiViaggiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     */
     public void deleteAll(Iterable<AlimentiViaggiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(alimentiEntity -> {
             try {
@@ -41,6 +51,10 @@ public class AlimentiViaggiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class AlimentiViaggiService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class AlimentiViaggiService {
         });
     }
 
+    /**
+     * @return Iterable<AlimentiViaggiEntity>
+     */
     // FIND
     public Iterable<AlimentiViaggiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AlimentiViaggiEntity>
+     */
     public Iterable<AlimentiViaggiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AlimentiViaggiEntity>
+     */
     public Optional<AlimentiViaggiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AlimentiViaggiEntity
+     */
     // SAVE
     public AlimentiViaggiEntity save(AlimentiViaggiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AlimentiViaggiEntity>
+     */
     public Iterable<AlimentiViaggiEntity> saveAll(Iterable<AlimentiViaggiEntity> entities) {
         return repository.saveAll(entities);
     }

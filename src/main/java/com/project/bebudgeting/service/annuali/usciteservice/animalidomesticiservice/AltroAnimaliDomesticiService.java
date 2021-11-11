@@ -14,10 +14,17 @@ public class AltroAnimaliDomesticiService {
     @Autowired
     AltroAnimaliDomesticiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltroAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
@@ -30,6 +37,9 @@ public class AltroAnimaliDomesticiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     */
     public void deleteAll(Iterable<AltroAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(altroEntity -> {
             try {
@@ -40,6 +50,10 @@ public class AltroAnimaliDomesticiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -47,6 +61,9 @@ public class AltroAnimaliDomesticiService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -57,24 +74,43 @@ public class AltroAnimaliDomesticiService {
         });
     }
 
+    /**
+     * @return Iterable<AltroAnimaliDomesticiEntity>
+     */
     // FIND
     public Iterable<AltroAnimaliDomesticiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroAnimaliDomesticiEntity>
+     */
     public Iterable<AltroAnimaliDomesticiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroAnimaliDomesticiEntity>
+     */
     public Optional<AltroAnimaliDomesticiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroAnimaliDomesticiEntity
+     */
     // SAVE
     public AltroAnimaliDomesticiEntity save(AltroAnimaliDomesticiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroAnimaliDomesticiEntity>
+     */
     public Iterable<AltroAnimaliDomesticiEntity> saveAll(Iterable<AltroAnimaliDomesticiEntity> entities) {
         return repository.saveAll(entities);
     }

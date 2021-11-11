@@ -15,6 +15,9 @@ public class EmergenzeService {
     @Autowired
     EmergenzeRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class EmergenzeService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(EmergenzeEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class EmergenzeService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<EmergenzeEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class EmergenzeService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class EmergenzeService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class EmergenzeService {
         });
     }
 
+    /**
+     * @return Iterable<EmergenzeEntity>
+     */
     // FIND
     public Iterable<EmergenzeEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<EmergenzeEntity>
+     */
     public Iterable<EmergenzeEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<EmergenzeEntity>
+     */
     public Optional<EmergenzeEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return EmergenzeEntity
+     */
     // SAVE
     public EmergenzeEntity save(EmergenzeEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<EmergenzeEntity>
+     */
     public Iterable<EmergenzeEntity> saveAll(Iterable<EmergenzeEntity> entities) {
         return repository.saveAll(entities);
     }

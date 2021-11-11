@@ -16,10 +16,17 @@ public class AssicurazioneAutoService {
     @Autowired
     AssicurazioneAutoRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AssicurazioneAutoEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
@@ -28,6 +35,9 @@ public class AssicurazioneAutoService {
         throw new NotFoundException("Item Not Found");
     }
 
+    /**
+     * @param entitiesToDelete
+     */
     public void deleteAll(List<AssicurazioneAutoEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AssicurazioneAutoService {
         repository.deleteAll();
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -49,30 +63,52 @@ public class AssicurazioneAutoService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             repository.deleteById(id);
         });
     }
 
+    /**
+     * @return Iterable<AssicurazioneAutoEntity>
+     */
     // FIND
     public Iterable<AssicurazioneAutoEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AssicurazioneAutoEntity>
+     */
     public Iterable<AssicurazioneAutoEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AssicurazioneAutoEntity>
+     */
     public Optional<AssicurazioneAutoEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return AssicurazioneAutoEntity
+     */
     // SAVE
     public AssicurazioneAutoEntity save(AssicurazioneAutoEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<AssicurazioneAutoEntity>
+     */
     public Iterable<AssicurazioneAutoEntity> saveAll(Iterable<AssicurazioneAutoEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

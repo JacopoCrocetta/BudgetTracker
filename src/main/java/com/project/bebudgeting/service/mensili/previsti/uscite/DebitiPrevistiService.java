@@ -15,6 +15,9 @@ public class DebitiPrevistiService {
     @Autowired
     DebitiPrevistiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class DebitiPrevistiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(DebitiPrevisteEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class DebitiPrevistiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class DebitiPrevistiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<DebitiPrevisteEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class DebitiPrevistiService {
         });
     }
 
+    /**
+     * @return Iterable<DebitiPrevisteEntity>
+     */
     // FIND
     public Iterable<DebitiPrevisteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<DebitiPrevisteEntity>
+     */
     public Iterable<DebitiPrevisteEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<DebitiPrevisteEntity>
+     */
     public Optional<DebitiPrevisteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return DebitiPrevisteEntity
+     */
     // SAVE
     public DebitiPrevisteEntity save(DebitiPrevisteEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<DebitiPrevisteEntity>
+     */
     public Iterable<DebitiPrevisteEntity> saveAll(Iterable<DebitiPrevisteEntity> entities) {
         return repository.saveAll(entities);
     }

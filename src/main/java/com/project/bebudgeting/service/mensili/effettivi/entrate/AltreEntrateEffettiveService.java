@@ -15,6 +15,9 @@ public class AltreEntrateEffettiveService {
     @Autowired
     AltreEntrateEffettiveRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AltreEntrateEffettiveService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AltreEntrateEffettiveEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class AltreEntrateEffettiveService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class AltreEntrateEffettiveService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltreEntrateEffettiveEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class AltreEntrateEffettiveService {
         });
     }
 
+    /**
+     * @return Iterable<AltreEntrateEffettiveEntity>
+     */
     // FIND
     public Iterable<AltreEntrateEffettiveEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltreEntrateEffettiveEntity>
+     */
     public Iterable<AltreEntrateEffettiveEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltreEntrateEffettiveEntity>
+     */
     public Optional<AltreEntrateEffettiveEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltreEntrateEffettiveEntity
+     */
     // SAVE
     public AltreEntrateEffettiveEntity save(AltreEntrateEffettiveEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltreEntrateEffettiveEntity>
+     */
     public Iterable<AltreEntrateEffettiveEntity> saveAll(Iterable<AltreEntrateEffettiveEntity> entities) {
         return repository.saveAll(entities);
     }

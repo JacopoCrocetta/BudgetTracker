@@ -13,6 +13,9 @@ public class TeatroService {
     @Autowired
     TeatroRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -22,6 +25,10 @@ public class TeatroService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(TeatroEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -30,6 +37,9 @@ public class TeatroService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<TeatroEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -40,6 +50,10 @@ public class TeatroService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class TeatroService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class TeatroService {
         });
     }
 
+    /**
+     * @return Iterable<TeatroEntity>
+     */
     // FIND
     public Iterable<TeatroEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<TeatroEntity>
+     */
     public Iterable<TeatroEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<TeatroEntity>
+     */
     public Optional<TeatroEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return TeatroEntity
+     */
     // SAVE
     public TeatroEntity save(TeatroEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<TeatroEntity>
+     */
     public Iterable<TeatroEntity> saveAll(Iterable<TeatroEntity> entities) {
         entities.forEach(this::save);
         return entities;

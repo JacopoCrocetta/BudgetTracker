@@ -15,6 +15,9 @@ public class AnimaliDomesticiPrevistiService {
     @Autowired
     AnimaliDomesticiPrevistiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AnimaliDomesticiPrevistiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AnimaliDomesticiPrevisteEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class AnimaliDomesticiPrevistiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class AnimaliDomesticiPrevistiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AnimaliDomesticiPrevisteEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class AnimaliDomesticiPrevistiService {
         });
     }
 
+    /**
+     * @return Iterable<AnimaliDomesticiPrevisteEntity>
+     */
     // FIND
     public Iterable<AnimaliDomesticiPrevisteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AnimaliDomesticiPrevisteEntity>
+     */
     public Iterable<AnimaliDomesticiPrevisteEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AnimaliDomesticiPrevisteEntity>
+     */
     public Optional<AnimaliDomesticiPrevisteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AnimaliDomesticiPrevisteEntity
+     */
     // SAVE
     public AnimaliDomesticiPrevisteEntity save(AnimaliDomesticiPrevisteEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AnimaliDomesticiPrevisteEntity>
+     */
     public Iterable<AnimaliDomesticiPrevisteEntity> saveAll(Iterable<AnimaliDomesticiPrevisteEntity> entities) {
         return repository.saveAll(entities);
     }

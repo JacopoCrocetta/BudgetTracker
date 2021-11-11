@@ -15,6 +15,9 @@ public class ViaggiEffettiviService {
     @Autowired
     ViaggiEffettiviRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class ViaggiEffettiviService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(ViaggiEffettiviEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class ViaggiEffettiviService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class ViaggiEffettiviService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<ViaggiEffettiviEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class ViaggiEffettiviService {
         });
     }
 
+    /**
+     * @return Iterable<ViaggiEffettiviEntity>
+     */
     // FIND
     public Iterable<ViaggiEffettiviEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ViaggiEffettiviEntity>
+     */
     public Iterable<ViaggiEffettiviEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ViaggiEffettiviEntity>
+     */
     public Optional<ViaggiEffettiviEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return ViaggiEffettiviEntity
+     */
     // SAVE
     public ViaggiEffettiviEntity save(ViaggiEffettiviEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ViaggiEffettiviEntity>
+     */
     public Iterable<ViaggiEffettiviEntity> saveAll(Iterable<ViaggiEffettiviEntity> entities) {
         return repository.saveAll(entities);
     }

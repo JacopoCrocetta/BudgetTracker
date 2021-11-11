@@ -15,10 +15,17 @@ public class RegaliDBService {
     @Autowired
     RegaliDBRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(RegaliDBEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class RegaliDBService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<RegaliDBEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class RegaliDBService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class RegaliDBService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class RegaliDBService {
         });
     }
 
+    /**
+     * @return Iterable<RegaliDBEntity>
+     */
     // FIND
     public Iterable<RegaliDBEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RegaliDBEntity>
+     */
     public Iterable<RegaliDBEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RegaliDBEntity>
+     */
     public Optional<RegaliDBEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return RegaliDBEntity
+     */
     // SAVE
     public RegaliDBEntity save(RegaliDBEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<RegaliDBEntity>
+     */
     public Iterable<RegaliDBEntity> saveAll(Iterable<RegaliDBEntity> entities) {
         return repository.saveAll(entities);
     }

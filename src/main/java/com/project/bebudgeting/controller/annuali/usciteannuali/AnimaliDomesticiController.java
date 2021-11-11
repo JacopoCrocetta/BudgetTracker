@@ -47,32 +47,51 @@ public class AnimaliDomesticiController {
     @Autowired
     VeterinarioAnimaliDomesticiService veterinarioAnimaliDomestici;
 
+    /**
+     * @return Iterable<AlimentiAnimaliDomesticiEntity>
+     */
     // Find
     @GetMapping(value = "/get-all-alimenti-animali-domestici", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AlimentiAnimaliDomesticiEntity> getAllAlimentiAnimaliDomestici() {
         return alimentiAnimaliDomesticiService.findAll();
     }
 
+    /**
+     * @return Iterable<AltroAnimaliDomesticiEntity>
+     */
     @GetMapping(value = "/get-all-altro-animali-domestici", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroAnimaliDomesticiEntity> getAllAltroAnimaliDomestici() {
         return altroAnimaliDomesticiService.findAll();
     }
 
+    /**
+     * @return Iterable<FornitureAnimaliDomesticiEntity>
+     */
     @GetMapping(value = "/get-all-forniture-animali-domestici", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<FornitureAnimaliDomesticiEntity> getAllFornitureAnimaliDOmestici() {
         return fornitureAnimaliDomesticiService.findAll();
     }
 
+    /**
+     * @return Iterable<GiocattoliAnimaliDomesticiEntity>
+     */
     @GetMapping(value = "/get-all-giocattoli-animali-domestici", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<GiocattoliAnimaliDomesticiEntity> getAllGiocattoliAnimaliDomestici() {
         return giocattoliAnimaliDomesticiService.findAll();
     }
 
+    /**
+     * @return Iterable<VeterinarioAnimaliDomesticiEntity>
+     */
     @GetMapping(value = "/get-all-veterinario-animali-domestici", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<VeterinarioAnimaliDomesticiEntity> getAllVeterinarioAnimaliDomestici() {
         return veterinarioAnimaliDomestici.findAll();
     }
 
+    /**
+     * @param id
+     * @return AnimaliDomesticiEntity
+     */
     @GetMapping(value = "/get-one-animali-domestici-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public AnimaliDomesticiEntity findOneAnimaliDomesticiEntity(@RequestParam int id) {
@@ -124,6 +143,10 @@ public class AnimaliDomesticiController {
         veterinarioAnimaliDomestici.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-alimenti-animali-domestici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAlimentiAnimaliEntity(@RequestBody AlimentiAnimaliDomesticiEntity entity)
@@ -131,30 +154,49 @@ public class AnimaliDomesticiController {
         alimentiAnimaliDomesticiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-altro-animali-domestici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltroAnimaliDomesticiEntity(@RequestBody AltroAnimaliDomesticiEntity entity)
             throws NotFoundException {
         altroAnimaliDomesticiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-forniture-animali-domestici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneFornitureAnimaliDomesticiEntity(@RequestBody FornitureAnimaliDomesticiEntity entity)
             throws NotFoundException {
         fornitureAnimaliDomesticiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-giocattoli-animali-domestici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneGiocattoliAnimaliDomesticiEntity(@RequestBody GiocattoliAnimaliDomesticiEntity entity)
             throws NotFoundException {
         giocattoliAnimaliDomesticiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-veterinario-animali-domestici", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneVeterinarioAnimaliDomesticiEntity(@RequestBody VeterinarioAnimaliDomesticiEntity entity)
             throws NotFoundException {
         veterinarioAnimaliDomestici.delete(entity);
     }
 
+    /**
+     * @param entity
+     */
     @DeleteMapping(value = "/delete-one-animali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAnimaliDomesticiEntity(@RequestBody AnimaliDomesticiEntity entity) {
         if (!entity.getAlimentiEntities().isEmpty()) {
@@ -174,36 +216,60 @@ public class AnimaliDomesticiController {
         }
     }
 
+    /**
+     * @param entity
+     * @return AlimentiAnimaliDomesticiEntity
+     */
     // SAVE ONE
     @PutMapping(value = "/save-one-alimenti-animali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AlimentiAnimaliDomesticiEntity addOneAltroSalarioEntity(@RequestBody AlimentiAnimaliDomesticiEntity entity) {
         return alimentiAnimaliDomesticiService.save(entity);
     }
 
+    /**
+     * @param addOneAltroAnimaliDomestiicEntity(
+     * @return AltroAnimaliDomesticiEntity
+     */
     @PutMapping(value = "/save-one-altro-amimali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltroAnimaliDomesticiEntity addOneAltroAnimaliDomestiicEntity(
             @RequestBody AltroAnimaliDomesticiEntity entity) {
         return altroAnimaliDomesticiService.save(entity);
     }
 
+    /**
+     * @param addOneFornitureAnimaliDomesticiEntity(
+     * @return FornitureAnimaliDomesticiEntity
+     */
     @PutMapping(value = "/save-one-forniture-animali-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public FornitureAnimaliDomesticiEntity addOneFornitureAnimaliDomesticiEntity(
             @RequestBody FornitureAnimaliDomesticiEntity entity) {
         return fornitureAnimaliDomesticiService.save(entity);
     }
 
+    /**
+     * @param addOneGiocattoliAnimaliDomesticiEntity(
+     * @return GiocattoliAnimaliDomesticiEntity
+     */
     @PutMapping(value = "/save-one-giocattoli-animali-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public GiocattoliAnimaliDomesticiEntity addOneGiocattoliAnimaliDomesticiEntity(
             @RequestBody GiocattoliAnimaliDomesticiEntity entity) {
         return giocattoliAnimaliDomesticiService.save(entity);
     }
 
+    /**
+     * @param addOneAssicurazioneVitaEntity(
+     * @return VeterinarioAnimaliDomesticiEntity
+     */
     @PutMapping(value = "/save-one-assicurazione-vita-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public VeterinarioAnimaliDomesticiEntity addOneAssicurazioneVitaEntity(
             @RequestBody VeterinarioAnimaliDomesticiEntity entity) {
         return veterinarioAnimaliDomestici.save(entity);
     }
 
+    /**
+     * @param addOneAnimaliDomesticiEntity(
+     * @return AnimaliDomesticiEntity
+     */
     // SAVE MORE ENTITY
     @PutMapping(value = "/save-one-animali-domestici-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AnimaliDomesticiEntity addOneAnimaliDomesticiEntity(

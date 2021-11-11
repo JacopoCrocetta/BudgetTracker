@@ -26,8 +26,104 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "entrate_mensili_effettive")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return EntrateMensiliEntity
+ */
+
+/**
+ * @return List<AltreEntrateEffettiveEntity>
+ */
+
+/**
+ * @return List<BonusEffettiviEntity>
+ */
+
+/**
+ * @return List<BustaPagaEffettiveEntity>
+ */
+
+/**
+ * @return List<InteressiEffettiviEntity>
+ */
+
+/**
+ * @return List<RisparmiEffettiviEntity>
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return EntrateMensiliEntity
+ */
+
+/**
+ * @return List<AltreEntrateEffettiveEntity>
+ */
+
+/**
+ * @return List<BonusEffettiviEntity>
+ */
+
+/**
+ * @return List<BustaPagaEffettiveEntity>
+ */
+
+/**
+ * @return List<InteressiEffettiviEntity>
+ */
+
+/**
+ * @return List<RisparmiEffettiviEntity>
+ */
 @Getter
 @Setter
 public class EntrateEffettiveEntity {

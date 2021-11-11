@@ -15,10 +15,17 @@ public class SpeseMedicheFigliService {
     @Autowired
     SpeseMedicheFigliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(SpeseMedicheFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class SpeseMedicheFigliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<SpeseMedicheFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class SpeseMedicheFigliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class SpeseMedicheFigliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class SpeseMedicheFigliService {
         });
     }
 
+    /**
+     * @return Iterable<SpeseMedicheFigliEntity>
+     */
     // FIND
     public Iterable<SpeseMedicheFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<SpeseMedicheFigliEntity>
+     */
     public Iterable<SpeseMedicheFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<SpeseMedicheFigliEntity>
+     */
     public Optional<SpeseMedicheFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return SpeseMedicheFigliEntity
+     */
     // SAVE
     public SpeseMedicheFigliEntity save(SpeseMedicheFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<SpeseMedicheFigliEntity>
+     */
     public Iterable<SpeseMedicheFigliEntity> saveAll(Iterable<SpeseMedicheFigliEntity> entities) {
         return repository.saveAll(entities);
     }

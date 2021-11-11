@@ -15,10 +15,17 @@ public class DonazioniBeneficienzaService {
     @Autowired
     DonazioniBeneficenzaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(DonazioniBeneficenzaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class DonazioniBeneficienzaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<DonazioniBeneficenzaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class DonazioniBeneficienzaService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class DonazioniBeneficienzaService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class DonazioniBeneficienzaService {
         });
     }
 
+    /**
+     * @return Iterable<DonazioniBeneficenzaEntity>
+     */
     // FIND
     public Iterable<DonazioniBeneficenzaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<DonazioniBeneficenzaEntity>
+     */
     public Iterable<DonazioniBeneficenzaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<DonazioniBeneficenzaEntity>
+     */
     public Optional<DonazioniBeneficenzaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return DonazioniBeneficenzaEntity
+     */
     // SAVE
     public DonazioniBeneficenzaEntity save(DonazioniBeneficenzaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<DonazioniBeneficenzaEntity>
+     */
     public Iterable<DonazioniBeneficenzaEntity> saveAll(Iterable<DonazioniBeneficenzaEntity> entities) {
         return repository.saveAll(entities);
     }

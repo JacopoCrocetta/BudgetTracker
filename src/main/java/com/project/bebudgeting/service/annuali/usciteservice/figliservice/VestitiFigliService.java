@@ -15,10 +15,17 @@ public class VestitiFigliService {
     @Autowired
     VestitiFigliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(VestitiFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class VestitiFigliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<VestitiFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class VestitiFigliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class VestitiFigliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class VestitiFigliService {
         });
     }
 
+    /**
+     * @return Iterable<VestitiFigliEntity>
+     */
     // FIND
     public Iterable<VestitiFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<VestitiFigliEntity>
+     */
     public Iterable<VestitiFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<VestitiFigliEntity>
+     */
     public Optional<VestitiFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return VestitiFigliEntity
+     */
     // SAVE
     public VestitiFigliEntity save(VestitiFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<VestitiFigliEntity>
+     */
     public Iterable<VestitiFigliEntity> saveAll(Iterable<VestitiFigliEntity> entities) {
         return repository.saveAll(entities);
     }

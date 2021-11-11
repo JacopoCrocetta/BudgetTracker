@@ -15,6 +15,9 @@ public class AltreUscitePrevisteService {
     @Autowired
     AltreUscitePrevisteRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AltreUscitePrevisteService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AltreUscitePrevisteEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class AltreUscitePrevisteService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class AltreUscitePrevisteService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltreUscitePrevisteEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class AltreUscitePrevisteService {
         });
     }
 
+    /**
+     * @return Iterable<AltreUscitePrevisteEntity>
+     */
     // FIND
     public Iterable<AltreUscitePrevisteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltreUscitePrevisteEntity>
+     */
     public Iterable<AltreUscitePrevisteEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltreUscitePrevisteEntity>
+     */
     public Optional<AltreUscitePrevisteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltreUscitePrevisteEntity
+     */
     // SAVE
     public AltreUscitePrevisteEntity save(AltreUscitePrevisteEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltreUscitePrevisteEntity>
+     */
     public Iterable<AltreUscitePrevisteEntity> saveAll(Iterable<AltreUscitePrevisteEntity> entities) {
         return repository.saveAll(entities);
     }

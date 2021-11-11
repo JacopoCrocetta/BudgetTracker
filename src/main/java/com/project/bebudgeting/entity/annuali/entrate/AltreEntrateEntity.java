@@ -14,7 +14,86 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return boolean
+ */
+
+/** 
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
+
+/**
+ * @return List<AltroAltreEntrateEntity>
+ */
+
+/**
+ * @return List<DividendiEntity>
+ */
+
+/**
+ * @return List<InteressiEntity>
+ */
+
+/**
+ * @return List<RegaliAltreEntrateEntity>
+ */
+
+/**
+ * @return List<RimborsiEntity>
+ */
+
+/**
+ * @return List<TrasferimentoRisparmiEntity>
+ */
+
+/**
+ * @return List<AltroAltreEntrateEntity>
+ */
+
+/**
+ * @return List<DividendiEntity>
+ */
+
+/**
+ * @return List<InteressiEntity>
+ */
+
+/**
+ * @return List<RegaliAltreEntrateEntity>
+ */
+
+/**
+ * @return List<RimborsiEntity>
+ */
+
+/**
+ * @return List<TrasferimentoRisparmiEntity>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -15,6 +15,9 @@ public class ServiziOnlineService {
     @Autowired
     ServiziOnlineRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class ServiziOnlineService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(ServiziOnlineEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class ServiziOnlineService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<ServiziOnlineEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class ServiziOnlineService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class ServiziOnlineService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class ServiziOnlineService {
         });
     }
 
+    /**
+     * @return Iterable<ServiziOnlineEntity>
+     */
     // FIND
     public Iterable<ServiziOnlineEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ServiziOnlineEntity>
+     */
     public Iterable<ServiziOnlineEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ServiziOnlineEntity>
+     */
     public Optional<ServiziOnlineEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return ServiziOnlineEntity
+     */
     // SAVE
     public ServiziOnlineEntity save(ServiziOnlineEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ServiziOnlineEntity>
+     */
     public Iterable<ServiziOnlineEntity> saveAll(Iterable<ServiziOnlineEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,10 +15,17 @@ public class AltroDivertimentoService {
     @Autowired
     AltroDivertimentoRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltroDivertimentoEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AltroDivertimentoService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroDivertimentoEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroDivertimentoService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroDivertimentoService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroDivertimentoService {
         });
     }
 
+    /**
+     * @return Iterable<AltroDivertimentoEntity>
+     */
     // FIND
     public Iterable<AltroDivertimentoEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroDivertimentoEntity>
+     */
     public Iterable<AltroDivertimentoEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroDivertimentoEntity>
+     */
     public Optional<AltroDivertimentoEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroDivertimentoEntity
+     */
     // SAVE
     public AltroDivertimentoEntity save(AltroDivertimentoEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroDivertimentoEntity>
+     */
     public Iterable<AltroDivertimentoEntity> saveAll(Iterable<AltroDivertimentoEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,10 +15,17 @@ public class MiglioramentiService {
     @Autowired
     MiglioramentiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(MiglioramentiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class MiglioramentiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<MiglioramentiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class MiglioramentiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class MiglioramentiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class MiglioramentiService {
         });
     }
 
+    /**
+     * @return Iterable<MiglioramentiEntity>
+     */
     // FIND
     public Iterable<MiglioramentiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<MiglioramentiEntity>
+     */
     public Iterable<MiglioramentiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<MiglioramentiEntity>
+     */
     public Optional<MiglioramentiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return MiglioramentiEntity
+     */
     // SAVE
     public MiglioramentiEntity save(MiglioramentiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<MiglioramentiEntity>
+     */
     public Iterable<MiglioramentiEntity> saveAll(Iterable<MiglioramentiEntity> entities) {
         return repository.saveAll(entities);
     }

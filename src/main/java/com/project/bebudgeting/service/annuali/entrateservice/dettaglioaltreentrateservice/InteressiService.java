@@ -18,10 +18,19 @@ public class InteressiService {
     @Autowired
     InteressiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(InteressiEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class InteressiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<InteressiEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class InteressiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class InteressiService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<InteressiEntity>
+     */
     // FIND
     public List<InteressiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<InteressiEntity> ret = new ArrayList<InteressiEntity>();
@@ -82,23 +106,42 @@ public class InteressiService {
         return ret;
     }
 
+    /**
+     * @return Iterable<InteressiEntity>
+     */
     public Iterable<InteressiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<InteressiEntity>
+     */
     public Iterable<InteressiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<InteressiEntity>
+     */
     public Optional<InteressiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return InteressiEntity
+     */
     // SAVE
     public InteressiEntity save(InteressiEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<InteressiEntity>
+     */
     public Iterable<InteressiEntity> saveAll(Iterable<InteressiEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

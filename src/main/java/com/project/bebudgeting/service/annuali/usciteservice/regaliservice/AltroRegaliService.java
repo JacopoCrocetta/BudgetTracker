@@ -15,10 +15,17 @@ public class AltroRegaliService {
     @Autowired
     AltroRegaliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltroRegaliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AltroRegaliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroRegaliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroRegaliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroRegaliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroRegaliService {
         });
     }
 
+    /**
+     * @return Iterable<AltroRegaliEntity>
+     */
     // FIND
     public Iterable<AltroRegaliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroRegaliEntity>
+     */
     public Iterable<AltroRegaliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroRegaliEntity>
+     */
     public Optional<AltroRegaliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroRegaliEntity
+     */
     // SAVE
     public AltroRegaliEntity save(AltroRegaliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroRegaliEntity>
+     */
     public Iterable<AltroRegaliEntity> saveAll(Iterable<AltroRegaliEntity> entities) {
         return repository.saveAll(entities);
     }

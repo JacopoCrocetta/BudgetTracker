@@ -18,10 +18,19 @@ public class DividendiService {
     @Autowired
     DividendiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(DividendiEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class DividendiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<DividendiEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class DividendiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class DividendiService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<DividendiEntity>
+     */
     // FIND
     public List<DividendiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<DividendiEntity> ret = new ArrayList<DividendiEntity>();
@@ -82,23 +106,42 @@ public class DividendiService {
         return ret;
     }
 
+    /**
+     * @return Iterable<DividendiEntity>
+     */
     public Iterable<DividendiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<DividendiEntity>
+     */
     public Iterable<DividendiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<DividendiEntity>
+     */
     public Optional<DividendiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return DividendiEntity
+     */
     // SAVE
     public DividendiEntity save(DividendiEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<DividendiEntity>
+     */
     public Iterable<DividendiEntity> saveAll(Iterable<DividendiEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

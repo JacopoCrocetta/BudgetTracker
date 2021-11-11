@@ -21,8 +21,72 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "uscite_mensili")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return List<UsciteEffettiveEntity>
+ */
+
+/**
+ * @return List<UscitePrevisteEntity>
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return List<UsciteEffettiveEntity>
+ */
+
+/**
+ * @return List<UscitePrevisteEntity>
+ */
 @Getter
 @Setter
 public class UsciteMensiliEntity {

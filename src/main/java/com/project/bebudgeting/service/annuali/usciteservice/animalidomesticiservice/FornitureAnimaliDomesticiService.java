@@ -15,10 +15,17 @@ public class FornitureAnimaliDomesticiService {
     @Autowired
     FornitureAnimaliDomesticiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(FornitureAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
@@ -31,6 +38,9 @@ public class FornitureAnimaliDomesticiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     */
     public void deleteAll(Iterable<FornitureAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(fornitureEntity -> {
             try {
@@ -41,6 +51,10 @@ public class FornitureAnimaliDomesticiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class FornitureAnimaliDomesticiService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class FornitureAnimaliDomesticiService {
         });
     }
 
+    /**
+     * @return Iterable<FornitureAnimaliDomesticiEntity>
+     */
     // FIND
     public Iterable<FornitureAnimaliDomesticiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<FornitureAnimaliDomesticiEntity>
+     */
     public Iterable<FornitureAnimaliDomesticiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<FornitureAnimaliDomesticiEntity>
+     */
     public Optional<FornitureAnimaliDomesticiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return FornitureAnimaliDomesticiEntity
+     */
     // SAVE
     public FornitureAnimaliDomesticiEntity save(FornitureAnimaliDomesticiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<FornitureAnimaliDomesticiEntity>
+     */
     public Iterable<FornitureAnimaliDomesticiEntity> saveAll(Iterable<FornitureAnimaliDomesticiEntity> entities) {
         return repository.saveAll(entities);
     }

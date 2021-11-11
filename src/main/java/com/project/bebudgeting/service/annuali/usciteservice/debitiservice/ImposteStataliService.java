@@ -15,10 +15,17 @@ public class ImposteStataliService {
     @Autowired
     ImposteStataliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(ImposteStataliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class ImposteStataliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<ImposteStataliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class ImposteStataliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class ImposteStataliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class ImposteStataliService {
         });
     }
 
+    /**
+     * @return Iterable<ImposteStataliEntity>
+     */
     // FIND
     public Iterable<ImposteStataliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ImposteStataliEntity>
+     */
     public Iterable<ImposteStataliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ImposteStataliEntity>
+     */
     public Optional<ImposteStataliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return ImposteStataliEntity
+     */
     // SAVE
     public ImposteStataliEntity save(ImposteStataliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ImposteStataliEntity>
+     */
     public Iterable<ImposteStataliEntity> saveAll(Iterable<ImposteStataliEntity> entities) {
         return repository.saveAll(entities);
     }

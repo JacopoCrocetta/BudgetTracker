@@ -24,41 +24,74 @@ public class AltreEController {
         AltroEService altroEService;
 
         // DELETE
+
         @DeleteMapping(value = "/delete-all")
         public void deleteAll() {
                 altroEService.deleteAll();
         }
 
+        /**
+         * @param entity
+         * @throws NotFoundException
+         * @throws NullPointerException
+         * @throws NotImplementedException
+         */
         @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteOneEntity(@RequestBody AltroAltreEntrateEntity entity)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.delete(entity);
         }
 
+        /**
+         * @param entities
+         * @throws NotFoundException
+         * @throws NullPointerException
+         * @throws NotImplementedException
+         */
         @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteSomeEntity(@RequestBody Iterable<AltroAltreEntrateEntity> entities)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteAll(entities);
         }
 
+        /**
+         * @param id
+         * @throws NotFoundException
+         * @throws NullPointerException
+         * @throws NotImplementedException
+         */
         @DeleteMapping(value = "/delete-one-altro-altre-entrate-entity-by-id")
         public void deleteAltroAltreEntrateEntityById(@RequestParam int id)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteById(id);
         }
 
+        /**
+         * @param entitiesId
+         * @throws NotFoundException
+         * @throws NullPointerException
+         * @throws NotImplementedException
+         */
         @DeleteMapping(value = "/delete-some-altro-altre-entrate-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
         public void deleteSomeEntityById(@RequestBody Iterable<Integer> entitiesId)
                         throws NotFoundException, NullPointerException, NotImplementedException {
                 altroEService.deleteAllById(entitiesId);
         }
 
+        /**
+         * @param entity
+         * @return AltroAltreEntrateEntity
+         */
         // SAVE
         @PutMapping(value = "/save-one-altro-altre-entrate-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
         public AltroAltreEntrateEntity addOneEntity(@RequestBody AltroAltreEntrateEntity entity) {
                 return altroEService.save(entity);
         }
 
+        /**
+         * @param addMoreEntity(
+         * @return Iterable<AltroAltreEntrateEntity>
+         */
         @PutMapping(value = "/save-MoreAltroAltreEntrateEntities", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
         public Iterable<AltroAltreEntrateEntity> addMoreEntity(
                         @RequestBody Iterable<AltroAltreEntrateEntity> entities) {

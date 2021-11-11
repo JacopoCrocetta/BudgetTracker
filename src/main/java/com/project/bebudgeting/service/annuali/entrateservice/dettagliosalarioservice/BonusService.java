@@ -18,10 +18,19 @@ public class BonusService {
     @Autowired
     BonusRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(BonusEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class BonusService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<BonusEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class BonusService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,19 +91,34 @@ public class BonusService {
         });
     }
 
+    /**
+     * @return Iterable<BonusEntity>
+     */
     // FIND
     public Iterable<BonusEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BonusEntity>
+     */
     public Iterable<BonusEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<BonusEntity>
+     */
     public Optional<BonusEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param salarioId
+     * @return List<BonusEntity>
+     */
     public List<BonusEntity> findBySalarioId(int salarioId) {
         List<BonusEntity> ret = new ArrayList<BonusEntity>();
         repository.findAll().forEach(entity -> {
@@ -94,11 +129,19 @@ public class BonusService {
         return ret;
     }
 
+    /**
+     * @param entityToSave
+     * @return BonusEntity
+     */
     // SAVE
     public BonusEntity save(BonusEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<BonusEntity>
+     */
     public Iterable<BonusEntity> saveAll(Iterable<BonusEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

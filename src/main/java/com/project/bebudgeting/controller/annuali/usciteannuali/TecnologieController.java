@@ -43,84 +43,138 @@ public class TecnologieController {
     @Autowired
     SoftwareService softwareService;
 
+    /**
+     * @return Iterable<AltroTecnologiaEntity>
+     */
     // FIND ALL
     @GetMapping(value = "/get-all-altro-tecnologia-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroTecnologiaEntity> getAllAltroTecnologiaEntities() {
         return altroTecnologiaService.findAll();
     }
 
+    /**
+     * @return Iterable<HardwareEntity>
+     */
     @GetMapping(value = "/get-all-hardware-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<HardwareEntity> getAllHardwareEntities() {
         return hardwareService.findAll();
     }
 
+    /**
+     * @return Iterable<HostingEntity>
+     */
     @GetMapping(value = "/get-all-hosting-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<HostingEntity> getAllHostingEntities() {
         return hostingService.findAll();
     }
 
+    /**
+     * @return Iterable<ServiziOnlineEntity>
+     */
     @GetMapping(value = "/get-all-servizi-online-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ServiziOnlineEntity> getAllServiziOnlineEntities() {
         return serviziOnlineService.findAll();
     }
 
+    /**
+     * @return Iterable<SoftwareEntity>
+     */
     @GetMapping(value = "/get-all-software-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SoftwareEntity> getAllSoftwareEntity() {
         return softwareService.findAll();
     }
 
+    /**
+     * @param ids
+     */
     // DELETE ALL
     @DeleteMapping(value = "/delete-all-altro-tecnologia-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltroTecnologiaEntities(@RequestBody Iterable<Integer> ids) {
         altroTecnologiaService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-hardware-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllHardwareEntities(@RequestBody Iterable<Integer> ids) {
         hardwareService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-hosting-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllHostingEntities(@RequestBody Iterable<Integer> ids) {
         hostingService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-servizi-online-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllServiziOnlineEntities(@RequestBody Iterable<Integer> ids) {
         serviziOnlineService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-giocattoli-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllGiocattoliFigliEntity(@RequestBody Iterable<Integer> ids) {
         softwareService.deleteAllById(ids);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-selected-altro-tecnologia-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltroTecnologiaEntity(@RequestBody AltroTecnologiaEntity entity) throws NotFoundException {
         altroTecnologiaService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-hardware-entitiy", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneHardwareEntity(@RequestBody HardwareEntity entity) throws NotFoundException {
         hardwareService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-hosting-entitiy", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneHostingEntity(@RequestBody HostingEntity entity) throws NotFoundException {
         hostingService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-servizi-online-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneServiziOnlineEntity(@RequestBody ServiziOnlineEntity entity) throws NotFoundException {
         serviziOnlineService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-software-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneSoftwareEntity(@RequestBody SoftwareEntity entity) throws NotFoundException {
         softwareService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-tecnologia-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneVestitiFigliEntity(@RequestBody TecnologiaEntity entity) throws NotFoundException {
         if (!entity.getAltroEntities().isEmpty()) {
@@ -140,32 +194,56 @@ public class TecnologieController {
         }
     }
 
+    /**
+     * @param entity
+     * @return AltroTecnologiaEntity
+     */
     // SAVE ONE ENTITY
     @PutMapping(value = "/save-one-altro-tecnologia-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AltroTecnologiaEntity saveOneAltroTecnologiaEntity(@RequestBody AltroTecnologiaEntity entity) {
         return altroTecnologiaService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return HardwareEntity
+     */
     @PutMapping(value = "/save-one-hardware-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public HardwareEntity saveOneAsiloFigliEntity(@RequestBody HardwareEntity entity) {
         return hardwareService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return HostingEntity
+     */
     @PutMapping(value = "/save-one-hosting-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public HostingEntity saveOneHostingEntity(@RequestBody HostingEntity entity) {
         return hostingService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return ServiziOnlineEntity
+     */
     @PutMapping(value = "/save-one-servizi-online-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ServiziOnlineEntity saveOneServiziOnlineEntityEntity(@RequestBody ServiziOnlineEntity entity) {
         return serviziOnlineService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return SoftwareEntity
+     */
     @PutMapping(value = "/save-one-software-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public SoftwareEntity saveOneSoftwareEntity(@RequestBody SoftwareEntity entity) {
         return softwareService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return TecnologiaEntity
+     */
     @PutMapping(value = "/save-one-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public TecnologiaEntity saveOneFigliEntity(@RequestBody TecnologiaEntity entity) {
         altroTecnologiaService.saveAll(entity.getAltroEntities());

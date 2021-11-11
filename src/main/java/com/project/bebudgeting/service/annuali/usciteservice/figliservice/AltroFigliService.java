@@ -15,10 +15,17 @@ public class AltroFigliService {
     @Autowired
     AltroFigliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltroFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AltroFigliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroFigliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroFigliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroFigliService {
         });
     }
 
+    /**
+     * @return Iterable<AltroFigliEntity>
+     */
     // FIND
     public Iterable<AltroFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroFigliEntity>
+     */
     public Iterable<AltroFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroFigliEntity>
+     */
     public Optional<AltroFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroFigliEntity
+     */
     // SAVE
     public AltroFigliEntity save(AltroFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroFigliEntity>
+     */
     public Iterable<AltroFigliEntity> saveAll(Iterable<AltroFigliEntity> entities) {
         return repository.saveAll(entities);
     }

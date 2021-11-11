@@ -15,6 +15,9 @@ public class DottoriService {
     @Autowired
     DottoriRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class DottoriService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(DottoriEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class DottoriService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<DottoriEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class DottoriService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class DottoriService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class DottoriService {
         });
     }
 
+    /**
+     * @return Iterable<DottoriEntity>
+     */
     // FIND
     public Iterable<DottoriEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<DottoriEntity>
+     */
     public Iterable<DottoriEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<DottoriEntity>
+     */
     public Optional<DottoriEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return DottoriEntity
+     */
     // SAVE
     public DottoriEntity save(DottoriEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<DottoriEntity>
+     */
     public Iterable<DottoriEntity> saveAll(Iterable<DottoriEntity> entities) {
         return repository.saveAll(entities);
     }

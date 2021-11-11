@@ -18,10 +18,19 @@ public class CommissioniService {
     @Autowired
     CommissioniRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(CommissioniEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class CommissioniService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<CommissioniEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class CommissioniService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,19 +91,34 @@ public class CommissioniService {
         });
     }
 
+    /**
+     * @return Iterable<CommissioniEntity>
+     */
     // FIND
     public Iterable<CommissioniEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<CommissioniEntity>
+     */
     public Iterable<CommissioniEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<CommissioniEntity>
+     */
     public Optional<CommissioniEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param salarioId
+     * @return List<CommissioniEntity>
+     */
     public List<CommissioniEntity> findBySalarioId(int salarioId) {
         List<CommissioniEntity> ret = new ArrayList<CommissioniEntity>();
         repository.findAll().forEach(entity -> {
@@ -94,11 +129,19 @@ public class CommissioniService {
         return ret;
     }
 
+    /**
+     * @param entityToSave
+     * @return CommissioniEntity
+     */
     // SAVE
     public CommissioniEntity save(CommissioniEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<CommissioniEntity>
+     */
     public Iterable<CommissioniEntity> saveAll(Iterable<CommissioniEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

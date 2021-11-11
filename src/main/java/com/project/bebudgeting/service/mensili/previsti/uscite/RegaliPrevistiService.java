@@ -15,6 +15,9 @@ public class RegaliPrevistiService {
     @Autowired
     RegaliPrevistiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class RegaliPrevistiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(RegaliPrevistiEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class RegaliPrevistiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class RegaliPrevistiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<RegaliPrevistiEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class RegaliPrevistiService {
         });
     }
 
+    /**
+     * @return Iterable<RegaliPrevistiEntity>
+     */
     // FIND
     public Iterable<RegaliPrevistiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RegaliPrevistiEntity>
+     */
     public Iterable<RegaliPrevistiEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RegaliPrevistiEntity>
+     */
     public Optional<RegaliPrevistiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return RegaliPrevistiEntity
+     */
     // SAVE
     public RegaliPrevistiEntity save(RegaliPrevistiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<RegaliPrevistiEntity>
+     */
     public Iterable<RegaliPrevistiEntity> saveAll(Iterable<RegaliPrevistiEntity> entities) {
         return repository.saveAll(entities);
     }

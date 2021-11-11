@@ -15,6 +15,9 @@ public class AbbonamentiService {
     @Autowired
     AbbonamentiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AbbonamentiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AbbonamentiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class AbbonamentiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AbbonamentiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AbbonamentiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AbbonamentiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AbbonamentiService {
         });
     }
 
+    /**
+     * @return Iterable<AbbonamentiEntity>
+     */
     // FIND
     public Iterable<AbbonamentiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AbbonamentiEntity>
+     */
     public Iterable<AbbonamentiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AbbonamentiEntity>
+     */
     public Optional<AbbonamentiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AbbonamentiEntity
+     */
     // SAVE
     public AbbonamentiEntity save(AbbonamentiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AbbonamentiEntity>
+     */
     public Iterable<AbbonamentiEntity> saveAll(Iterable<AbbonamentiEntity> entities) {
         return repository.saveAll(entities);
     }

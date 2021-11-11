@@ -15,10 +15,17 @@ public class AsiloService {
     @Autowired
     AsiloRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AsiloFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AsiloService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AsiloFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AsiloService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AsiloService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AsiloService {
         });
     }
 
+    /**
+     * @return Iterable<AsiloFigliEntity>
+     */
     // FIND
     public Iterable<AsiloFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AsiloFigliEntity>
+     */
     public Iterable<AsiloFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AsiloFigliEntity>
+     */
     public Optional<AsiloFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AsiloFigliEntity
+     */
     // SAVE
     public AsiloFigliEntity save(AsiloFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AsiloFigliEntity>
+     */
     public Iterable<AsiloFigliEntity> saveAll(Iterable<AsiloFigliEntity> entities) {
         return repository.saveAll(entities);
     }

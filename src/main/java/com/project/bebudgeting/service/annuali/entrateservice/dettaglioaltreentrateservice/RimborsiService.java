@@ -18,10 +18,19 @@ public class RimborsiService {
     @Autowired
     RimborsiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(RimborsiEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class RimborsiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<RimborsiEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class RimborsiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class RimborsiService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<RimborsiEntity>
+     */
     // FIND
     public List<RimborsiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<RimborsiEntity> ret = new ArrayList<RimborsiEntity>();
@@ -82,23 +106,42 @@ public class RimborsiService {
         return ret;
     }
 
+    /**
+     * @return Iterable<RimborsiEntity>
+     */
     public Iterable<RimborsiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RimborsiEntity>
+     */
     public Iterable<RimborsiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RimborsiEntity>
+     */
     public Optional<RimborsiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return RimborsiEntity
+     */
     // SAVE
     public RimborsiEntity save(RimborsiEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<RimborsiEntity>
+     */
     public Iterable<RimborsiEntity> saveAll(Iterable<RimborsiEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

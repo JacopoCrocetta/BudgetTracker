@@ -1,5 +1,6 @@
 package com.project.bebudgeting.controller.annuali.usciteannuali;
 
+import com.project.bebudgeting.entity.annuali.uscite.dettaglioviaggi.AlimentiViaggiEntity;
 import com.project.bebudgeting.service.annuali.usciteservice.viaggiservice.AlimentiViaggiService;
 import com.project.bebudgeting.service.annuali.usciteservice.viaggiservice.AltroViaggiService;
 import com.project.bebudgeting.service.annuali.usciteservice.viaggiservice.BigliettiAereiService;
@@ -34,4 +35,10 @@ public class ViaggiController {
 
     @Autowired
     TrasportiViaggiService trasportiViaggiService;
+
+    // FIND ALL
+
+    public Iterable<AlimentiViaggiEntity> getAllAlimentiViaggiEntities() {
+        return alimentiViaggiService.findAll();
+    }
 }

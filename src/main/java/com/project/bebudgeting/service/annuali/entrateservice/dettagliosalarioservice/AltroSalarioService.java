@@ -18,10 +18,19 @@ public class AltroSalarioService {
     @Autowired
     AltroSalarioRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(AltroSalarioEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class AltroSalarioService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<AltroSalarioEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class AltroSalarioService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class AltroSalarioService {
         });
     }
 
+    /**
+     * @param salarioId
+     * @return List<AltroSalarioEntity>
+     */
     // FIND
     public List<AltroSalarioEntity> findBySalarioId(int salarioId) {
         List<AltroSalarioEntity> ret = new ArrayList<AltroSalarioEntity>();
@@ -82,23 +106,42 @@ public class AltroSalarioService {
         return ret;
     }
 
+    /**
+     * @return Iterable<AltroSalarioEntity>
+     */
     public Iterable<AltroSalarioEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroSalarioEntity>
+     */
     public Iterable<AltroSalarioEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroSalarioEntity>
+     */
     public Optional<AltroSalarioEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return AltroSalarioEntity
+     */
     // SAVE
     public AltroSalarioEntity save(AltroSalarioEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<AltroSalarioEntity>
+     */
     public Iterable<AltroSalarioEntity> saveAll(Iterable<AltroSalarioEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

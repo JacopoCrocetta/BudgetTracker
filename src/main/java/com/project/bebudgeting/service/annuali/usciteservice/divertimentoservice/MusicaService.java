@@ -13,6 +13,9 @@ public class MusicaService {
     @Autowired
     MusicaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -22,6 +25,10 @@ public class MusicaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(MusicaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -30,6 +37,9 @@ public class MusicaService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<MusicaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -40,6 +50,10 @@ public class MusicaService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class MusicaService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class MusicaService {
         });
     }
 
+    /**
+     * @return Iterable<MusicaEntity>
+     */
     // FIND
     public Iterable<MusicaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<MusicaEntity>
+     */
     public Iterable<MusicaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<MusicaEntity>
+     */
     public Optional<MusicaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return MusicaEntity
+     */
     // SAVE
     public MusicaEntity save(MusicaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<MusicaEntity>
+     */
     public Iterable<MusicaEntity> saveAll(Iterable<MusicaEntity> entities) {
         entities.forEach(this::save);
         return entities;

@@ -15,7 +15,71 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
+
+/**
+ * @return int
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
 @Getter
 @Setter
 @Table(name = "altro_animali_domestici")

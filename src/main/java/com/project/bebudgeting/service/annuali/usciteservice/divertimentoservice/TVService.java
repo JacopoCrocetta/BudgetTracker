@@ -13,6 +13,9 @@ public class TVService {
     @Autowired
     TVRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -22,6 +25,10 @@ public class TVService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(TVEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -30,6 +37,9 @@ public class TVService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<TVEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -40,6 +50,10 @@ public class TVService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class TVService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class TVService {
         });
     }
 
+    /**
+     * @return Iterable<TVEntity>
+     */
     // FIND
     public Iterable<TVEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<TVEntity>
+     */
     public Iterable<TVEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<TVEntity>
+     */
     public Optional<TVEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return TVEntity
+     */
     // SAVE
     public TVEntity save(TVEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<TVEntity>
+     */
     public Iterable<TVEntity> saveAll(Iterable<TVEntity> entities) {
         entities.forEach(this::save);
         return entities;

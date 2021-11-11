@@ -20,8 +20,80 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "spese_trasporti_previste")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return UsciteEffettiveEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return UsciteEffettiveEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
 @Getter
 @Setter
 public class TrasportiPrevistiEntity {

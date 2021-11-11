@@ -15,6 +15,9 @@ public class FornitureTrasportiService {
     @Autowired
     FornitureTrasportiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class FornitureTrasportiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(FornitureTrasportiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class FornitureTrasportiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<FornitureTrasportiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class FornitureTrasportiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class FornitureTrasportiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class FornitureTrasportiService {
         });
     }
 
+    /**
+     * @return Iterable<FornitureTrasportiEntity>
+     */
     // FIND
     public Iterable<FornitureTrasportiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<FornitureTrasportiEntity>
+     */
     public Iterable<FornitureTrasportiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<FornitureTrasportiEntity>
+     */
     public Optional<FornitureTrasportiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return FornitureTrasportiEntity
+     */
     // SAVE
     public FornitureTrasportiEntity save(FornitureTrasportiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<FornitureTrasportiEntity>
+     */
     public Iterable<FornitureTrasportiEntity> saveAll(Iterable<FornitureTrasportiEntity> entities) {
         return repository.saveAll(entities);
     }

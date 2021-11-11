@@ -15,6 +15,9 @@ public class SpesePersonaliPrevisteService {
     @Autowired
     SpesePersonaliPrevisteRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class SpesePersonaliPrevisteService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(SpesePersonaliPrevistiEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class SpesePersonaliPrevisteService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class SpesePersonaliPrevisteService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<SpesePersonaliPrevistiEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class SpesePersonaliPrevisteService {
         });
     }
 
+    /**
+     * @return Iterable<SpesePersonaliPrevistiEntity>
+     */
     // FIND
     public Iterable<SpesePersonaliPrevistiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<SpesePersonaliPrevistiEntity>
+     */
     public Iterable<SpesePersonaliPrevistiEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<SpesePersonaliPrevistiEntity>
+     */
     public Optional<SpesePersonaliPrevistiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return SpesePersonaliPrevistiEntity
+     */
     // SAVE
     public SpesePersonaliPrevistiEntity save(SpesePersonaliPrevistiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<SpesePersonaliPrevistiEntity>
+     */
     public Iterable<SpesePersonaliPrevistiEntity> saveAll(Iterable<SpesePersonaliPrevistiEntity> entities) {
         return repository.saveAll(entities);
     }

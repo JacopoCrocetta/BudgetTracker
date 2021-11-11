@@ -12,6 +12,45 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** 
+ * @return List<CureSpecialisticheEntity>
+ */
+
+/** 
+ * @return List<AltroSpeseMedicheEntity>
+ */
+
+/** 
+ * @return List<DottoriEntity>
+ */
+
+/** 
+ * @return List<EmergenzeEntity>
+ */
+
+/**
+ * @return List<FarmaciEntity>
+ */
+
+/** 
+ * @return List<CureSpecialisticheEntity>
+ */
+
+/** 
+ * @return List<AltroSpeseMedicheEntity>
+ */
+
+/** 
+ * @return List<DottoriEntity>
+ */
+
+/** 
+ * @return List<EmergenzeEntity>
+ */
+
+/**
+ * @return List<FarmaciEntity>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

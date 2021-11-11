@@ -24,41 +24,74 @@ public class AltroSalarioController {
     AltroSalarioService altroSalarioService;
 
     // DELETE
+
     @DeleteMapping(value = "/delete-all")
     public void deleteAll() {
         altroSalarioService.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody AltroSalarioEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         altroSalarioService.delete(entity);
     }
 
+    /**
+     * @param entities
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<AltroSalarioEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         altroSalarioService.deleteAll(entities);
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-one-entity-by-Id")
     public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         altroSalarioService.deleteById(id);
     }
 
+    /**
+     * @param entitiesId
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntityById(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         altroSalarioService.deleteAllById(entitiesId);
     }
 
+    /**
+     * @param entity
+     * @return AltroSalarioEntity
+     */
     // SAVE
     @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltroSalarioEntity addOneEntity(@RequestBody AltroSalarioEntity entity) {
         return altroSalarioService.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroSalarioEntity>
+     */
     @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroSalarioEntity> addMoreEntity(@RequestBody Iterable<AltroSalarioEntity> entities) {
         return altroSalarioService.saveAll(entities);

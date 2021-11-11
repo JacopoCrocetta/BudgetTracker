@@ -15,6 +15,9 @@ public class SoftwareService {
     @Autowired
     SoftwareRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class SoftwareService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(SoftwareEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class SoftwareService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<SoftwareEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class SoftwareService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class SoftwareService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class SoftwareService {
         });
     }
 
+    /**
+     * @return Iterable<SoftwareEntity>
+     */
     // FIND
     public Iterable<SoftwareEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<SoftwareEntity>
+     */
     public Iterable<SoftwareEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<SoftwareEntity>
+     */
     public Optional<SoftwareEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return SoftwareEntity
+     */
     // SAVE
     public SoftwareEntity save(SoftwareEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<SoftwareEntity>
+     */
     public Iterable<SoftwareEntity> saveAll(Iterable<SoftwareEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,6 +15,9 @@ public class AltreSpeseQuotidianeService {
     @Autowired
     AltroSpeseQuotidianeRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AltreSpeseQuotidianeService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AltroSpeseQuotidianeEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class AltreSpeseQuotidianeService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroSpeseQuotidianeEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltreSpeseQuotidianeService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltreSpeseQuotidianeService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltreSpeseQuotidianeService {
         });
     }
 
+    /**
+     * @return Iterable<AltroSpeseQuotidianeEntity>
+     */
     // FIND
     public Iterable<AltroSpeseQuotidianeEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroSpeseQuotidianeEntity>
+     */
     public Iterable<AltroSpeseQuotidianeEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroSpeseQuotidianeEntity>
+     */
     public Optional<AltroSpeseQuotidianeEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroSpeseQuotidianeEntity
+     */
     // SAVE
     public AltroSpeseQuotidianeEntity save(AltroSpeseQuotidianeEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroSpeseQuotidianeEntity>
+     */
     public Iterable<AltroSpeseQuotidianeEntity> saveAll(Iterable<AltroSpeseQuotidianeEntity> entities) {
         return repository.saveAll(entities);
     }

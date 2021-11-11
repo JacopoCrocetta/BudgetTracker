@@ -53,119 +53,194 @@ public class BolletteController {
     @Autowired
     BolletteTelefonoService bolletteTelefonoService;
 
+    /**
+     * @return Iterable<AltreBolletteEntity>
+     */
     // GET ALL
     @GetMapping(value = "/get-all-altre-bollette-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltreBolletteEntity> getAllAltreBolletteEntities() {
         return altreBolletteService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteAcquaEntity>
+     */
     @GetMapping(value = "/get-all-bollette-acqua-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteAcquaEntity> getAllBolletteAcquaEntities() {
         return bolletteAcquaService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteElettricitaEntity>
+     */
     @GetMapping(value = "/get-all-bollette-elettriche-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteElettricitaEntity> getAllElettricitaEntities() {
         return bolletteElettricitaService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteGASEntity>
+     */
     @GetMapping(value = "/get-all-bollette-gas-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteGASEntity> getAllBolletteGasEntities() {
         return bolletteGASService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteInternetEntity>
+     */
     @GetMapping(value = "/get-all-bollette-internet-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteInternetEntity> getAllBolletteInternetEntities() {
         return bolletteInternetService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteRifiutiEntity>
+     */
     @GetMapping(value = "/get-all-bollette-rifiuti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteRifiutiEntity> getAllBolletteRifiutiEntities() {
         return bolletteRifiutiService.findAll();
     }
 
+    /**
+     * @return Iterable<BolletteTelefonoEntity>
+     */
     @GetMapping(value = "/get-all-bollette-telefono-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteTelefonoEntity> getAllBolletteTelefonoEntities() {
         return bolletteTelefonoService.findAll();
     }
 
+    /**
+     * @param ids
+     */
     // DELETE ALL
     @DeleteMapping(value = "/delete-all-altre-bollette-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltreBolletteEntities(@RequestBody Iterable<Integer> ids) {
         altreBolletteService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-bollette-acqua-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteAcquaEntities(@RequestBody Iterable<Integer> ids) {
         bolletteAcquaService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-bollette-gas-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteGasEntities(@RequestBody Iterable<Integer> ids) {
         bolletteAcquaService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BolletteElettricitaEntity>
+     */
     @DeleteMapping(value = "/delete-all-bollette-elettriche-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<BolletteElettricitaEntity> deleteAllBolletteElettricheEntities(@RequestBody Iterable<Integer> ids) {
         altreBolletteService.deleteAllById(ids);
         return bolletteElettricitaService.findAll();
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-bollette-internet-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteInternetEntities(@RequestBody Iterable<Integer> ids) {
         bolletteInternetService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-bollette-rifiuti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteRifiutiEntities(@RequestBody Iterable<Integer> ids) {
         bolletteRifiutiService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-bollette-telefono-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllBolletteTelefonoEntities(@RequestBody Iterable<Integer> ids) {
         bolletteTelefonoService.deleteAllById(ids);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-altre-bollette-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltreBolletteEntity(@RequestBody AltreBolletteEntity entityToDelete) throws NotFoundException {
         altreBolletteService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-acqua-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteAcquaEntity(@RequestBody BolletteAcquaEntity entityToDelete) throws NotFoundException {
         bolletteAcquaService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-elettrica-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteElettricheEntity(@RequestBody BolletteElettricitaEntity entityToDelete)
             throws NotFoundException {
         bolletteElettricitaService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-gas-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteGASEntity(@RequestBody BolletteGASEntity entityToDelete) throws NotFoundException {
         bolletteGASService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-internet-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteInternetEntity(@RequestBody BolletteInternetEntity entityToDelete)
             throws NotFoundException {
         bolletteInternetService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-rifiuti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteRifiutiEntity(@RequestBody BolletteRifiutiEntity entityToDelete)
             throws NotFoundException {
         bolletteRifiutiService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-telefono-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneBolletteTelefonoEntity(@RequestBody BolletteTelefonoEntity entityToDelete)
             throws NotFoundException {
         bolletteTelefonoService.delete(entityToDelete);
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-bollette-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAssicurazione(@RequestBody BolletteEntity entityToDelete) throws NotFoundException {
         if (!entityToDelete.getAltreBolletteEntities().isEmpty()) {
@@ -191,42 +266,74 @@ public class BolletteController {
         }
     }
 
+    /**
+     * @param entity
+     * @return AltreBolletteEntity
+     */
     // SAVE ONE
     @PutMapping(value = "/save-one-altre-bollette-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltreBolletteEntity addOneAltreBolletteEntity(@RequestBody AltreBolletteEntity entity) {
         return altreBolletteService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteAcquaEntity
+     */
     @PutMapping(value = "/save-one-bollette-acqua-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteAcquaEntity AddOneBolletteAcquaEntity(@RequestBody BolletteAcquaEntity entity) {
         return bolletteAcquaService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteElettricitaEntity
+     */
     @PutMapping(value = "/save-one-bollette-elettriche-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteElettricitaEntity addOneBolletteElettricitaEntity(@RequestBody BolletteElettricitaEntity entity) {
         return bolletteElettricitaService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteGASEntity
+     */
     @PutMapping(value = "/save-one-bollette-gas-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteGASEntity addOneAssicurazioneSaluteEntity(@RequestBody BolletteGASEntity entity) {
         return bolletteGASService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteInternetEntity
+     */
     @PutMapping(value = "/save-one-bollette-internet-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteInternetEntity addOneAssicurazioneVitaEntity(@RequestBody BolletteInternetEntity entity) {
         return bolletteInternetService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteRifiutiEntity
+     */
     @PutMapping(value = "/save-one-bollette-rifiuti-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteRifiutiEntity addOneBolletteRifiutEntity(@RequestBody BolletteRifiutiEntity entity) {
         return bolletteRifiutiService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return BolletteTelefonoEntity
+     */
     @PutMapping(value = "/save-one-bollette-telefono-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteTelefonoEntity addOneBolletteTelefoEntity(@RequestBody BolletteTelefonoEntity entity) {
         return bolletteTelefonoService.save(entity);
     }
 
+    /**
+     * @param bolletteEntity
+     * @return BolletteEntity
+     */
     // SAVE MORE ENTITY
     @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public BolletteEntity addOneSalarioEntity(@RequestBody BolletteEntity bolletteEntity) {

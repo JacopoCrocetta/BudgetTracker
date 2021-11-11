@@ -15,10 +15,17 @@ public class GiocattoliFigliService {
     @Autowired
     GiocattoliFigliRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(GiocattoliFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class GiocattoliFigliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<GiocattoliFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class GiocattoliFigliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class GiocattoliFigliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class GiocattoliFigliService {
         });
     }
 
+    /**
+     * @return Iterable<GiocattoliFigliEntity>
+     */
     // FIND
     public Iterable<GiocattoliFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<GiocattoliFigliEntity>
+     */
     public Iterable<GiocattoliFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<GiocattoliFigliEntity>
+     */
     public Optional<GiocattoliFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return GiocattoliFigliEntity
+     */
     // SAVE
     public GiocattoliFigliEntity save(GiocattoliFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<GiocattoliFigliEntity>
+     */
     public Iterable<GiocattoliFigliEntity> saveAll(Iterable<GiocattoliFigliEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,6 +15,9 @@ public class BonusEffettiviService {
     @Autowired
     BonusEffettiviRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class BonusEffettiviService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(BonusEffettiviEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class BonusEffettiviService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class BonusEffettiviService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<BonusEffettiviEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class BonusEffettiviService {
         });
     }
 
+    /**
+     * @return Iterable<BonusEffettiviEntity>
+     */
     // FIND
     public Iterable<BonusEffettiviEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BonusEffettiviEntity>
+     */
     public Iterable<BonusEffettiviEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<BonusEffettiviEntity>
+     */
     public Optional<BonusEffettiviEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return BonusEffettiviEntity
+     */
     // SAVE
     public BonusEffettiviEntity save(BonusEffettiviEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<BonusEffettiviEntity>
+     */
     public Iterable<BonusEffettiviEntity> saveAll(Iterable<BonusEffettiviEntity> entities) {
         return repository.saveAll(entities);
     }

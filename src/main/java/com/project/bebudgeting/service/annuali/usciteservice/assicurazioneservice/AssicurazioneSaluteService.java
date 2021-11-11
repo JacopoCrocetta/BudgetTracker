@@ -15,10 +15,17 @@ public class AssicurazioneSaluteService {
     @Autowired
     AssicurazioneSaluteRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AssicurazioneSaluteEntity entityToDelete) throws NotFoundException {
         if (repository.existsById(entityToDelete.getId())) {
@@ -27,6 +34,9 @@ public class AssicurazioneSaluteService {
         throw new NotFoundException("Item Not Found");
     }
 
+    /**
+     * @param entitiesToDelete
+     */
     public void deleteAll(Iterable<AssicurazioneSaluteEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
             try {
@@ -41,6 +51,10 @@ public class AssicurazioneSaluteService {
         repository.deleteAll();
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,30 +62,52 @@ public class AssicurazioneSaluteService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             repository.deleteById(id);
         });
     }
 
+    /**
+     * @return Iterable<AssicurazioneSaluteEntity>
+     */
     // FIND
     public Iterable<AssicurazioneSaluteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AssicurazioneSaluteEntity>
+     */
     public Iterable<AssicurazioneSaluteEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AssicurazioneSaluteEntity>
+     */
     public Optional<AssicurazioneSaluteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return AssicurazioneSaluteEntity
+     */
     // SAVE
     public AssicurazioneSaluteEntity save(AssicurazioneSaluteEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<AssicurazioneSaluteEntity>
+     */
     public Iterable<AssicurazioneSaluteEntity> saveAll(Iterable<AssicurazioneSaluteEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

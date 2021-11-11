@@ -20,8 +20,80 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "alimenti_previste")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return UscitePrevisteEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return UscitePrevisteEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
 @Getter
 @Setter
 public class AlimentiPrevistiEntity {

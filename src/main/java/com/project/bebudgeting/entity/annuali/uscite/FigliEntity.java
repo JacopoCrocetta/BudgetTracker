@@ -15,6 +15,69 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** 
+ * @return List<AltroFigliEntity>
+ */
+
+/** 
+ * @return List<AsiloFigliEntity>
+ */
+
+/** 
+ * @return List<AttivitaFigliEntity>
+ */
+
+/** 
+ * @return List<GiocattoliFigliEntity>
+ */
+
+/** 
+ * @return List<PaghettaFigliEntity>
+ */
+
+/** 
+ * @return List<ScuolaFigliEntity>
+ */
+
+/** 
+ * @return List<SpeseMedicheFigliEntity>
+ */
+
+/**
+ * @return List<VestitiFigliEntity>
+ */
+
+/** 
+ * @return List<AltroFigliEntity>
+ */
+
+/** 
+ * @return List<AsiloFigliEntity>
+ */
+
+/** 
+ * @return List<AttivitaFigliEntity>
+ */
+
+/** 
+ * @return List<GiocattoliFigliEntity>
+ */
+
+/** 
+ * @return List<PaghettaFigliEntity>
+ */
+
+/** 
+ * @return List<ScuolaFigliEntity>
+ */
+
+/** 
+ * @return List<SpeseMedicheFigliEntity>
+ */
+
+/**
+ * @return List<VestitiFigliEntity>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

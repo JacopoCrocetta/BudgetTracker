@@ -13,6 +13,53 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** 
+ * @return List<AltriPrestitiEntity>
+ */
+
+/** 
+ * @return List<AltroDebitiEntity>
+ */
+
+/** 
+ * @return List<CarteCreditoEntity>
+ */
+
+/** 
+ * @return List<ImposteLocaliEntity>
+ */
+
+/** 
+ * @return List<ImposteStataliEntity>
+ */
+
+/**
+ * @return List<PrestitiPerStudiareEntity>
+ */
+
+/** 
+ * @return List<AltriPrestitiEntity>
+ */
+
+/** 
+ * @return List<AltroDebitiEntity>
+ */
+
+/** 
+ * @return List<CarteCreditoEntity>
+ */
+
+/** 
+ * @return List<ImposteLocaliEntity>
+ */
+
+/** 
+ * @return List<ImposteStataliEntity>
+ */
+
+/**
+ * @return List<PrestitiPerStudiareEntity>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

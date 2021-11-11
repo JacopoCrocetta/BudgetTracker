@@ -15,10 +15,17 @@ public class AltriPrestitiService {
     @Autowired
     AltriPrestitiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltriPrestitiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AltriPrestitiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltriPrestitiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltriPrestitiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltriPrestitiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltriPrestitiService {
         });
     }
 
+    /**
+     * @return Iterable<AltriPrestitiEntity>
+     */
     // FIND
     public Iterable<AltriPrestitiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltriPrestitiEntity>
+     */
     public Iterable<AltriPrestitiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltriPrestitiEntity>
+     */
     public Optional<AltriPrestitiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltriPrestitiEntity
+     */
     // SAVE
     public AltriPrestitiEntity save(AltriPrestitiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltriPrestitiEntity>
+     */
     public Iterable<AltriPrestitiEntity> saveAll(Iterable<AltriPrestitiEntity> entities) {
         return repository.saveAll(entities);
     }

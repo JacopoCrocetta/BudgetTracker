@@ -15,6 +15,9 @@ public class RegaliEffettiviService {
     @Autowired
     RegaliEffettiviRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class RegaliEffettiviService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(RegaliEffettiviEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class RegaliEffettiviService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class RegaliEffettiviService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<RegaliEffettiviEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class RegaliEffettiviService {
         });
     }
 
+    /**
+     * @return Iterable<RegaliEffettiviEntity>
+     */
     // FIND
     public Iterable<RegaliEffettiviEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RegaliEffettiviEntity>
+     */
     public Iterable<RegaliEffettiviEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RegaliEffettiviEntity>
+     */
     public Optional<RegaliEffettiviEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return RegaliEffettiviEntity
+     */
     // SAVE
     public RegaliEffettiviEntity save(RegaliEffettiviEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<RegaliEffettiviEntity>
+     */
     public Iterable<RegaliEffettiviEntity> saveAll(Iterable<RegaliEffettiviEntity> entities) {
         return repository.saveAll(entities);
     }

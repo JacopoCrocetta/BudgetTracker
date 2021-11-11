@@ -15,6 +15,9 @@ public class AltroTecnologiaService {
     @Autowired
     AltroTecnologiaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AltroTecnologiaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AltroTecnologiaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class AltroTecnologiaService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroTecnologiaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroTecnologiaService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroTecnologiaService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroTecnologiaService {
         });
     }
 
+    /**
+     * @return Iterable<AltroTecnologiaEntity>
+     */
     // FIND
     public Iterable<AltroTecnologiaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroTecnologiaEntity>
+     */
     public Iterable<AltroTecnologiaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroTecnologiaEntity>
+     */
     public Optional<AltroTecnologiaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroTecnologiaEntity
+     */
     // SAVE
     public AltroTecnologiaEntity save(AltroTecnologiaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroTecnologiaEntity>
+     */
     public Iterable<AltroTecnologiaEntity> saveAll(Iterable<AltroTecnologiaEntity> entities) {
         return repository.saveAll(entities);
     }

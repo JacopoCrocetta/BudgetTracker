@@ -15,6 +15,9 @@ public class AltroViaggiService {
     @Autowired
     AltroViaggiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AltroViaggiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AltroViaggiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class AltroViaggiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroViaggiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroViaggiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroViaggiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroViaggiService {
         });
     }
 
+    /**
+     * @return Iterable<AltroViaggiEntity>
+     */
     // FIND
     public Iterable<AltroViaggiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroViaggiEntity>
+     */
     public Iterable<AltroViaggiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroViaggiEntity>
+     */
     public Optional<AltroViaggiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroViaggiEntity
+     */
     // SAVE
     public AltroViaggiEntity save(AltroViaggiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroViaggiEntity>
+     */
     public Iterable<AltroViaggiEntity> saveAll(Iterable<AltroViaggiEntity> entities) {
         return repository.saveAll(entities);
     }

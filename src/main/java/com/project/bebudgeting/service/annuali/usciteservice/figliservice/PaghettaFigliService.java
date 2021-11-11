@@ -15,10 +15,17 @@ public class PaghettaFigliService {
     @Autowired
     PaghettaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(PaghettaFigliEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class PaghettaFigliService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<PaghettaFigliEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class PaghettaFigliService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class PaghettaFigliService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class PaghettaFigliService {
         });
     }
 
+    /**
+     * @return Iterable<PaghettaFigliEntity>
+     */
     // FIND
     public Iterable<PaghettaFigliEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<PaghettaFigliEntity>
+     */
     public Iterable<PaghettaFigliEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<PaghettaFigliEntity>
+     */
     public Optional<PaghettaFigliEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return PaghettaFigliEntity
+     */
     // SAVE
     public PaghettaFigliEntity save(PaghettaFigliEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<PaghettaFigliEntity>
+     */
     public Iterable<PaghettaFigliEntity> saveAll(Iterable<PaghettaFigliEntity> entities) {
         return repository.saveAll(entities);
     }

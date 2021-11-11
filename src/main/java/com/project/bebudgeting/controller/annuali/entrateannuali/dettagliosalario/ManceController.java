@@ -29,36 +29,68 @@ public class ManceController {
         manceService.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntity(@RequestBody ManceEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         manceService.delete(entity);
     }
 
+    /**
+     * @param entities
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-some-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<ManceEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         manceService.deleteAll(entities);
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-one-entity-by-Id")
     public void deleteOneEntityById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         manceService.deleteById(id);
     }
 
+    /**
+     * @param entitiesId
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/delete-some-entity-by-ids", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntityByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         manceService.deleteAllById(entitiesId);
     }
 
+    /**
+     * @param entity
+     * @return ManceEntity
+     */
     // SAVE
     @PutMapping(value = "/save-one-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ManceEntity addOneEntity(@RequestBody ManceEntity entity) {
         return manceService.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ManceEntity>
+     */
     @PutMapping(value = "/save-more-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ManceEntity> addMoreEntity(@RequestBody Iterable<ManceEntity> entities) {
         return manceService.saveAll(entities);

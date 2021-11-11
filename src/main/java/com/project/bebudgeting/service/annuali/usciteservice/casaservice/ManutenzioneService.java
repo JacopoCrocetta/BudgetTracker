@@ -15,10 +15,17 @@ public class ManutenzioneService {
     @Autowired
     ManutenzioneRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(ManutenzioneEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class ManutenzioneService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<ManutenzioneEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class ManutenzioneService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class ManutenzioneService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class ManutenzioneService {
         });
     }
 
+    /**
+     * @return Iterable<ManutenzioneEntity>
+     */
     // FIND
     public Iterable<ManutenzioneEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ManutenzioneEntity>
+     */
     public Iterable<ManutenzioneEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ManutenzioneEntity>
+     */
     public Optional<ManutenzioneEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return ManutenzioneEntity
+     */
     // SAVE
     public ManutenzioneEntity save(ManutenzioneEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ManutenzioneEntity>
+     */
     public Iterable<ManutenzioneEntity> saveAll(Iterable<ManutenzioneEntity> entities) {
         return repository.saveAll(entities);
     }

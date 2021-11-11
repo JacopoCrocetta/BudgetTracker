@@ -59,6 +59,9 @@ public class UsciteEffettiveService {
     @Autowired
     ViaggiEffettiviService viaggiEffettiviService;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -79,6 +82,10 @@ public class UsciteEffettiveService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(UsciteEffettiveEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent()) {
             entity.getAlimentiEffettiviEntities().forEach(alimentiEntity -> {
@@ -185,6 +192,10 @@ public class UsciteEffettiveService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent()) {
             repository.findById(id).get().getAlimentiEffettiviEntities().forEach(alimentiEntity -> {
@@ -291,6 +302,9 @@ public class UsciteEffettiveService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<UsciteEffettiveEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -301,6 +315,9 @@ public class UsciteEffettiveService {
         });
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -311,19 +328,34 @@ public class UsciteEffettiveService {
         });
     }
 
+    /**
+     * @return Iterable<UsciteEffettiveEntity>
+     */
     // FIND
     public Iterable<UsciteEffettiveEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<UsciteEffettiveEntity>
+     */
     public Iterable<UsciteEffettiveEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<UsciteEffettiveEntity>
+     */
     public Optional<UsciteEffettiveEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return UsciteEffettiveEntity
+     */
     // SAVE
     public UsciteEffettiveEntity save(UsciteEffettiveEntity entity) {
         alimentiEffettiviService.saveAll(entity.getAlimentiEffettiviEntities());
@@ -340,6 +372,10 @@ public class UsciteEffettiveService {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<UsciteEffettiveEntity>
+     */
     public Iterable<UsciteEffettiveEntity> saveAll(Iterable<UsciteEffettiveEntity> entities) {
         entities.forEach(this::save);
         return entities;

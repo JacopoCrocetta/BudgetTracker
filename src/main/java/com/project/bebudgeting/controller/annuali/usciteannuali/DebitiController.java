@@ -48,100 +48,163 @@ public class DebitiController {
     @Autowired
     PrestitiPerStudioService prestitiPerStudioService;
 
+    /**
+     * @return Iterable<AltriPrestitiEntity>
+     */
     // GET ALL
     @GetMapping(value = "/get-all-altri-prestiti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltriPrestitiEntity> getAllAltriPrestitiEntity() {
         return altriPrestitiService.findAll();
     }
 
+    /**
+     * @return Iterable<AltroDebitiEntity>
+     */
     @GetMapping(value = "/get-all-altri-debiti-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroDebitiEntity> getAllAltriDebitiEntity() {
         return altroDebitiService.findAll();
     }
 
+    /**
+     * @return Iterable<CarteCreditoEntity>
+     */
     @GetMapping(value = "/get-all-carte-credito-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<CarteCreditoEntity> getAllCarteCreditoEntity() {
         return carteCreditoService.findAll();
     }
 
+    /**
+     * @return Iterable<ImposteLocaliEntity>
+     */
     @GetMapping(value = "/get-all-imposte-locali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ImposteLocaliEntity> getAllImposteLocaliEntity() {
         return imposteLocaliService.findAll();
     }
 
+    /**
+     * @return Iterable<ImposteStataliEntity>
+     */
     @GetMapping(value = "/get-all-imposte-statali-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ImposteStataliEntity> getAllImposteStataliEntity() {
         return imposteStataliService.findAll();
     }
 
+    /**
+     * @return Iterable<PrestitiPerStudiareEntity>
+     */
     @GetMapping(value = "/get-all-prestiti-studio-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<PrestitiPerStudiareEntity> getAllPrestitiPerStudioEntity() {
         return prestitiPerStudioService.findAll();
     }
 
+    /**
+     * @param ids
+     */
     // DELETE ALL
     @DeleteMapping(value = "/delete-all-selected-altri-prestiti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltriPrestitiEntity(@RequestBody Iterable<Integer> ids) {
         altriPrestitiService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-selected-altri-debiti-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltriDebitiEntity(@RequestBody Iterable<Integer> ids) {
         altroDebitiService.findAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-selected-carte-credito-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllCarteCreditoEntity(@RequestBody Iterable<Integer> ids) {
         carteCreditoService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-selected-imposte-locali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllImposteLocaliEntity(@RequestBody Iterable<Integer> ids) {
         imposteLocaliService.deleteAllById(ids);
 
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-selected-imposte-statali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllImposteStataliEntity(@RequestBody Iterable<Integer> ids) {
         imposteStataliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-selected-prestiti-studio-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllPrestitiPerStudioEntity(@RequestBody Iterable<Integer> ids) {
         prestitiPerStudioService.deleteAllById(ids);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-selected-altri-prestiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltriPrestitiEntity(@RequestBody AltriPrestitiEntity entity) throws NotFoundException {
         altriPrestitiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-altri-debiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltriDebitiEntity(@RequestBody AltroDebitiEntity entity) throws NotFoundException {
         altroDebitiService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-carte-credito-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneCarteCreditoEntity(@RequestBody CarteCreditoEntity entity) throws NotFoundException {
         carteCreditoService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-imposte-locali-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneImposteLocaliEntity(@RequestBody ImposteLocaliEntity entity) throws NotFoundException {
         imposteLocaliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-imposte-statali-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneImposteStataliEntity(@RequestBody ImposteStataliEntity entity) throws NotFoundException {
         imposteStataliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/delete-one-prestiti-studio-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOnePrestitiPerStudio(@RequestBody PrestitiPerStudiareEntity entity) throws NotFoundException {
         prestitiPerStudioService.delete(entity);
     }
 
+    /**
+     * @param entity
+     */
     @DeleteMapping(value = "/delete-one-debiti-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneDebitiEntity(@RequestBody DebitiEntity entity) {
         if (!entity.getAltriPrestitiEntities().isEmpty()) {
@@ -164,37 +227,65 @@ public class DebitiController {
         }
     }
 
+    /**
+     * @param entity
+     * @return AltriPrestitiEntity
+     */
     // SAVE ONE ENTITY
     @PutMapping(value = "/save-one-altri-prestiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AltriPrestitiEntity saveOneAltriPrestitiEntity(@RequestBody AltriPrestitiEntity entity) {
         return altriPrestitiService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return AltroDebitiEntity
+     */
     @PutMapping(value = "/save-one-altri-debiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AltroDebitiEntity saveOneAltroDebitiEntity(@RequestBody AltroDebitiEntity entity) {
         return altroDebitiService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return CarteCreditoEntity
+     */
     @PutMapping(value = "/save-one-carte-credito-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarteCreditoEntity saveOneCarteCreditoEntity(@RequestBody CarteCreditoEntity entity) {
         return carteCreditoService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return ImposteLocaliEntity
+     */
     @PutMapping(value = "/save-one-imposte-locali-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ImposteLocaliEntity saveOneImposteLocaliEntity(@RequestBody ImposteLocaliEntity entity) {
         return imposteLocaliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return ImposteStataliEntity
+     */
     @PutMapping(value = "/save-one-imposte-statali-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ImposteStataliEntity saveOneImposteStataliEntity(@RequestBody ImposteStataliEntity entity) {
         return imposteStataliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return PrestitiPerStudiareEntity
+     */
     @PutMapping(value = "/save-one-prestiti-studio-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public PrestitiPerStudiareEntity saveOnePrestitiPerStudiareEntity(@RequestBody PrestitiPerStudiareEntity entity) {
         return prestitiPerStudioService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return DebitiEntity
+     */
     // SAVE MORE ENTITY
     @RequestMapping(value = "/save-one-debiti-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public DebitiEntity saveOneDebitiEntity(@RequestBody DebitiEntity entity) {

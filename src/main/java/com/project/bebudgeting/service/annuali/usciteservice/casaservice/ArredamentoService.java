@@ -15,10 +15,17 @@ public class ArredamentoService {
     @Autowired
     ArredamentoRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(ArredamentoEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class ArredamentoService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<ArredamentoEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class ArredamentoService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class ArredamentoService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class ArredamentoService {
         });
     }
 
+    /**
+     * @return Iterable<ArredamentoEntity>
+     */
     // FIND
     public Iterable<ArredamentoEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ArredamentoEntity>
+     */
     public Iterable<ArredamentoEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ArredamentoEntity>
+     */
     public Optional<ArredamentoEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return ArredamentoEntity
+     */
     // SAVE
     public ArredamentoEntity save(ArredamentoEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<ArredamentoEntity>
+     */
     public Iterable<ArredamentoEntity> saveAll(Iterable<ArredamentoEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -58,130 +58,214 @@ public class FigliController {
     @Autowired
     VestitiFigliService vestitiFigliService;
 
+    /**
+     * @return Iterable<AltroFigliEntity>
+     */
     // FIND ALL
     @GetMapping(value = "/get-all-altro-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroFigliEntity> getAllAltroFigliEntities() {
         return altroFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<AsiloFigliEntity>
+     */
     @GetMapping(value = "/get-all-asilo-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AsiloFigliEntity> getAllAsiloEntities() {
         return asiloService.findAll();
     }
 
+    /**
+     * @return Iterable<AttivitaFigliEntity>
+     */
     @GetMapping(value = "/get-all-attivita-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AttivitaFigliEntity> getAllAttivitaFigliEntities() {
         return attivitaFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<GiocattoliFigliEntity>
+     */
     @GetMapping(value = "/get-all-giocattoli-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<GiocattoliFigliEntity> getAllGiocattoliFigliEntity() {
         return giocattoliFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<PaghettaFigliEntity>
+     */
     @GetMapping(value = "/get-all-paghetta-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<PaghettaFigliEntity> getAllPaghettaFigliEntities() {
         return paghettaFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<ScuolaFigliEntity>
+     */
     @GetMapping(value = "/get-all-scuola-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<ScuolaFigliEntity> getAllScuolaFigliEntities() {
         return scuolaFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<SpeseMedicheFigliEntity>
+     */
     @GetMapping(value = "/get-all-libri-divertimento-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<SpeseMedicheFigliEntity> getAllSpeseMedicheFigliEntities() {
         return speseMedicheFigliService.findAll();
     }
 
+    /**
+     * @return Iterable<VestitiFigliEntity>
+     */
     @GetMapping(value = "/get-all-vestiti-figli-entities", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<VestitiFigliEntity> getAllVestitiFigliEntity() {
         return vestitiFigliService.findAll();
     }
 
+    /**
+     * @param ids
+     */
     // DELETE ALL
     @DeleteMapping(value = "/delete-all-altro-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAltroFigliEntities(@RequestBody Iterable<Integer> ids) {
         altroFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-asilo-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAsiloEntities(@RequestBody Iterable<Integer> ids) {
         asiloService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-attivita-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllAttivitaFigliEntities(@RequestBody Iterable<Integer> ids) {
         attivitaFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-giocattoli-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllGiocattoliFigliEntity(@RequestBody Iterable<Integer> ids) {
         giocattoliFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-paghetta-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllPaghettaFigliEntities(@RequestBody Iterable<Integer> ids) {
         paghettaFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-scuola-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllScuolaFigliEntities(@RequestBody Iterable<Integer> ids) {
         scuolaFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-libri-divertimento-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllSpeseMedicheFigliEntities(@RequestBody Iterable<Integer> ids) {
         speseMedicheFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param ids
+     */
     @DeleteMapping(value = "/delete-all-vestiti-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteAllVestitiFigliEntity(@RequestBody Iterable<Integer> ids) {
         vestitiFigliService.deleteAllById(ids);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE ONE ENTITY
     @DeleteMapping(value = "/delete-one-selected-altro-figli-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAltroFigliEntity(@RequestBody AltroFigliEntity entity) throws NotFoundException {
         altroFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-asilo-entitiy", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAsiloEntities(@RequestBody AsiloFigliEntity entity) throws NotFoundException {
         asiloService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-attivita-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneAttivitaFigliEntities(@RequestBody AttivitaFigliEntity entity) throws NotFoundException {
         attivitaFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-giocattoli-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneGiocattoliFigliEntity(@RequestBody GiocattoliFigliEntity entity) throws NotFoundException {
         giocattoliFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-paghetta-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOnePaghettaFigliEntities(@RequestBody PaghettaFigliEntity entity) throws NotFoundException {
         paghettaFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-scuola-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneScuolaFigliEntities(@RequestBody ScuolaFigliEntity entity) throws NotFoundException {
         scuolaFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-libri-divertimento-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneSpeseMedicheFigliEntities(@RequestBody SpeseMedicheFigliEntity entity)
             throws NotFoundException {
         speseMedicheFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-vestiti-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneVestitiFigliEntity(@RequestBody VestitiFigliEntity entity) throws NotFoundException {
         vestitiFigliService.delete(entity);
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     @DeleteMapping(value = "/get-one-selected-figli-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneVestitiFigliEntity(@RequestBody FigliEntity entity) throws NotFoundException {
         if (!entity.getAltroFigliEntities().isEmpty()) {
@@ -210,47 +294,83 @@ public class FigliController {
         }
     }
 
+    /**
+     * @param entity
+     * @return AltroFigliEntity
+     */
     // SAVE ONE ENTITY
     @PutMapping(value = "/save-one-altro-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AltroFigliEntity saveOneAltroFigliEntity(@RequestBody AltroFigliEntity entity) {
         return altroFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return AsiloFigliEntity
+     */
     @PutMapping(value = "/save-one-asilo-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AsiloFigliEntity saveOneAsiloFigliEntity(@RequestBody AsiloFigliEntity entity) {
         return asiloService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return AttivitaFigliEntity
+     */
     @PutMapping(value = "/save-one-attivita-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public AttivitaFigliEntity saveOneAttivitaFigliEntity(@RequestBody AttivitaFigliEntity entity) {
         return attivitaFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return GiocattoliFigliEntity
+     */
     @PutMapping(value = "/save-one-giocattoli-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public GiocattoliFigliEntity saveOneGiocattoliFigliEntity(@RequestBody GiocattoliFigliEntity entity) {
         return giocattoliFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return PaghettaFigliEntity
+     */
     @PutMapping(value = "/save-one-paghetta-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public PaghettaFigliEntity saveOnePaghettaFigliEntity(@RequestBody PaghettaFigliEntity entity) {
         return paghettaFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return ScuolaFigliEntity
+     */
     @PutMapping(value = "/save-one-scuola-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ScuolaFigliEntity saveOneScuolaFigliEntity(@RequestBody ScuolaFigliEntity entity) {
         return scuolaFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return SpeseMedicheFigliEntity
+     */
     @PutMapping(value = "/save-one-spese-mediche-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public SpeseMedicheFigliEntity saveOneSpeseMedicheFigliEntity(@RequestBody SpeseMedicheFigliEntity entity) {
         return speseMedicheFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return VestitiFigliEntity
+     */
     @PutMapping(value = "/save-one-vestiti-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public VestitiFigliEntity saveOneVestitiFigliEntity(@RequestBody VestitiFigliEntity entity) {
         return vestitiFigliService.save(entity);
     }
 
+    /**
+     * @param entity
+     * @return FigliEntity
+     */
     @PutMapping(value = "/save-one-figli-entity", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public FigliEntity saveOneFigliEntity(@RequestBody FigliEntity entity) {
         altroFigliService.saveAll(entity.getAltroFigliEntities());

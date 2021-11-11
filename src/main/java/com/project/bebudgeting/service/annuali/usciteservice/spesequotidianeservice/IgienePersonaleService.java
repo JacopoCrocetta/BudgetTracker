@@ -15,6 +15,9 @@ public class IgienePersonaleService {
     @Autowired
     IgienePersonaleRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class IgienePersonaleService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(IgienePersonaleEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class IgienePersonaleService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<IgienePersonaleEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class IgienePersonaleService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class IgienePersonaleService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class IgienePersonaleService {
         });
     }
 
+    /**
+     * @return Iterable<IgienePersonaleEntity>
+     */
     // FIND
     public Iterable<IgienePersonaleEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<IgienePersonaleEntity>
+     */
     public Iterable<IgienePersonaleEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<IgienePersonaleEntity>
+     */
     public Optional<IgienePersonaleEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return IgienePersonaleEntity
+     */
     // SAVE
     public IgienePersonaleEntity save(IgienePersonaleEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<IgienePersonaleEntity>
+     */
     public Iterable<IgienePersonaleEntity> saveAll(Iterable<IgienePersonaleEntity> entities) {
         return repository.saveAll(entities);
     }

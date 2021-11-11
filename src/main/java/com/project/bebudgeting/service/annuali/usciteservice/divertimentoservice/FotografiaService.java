@@ -15,10 +15,17 @@ public class FotografiaService {
     @Autowired
     FotografiaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(FotografiaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class FotografiaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<FotografiaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class FotografiaService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class FotografiaService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class FotografiaService {
         });
     }
 
+    /**
+     * @return Iterable<FotografiaEntity>
+     */
     // FIND
     public Iterable<FotografiaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<FotografiaEntity>
+     */
     public Iterable<FotografiaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<FotografiaEntity>
+     */
     public Optional<FotografiaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return FotografiaEntity
+     */
     // SAVE
     public FotografiaEntity save(FotografiaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<FotografiaEntity>
+     */
     public Iterable<FotografiaEntity> saveAll(Iterable<FotografiaEntity> entities) {
         return repository.saveAll(entities);
     }

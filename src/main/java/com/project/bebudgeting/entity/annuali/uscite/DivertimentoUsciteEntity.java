@@ -19,6 +19,101 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/** 
+ * @return List<AltroDivertimentoEntity>
+ */
+
+/** 
+ * @return List<AttivitaOutsideEntity>
+ */
+
+/** 
+ * @return List<ConcertiOSpettacoliEntity>
+ */
+
+/** 
+ * @return List<FilmEntity>
+ */
+
+/** 
+ * @return List<FotografiaEntity>
+ */
+
+/** 
+ * @return List<HobbyEntity>
+ */
+
+/** 
+ * @return List<LibriDivertimentoEntity>
+ */
+
+/** 
+ * @return List<MusicaEntity>
+ */
+
+/** 
+ * @return List<PartiteEntity>
+ */
+
+/** 
+ * @return List<SportEntity>
+ */
+
+/** 
+ * @return List<TeatroEntity>
+ */
+
+/**
+ * @return List<TVEntity>
+ */
+
+/** 
+ * @return List<AltroDivertimentoEntity>
+ */
+
+/** 
+ * @return List<AttivitaOutsideEntity>
+ */
+
+/** 
+ * @return List<ConcertiOSpettacoliEntity>
+ */
+
+/** 
+ * @return List<FilmEntity>
+ */
+
+/** 
+ * @return List<FotografiaEntity>
+ */
+
+/** 
+ * @return List<HobbyEntity>
+ */
+
+/** 
+ * @return List<LibriDivertimentoEntity>
+ */
+
+/** 
+ * @return List<MusicaEntity>
+ */
+
+/** 
+ * @return List<PartiteEntity>
+ */
+
+/** 
+ * @return List<SportEntity>
+ */
+
+/** 
+ * @return List<TeatroEntity>
+ */
+
+/**
+ * @return List<TVEntity>
+ */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -29,6 +29,9 @@ public class EntrateMensiliController {
     @Autowired
     EntratePrevisteService entratePrevisteService;
 
+    /**
+     * @return long
+     */
     // COUNT
     // Entrate Effettive
     @GetMapping(value = "/getcountentrateeffettiveservice", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -36,12 +39,18 @@ public class EntrateMensiliController {
         return entrateEffettiveService.count();
     }
 
+    /**
+     * @return long
+     */
     // Entrate Previste
     @GetMapping(value = "/getcountentrateprevisteservice", produces = MediaType.APPLICATION_JSON_VALUE)
     public long getCountEntratePrevisteService() {
         return entratePrevisteService.count();
     }
 
+    /**
+     * @return Iterable<EntrateEffettiveEntity>
+     */
     // FIND
     // Entrate Effettive
     @GetMapping(value = "/getallentrateeffettive", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,27 +58,46 @@ public class EntrateMensiliController {
         return entrateEffettiveService.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<EntrateEffettiveEntity>
+     */
     @GetMapping(value = "/getallentrateeffettivebyids", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntrateEffettiveEntity> findAllEntrateEffettiveByIds(@RequestBody Iterable<Integer> ids) {
         return entrateEffettiveService.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<EntrateEffettiveEntity>
+     */
     @GetMapping(value = "/getentrateeffettivebyid", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<EntrateEffettiveEntity> findEntrateEffettiveById(@RequestParam int id) {
         return entrateEffettiveService.findById(id);
     }
 
+    /**
+     * @return Iterable<EntratePrevisteEntity>
+     */
     // Entrate Previste
     @GetMapping(value = "/getallentratepreviste", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntratePrevisteEntity> findAllEntratePreviste() {
         return entratePrevisteService.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<EntratePrevisteEntity>
+     */
     @GetMapping(value = "/getallentrateprevistebyids", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntratePrevisteEntity> findAllEntratePrevisteByIds(@RequestBody Iterable<Integer> ids) {
         return entratePrevisteService.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<EntratePrevisteEntity>
+     */
     @GetMapping(value = "/getentrateprevistebyid", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<EntratePrevisteEntity> findEntratePrevisteById(@RequestParam int id) {
         return entratePrevisteService.findById(id);
@@ -82,24 +110,48 @@ public class EntrateMensiliController {
         entrateEffettiveService.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deleteoneentrateeffettiveentity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntrataEffettiva(@RequestBody EntrateEffettiveEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entrateEffettiveService.delete(entity);
     }
 
+    /**
+     * @param entities
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deletesomeeffettiveentityentity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntrateEffettive(@RequestBody Iterable<EntrateEffettiveEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entrateEffettiveService.deleteAll(entities);
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deleteeffettiveentityentitybyid")
     public void deleteOneEntrataEffettivaById(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entrateEffettiveService.deleteById(id);
     }
 
+    /**
+     * @param entitiesId
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deletesomeeffettiveentitybyids", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntrateEffettiveByIds(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -112,30 +164,58 @@ public class EntrateMensiliController {
         entratePrevisteService.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deleteoneentrataprevistaentity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteOneEntrataPrevistaEntity(@RequestBody EntratePrevisteEntity entity)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entratePrevisteService.delete(entity);
     }
 
+    /**
+     * @param entities
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deletesomeprevisteentity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntity(@RequestBody Iterable<EntratePrevisteEntity> entities)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entratePrevisteService.deleteAll(entities);
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deleteentrateprevisteentityentitybyid")
     public void getFilteredSumEstimatedRevenueByDate(@RequestParam int id)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entratePrevisteService.deleteById(id);
     }
 
+    /**
+     * @param entitiesId
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     @DeleteMapping(value = "/deleteentrateprevisteentityentitybyids", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteSomeEntityById(@RequestBody Iterable<Integer> entitiesId)
             throws NotFoundException, NullPointerException, NotImplementedException {
         entratePrevisteService.deleteAllById(entitiesId);
     }
 
+    /**
+     * @param entityToSave
+     * @return EntrateEffettiveEntity
+     */
     // SAVE
     // Entrate Effettive
     @PutMapping(value = "/saveoneentrataeffettiva", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -143,18 +223,30 @@ public class EntrateMensiliController {
         return entrateEffettiveService.save(entityToSave);
     }
 
+    /**
+     * @param saveSomeEntrateEffettiveEntities(
+     * @return Iterable<EntrateEffettiveEntity>
+     */
     @PutMapping(value = "/savesomeentrateeffettive", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntrateEffettiveEntity> saveSomeEntrateEffettiveEntities(
             @RequestBody Iterable<EntrateEffettiveEntity> entitiesToSave) {
         return entrateEffettiveService.saveAll(entitiesToSave);
     }
 
+    /**
+     * @param entityToSave
+     * @return EntratePrevisteEntity
+     */
     // Entrate Previste
     @PutMapping(value = "/saveoneentrataprevista", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public EntratePrevisteEntity saveOneEntrataPrevistaEntity(@RequestBody EntratePrevisteEntity entityToSave) {
         return entratePrevisteService.save(entityToSave);
     }
 
+    /**
+     * @param saveSomeEntratePrevisteEntities(
+     * @return Iterable<EntratePrevisteEntity>
+     */
     @PutMapping(value = "/savesomeentrateprevista", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<EntratePrevisteEntity> saveSomeEntratePrevisteEntities(
             @RequestBody Iterable<EntratePrevisteEntity> entitiesToSave) {

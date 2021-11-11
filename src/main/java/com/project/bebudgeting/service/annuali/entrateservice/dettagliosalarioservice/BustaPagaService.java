@@ -18,10 +18,19 @@ public class BustaPagaService {
     @Autowired
     BustaPagaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(BustaPagaEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class BustaPagaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<BustaPagaEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class BustaPagaService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,19 +91,34 @@ public class BustaPagaService {
         });
     }
 
+    /**
+     * @return Iterable<BustaPagaEntity>
+     */
     // FIND
     public Iterable<BustaPagaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BustaPagaEntity>
+     */
     public Iterable<BustaPagaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<BustaPagaEntity>
+     */
     public Optional<BustaPagaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param salarioId
+     * @return List<BustaPagaEntity>
+     */
     public List<BustaPagaEntity> findBySalarioId(int salarioId) {
         List<BustaPagaEntity> ret = new ArrayList<BustaPagaEntity>();
         repository.findAll().forEach(entity -> {
@@ -94,11 +129,19 @@ public class BustaPagaService {
         return ret;
     }
 
+    /**
+     * @param entityToSave
+     * @return BustaPagaEntity
+     */
     // SAVE
     public BustaPagaEntity save(BustaPagaEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<BustaPagaEntity>
+     */
     public Iterable<BustaPagaEntity> saveAll(Iterable<BustaPagaEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

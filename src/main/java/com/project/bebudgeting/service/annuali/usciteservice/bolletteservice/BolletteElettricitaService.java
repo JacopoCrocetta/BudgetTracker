@@ -15,10 +15,17 @@ public class BolletteElettricitaService {
     @Autowired
     BolletteElettricitaRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(BolletteElettricitaEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -27,6 +34,9 @@ public class BolletteElettricitaService {
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<BolletteElettricitaEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -41,10 +51,17 @@ public class BolletteElettricitaService {
         repository.deleteAll();
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         repository.deleteById(id);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -55,24 +72,43 @@ public class BolletteElettricitaService {
         });
     }
 
+    /**
+     * @return Iterable<BolletteElettricitaEntity>
+     */
     // FIND
     public Iterable<BolletteElettricitaEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BolletteElettricitaEntity>
+     */
     public Iterable<BolletteElettricitaEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<BolletteElettricitaEntity>
+     */
     public Optional<BolletteElettricitaEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return BolletteElettricitaEntity
+     */
     // SAVE
     public BolletteElettricitaEntity save(BolletteElettricitaEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<BolletteElettricitaEntity>
+     */
     public Iterable<BolletteElettricitaEntity> saveAll(Iterable<BolletteElettricitaEntity> entities) {
         return repository.saveAll(entities);
     }

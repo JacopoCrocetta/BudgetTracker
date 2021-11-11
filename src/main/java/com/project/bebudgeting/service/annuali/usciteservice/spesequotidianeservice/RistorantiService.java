@@ -15,6 +15,9 @@ public class RistorantiService {
     @Autowired
     RistorantiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class RistorantiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(RistorantiEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -32,6 +39,9 @@ public class RistorantiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<RistorantiEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class RistorantiService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class RistorantiService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class RistorantiService {
         });
     }
 
+    /**
+     * @return Iterable<RistorantiEntity>
+     */
     // FIND
     public Iterable<RistorantiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RistorantiEntity>
+     */
     public Iterable<RistorantiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RistorantiEntity>
+     */
     public Optional<RistorantiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return RistorantiEntity
+     */
     // SAVE
     public RistorantiEntity save(RistorantiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<RistorantiEntity>
+     */
     public Iterable<RistorantiEntity> saveAll(Iterable<RistorantiEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,10 +15,17 @@ public class PrestitiPerStudioService {
     @Autowired
     PrestitiPerStudioRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(PrestitiPerStudiareEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class PrestitiPerStudioService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<PrestitiPerStudiareEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class PrestitiPerStudioService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class PrestitiPerStudioService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class PrestitiPerStudioService {
         });
     }
 
+    /**
+     * @return Iterable<PrestitiPerStudiareEntity>
+     */
     // FIND
     public Iterable<PrestitiPerStudiareEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<PrestitiPerStudiareEntity>
+     */
     public Iterable<PrestitiPerStudiareEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<PrestitiPerStudiareEntity>
+     */
     public Optional<PrestitiPerStudiareEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return PrestitiPerStudiareEntity
+     */
     // SAVE
     public PrestitiPerStudiareEntity save(PrestitiPerStudiareEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<PrestitiPerStudiareEntity>
+     */
     public Iterable<PrestitiPerStudiareEntity> saveAll(Iterable<PrestitiPerStudiareEntity> entities) {
         return repository.saveAll(entities);
     }

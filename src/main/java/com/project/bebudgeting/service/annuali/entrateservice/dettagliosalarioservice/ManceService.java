@@ -18,10 +18,19 @@ public class ManceService {
     @Autowired
     ManceRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(ManceEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class ManceService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<ManceEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class ManceService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,19 +91,34 @@ public class ManceService {
         });
     }
 
+    /**
+     * @return Iterable<ManceEntity>
+     */
     // FIND
     public Iterable<ManceEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<ManceEntity>
+     */
     public Iterable<ManceEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<ManceEntity>
+     */
     public Optional<ManceEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param salarioId
+     * @return List<ManceEntity>
+     */
     public List<ManceEntity> findBySalarioId(int salarioId) {
         List<ManceEntity> ret = new ArrayList<ManceEntity>();
         repository.findAll().forEach(entity -> {
@@ -94,11 +129,19 @@ public class ManceService {
         return ret;
     }
 
+    /**
+     * @param entityToSave
+     * @return ManceEntity
+     */
     // SAVE
     public ManceEntity save(ManceEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<ManceEntity>
+     */
     public Iterable<ManceEntity> saveAll(Iterable<ManceEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

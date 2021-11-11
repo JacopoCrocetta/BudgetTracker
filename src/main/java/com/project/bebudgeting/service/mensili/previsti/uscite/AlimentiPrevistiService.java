@@ -15,6 +15,9 @@ public class AlimentiPrevistiService {
     @Autowired
     AlimentiPrevistiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class AlimentiPrevistiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(AlimentiPrevistiEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class AlimentiPrevistiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class AlimentiPrevistiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AlimentiPrevistiEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class AlimentiPrevistiService {
         });
     }
 
+    /**
+     * @return Iterable<AlimentiPrevistiEntity>
+     */
     // FIND
     public Iterable<AlimentiPrevistiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AlimentiPrevistiEntity>
+     */
     public Iterable<AlimentiPrevistiEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AlimentiPrevistiEntity>
+     */
     public Optional<AlimentiPrevistiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AlimentiPrevistiEntity
+     */
     // SAVE
     public AlimentiPrevistiEntity save(AlimentiPrevistiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AlimentiPrevistiEntity>
+     */
     public Iterable<AlimentiPrevistiEntity> saveAll(Iterable<AlimentiPrevistiEntity> entities) {
         return repository.saveAll(entities);
     }

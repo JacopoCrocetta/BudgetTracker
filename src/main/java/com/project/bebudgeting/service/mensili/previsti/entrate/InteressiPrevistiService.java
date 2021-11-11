@@ -15,6 +15,9 @@ public class InteressiPrevistiService {
     @Autowired
     InteressiPrevisteRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class InteressiPrevistiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(InteressiPrevistiEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class InteressiPrevistiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class InteressiPrevistiService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<InteressiPrevistiEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class InteressiPrevistiService {
         });
     }
 
+    /**
+     * @return Iterable<InteressiPrevistiEntity>
+     */
     // FIND
     public Iterable<InteressiPrevistiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<InteressiPrevistiEntity>
+     */
     public Iterable<InteressiPrevistiEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<InteressiPrevistiEntity>
+     */
     public Optional<InteressiPrevistiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return InteressiPrevistiEntity
+     */
     // SAVE
     public InteressiPrevistiEntity save(InteressiPrevistiEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<InteressiPrevistiEntity>
+     */
     public Iterable<InteressiPrevistiEntity> saveAll(Iterable<InteressiPrevistiEntity> entities) {
         return repository.saveAll(entities);
     }

@@ -15,6 +15,9 @@ public class BustaPagaPrevisteService {
     @Autowired
     BustaPagaPrevisteRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class BustaPagaPrevisteService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(BustaPagaPrevisteEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class BustaPagaPrevisteService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class BustaPagaPrevisteService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<BustaPagaPrevisteEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class BustaPagaPrevisteService {
         });
     }
 
+    /**
+     * @return Iterable<BustaPagaPrevisteEntity>
+     */
     // FIND
     public Iterable<BustaPagaPrevisteEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<BustaPagaPrevisteEntity>
+     */
     public Iterable<BustaPagaPrevisteEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<BustaPagaPrevisteEntity>
+     */
     public Optional<BustaPagaPrevisteEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return BustaPagaPrevisteEntity
+     */
     // SAVE
     public BustaPagaPrevisteEntity save(BustaPagaPrevisteEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<BustaPagaPrevisteEntity>
+     */
     public Iterable<BustaPagaPrevisteEntity> saveAll(Iterable<BustaPagaPrevisteEntity> entities) {
         return repository.saveAll(entities);
     }

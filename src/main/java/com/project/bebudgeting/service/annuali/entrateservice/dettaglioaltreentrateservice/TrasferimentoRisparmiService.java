@@ -18,10 +18,19 @@ public class TrasferimentoRisparmiService {
     @Autowired
     TrasferimentoRisparmiRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(TrasferimentoRisparmiEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class TrasferimentoRisparmiService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<TrasferimentoRisparmiEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class TrasferimentoRisparmiService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class TrasferimentoRisparmiService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<TrasferimentoRisparmiEntity>
+     */
     // FIND
     public List<TrasferimentoRisparmiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<TrasferimentoRisparmiEntity> ret = new ArrayList<TrasferimentoRisparmiEntity>();
@@ -82,23 +106,42 @@ public class TrasferimentoRisparmiService {
         return ret;
     }
 
+    /**
+     * @return Iterable<TrasferimentoRisparmiEntity>
+     */
     public Iterable<TrasferimentoRisparmiEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<TrasferimentoRisparmiEntity>
+     */
     public Iterable<TrasferimentoRisparmiEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<TrasferimentoRisparmiEntity>
+     */
     public Optional<TrasferimentoRisparmiEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return TrasferimentoRisparmiEntity
+     */
     // SAVE
     public TrasferimentoRisparmiEntity save(TrasferimentoRisparmiEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<TrasferimentoRisparmiEntity>
+     */
     public Iterable<TrasferimentoRisparmiEntity> saveAll(Iterable<TrasferimentoRisparmiEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

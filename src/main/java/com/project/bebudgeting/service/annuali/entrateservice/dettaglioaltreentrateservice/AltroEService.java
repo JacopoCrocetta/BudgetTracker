@@ -18,10 +18,19 @@ public class AltroEService {
     @Autowired
     AltroAltreEntrateRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(AltroAltreEntrateEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class AltroEService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<AltroAltreEntrateEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class AltroEService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class AltroEService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<AltroAltreEntrateEntity>
+     */
     // FIND
     public List<AltroAltreEntrateEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<AltroAltreEntrateEntity> ret = new ArrayList<AltroAltreEntrateEntity>();
@@ -82,23 +106,42 @@ public class AltroEService {
         return ret;
     }
 
+    /**
+     * @return Iterable<AltroAltreEntrateEntity>
+     */
     public Iterable<AltroAltreEntrateEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroAltreEntrateEntity>
+     */
     public Iterable<AltroAltreEntrateEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroAltreEntrateEntity>
+     */
     public Optional<AltroAltreEntrateEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return AltroAltreEntrateEntity
+     */
     // SAVE
     public AltroAltreEntrateEntity save(AltroAltreEntrateEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<AltroAltreEntrateEntity>
+     */
     public Iterable<AltroAltreEntrateEntity> saveAll(Iterable<AltroAltreEntrateEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

@@ -15,10 +15,17 @@ public class AltroIstruzioneService {
     @Autowired
     AltroIstruzioneRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     // DELETE
     public void delete(AltroIstruzioneEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
@@ -32,6 +39,9 @@ public class AltroIstruzioneService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<AltroIstruzioneEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -42,6 +52,10 @@ public class AltroIstruzioneService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -50,6 +64,9 @@ public class AltroIstruzioneService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -60,24 +77,43 @@ public class AltroIstruzioneService {
         });
     }
 
+    /**
+     * @return Iterable<AltroIstruzioneEntity>
+     */
     // FIND
     public Iterable<AltroIstruzioneEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<AltroIstruzioneEntity>
+     */
     public Iterable<AltroIstruzioneEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<AltroIstruzioneEntity>
+     */
     public Optional<AltroIstruzioneEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return AltroIstruzioneEntity
+     */
     // SAVE
     public AltroIstruzioneEntity save(AltroIstruzioneEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<AltroIstruzioneEntity>
+     */
     public Iterable<AltroIstruzioneEntity> saveAll(Iterable<AltroIstruzioneEntity> entities) {
         return repository.saveAll(entities);
     }

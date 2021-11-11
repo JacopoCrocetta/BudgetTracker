@@ -15,6 +15,9 @@ public class TrasportiEffettiviService {
     @Autowired
     TrasportiEffettiviRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -24,6 +27,10 @@ public class TrasportiEffettiviService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(TrasportiEffettiviEntity entity) throws NotFoundException {
         if (repository.findById(entity.getId()).isPresent() || !repository.findById(entity.getId()).isEmpty()) {
             repository.delete(entity);
@@ -32,6 +39,10 @@ public class TrasportiEffettiviService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.findById(id).isPresent() || !repository.findById(id).isEmpty()) {
             repository.deleteById(id);
@@ -40,10 +51,16 @@ public class TrasportiEffettiviService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<TrasportiEffettiviEntity> entities) {
         repository.deleteAll(entities);
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllByID(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -54,24 +71,43 @@ public class TrasportiEffettiviService {
         });
     }
 
+    /**
+     * @return Iterable<TrasportiEffettiviEntity>
+     */
     // FIND
     public Iterable<TrasportiEffettiviEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<TrasportiEffettiviEntity>
+     */
     public Iterable<TrasportiEffettiviEntity> findAllByIds(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<TrasportiEffettiviEntity>
+     */
     public Optional<TrasportiEffettiviEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return TrasportiEffettiviEntity
+     */
     // SAVE
     public TrasportiEffettiviEntity save(TrasportiEffettiviEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<TrasportiEffettiviEntity>
+     */
     public Iterable<TrasportiEffettiviEntity> saveAll(Iterable<TrasportiEffettiviEntity> entities) {
         return repository.saveAll(entities);
     }

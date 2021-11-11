@@ -18,10 +18,19 @@ public class RegaliAltreEntrateService {
     @Autowired
     RegaliAltreEntrateRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
 
+    /**
+     * @param entityToDelete
+     * @throws NotFoundException
+     * @throws NullPointerException
+     * @throws NotImplementedException
+     */
     // DELETE
     public void delete(RegaliAltreEntrateEntity entityToDelete)
             throws NotFoundException, NullPointerException, NotImplementedException {
@@ -36,6 +45,10 @@ public class RegaliAltreEntrateService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entitiesToDelete
+     * @return boolean
+     */
     public boolean deleteAll(Iterable<RegaliAltreEntrateEntity> entitiesToDelete) {
         List<Integer> ids = new ArrayList<>();
         entitiesToDelete.forEach(entity -> {
@@ -55,12 +68,19 @@ public class RegaliAltreEntrateService {
         }
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id))
             repository.deleteById(id);
         throw new NotFoundException("Item not found");
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -71,6 +91,10 @@ public class RegaliAltreEntrateService {
         });
     }
 
+    /**
+     * @param altreEntrateId
+     * @return List<RegaliAltreEntrateEntity>
+     */
     // FIND
     public List<RegaliAltreEntrateEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<RegaliAltreEntrateEntity> ret = new ArrayList<RegaliAltreEntrateEntity>();
@@ -82,23 +106,42 @@ public class RegaliAltreEntrateService {
         return ret;
     }
 
+    /**
+     * @return Iterable<RegaliAltreEntrateEntity>
+     */
     public Iterable<RegaliAltreEntrateEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<RegaliAltreEntrateEntity>
+     */
     public Iterable<RegaliAltreEntrateEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<RegaliAltreEntrateEntity>
+     */
     public Optional<RegaliAltreEntrateEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entityToSave
+     * @return RegaliAltreEntrateEntity
+     */
     // SAVE
     public RegaliAltreEntrateEntity save(RegaliAltreEntrateEntity entityToSave) {
         return repository.save(entityToSave);
     }
 
+    /**
+     * @param entitiesToSave
+     * @return Iterable<RegaliAltreEntrateEntity>
+     */
     public Iterable<RegaliAltreEntrateEntity> saveAll(Iterable<RegaliAltreEntrateEntity> entitiesToSave) {
         return repository.saveAll(entitiesToSave);
     }

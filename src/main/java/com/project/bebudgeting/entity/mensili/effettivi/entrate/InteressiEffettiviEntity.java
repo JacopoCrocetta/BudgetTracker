@@ -20,8 +20,80 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "interessi_effettivi")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return EntrateEffettiveEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return EntrateEffettiveEntity
+ */
+
+/**
+ * @return BigDecimal
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return String
+ */
 @Getter
 @Setter
 public class InteressiEffettiviEntity {

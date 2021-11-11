@@ -13,6 +13,9 @@ public class SportService {
     @Autowired
     SportRepository repository;
 
+    /**
+     * @return long
+     */
     public long count() {
         return repository.count();
     }
@@ -22,6 +25,10 @@ public class SportService {
         repository.deleteAll();
     }
 
+    /**
+     * @param entity
+     * @throws NotFoundException
+     */
     public void delete(SportEntity entity) throws NotFoundException {
         if (repository.existsById(entity.getId())) {
             repository.delete(entity);
@@ -30,6 +37,9 @@ public class SportService {
         }
     }
 
+    /**
+     * @param entities
+     */
     public void deleteAll(Iterable<SportEntity> entities) {
         entities.forEach(entity -> {
             try {
@@ -40,6 +50,10 @@ public class SportService {
         });
     }
 
+    /**
+     * @param id
+     * @throws NotFoundException
+     */
     public void deleteById(int id) throws NotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
@@ -48,6 +62,9 @@ public class SportService {
         }
     }
 
+    /**
+     * @param ids
+     */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
             try {
@@ -58,24 +75,43 @@ public class SportService {
         });
     }
 
+    /**
+     * @return Iterable<SportEntity>
+     */
     // FIND
     public Iterable<SportEntity> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * @param ids
+     * @return Iterable<SportEntity>
+     */
     public Iterable<SportEntity> findAllById(Iterable<Integer> ids) {
         return repository.findAllById(ids);
     }
 
+    /**
+     * @param id
+     * @return Optional<SportEntity>
+     */
     public Optional<SportEntity> findById(int id) {
         return repository.findById(id);
     }
 
+    /**
+     * @param entity
+     * @return SportEntity
+     */
     // SAVE
     public SportEntity save(SportEntity entity) {
         return repository.save(entity);
     }
 
+    /**
+     * @param entities
+     * @return Iterable<SportEntity>
+     */
     public Iterable<SportEntity> saveAll(Iterable<SportEntity> entities) {
         entities.forEach(this::save);
         return entities;

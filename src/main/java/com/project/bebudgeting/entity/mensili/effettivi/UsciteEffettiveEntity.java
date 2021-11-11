@@ -32,8 +32,152 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "uscite_mensili_effettive")
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return boolean
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return String
+ */
 @Data
 @NoArgsConstructor
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return UsciteMensiliEntity
+ */
+
+/**
+ * @return List<AlimentiEffettiviEntity>
+ */
+
+/**
+ * @return List<AltreUsciteEffettiveEntity>
+ */
+
+/**
+ * @return List<AnimaliDomesticiEffettiviEntity>
+ */
+
+/**
+ * @return List<BolletteEffettiviEntity>
+ */
+
+/**
+ * @return List<CasaEffettiviEntity>
+ */
+
+/**
+ * @return List<DebitiEffettiviEntity>
+ */
+
+/**
+ * @return List<RegaliEffettiviEntity>
+ */
+
+/**
+ * @return List<SpeseMedicheEffettiviEntity>
+ */
+
+/**
+ * @return List<SpesePersonaliEffettiviEntity>
+ */
+
+/**
+ * @return List<TrasportiEffettiviEntity>
+ */
+
+/**
+ * @return List<ViaggiEffettiviEntity>
+ */
+
+/**
+ * @return int
+ */
+
+/**
+ * @return LocalDate
+ */
+
+/**
+ * @return UsciteMensiliEntity
+ */
+
+/**
+ * @return List<AlimentiEffettiviEntity>
+ */
+
+/**
+ * @return List<AltreUsciteEffettiveEntity>
+ */
+
+/**
+ * @return List<AnimaliDomesticiEffettiviEntity>
+ */
+
+/**
+ * @return List<BolletteEffettiviEntity>
+ */
+
+/**
+ * @return List<CasaEffettiviEntity>
+ */
+
+/**
+ * @return List<DebitiEffettiviEntity>
+ */
+
+/**
+ * @return List<RegaliEffettiviEntity>
+ */
+
+/**
+ * @return List<SpeseMedicheEffettiviEntity>
+ */
+
+/**
+ * @return List<SpesePersonaliEffettiviEntity>
+ */
+
+/**
+ * @return List<TrasportiEffettiviEntity>
+ */
+
+/**
+ * @return List<ViaggiEffettiviEntity>
+ */
 @Getter
 @Setter
 public class UsciteEffettiveEntity {
