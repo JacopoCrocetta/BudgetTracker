@@ -13,53 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<AlimentiViaggiEntity>
- */
-
-/** 
- * @return List<AltroViaggiEntity>
- */
-
-/** 
- * @return List<BigliettiAereiEntity>
- */
-
-/** 
- * @return List<DivertimentoViaggiEntity>
- */
-
-/** 
- * @return List<HotelEntity>
- */
-
-/**
- * @return List<TrasportiViaggiEntity>
- */
-
-/** 
- * @return List<AlimentiViaggiEntity>
- */
-
-/** 
- * @return List<AltroViaggiEntity>
- */
-
-/** 
- * @return List<BigliettiAereiEntity>
- */
-
-/** 
- * @return List<DivertimentoViaggiEntity>
- */
-
-/** 
- * @return List<HotelEntity>
- */
-
-/**
- * @return List<TrasportiViaggiEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

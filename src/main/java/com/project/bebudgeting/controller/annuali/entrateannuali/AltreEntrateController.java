@@ -18,8 +18,10 @@ import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentr
 import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.RimborsiService;
 import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.TrasferimentoRisparmiService;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
+import javassist.NotFoundException;
 
 @Api(value = "Altre Entrate", tags = "Altre Entrate", description = "REST APIs related to Altre Entrate Entity")
 @RestController
@@ -50,11 +53,12 @@ public class AltreEntrateController {
 
     @Autowired
     TrasferimentoRisparmiService trasferimentoRisparmiService;
-// FIND ALL ENTITY
+
+    // FIND ALL ENTITY
     /**
      * @return Iterable<AltroAltreEntrateEntity>
      */
-    
+
     @GetMapping(value = "/find-all-altro-eservice", produces = MediaType.APPLICATION_JSON_VALUE)
     public Iterable<AltroAltreEntrateEntity> findAllAltroEntrateEntity() {
         return altroEService.findAll();
@@ -104,7 +108,7 @@ public class AltreEntrateController {
      * @return AltreEntrateEntity
      */
     @GetMapping(value = "/find-all-altre-entrate-entities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public AltreEntrateEntity findAllALtreEntrateEntities() {
+    public AltreEntrateEntity findAllAltreEntrateEntities() {
         AltreEntrateEntity ret = new AltreEntrateEntity();
         ret.setAltroEntities((List<AltroAltreEntrateEntity>) altroEService.findAll());
         ret.setDividendiEntities((List<DividendiEntity>) dividendiService.findAll());
@@ -116,11 +120,134 @@ public class AltreEntrateController {
         return ret;
     }
 
+    // DELETE ENTITIES
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-altre-entrate-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedAltreEEntities(@RequestBody Iterable<Integer> ids) {
+        altroEService.deleteAllById(ids);
+    }
+
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-dividendi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedDividendiEntities(@RequestBody Iterable<Integer> ids) {
+        dividendiService.deleteAllById(ids);
+    }
+
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-interessi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedInteressiEntities(@RequestBody Iterable<Integer> ids) {
+        interessiService.deleteAllById(ids);
+    }
+
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-regali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedRegaliEntities(@RequestBody Iterable<Integer> ids) {
+        regaliAltreEntrateService.deleteAllById(ids);
+    }
+
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-rimborsi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedRimborsiEntities(@RequestBody Iterable<Integer> ids) {
+        rimborsiService.deleteAllById(ids);
+    }
+
+    /**
+     * @param ids
+     */
+    @DeleteMapping(value = "delete-all-selected-trasferimenti-risparmi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteAllSelectedTrasferimentoRisparmiEntities(@RequestBody Iterable<Integer> ids) {
+        trasferimentoRisparmiService.deleteAllById(ids);
+    }
+
+    // DELETE ONE ENTITY
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one--altro-altre-entrate-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneSelectedAltreEEntity(@RequestBody AltroAltreEntrateEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        altroEService.delete(entityToDelete);
+    }
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one-dividendi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneDividendiEntity(@RequestBody DividendiEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        dividendiService.delete(entityToDelete);
+    }
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one-interessi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneInteressiEntity(@RequestBody InteressiEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        interessiService.delete(entityToDelete);
+    }
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one-regali-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneRegaliEntity(@RequestBody RegaliAltreEntrateEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        regaliAltreEntrateService.delete(entityToDelete);
+    }
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one-rimborsi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneRimborsiEntity(@RequestBody RimborsiEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        rimborsiService.delete(entityToDelete);
+    }
+
+    /**
+     * @param entityToDelete
+     * @throws NotImplementedException
+     * @throws NullPointerException
+     * @throws NotFoundException
+     */
+    @DeleteMapping(value = "delete-one-trasferimenti-risparmi-entities", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteOneTrasferimentoRisparmiEntity(@RequestBody TrasferimentoRisparmiEntity entityToDelete)
+            throws NotImplementedException, NullPointerException, NotFoundException {
+        trasferimentoRisparmiService.delete(entityToDelete);
+    }
+
+    // FIND ONE ENTITY
     /**
      * @param id
      * @return Optional<AltroAltreEntrateEntity>
      */
-    // FIND ONE ENTITY
     @GetMapping(value = "/find-one-altro-altre-entrate-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<AltroAltreEntrateEntity> findOneAltroAltreEntrateEntity(@RequestParam int id) {
         return altroEService.findById(id);

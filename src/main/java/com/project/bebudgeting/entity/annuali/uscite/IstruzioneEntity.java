@@ -11,37 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<LezioniIndipendentiEntity>
- */
-
-/** 
- * @return List<AltroIstruzioneEntity>
- */
-
-/** 
- * @return List<LibriIstruzioneEntity>
- */
-
-/**
- * @return List<RetteEntity>
- */
-
-/** 
- * @return List<LezioniIndipendentiEntity>
- */
-
-/** 
- * @return List<AltroIstruzioneEntity>
- */
-
-/** 
- * @return List<LibriIstruzioneEntity>
- */
-
-/**
- * @return List<RetteEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

@@ -15,69 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<AltreBolletteEntity>
- */
-
-/** 
- * @return List<BolletteAcquaEntity>
- */
-
-/** 
- * @return List<BolletteElettricitaEntity>
- */
-
-/** 
- * @return List<BolletteGASEntity>
- */
-
-/** 
- * @return List<BolletteInternetEntity>
- */
-
-/** 
- * @return List<BolletteRifiutiEntity>
- */
-
-/** 
- * @return List<BolletteTelefonoEntity>
- */
-
-/**
- * @return List<BolletteTVEntity>
- */
-
-/** 
- * @return List<AltreBolletteEntity>
- */
-
-/** 
- * @return List<BolletteAcquaEntity>
- */
-
-/** 
- * @return List<BolletteElettricitaEntity>
- */
-
-/** 
- * @return List<BolletteGASEntity>
- */
-
-/** 
- * @return List<BolletteInternetEntity>
- */
-
-/** 
- * @return List<BolletteRifiutiEntity>
- */
-
-/** 
- * @return List<BolletteTelefonoEntity>
- */
-
-/**
- * @return List<BolletteTVEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

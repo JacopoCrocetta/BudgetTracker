@@ -10,29 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<DonazioniBeneficenzaEntity>
- */
-
-/** 
- * @return List<AltroRegaliEntity>
- */
-
-/**
- * @return List<RegaliDBEntity>
- */
-
-/** 
- * @return List<DonazioniBeneficenzaEntity>
- */
-
-/** 
- * @return List<AltroRegaliEntity>
- */
-
-/**
- * @return List<RegaliDBEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

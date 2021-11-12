@@ -15,80 +15,12 @@ import com.project.bebudgeting.entity.mensili.effettivi.EntrateEffettiveEntity;
 import com.project.bebudgeting.entity.mensili.previsti.EntratePrevisteEntity;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "entrate_mensili")
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
 @Data
 @NoArgsConstructor
-
-/**
- * @return int
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return List<EntrateEffettiveEntity>
- */
-
-/**
- * @return List<EntratePrevisteEntity>
- */
-
-/**
- * @return int
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return List<EntrateEffettiveEntity>
- */
-
-/**
- * @return List<EntratePrevisteEntity>
- */
-@Getter
-@Setter
 public class EntrateMensiliEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

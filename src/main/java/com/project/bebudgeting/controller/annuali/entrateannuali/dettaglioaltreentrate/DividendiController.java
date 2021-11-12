@@ -24,6 +24,7 @@ public class DividendiController {
         DividendiService dividendiService;
 
         // DELETE
+
         @DeleteMapping(value = "/delete-all")
         public void deleteAll() {
                 dividendiService.deleteAll();

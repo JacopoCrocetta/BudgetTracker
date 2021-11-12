@@ -9,84 +9,9 @@ import com.project.bebudgeting.entity.annuali.entrate.dettagliosalario.Commissio
 import com.project.bebudgeting.entity.annuali.entrate.dettagliosalario.ManceEntity;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-/** 
- * @return boolean
- */
-
-/** 
- * @return boolean
- */
-
-/** 
- * @return int
- */
-
-/**
- * @return String
- */
-
-/** 
- * @return boolean
- */
-
-/** 
- * @return boolean
- */
-
-/** 
- * @return int
- */
-
-/**
- * @return String
- */
 @Data
-
-/**
- * @return ArrayList<AltroSalarioEntity>
- */
-
-/**
- * @return ArrayList<BonusEntity>
- */
-
-/**
- * @return ArrayList<BustaPagaEntity>
- */
-
-/**
- * @return ArrayList<CommissioniEntity>
- */
-
-/**
- * @return ArrayList<ManceEntity>
- */
-
-/**
- * @return ArrayList<AltroSalarioEntity>
- */
-
-/**
- * @return ArrayList<BonusEntity>
- */
-
-/**
- * @return ArrayList<BustaPagaEntity>
- */
-
-/**
- * @return ArrayList<CommissioniEntity>
- */
-
-/**
- * @return ArrayList<ManceEntity>
- */
-@Getter
-@Setter
 @NoArgsConstructor
 public class SalarioEntity {
     ArrayList<AltroSalarioEntity> altroSalarioEntity;

@@ -12,45 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<HardwareEntity>
- */
-
-/** 
- * @return List<AltroTecnologiaEntity>
- */
-
-/** 
- * @return List<HostingEntity>
- */
-
-/** 
- * @return List<ServiziOnlineEntity>
- */
-
-/**
- * @return List<SoftwareEntity>
- */
-
-/** 
- * @return List<HardwareEntity>
- */
-
-/** 
- * @return List<AltroTecnologiaEntity>
- */
-
-/** 
- * @return List<HostingEntity>
- */
-
-/** 
- * @return List<ServiziOnlineEntity>
- */
-
-/**
- * @return List<SoftwareEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

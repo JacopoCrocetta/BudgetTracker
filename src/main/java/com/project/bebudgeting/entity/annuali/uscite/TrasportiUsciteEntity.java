@@ -14,61 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<BolloEntity>
- */
-
-/** 
- * @return List<AltroTrasportiEntity>
- */
-
-/** 
- * @return List<CarburanteEntity>
- */
-
-/** 
- * @return List<FornitureTrasportiEntity>
- */
-
-/** 
- * @return List<PrestitoAutoEntity>
- */
-
-/** 
- * @return List<RiparazioniEntity>
- */
-
-/**
- * @return List<TrasportoPubblicoEntity>
- */
-
-/** 
- * @return List<BolloEntity>
- */
-
-/** 
- * @return List<AltroTrasportiEntity>
- */
-
-/** 
- * @return List<CarburanteEntity>
- */
-
-/** 
- * @return List<FornitureTrasportiEntity>
- */
-
-/** 
- * @return List<PrestitoAutoEntity>
- */
-
-/** 
- * @return List<RiparazioniEntity>
- */
-
-/**
- * @return List<TrasportoPubblicoEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

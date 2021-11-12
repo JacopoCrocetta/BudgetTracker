@@ -20,112 +20,12 @@ import com.project.bebudgeting.entity.mensili.previsti.entrate.InteressiPrevisti
 import com.project.bebudgeting.entity.mensili.previsti.entrate.RisparmiPrevistiEntity;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "entrate_mensili_previste")
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
 @Data
 @NoArgsConstructor
-
-/**
- * @return int
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return EntrateMensiliEntity
- */
-
-/**
- * @return List<AltreEntratePrevisteEntity>
- */
-
-/**
- * @return List<BonusPrevistiEntity>
- */
-
-/**
- * @return List<BustaPagaPrevisteEntity>
- */
-
-/**
- * @return List<InteressiPrevistiEntity>
- */
-
-/**
- * @return List<RisparmiPrevistiEntity>
- */
-
-/**
- * @return int
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return EntrateMensiliEntity
- */
-
-/**
- * @return List<AltreEntratePrevisteEntity>
- */
-
-/**
- * @return List<BonusPrevistiEntity>
- */
-
-/**
- * @return List<BustaPagaPrevisteEntity>
- */
-
-/**
- * @return List<InteressiPrevistiEntity>
- */
-
-/**
- * @return List<RisparmiPrevistiEntity>
- */
-@Getter
-@Setter
 public class EntratePrevisteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

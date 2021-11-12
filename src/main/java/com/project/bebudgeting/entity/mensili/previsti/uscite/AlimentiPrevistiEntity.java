@@ -14,88 +14,12 @@ import javax.persistence.Table;
 import com.project.bebudgeting.entity.mensili.previsti.UscitePrevisteEntity;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "alimenti_previste")
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return boolean
- */
-
-/**
- * @return int
- */
-
-/**
- * @return String
- */
 @Data
 @NoArgsConstructor
-
-/**
- * @return int
- */
-
-/**
- * @return UscitePrevisteEntity
- */
-
-/**
- * @return BigDecimal
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return String
- */
-
-/**
- * @return int
- */
-
-/**
- * @return UscitePrevisteEntity
- */
-
-/**
- * @return BigDecimal
- */
-
-/**
- * @return LocalDate
- */
-
-/**
- * @return String
- */
-@Getter
-@Setter
 public class AlimentiPrevistiEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

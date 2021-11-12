@@ -12,45 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<AlimentiAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<AltroAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<FornitureAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<GiocattoliAnimaliDomesticiEntity>
- */
-
-/**
- * @return List<VeterinarioAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<AlimentiAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<AltroAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<FornitureAnimaliDomesticiEntity>
- */
-
-/** 
- * @return List<GiocattoliAnimaliDomesticiEntity>
- */
-
-/**
- * @return List<VeterinarioAnimaliDomesticiEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor

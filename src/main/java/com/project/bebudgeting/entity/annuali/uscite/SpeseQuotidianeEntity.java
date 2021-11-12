@@ -15,69 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/** 
- * @return List<AltroSpeseQuotidianeEntity>
- */
-
-/** 
- * @return List<AbbonamentiEntity>
- */
-
-/** 
- * @return List<IgienePersonaleEntity>
- */
-
-/** 
- * @return List<LavanderiaEntity>
- */
-
-/** 
- * @return List<ParrucchiereEntity>
- */
-
-/** 
- * @return List<RistorantiEntity>
- */
-
-/** 
- * @return List<SupermercatoEntity>
- */
-
-/**
- * @return List<VestitiSpeseQuotidianeEntity>
- */
-
-/** 
- * @return List<AltroSpeseQuotidianeEntity>
- */
-
-/** 
- * @return List<AbbonamentiEntity>
- */
-
-/** 
- * @return List<IgienePersonaleEntity>
- */
-
-/** 
- * @return List<LavanderiaEntity>
- */
-
-/** 
- * @return List<ParrucchiereEntity>
- */
-
-/** 
- * @return List<RistorantiEntity>
- */
-
-/** 
- * @return List<SupermercatoEntity>
- */
-
-/**
- * @return List<VestitiSpeseQuotidianeEntity>
- */
 @Getter
 @Setter
 @NoArgsConstructor
