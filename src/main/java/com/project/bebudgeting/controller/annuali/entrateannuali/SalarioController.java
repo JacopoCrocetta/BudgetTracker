@@ -51,13 +51,12 @@ public class SalarioController {
     @Autowired
     ManceService manceService;
 
+    // FIND ALL ENTITY
     /**
      * @return Iterable<AltroSalarioEntity>
      */
-    // FIND ALL ENTITY
-
     @GetMapping(value = "/get-all-altro-salario-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<AltroSalarioEntity> findAllaAltroSalario() {
+    public Iterable<AltroSalarioEntity> findAllAltroSalarioEntities() {
         return altroSalarioService.findAll();
     }
 
@@ -65,7 +64,7 @@ public class SalarioController {
      * @return Iterable<BustaPagaEntity>
      */
     @GetMapping(value = "/get-all-busta-paga-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<BustaPagaEntity> findAllBustaPagaEntity() {
+    public Iterable<BustaPagaEntity> findAllBustaPagaEntities() {
         return bustaPagaService.findAll();
     }
 
@@ -73,7 +72,7 @@ public class SalarioController {
      * @return Iterable<BonusEntity>
      */
     @GetMapping(value = "/get-all-bonus-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<BonusEntity> findAllBonusEntity() {
+    public Iterable<BonusEntity> findAllBonusEntities() {
         return bonusService.findAll();
     }
 
@@ -81,7 +80,7 @@ public class SalarioController {
      * @return Iterable<CommissioniEntity>
      */
     @GetMapping(value = "/get-all-commissioni-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<CommissioniEntity> findAllCommissioniEntity() {
+    public Iterable<CommissioniEntity> findAllCommissioniEntities() {
         return commissioniService.findAll();
     }
 
@@ -89,7 +88,7 @@ public class SalarioController {
      * @return Iterable<ManceEntity>
      */
     @GetMapping(value = "/get-all-mance-entity", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<ManceEntity> findAllManceEntity() {
+    public Iterable<ManceEntity> findAllManceEntities() {
         return manceService.findAll();
     }
 
@@ -107,11 +106,11 @@ public class SalarioController {
         return ret;
     }
 
+    // FIND ONE ENTITY
     /**
      * @param id
      * @return Optional<BustaPagaEntity>
      */
-    // FIND ONE ENTITY
     @GetMapping(value = "/get-one-busta-paga-entity", produces = MediaType.APPLICATION_JSON_VALUE)
     public Optional<BustaPagaEntity> getOneBustaPagaEntity(@RequestParam int id) {
         return bustaPagaService.findById(id);
@@ -173,11 +172,11 @@ public class SalarioController {
         return ret;
     }
 
+    // SAVE ONE ENTITY
     /**
      * @param entity
      * @return AltroSalarioEntity
      */
-    // SAVE ONE ENTITY
     @PutMapping(value = "/save-one-altro-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public AltroSalarioEntity addOneAltroSalarioEntity(@RequestBody AltroSalarioEntity entity) {
         return altroSalarioService.save(entity);
@@ -219,11 +218,11 @@ public class SalarioController {
         return manceService.save(entity);
     }
 
+    // SAVE MORE ENTITY
     /**
      * @param salarioEntity
      * @return SalarioEntity
      */
-    // SAVE MORE ENTITY
     @PutMapping(value = "/save-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public SalarioEntity addOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
         Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();
@@ -241,11 +240,11 @@ public class SalarioController {
         return salarioEntity;
     }
 
+    // DELETE
     /**
      * @param salarioEntity
      * @return ResponseEntity<String>
      */
-    // DELETE
     @DeleteMapping(value = "/delete-one-salario-entity", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteOneSalarioEntity(@RequestBody SalarioEntity salarioEntity) {
         Iterable<AltroSalarioEntity> altroSalarioIterable = salarioEntity.getAltroSalarioEntity();

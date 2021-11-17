@@ -7,7 +7,6 @@ import java.util.Optional;
 import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.TrasferimentoRisparmiEntity;
 import com.project.bebudgeting.repository.annuali.entrateannuali.repositoryaltreentrate.TrasferimentoRisparmiRepository;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,18 +26,10 @@ public class TrasferimentoRisparmiService {
 
     /**
      * @param entityToDelete
-     * @throws NotFoundException
-     * @throws NullPointerException
-     * @throws NotImplementedException
      */
     // DELETE
-    public void delete(TrasferimentoRisparmiEntity entityToDelete)
-            throws NotFoundException, NullPointerException, NotImplementedException {
-        if (entityToDelete == null)
-            throw new NullPointerException("Item is not set");
-        if (repository.existsById(entityToDelete.getId()))
-            repository.delete(entityToDelete);
-        throw new NotFoundException("Item not found");
+    public void delete(TrasferimentoRisparmiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -55,11 +46,7 @@ public class TrasferimentoRisparmiService {
             ids.add(entity.getId());
         });
         entitiesToDelete.forEach(entity -> {
-            try {
-                delete(entity);
-            } catch (NotImplementedException | NullPointerException | NotFoundException e) {
-                e.printStackTrace();
-            }
+            delete(entity);
         });
         if (repository.findAllById(ids) != null) {
             return true;
@@ -70,12 +57,9 @@ public class TrasferimentoRisparmiService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
     public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id))
-            repository.deleteById(id);
-        throw new NotFoundException("Item not found");
+        repository.deleteById(id);
     }
 
     /**

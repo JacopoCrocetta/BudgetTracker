@@ -10,9 +10,6 @@ import com.project.bebudgeting.repository.annuali.entrateannuali.repositoryaltre
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-import org.apache.commons.lang3.NotImplementedException;
-
 @Service
 public class DividendiService {
     @Autowired
@@ -25,20 +22,12 @@ public class DividendiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
-     * @throws NullPointerException
-     * @throws NotImplementedException
      */
-    // DELETE
-    public void delete(DividendiEntity entityToDelete)
-            throws NotFoundException, NullPointerException, NotImplementedException {
-        if (entityToDelete == null)
-            throw new NullPointerException("Item is not set");
-        if (repository.existsById(entityToDelete.getId()))
-            repository.delete(entityToDelete);
-        throw new NotFoundException("Item not found");
+    public void delete(DividendiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -55,11 +44,7 @@ public class DividendiService {
             ids.add(entity.getId());
         });
         entitiesToDelete.forEach(entity -> {
-            try {
-                delete(entity);
-            } catch (NotImplementedException | NullPointerException | NotFoundException e) {
-                e.printStackTrace();
-            }
+            delete(entity);
         });
         if (repository.findAllById(ids) != null) {
             return true;
@@ -70,12 +55,9 @@ public class DividendiService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id))
-            repository.deleteById(id);
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -83,11 +65,7 @@ public class DividendiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            deleteById(id);
         });
     }
 

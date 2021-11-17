@@ -25,20 +25,15 @@ public class RegaliAltreEntrateService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
      * @throws NotFoundException
      * @throws NullPointerException
      * @throws NotImplementedException
      */
-    // DELETE
-    public void delete(RegaliAltreEntrateEntity entityToDelete)
-            throws NotFoundException, NullPointerException, NotImplementedException {
-        if (entityToDelete == null)
-            throw new NullPointerException("Item is not set");
-        if (repository.existsById(entityToDelete.getId()))
-            repository.delete(entityToDelete);
-        throw new NotFoundException("Item not found");
+    public void delete(RegaliAltreEntrateEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -55,11 +50,7 @@ public class RegaliAltreEntrateService {
             ids.add(entity.getId());
         });
         entitiesToDelete.forEach(entity -> {
-            try {
-                delete(entity);
-            } catch (NotImplementedException | NullPointerException | NotFoundException e) {
-                e.printStackTrace();
-            }
+            delete(entity);
         });
         if (repository.findAllById(ids) != null) {
             return true;
@@ -70,12 +61,9 @@ public class RegaliAltreEntrateService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id))
-            repository.deleteById(id);
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -83,11 +71,7 @@ public class RegaliAltreEntrateService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            deleteById(id);
         });
     }
 
@@ -99,9 +83,7 @@ public class RegaliAltreEntrateService {
     public List<RegaliAltreEntrateEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<RegaliAltreEntrateEntity> ret = new ArrayList<RegaliAltreEntrateEntity>();
         repository.findAll().forEach(entity -> {
-
             ret.add(entity);
-
         });
         return ret;
     }

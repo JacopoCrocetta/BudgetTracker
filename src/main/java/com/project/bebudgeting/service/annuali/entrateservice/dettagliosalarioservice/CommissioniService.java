@@ -7,11 +7,8 @@ import java.util.Optional;
 import com.project.bebudgeting.entity.annuali.entrate.dettagliosalario.CommissioniEntity;
 import com.project.bebudgeting.repository.annuali.entrateannuali.repositorydettaglisalario.CommissioniRepository;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javassist.NotFoundException;
 
 @Service
 public class CommissioniService {
@@ -25,20 +22,12 @@ public class CommissioniService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
-     * @throws NullPointerException
-     * @throws NotImplementedException
      */
-    // DELETE
-    public void delete(CommissioniEntity entityToDelete)
-            throws NotFoundException, NullPointerException, NotImplementedException {
-        if (entityToDelete == null)
-            throw new NullPointerException("Item is not set");
-        if (repository.existsById(entityToDelete.getId()))
-            repository.delete(entityToDelete);
-        throw new NotFoundException("Item not found");
+    public void delete(CommissioniEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -55,11 +44,7 @@ public class CommissioniService {
             ids.add(entity.getId());
         });
         entitiesToDelete.forEach(entity -> {
-            try {
-                delete(entity);
-            } catch (NotImplementedException | NullPointerException | NotFoundException e) {
-                e.printStackTrace();
-            }
+            delete(entity);
         });
         if (repository.findAllById(ids) != null) {
             return true;
@@ -70,12 +55,9 @@ public class CommissioniService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id))
-            repository.deleteById(id);
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -83,18 +65,14 @@ public class CommissioniService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<CommissioniEntity>
      */
-    // FIND
     public Iterable<CommissioniEntity> findAll() {
         return repository.findAll();
     }
