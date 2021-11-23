@@ -22,17 +22,12 @@ public class AltreUsciteService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AltreUsciteEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(AltreUsciteEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {

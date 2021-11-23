@@ -21,16 +21,12 @@ public class AlimentiAnimaliDomesticiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AlimentiAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(AlimentiAnimaliDomesticiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -42,11 +38,7 @@ public class AlimentiAnimaliDomesticiService {
      */
     public void deleteAll(Iterable<AlimentiAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(alimentiEntity -> {
-            try {
-                this.delete(alimentiEntity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(alimentiEntity);
         });
     }
 
