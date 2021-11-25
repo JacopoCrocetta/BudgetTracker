@@ -1,4 +1,4 @@
-package com.project.bebudgeting.annuali.entrate;
+package com.project.bebudgeting.annuali.uscite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,153 +19,153 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.RimborsiEntity;
-import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.RimborsiService;
+import com.project.bebudgeting.entity.annuali.uscite.dettaglioassicurazione.AssicurazioneSaluteEntity;
+import com.project.bebudgeting.service.annuali.usciteservice.assicurazioneservice.AssicurazioneSaluteService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class RimborsiServiceTest {
+public class AssicurazioneSaluteServiceTest {
     private static final LocalDate LOCAL_DATE = LocalDate.of(2020, 1, 8);
     private static final String DESCRIZIONE = "Descrizione test";
     private static final BigDecimal TOTALE_MENSILE = new BigDecimal(123);
 
     @Autowired
-    RimborsiService rimborsiService;
+    AssicurazioneSaluteService assicurazioneSaluteService;
 
     // COUNT TEST
     @Test
     public void countAllAltroSalarioEntitiesTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToDelete = new AssicurazioneSaluteEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
-        assertTrue(rimborsiService.count() != 0);
+        AssicurazioneSaluteEntity entitySaved = assicurazioneSaluteService.save(entityToDelete);
+        assertNotNull(assicurazioneSaluteService.findById(entitySaved.getId()).get());
+        assertTrue(assicurazioneSaluteService.count() != 0);
 
-        rimborsiService.delete(entityToDelete);
+        assicurazioneSaluteService.delete(entityToDelete);
     }
 
     // FIND TEST
     @Test
     public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToSave = new AssicurazioneSaluteEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(assicurazioneSaluteService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(rimborsiService.findAll() != null);
+        assertTrue(assicurazioneSaluteService.findAll() != null);
     }
 
     @Test
     public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToSave = new AssicurazioneSaluteEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(assicurazioneSaluteService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(rimborsiService.findById(entityToSave.getId()) != null);
+        assertTrue(assicurazioneSaluteService.findById(entityToSave.getId()) != null);
     }
 
     @Test
     public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToSave = new AssicurazioneSaluteEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(assicurazioneSaluteService.save(entityToSave) != null);
 
         // TEST THE FIND
         Iterable<Integer> ids = Arrays.asList(entityToSave.getId());
 
-        assertTrue(rimborsiService.findAllById(ids) != null);
+        assertTrue(assicurazioneSaluteService.findAllById(ids) != null);
     }
 
     @Test
     public void findById() {
         // SAVE ONE ENTITY
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToSave = new AssicurazioneSaluteEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(assicurazioneSaluteService.save(entityToSave) != null);
 
-        assertTrue(rimborsiService.findById(entityToSave.getId()) != null);
+        assertTrue(assicurazioneSaluteService.findById(entityToSave.getId()) != null);
     }
 
     // SAVE TEST
     @Test
     public void saveTest() {
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToSave = new AssicurazioneSaluteEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
         entityToSave.setId(10);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(assicurazioneSaluteService.save(entityToSave) != null);
     }
 
     // DELETE
     @Test
     public void deleteTests() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToDelete = new AssicurazioneSaluteEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        AssicurazioneSaluteEntity entitySaved = assicurazioneSaluteService.save(entityToDelete);
+        assertNotNull(assicurazioneSaluteService.findById(entitySaved.getId()).get());
 
         // add a rigorous compare method to make sure contents are the same, i.e.
         // nothing is lost or transmuted incorrectly, ignoring ID if that is autogen
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        rimborsiService.delete(entityToDelete);
+        assicurazioneSaluteService.delete(entityToDelete);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            assicurazioneSaluteService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
     }
 
     @Test
     public void deleteAllTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToDelete = new AssicurazioneSaluteEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        AssicurazioneSaluteEntity entitySaved = assicurazioneSaluteService.save(entityToDelete);
+        assertNotNull(assicurazioneSaluteService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        rimborsiService.deleteAll();
+        assicurazioneSaluteService.deleteAll();
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            assicurazioneSaluteService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        List<RimborsiEntity> aList = StreamSupport.stream(rimborsiService.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+        List<AssicurazioneSaluteEntity> aList = StreamSupport
+                .stream(assicurazioneSaluteService.findAll().spliterator(), false).collect(Collectors.toList());
 
         assertTrue(aList.size() == 0);
     }
@@ -173,69 +173,69 @@ public class RimborsiServiceTest {
     @Test
     public void deleteAllEntitiesTest() {
 
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToDelete = new AssicurazioneSaluteEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        AssicurazioneSaluteEntity entitySaved = assicurazioneSaluteService.save(entityToDelete);
+        assertNotNull(assicurazioneSaluteService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
-        Iterable<RimborsiEntity> aIterable = Arrays.asList(entityToDelete);
+        Iterable<AssicurazioneSaluteEntity> aIterable = Arrays.asList(entityToDelete);
         // remove the entity
-        rimborsiService.deleteAll(aIterable);
+        assicurazioneSaluteService.deleteAll(aIterable);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            assicurazioneSaluteService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        if (StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
+        if (StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false).collect(Collectors.toList())
                 .size() == 0) {
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assertTrue(StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         } else {
-            rimborsiService.deleteAll(rimborsiService.findAll());
+            assicurazioneSaluteService.deleteAll(assicurazioneSaluteService.findAll());
 
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assertTrue(StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         }
     }
 
     @Test
     public void deleteAllByIdsTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        AssicurazioneSaluteEntity entityToDelete = new AssicurazioneSaluteEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        AssicurazioneSaluteEntity entitySaved = assicurazioneSaluteService.save(entityToDelete);
+        assertNotNull(assicurazioneSaluteService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
         Iterable<Integer> ids = Arrays.asList(entityToDelete.getId());
 
         // remove the entity
-        rimborsiService.deleteAllById(ids);
+        assicurazioneSaluteService.deleteAllById(ids);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            assicurazioneSaluteService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        if (StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
+        if (StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false).collect(Collectors.toList())
                 .size() == 0) {
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assertTrue(StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         } else {
-            rimborsiService.deleteAll(rimborsiService.findAll());
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assicurazioneSaluteService.deleteAll(assicurazioneSaluteService.findAll());
+            assertTrue(StreamSupport.stream(assicurazioneSaluteService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         }
     }
 }

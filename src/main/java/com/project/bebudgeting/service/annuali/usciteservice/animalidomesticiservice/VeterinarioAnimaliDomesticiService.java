@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryanimal
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class VeterinarioAnimaliDomesticiService {
     @Autowired
@@ -22,16 +20,12 @@ public class VeterinarioAnimaliDomesticiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(VeterinarioAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(VeterinarioAnimaliDomesticiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -43,23 +37,15 @@ public class VeterinarioAnimaliDomesticiService {
      */
     public void deleteAll(Iterable<VeterinarioAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(veterinarioEntity -> {
-            try {
-                this.delete(veterinarioEntity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(veterinarioEntity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +53,14 @@ public class VeterinarioAnimaliDomesticiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<VeterinarioAnimaliDomesticiEntity>
      */
-    // FIND
     public Iterable<VeterinarioAnimaliDomesticiEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +81,11 @@ public class VeterinarioAnimaliDomesticiService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return VeterinarioAnimaliDomesticiEntity
      */
-    // SAVE
     public VeterinarioAnimaliDomesticiEntity save(VeterinarioAnimaliDomesticiEntity entity) {
         return repository.save(entity);
     }

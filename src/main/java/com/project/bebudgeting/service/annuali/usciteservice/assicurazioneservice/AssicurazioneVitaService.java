@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryassicu
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AssicurazioneVitaService {
     @Autowired
@@ -22,16 +20,12 @@ public class AssicurazioneVitaService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AssicurazioneVitaEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item Not Found");
+    public void delete(AssicurazioneVitaEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     /**
@@ -39,11 +33,7 @@ public class AssicurazioneVitaService {
      */
     public void deleteAll(Iterable<AssicurazioneVitaEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -53,13 +43,9 @@ public class AssicurazioneVitaService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -71,10 +57,10 @@ public class AssicurazioneVitaService {
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AssicurazioneVitaEntity>
      */
-    // FIND
     public Iterable<AssicurazioneVitaEntity> findAll() {
         return repository.findAll();
     }
@@ -95,11 +81,11 @@ public class AssicurazioneVitaService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entityToSave
      * @return AssicurazioneVitaEntity
      */
-    // SAVE
     public AssicurazioneVitaEntity save(AssicurazioneVitaEntity entityToSave) {
         return repository.save(entityToSave);
     }

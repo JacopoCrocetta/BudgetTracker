@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorybollet
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AltreBolletteService {
     @Autowired
@@ -22,16 +20,12 @@ public class AltreBolletteService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AltreBolletteEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(AltreBolletteEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -39,11 +33,7 @@ public class AltreBolletteService {
      */
     public void deleteAll(Iterable<AltreBolletteEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -53,9 +43,8 @@ public class AltreBolletteService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
+    public void deleteById(int id) {
         repository.deleteById(id);
     }
 
@@ -64,18 +53,14 @@ public class AltreBolletteService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AltreBolletteEntity>
      */
-    // FIND
     public Iterable<AltreBolletteEntity> findAll() {
         return repository.findAll();
     }
@@ -96,11 +81,11 @@ public class AltreBolletteService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return AltreBolletteEntity
      */
-    // SAVE
     public AltreBolletteEntity save(AltreBolletteEntity entity) {
         return repository.save(entity);
     }

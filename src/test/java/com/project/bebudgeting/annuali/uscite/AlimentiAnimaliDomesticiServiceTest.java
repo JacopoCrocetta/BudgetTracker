@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuali.uscite;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +34,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
 
     // COUNT TEST
     @Test
-    void countAllAltroSalarioEntitiesTest() {
+    public void countAllAltroSalarioEntitiesTest() {
         AlimentiAnimaliDomesticiEntity entityToDelete = new AlimentiAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
@@ -50,7 +50,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
 
     // FIND TEST
     @Test
-    void findAllAltroSalarioEntitiesTest() {
+    public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
         AlimentiAnimaliDomesticiEntity entityToSave = new AlimentiAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -64,7 +64,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
     }
 
     @Test
-    void findBySalarioIdTest() {
+    public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
         AlimentiAnimaliDomesticiEntity entityToSave = new AlimentiAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -78,7 +78,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
     }
 
     @Test
-    void findAllByIdTest() {
+    public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
         AlimentiAnimaliDomesticiEntity entityToSave = new AlimentiAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -94,7 +94,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
     }
 
     @Test
-    void findById() {
+    public void findById() {
         // SAVE ONE ENTITY
         AlimentiAnimaliDomesticiEntity entityToSave = new AlimentiAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -206,7 +206,7 @@ public class AlimentiAnimaliDomesticiServiceTest {
     }
 
     @Test
-    void deleteAllByIdsTest() {
+    public void deleteAllByIdsTest() {
         AlimentiAnimaliDomesticiEntity entityToDelete = new AlimentiAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);

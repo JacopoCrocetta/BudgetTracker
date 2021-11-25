@@ -1,6 +1,6 @@
 package com.project.bebudgeting.annuali.entrate;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +34,7 @@ public class BustaPagaServiceTest {
 
     // COUNT TEST
     @Test
-    void countAllAltroSalarioEntitiesTest() {
+    public void countAllAltroSalarioEntitiesTest() {
         BustaPagaEntity entityToDelete = new BustaPagaEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
@@ -50,7 +50,7 @@ public class BustaPagaServiceTest {
 
     // FIND TEST
     @Test
-    void findAllAltroSalarioEntitiesTest() {
+    public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
         BustaPagaEntity entityToSave = new BustaPagaEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -64,7 +64,7 @@ public class BustaPagaServiceTest {
     }
 
     @Test
-    void findBySalarioIdTest() {
+    public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
         BustaPagaEntity entityToSave = new BustaPagaEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -78,7 +78,7 @@ public class BustaPagaServiceTest {
     }
 
     @Test
-    void findAllByIdTest() {
+    public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
         BustaPagaEntity entityToSave = new BustaPagaEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -94,7 +94,7 @@ public class BustaPagaServiceTest {
     }
 
     @Test
-    void findById() {
+    public void findById() {
         // SAVE ONE ENTITY
         BustaPagaEntity entityToSave = new BustaPagaEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -206,7 +206,7 @@ public class BustaPagaServiceTest {
     }
 
     @Test
-    void deleteAllByIdsTest() {
+    public void deleteAllByIdsTest() {
         BustaPagaEntity entityToDelete = new BustaPagaEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);

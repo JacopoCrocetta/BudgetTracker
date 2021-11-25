@@ -1,6 +1,5 @@
 package com.project.bebudgeting.service.annuali.usciteservice.assicurazioneservice;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.project.bebudgeting.entity.annuali.uscite.dettaglioassicurazione.AssicurazioneAutoEntity;
@@ -8,8 +7,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryassicu
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javassist.NotFoundException;
 
 @Service
 public class AssicurazioneAutoService {
@@ -23,28 +20,20 @@ public class AssicurazioneAutoService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AssicurazioneAutoEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item Not Found");
+    public void delete(AssicurazioneAutoEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     /**
      * @param entitiesToDelete
      */
-    public void deleteAll(List<AssicurazioneAutoEntity> entitiesToDelete) {
+    public void deleteAll(Iterable<AssicurazioneAutoEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -54,13 +43,9 @@ public class AssicurazioneAutoService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -72,10 +57,10 @@ public class AssicurazioneAutoService {
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AssicurazioneAutoEntity>
      */
-    // FIND
     public Iterable<AssicurazioneAutoEntity> findAll() {
         return repository.findAll();
     }
@@ -96,11 +81,11 @@ public class AssicurazioneAutoService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entityToSave
      * @return AssicurazioneAutoEntity
      */
-    // SAVE
     public AssicurazioneAutoEntity save(AssicurazioneAutoEntity entityToSave) {
         return repository.save(entityToSave);
     }

@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.DividendiEntity;
 import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.DividendiService;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +34,7 @@ public class DividendiServiceTest {
 
     // COUNT TEST
     @Test
-    void countAllAltroSalarioEntitiesTest() {
+    public void countAllAltroSalarioEntitiesTest() {
         DividendiEntity entityToDelete = new DividendiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
@@ -50,7 +50,7 @@ public class DividendiServiceTest {
 
     // FIND TEST
     @Test
-    void findAllAltroSalarioEntitiesTest() {
+    public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
         DividendiEntity entityToSave = new DividendiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -64,7 +64,7 @@ public class DividendiServiceTest {
     }
 
     @Test
-    void findBySalarioIdTest() {
+    public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
         DividendiEntity entityToSave = new DividendiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -78,7 +78,7 @@ public class DividendiServiceTest {
     }
 
     @Test
-    void findAllByIdTest() {
+    public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
         DividendiEntity entityToSave = new DividendiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -94,7 +94,7 @@ public class DividendiServiceTest {
     }
 
     @Test
-    void findById() {
+    public void findById() {
         // SAVE ONE ENTITY
         DividendiEntity entityToSave = new DividendiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -205,7 +205,7 @@ public class DividendiServiceTest {
     }
 
     @Test
-    void deleteAllByIdsTest() {
+    public void deleteAllByIdsTest() {
         DividendiEntity entityToDelete = new DividendiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);

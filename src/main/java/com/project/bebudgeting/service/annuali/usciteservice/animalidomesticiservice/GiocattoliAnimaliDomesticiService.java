@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryanimal
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class GiocattoliAnimaliDomesticiService {
     @Autowired
@@ -22,16 +20,12 @@ public class GiocattoliAnimaliDomesticiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(GiocattoliAnimaliDomesticiEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(GiocattoliAnimaliDomesticiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -43,23 +37,15 @@ public class GiocattoliAnimaliDomesticiService {
      */
     public void deleteAll(Iterable<GiocattoliAnimaliDomesticiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(giocattoliEntity -> {
-            try {
-                this.delete(giocattoliEntity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(giocattoliEntity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +53,14 @@ public class GiocattoliAnimaliDomesticiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<GiocattoliAnimaliDomesticiEntity>
      */
-    // FIND
     public Iterable<GiocattoliAnimaliDomesticiEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +81,11 @@ public class GiocattoliAnimaliDomesticiService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return GiocattoliAnimaliDomesticiEntity
      */
-    // SAVE
     public GiocattoliAnimaliDomesticiEntity save(GiocattoliAnimaliDomesticiEntity entity) {
         return repository.save(entity);
     }

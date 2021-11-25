@@ -100,9 +100,7 @@ public class CommissioniService {
     public List<CommissioniEntity> findBySalarioId(int salarioId) {
         List<CommissioniEntity> ret = new ArrayList<CommissioniEntity>();
         repository.findAll().forEach(entity -> {
-
             ret.add(entity);
-
         });
         return ret;
     }

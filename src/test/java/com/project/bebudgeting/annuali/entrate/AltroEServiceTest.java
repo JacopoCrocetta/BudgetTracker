@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.AltroAltreEntrateEntity;
 import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.AltroEService;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +34,7 @@ public class AltroEServiceTest {
 
     // COUNT TEST
     @Test
-    void countAllAltroSalarioEntitiesTest() {
+    public void countAllAltroSalarioEntitiesTest() {
         AltroAltreEntrateEntity entityToDelete = new AltroAltreEntrateEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizioneEntrata(DESCRIZIONE);
@@ -50,7 +50,7 @@ public class AltroEServiceTest {
 
     // FIND TEST
     @Test
-    void findAllAltroSalarioEntitiesTest() {
+    public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
         AltroAltreEntrateEntity entityToSave = new AltroAltreEntrateEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -64,7 +64,7 @@ public class AltroEServiceTest {
     }
 
     @Test
-    void findBySalarioIdTest() {
+    public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
         AltroAltreEntrateEntity entityToSave = new AltroAltreEntrateEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -78,7 +78,7 @@ public class AltroEServiceTest {
     }
 
     @Test
-    void findAllByIdTest() {
+    public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
         AltroAltreEntrateEntity entityToSave = new AltroAltreEntrateEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -94,7 +94,7 @@ public class AltroEServiceTest {
     }
 
     @Test
-    void findById() {
+    public void findById() {
         // SAVE ONE ENTITY
         AltroAltreEntrateEntity entityToSave = new AltroAltreEntrateEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
@@ -206,7 +206,7 @@ public class AltroEServiceTest {
     }
 
     @Test
-    void deleteAllByIdsTest() {
+    public void deleteAllByIdsTest() {
         AltroAltreEntrateEntity entityToDelete = new AltroAltreEntrateEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizioneEntrata(DESCRIZIONE);

@@ -77,9 +77,7 @@ public class InteressiService {
     public List<InteressiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<InteressiEntity> ret = new ArrayList<InteressiEntity>();
         repository.findAll().forEach(entity -> {
-
             ret.add(entity);
-
         });
         return ret;
     }

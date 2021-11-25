@@ -10,8 +10,6 @@ import com.project.bebudgeting.repository.annuali.entrateannuali.repositorydetta
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AltroSalarioService {
     @Autowired
@@ -57,12 +55,9 @@ public class AltroSalarioService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id))
-            repository.deleteById(id);
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -70,11 +65,7 @@ public class AltroSalarioService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            deleteById(id);
         });
     }
 

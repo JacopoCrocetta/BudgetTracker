@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorybollet
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class BolletteRifiutiService {
     @Autowired
@@ -22,16 +20,12 @@ public class BolletteRifiutiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(BolletteRifiutiEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(BolletteRifiutiEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -39,11 +33,7 @@ public class BolletteRifiutiService {
      */
     public void deleteAll(Iterable<BolletteRifiutiEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -53,9 +43,8 @@ public class BolletteRifiutiService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
+    public void deleteById(int id) {
         repository.deleteById(id);
     }
 
@@ -64,11 +53,7 @@ public class BolletteRifiutiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 

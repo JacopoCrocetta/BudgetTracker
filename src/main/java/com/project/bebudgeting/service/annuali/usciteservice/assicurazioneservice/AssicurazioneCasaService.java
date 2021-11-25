@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryassicu
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AssicurazioneCasaService {
     @Autowired
@@ -22,16 +20,12 @@ public class AssicurazioneCasaService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AssicurazioneCasaEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item Not Found");
+    public void delete(AssicurazioneCasaEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     /**
@@ -39,11 +33,7 @@ public class AssicurazioneCasaService {
      */
     public void deleteAll(Iterable<AssicurazioneCasaEntity> entitiesToDelete) {
         entitiesToDelete.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -53,13 +43,9 @@ public class AssicurazioneCasaService {
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -71,10 +57,10 @@ public class AssicurazioneCasaService {
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AssicurazioneCasaEntity>
      */
-    // FIND
     public Iterable<AssicurazioneCasaEntity> findAll() {
         return repository.findAll();
     }
@@ -95,11 +81,11 @@ public class AssicurazioneCasaService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entityToSave
      * @return AssicurazioneCasaEntity
      */
-    // SAVE
     public AssicurazioneCasaEntity save(AssicurazioneCasaEntity entityToSave) {
         return repository.save(entityToSave);
     }

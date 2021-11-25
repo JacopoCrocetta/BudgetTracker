@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 import com.project.bebudgeting.entity.annuali.entrate.dettagliosalario.AltroSalarioEntity;
 import com.project.bebudgeting.service.annuali.entrateservice.dettagliosalarioservice.AltroSalarioService;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,7 +35,7 @@ class AltroSalarioServiceTest {
 
 	// COUNT TEST
 	@Test
-	void countAllAltroSalarioEntitiesTest() {
+	public void countAllAltroSalarioEntitiesTest() {
 		AltroSalarioEntity entityToDelete = new AltroSalarioEntity();
 		entityToDelete.setData_inserimento(LOCAL_DATE);
 		entityToDelete.setDescrizione(DESCRIZIONE);
@@ -51,7 +51,7 @@ class AltroSalarioServiceTest {
 
 	// FIND TEST
 	@Test
-	void findAllAltroSalarioEntitiesTest() {
+	public void findAllAltroSalarioEntitiesTest() {
 		// SAVING SOME ENTITY TO TEST
 		AltroSalarioEntity entityToSave = new AltroSalarioEntity();
 		entityToSave.setData_inserimento(LOCAL_DATE);
@@ -65,7 +65,7 @@ class AltroSalarioServiceTest {
 	}
 
 	@Test
-	void findBySalarioIdTest() {
+	public void findBySalarioIdTest() {
 		// SAVING SOME ENTITY TO TEST
 		AltroSalarioEntity entityToSave = new AltroSalarioEntity();
 		entityToSave.setData_inserimento(LOCAL_DATE);
@@ -79,7 +79,7 @@ class AltroSalarioServiceTest {
 	}
 
 	@Test
-	void findAllByIdTest() {
+	public void findAllByIdTest() {
 		// SAVING SOME ENTITY TO TEST
 		AltroSalarioEntity entityToSave = new AltroSalarioEntity();
 		entityToSave.setData_inserimento(LOCAL_DATE);
@@ -95,7 +95,7 @@ class AltroSalarioServiceTest {
 	}
 
 	@Test
-	void findById() {
+	public void findById() {
 		// SAVE ONE ENTITY
 		AltroSalarioEntity entityToSave = new AltroSalarioEntity();
 		entityToSave.setData_inserimento(LOCAL_DATE);
@@ -207,7 +207,7 @@ class AltroSalarioServiceTest {
 	}
 
 	@Test
-	void deleteAllByIdsTest() {
+	public void deleteAllByIdsTest() {
 		AltroSalarioEntity entityToDelete = new AltroSalarioEntity();
 		entityToDelete.setData_inserimento(LOCAL_DATE);
 		entityToDelete.setDescrizione(DESCRIZIONE);

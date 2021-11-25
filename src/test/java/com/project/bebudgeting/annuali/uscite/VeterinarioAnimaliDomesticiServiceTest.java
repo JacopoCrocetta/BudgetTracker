@@ -1,4 +1,4 @@
-package com.project.bebudgeting.annuali.entrate;
+package com.project.bebudgeting.annuali.uscite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,153 +19,153 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.TrasferimentoRisparmiEntity;
-import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.TrasferimentoRisparmiService;
+import com.project.bebudgeting.entity.annuali.uscite.dettaglianimalidomestici.VeterinarioAnimaliDomesticiEntity;
+import com.project.bebudgeting.service.annuali.usciteservice.animalidomesticiservice.VeterinarioAnimaliDomesticiService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class TrasferimentoRisparmiServiceTest {
+public class VeterinarioAnimaliDomesticiServiceTest {
     private static final LocalDate LOCAL_DATE = LocalDate.of(2020, 1, 8);
     private static final String DESCRIZIONE = "Descrizione test";
     private static final BigDecimal TOTALE_MENSILE = new BigDecimal(123);
 
     @Autowired
-    TrasferimentoRisparmiService trasferimentoRisparmiService;
+    VeterinarioAnimaliDomesticiService veterinarioAnimaliDomesticiService;
 
     // COUNT TEST
     @Test
     public void countAllAltroSalarioEntitiesTest() {
-        TrasferimentoRisparmiEntity entityToDelete = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToDelete = new VeterinarioAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        TrasferimentoRisparmiEntity entitySaved = trasferimentoRisparmiService.save(entityToDelete);
-        assertNotNull(trasferimentoRisparmiService.findById(entitySaved.getId()).get());
-        assertTrue(trasferimentoRisparmiService.count() != 0);
+        VeterinarioAnimaliDomesticiEntity entitySaved = veterinarioAnimaliDomesticiService.save(entityToDelete);
+        assertNotNull(veterinarioAnimaliDomesticiService.findById(entitySaved.getId()).get());
+        assertTrue(veterinarioAnimaliDomesticiService.count() != 0);
 
-        trasferimentoRisparmiService.delete(entityToDelete);
+        veterinarioAnimaliDomesticiService.delete(entityToDelete);
     }
 
     // FIND TEST
     @Test
     public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
-        TrasferimentoRisparmiEntity entityToSave = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToSave = new VeterinarioAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(trasferimentoRisparmiService.save(entityToSave) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(trasferimentoRisparmiService.findAll() != null);
+        assertTrue(veterinarioAnimaliDomesticiService.findAll() != null);
     }
 
     @Test
     public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
-        TrasferimentoRisparmiEntity entityToSave = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToSave = new VeterinarioAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(trasferimentoRisparmiService.save(entityToSave) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(trasferimentoRisparmiService.findById(entityToSave.getId()) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.findById(entityToSave.getId()) != null);
     }
 
     @Test
     public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
-        TrasferimentoRisparmiEntity entityToSave = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToSave = new VeterinarioAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(trasferimentoRisparmiService.save(entityToSave) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.save(entityToSave) != null);
 
         // TEST THE FIND
         Iterable<Integer> ids = Arrays.asList(entityToSave.getId());
 
-        assertTrue(trasferimentoRisparmiService.findAllById(ids) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.findAllById(ids) != null);
     }
 
     @Test
     public void findById() {
         // SAVE ONE ENTITY
-        TrasferimentoRisparmiEntity entityToSave = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToSave = new VeterinarioAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(trasferimentoRisparmiService.save(entityToSave) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.save(entityToSave) != null);
 
-        assertTrue(trasferimentoRisparmiService.findById(entityToSave.getId()) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.findById(entityToSave.getId()) != null);
     }
 
     // SAVE TEST
     @Test
     public void saveTest() {
-        TrasferimentoRisparmiEntity entityToSave = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToSave = new VeterinarioAnimaliDomesticiEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
         entityToSave.setId(10);
 
-        assertTrue(trasferimentoRisparmiService.save(entityToSave) != null);
+        assertTrue(veterinarioAnimaliDomesticiService.save(entityToSave) != null);
     }
 
     // DELETE
     @Test
     public void deleteTests() {
-        TrasferimentoRisparmiEntity entityToDelete = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToDelete = new VeterinarioAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        TrasferimentoRisparmiEntity entitySaved = trasferimentoRisparmiService.save(entityToDelete);
-        assertNotNull(trasferimentoRisparmiService.findById(entitySaved.getId()).get());
+        VeterinarioAnimaliDomesticiEntity entitySaved = veterinarioAnimaliDomesticiService.save(entityToDelete);
+        assertNotNull(veterinarioAnimaliDomesticiService.findById(entitySaved.getId()).get());
 
         // add a rigorous compare method to make sure contents are the same, i.e.
         // nothing is lost or transmuted incorrectly, ignoring ID if that is autogen
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        trasferimentoRisparmiService.delete(entityToDelete);
+        veterinarioAnimaliDomesticiService.delete(entityToDelete);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            trasferimentoRisparmiService.findById(entityToDelete.getId()).get();
+            veterinarioAnimaliDomesticiService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
     }
 
     @Test
     public void deleteAllTest() {
-        TrasferimentoRisparmiEntity entityToDelete = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToDelete = new VeterinarioAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        TrasferimentoRisparmiEntity entitySaved = trasferimentoRisparmiService.save(entityToDelete);
-        assertNotNull(trasferimentoRisparmiService.findById(entitySaved.getId()).get());
+        VeterinarioAnimaliDomesticiEntity entitySaved = veterinarioAnimaliDomesticiService.save(entityToDelete);
+        assertNotNull(veterinarioAnimaliDomesticiService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        trasferimentoRisparmiService.deleteAll();
+        veterinarioAnimaliDomesticiService.deleteAll();
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            trasferimentoRisparmiService.findById(entityToDelete.getId()).get();
+            veterinarioAnimaliDomesticiService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        List<TrasferimentoRisparmiEntity> aList = StreamSupport
-                .stream(trasferimentoRisparmiService.findAll().spliterator(), false).collect(Collectors.toList());
+        List<VeterinarioAnimaliDomesticiEntity> aList = StreamSupport
+                .stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false).collect(Collectors.toList());
 
         assertTrue(aList.size() == 0);
     }
@@ -173,68 +173,68 @@ public class TrasferimentoRisparmiServiceTest {
     @Test
     public void deleteAllEntitiesTest() {
 
-        TrasferimentoRisparmiEntity entityToDelete = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToDelete = new VeterinarioAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        TrasferimentoRisparmiEntity entitySaved = trasferimentoRisparmiService.save(entityToDelete);
-        assertNotNull(trasferimentoRisparmiService.findById(entitySaved.getId()).get());
+        VeterinarioAnimaliDomesticiEntity entitySaved = veterinarioAnimaliDomesticiService.save(entityToDelete);
+        assertNotNull(veterinarioAnimaliDomesticiService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
-        Iterable<TrasferimentoRisparmiEntity> aIterable = Arrays.asList(entityToDelete);
+        Iterable<VeterinarioAnimaliDomesticiEntity> aIterable = Arrays.asList(entityToDelete);
         // remove the entity
-        trasferimentoRisparmiService.deleteAll(aIterable);
+        veterinarioAnimaliDomesticiService.deleteAll(aIterable);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            trasferimentoRisparmiService.findById(entityToDelete.getId()).get();
+            veterinarioAnimaliDomesticiService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        if (StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+        if (StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                 .collect(Collectors.toList()).size() == 0) {
-            assertTrue(StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+            assertTrue(StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                     .collect(Collectors.toList()).size() == 0);
         } else {
-            trasferimentoRisparmiService.deleteAll(trasferimentoRisparmiService.findAll());
+            veterinarioAnimaliDomesticiService.deleteAll(veterinarioAnimaliDomesticiService.findAll());
 
-            assertTrue(StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+            assertTrue(StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                     .collect(Collectors.toList()).size() == 0);
         }
     }
 
     @Test
     public void deleteAllByIdsTest() {
-        TrasferimentoRisparmiEntity entityToDelete = new TrasferimentoRisparmiEntity();
+        VeterinarioAnimaliDomesticiEntity entityToDelete = new VeterinarioAnimaliDomesticiEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        TrasferimentoRisparmiEntity entitySaved = trasferimentoRisparmiService.save(entityToDelete);
-        assertNotNull(trasferimentoRisparmiService.findById(entitySaved.getId()).get());
+        VeterinarioAnimaliDomesticiEntity entitySaved = veterinarioAnimaliDomesticiService.save(entityToDelete);
+        assertNotNull(veterinarioAnimaliDomesticiService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
         Iterable<Integer> ids = Arrays.asList(entityToDelete.getId());
 
         // remove the entity
-        trasferimentoRisparmiService.deleteAllById(ids);
+        veterinarioAnimaliDomesticiService.deleteAllById(ids);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            trasferimentoRisparmiService.findById(entityToDelete.getId()).get();
+            veterinarioAnimaliDomesticiService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        if (StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+        if (StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                 .collect(Collectors.toList()).size() == 0) {
-            assertTrue(StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+            assertTrue(StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                     .collect(Collectors.toList()).size() == 0);
         } else {
-            trasferimentoRisparmiService.deleteAll(trasferimentoRisparmiService.findAll());
-            assertTrue(StreamSupport.stream(trasferimentoRisparmiService.findAll().spliterator(), false)
+            veterinarioAnimaliDomesticiService.deleteAll(veterinarioAnimaliDomesticiService.findAll());
+            assertTrue(StreamSupport.stream(veterinarioAnimaliDomesticiService.findAll().spliterator(), false)
                     .collect(Collectors.toList()).size() == 0);
         }
     }

@@ -77,9 +77,7 @@ public class DividendiService {
     public List<DividendiEntity> findAllByAltreEntrateId(int altreEntrateId) {
         List<DividendiEntity> ret = new ArrayList<DividendiEntity>();
         repository.findAll().forEach(entity -> {
-
             ret.add(entity);
-
         });
         return ret;
     }

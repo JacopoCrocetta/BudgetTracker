@@ -1,4 +1,4 @@
-package com.project.bebudgeting.annuali.entrate;
+package com.project.bebudgeting.annuali.uscite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,152 +19,152 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import com.project.bebudgeting.entity.annuali.entrate.dettaglioaltreentrate.RimborsiEntity;
-import com.project.bebudgeting.service.annuali.entrateservice.dettaglioaltreentrateservice.RimborsiService;
+import com.project.bebudgeting.entity.annuali.uscite.dettagliobollette.BolletteTVEntity;
+import com.project.bebudgeting.service.annuali.usciteservice.bolletteservice.BolletteTVService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class RimborsiServiceTest {
+public class BolletteTVServiceTest {
     private static final LocalDate LOCAL_DATE = LocalDate.of(2020, 1, 8);
     private static final String DESCRIZIONE = "Descrizione test";
     private static final BigDecimal TOTALE_MENSILE = new BigDecimal(123);
 
     @Autowired
-    RimborsiService rimborsiService;
+    BolletteTVService bolletteTVService;
 
     // COUNT TEST
     @Test
     public void countAllAltroSalarioEntitiesTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        BolletteTVEntity entityToDelete = new BolletteTVEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
-        assertTrue(rimborsiService.count() != 0);
+        BolletteTVEntity entitySaved = bolletteTVService.save(entityToDelete);
+        assertNotNull(bolletteTVService.findById(entitySaved.getId()).get());
+        assertTrue(bolletteTVService.count() != 0);
 
-        rimborsiService.delete(entityToDelete);
+        bolletteTVService.delete(entityToDelete);
     }
 
     // FIND TEST
     @Test
     public void findAllAltroSalarioEntitiesTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        BolletteTVEntity entityToSave = new BolletteTVEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(bolletteTVService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(rimborsiService.findAll() != null);
+        assertTrue(bolletteTVService.findAll() != null);
     }
 
     @Test
     public void findBySalarioIdTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        BolletteTVEntity entityToSave = new BolletteTVEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(bolletteTVService.save(entityToSave) != null);
 
         // TEST THE FIND
-        assertTrue(rimborsiService.findById(entityToSave.getId()) != null);
+        assertTrue(bolletteTVService.findById(entityToSave.getId()) != null);
     }
 
     @Test
     public void findAllByIdTest() {
         // SAVING SOME ENTITY TO TEST
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        BolletteTVEntity entityToSave = new BolletteTVEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(bolletteTVService.save(entityToSave) != null);
 
         // TEST THE FIND
         Iterable<Integer> ids = Arrays.asList(entityToSave.getId());
 
-        assertTrue(rimborsiService.findAllById(ids) != null);
+        assertTrue(bolletteTVService.findAllById(ids) != null);
     }
 
     @Test
     public void findById() {
         // SAVE ONE ENTITY
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        BolletteTVEntity entityToSave = new BolletteTVEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(bolletteTVService.save(entityToSave) != null);
 
-        assertTrue(rimborsiService.findById(entityToSave.getId()) != null);
+        assertTrue(bolletteTVService.findById(entityToSave.getId()) != null);
     }
 
     // SAVE TEST
     @Test
     public void saveTest() {
-        RimborsiEntity entityToSave = new RimborsiEntity();
+        BolletteTVEntity entityToSave = new BolletteTVEntity();
         entityToSave.setData_inserimento(LOCAL_DATE);
         entityToSave.setDescrizione(DESCRIZIONE);
         entityToSave.setTotale_mensile(TOTALE_MENSILE);
         entityToSave.setId(10);
 
-        assertTrue(rimborsiService.save(entityToSave) != null);
+        assertTrue(bolletteTVService.save(entityToSave) != null);
     }
 
     // DELETE
     @Test
     public void deleteTests() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        BolletteTVEntity entityToDelete = new BolletteTVEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        BolletteTVEntity entitySaved = bolletteTVService.save(entityToDelete);
+        assertNotNull(bolletteTVService.findById(entitySaved.getId()).get());
 
         // add a rigorous compare method to make sure contents are the same, i.e.
         // nothing is lost or transmuted incorrectly, ignoring ID if that is autogen
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        rimborsiService.delete(entityToDelete);
+        bolletteTVService.delete(entityToDelete);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            bolletteTVService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
     }
 
     @Test
     public void deleteAllTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        BolletteTVEntity entityToDelete = new BolletteTVEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        BolletteTVEntity entitySaved = bolletteTVService.save(entityToDelete);
+        assertNotNull(bolletteTVService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
         // remove the entity
-        rimborsiService.deleteAll();
+        bolletteTVService.deleteAll();
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            bolletteTVService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        List<RimborsiEntity> aList = StreamSupport.stream(rimborsiService.findAll().spliterator(), false)
+        List<BolletteTVEntity> aList = StreamSupport.stream(bolletteTVService.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
         assertTrue(aList.size() == 0);
@@ -173,69 +173,68 @@ public class RimborsiServiceTest {
     @Test
     public void deleteAllEntitiesTest() {
 
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        BolletteTVEntity entityToDelete = new BolletteTVEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        BolletteTVEntity entitySaved = bolletteTVService.save(entityToDelete);
+        assertNotNull(bolletteTVService.findById(entitySaved.getId()).get());
 
         assertEquals(entityToDelete, entitySaved);
 
-        Iterable<RimborsiEntity> aIterable = Arrays.asList(entityToDelete);
+        Iterable<BolletteTVEntity> aIterable = Arrays.asList(entityToDelete);
         // remove the entity
-        rimborsiService.deleteAll(aIterable);
+        bolletteTVService.deleteAll(aIterable);
 
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
+            bolletteTVService.findById(entityToDelete.getId()).get();
         });
         assertNotNull(exception.getMessage());
 
-        if (StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
+        if (StreamSupport.stream(bolletteTVService.findAll().spliterator(), false).collect(Collectors.toList())
                 .size() == 0) {
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assertTrue(StreamSupport.stream(bolletteTVService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         } else {
-            rimborsiService.deleteAll(rimborsiService.findAll());
+            bolletteTVService.deleteAll(bolletteTVService.findAll());
 
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            assertTrue(StreamSupport.stream(bolletteTVService.findAll().spliterator(), false)
+                    .collect(Collectors.toList()).size() == 0);
         }
     }
 
     @Test
     public void deleteAllByIdsTest() {
-        RimborsiEntity entityToDelete = new RimborsiEntity();
+        BolletteTVEntity entityToDelete = new BolletteTVEntity();
         entityToDelete.setData_inserimento(LOCAL_DATE);
         entityToDelete.setDescrizione(DESCRIZIONE);
         entityToDelete.setTotale_mensile(TOTALE_MENSILE);
 
         // add the entity
-        RimborsiEntity entitySaved = rimborsiService.save(entityToDelete);
-        assertNotNull(rimborsiService.findById(entitySaved.getId()).get());
+        BolletteTVEntity entitySaved = bolletteTVService.save(entityToDelete);
+        assertNotNull(bolletteTVService.findById(entitySaved.getId()).get());
+
+        assertNotNull(entitySaved);
 
         assertEquals(entityToDelete, entitySaved);
 
         Iterable<Integer> ids = Arrays.asList(entityToDelete.getId());
 
         // remove the entity
-        rimborsiService.deleteAllById(ids);
+        bolletteTVService.deleteAllById(ids);
 
-        Exception exception = assertThrows(NoSuchElementException.class, () -> {
-            rimborsiService.findById(entityToDelete.getId()).get();
-        });
-        assertNotNull(exception.getMessage());
+        List<BolletteTVEntity> aFornitureAnimaliDomesticiEntities = StreamSupport
+                .stream(bolletteTVService.findAll().spliterator(), false).collect(Collectors.toList());
 
-        if (StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                .size() == 0) {
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+        if (aFornitureAnimaliDomesticiEntities.size() == 0) {
+            assertTrue(aFornitureAnimaliDomesticiEntities.size() == 0);
         } else {
-            rimborsiService.deleteAll(rimborsiService.findAll());
-            assertTrue(StreamSupport.stream(rimborsiService.findAll().spliterator(), false).collect(Collectors.toList())
-                    .size() == 0);
+            bolletteTVService.deleteAll(bolletteTVService.findAll());
+            aFornitureAnimaliDomesticiEntities = StreamSupport.stream(bolletteTVService.findAll().spliterator(), false)
+                    .collect(Collectors.toList());
+            assertTrue(aFornitureAnimaliDomesticiEntities.size() == 0);
         }
     }
 }
