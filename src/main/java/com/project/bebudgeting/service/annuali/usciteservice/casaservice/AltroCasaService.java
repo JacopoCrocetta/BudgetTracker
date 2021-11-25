@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorycasa.A
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AltroCasaService {
     @Autowired
@@ -22,17 +20,12 @@ public class AltroCasaService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AltroCasaEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(AltroCasaEntity entity) {
+        repository.delete(entity);
     }
 
     public void deleteAll() {
@@ -44,24 +37,15 @@ public class AltroCasaService {
      */
     public void deleteAll(Iterable<AltroCasaEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class AltroCasaService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AltroCasaEntity>
      */
-    // FIND
     public Iterable<AltroCasaEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class AltroCasaService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return AltroCasaEntity
      */
-    // SAVE
     public AltroCasaEntity save(AltroCasaEntity entity) {
         return repository.save(entity);
     }

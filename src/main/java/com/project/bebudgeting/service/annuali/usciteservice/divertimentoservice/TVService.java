@@ -1,13 +1,14 @@
 package com.project.bebudgeting.service.annuali.usciteservice.divertimentoservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.entity.annuali.uscite.dettagliodivertimento.TVEntity;
 import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivertimento.TVRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
+//TODO Scrivere i test unitari per questa sezione
 @Service
 public class TVService {
     @Autowired
@@ -27,14 +28,9 @@ public class TVService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(TVEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(TVEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -42,24 +38,15 @@ public class TVService {
      */
     public void deleteAll(Iterable<TVEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +54,14 @@ public class TVService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<TVEntity>
      */
-    // FIND
     public Iterable<TVEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +82,11 @@ public class TVService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return TVEntity
      */
-    // SAVE
     public TVEntity save(TVEntity entity) {
         return repository.save(entity);
     }

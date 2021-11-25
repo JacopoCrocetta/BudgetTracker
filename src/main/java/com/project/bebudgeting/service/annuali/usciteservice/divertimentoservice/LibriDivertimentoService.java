@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivert
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class LibriDivertimentoService {
     @Autowired
@@ -22,17 +20,12 @@ public class LibriDivertimentoService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(LibriDivertimentoEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(LibriDivertimentoEntity entity) {
+        repository.delete(entity);
     }
 
     public void deleteAll() {
@@ -44,24 +37,15 @@ public class LibriDivertimentoService {
      */
     public void deleteAll(Iterable<LibriDivertimentoEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class LibriDivertimentoService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<LibriDivertimentoEntity>
      */
-    // FIND
     public Iterable<LibriDivertimentoEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class LibriDivertimentoService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return LibriDivertimentoEntity
      */
-    // SAVE
     public LibriDivertimentoEntity save(LibriDivertimentoEntity entity) {
         return repository.save(entity);
     }

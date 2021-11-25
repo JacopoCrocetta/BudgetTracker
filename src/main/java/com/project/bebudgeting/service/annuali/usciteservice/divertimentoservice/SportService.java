@@ -1,12 +1,12 @@
 package com.project.bebudgeting.service.annuali.usciteservice.divertimentoservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.entity.annuali.uscite.dettagliodivertimento.SportEntity;
 import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivertimento.SportRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class SportService {
@@ -27,14 +27,10 @@ public class SportService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(SportEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(SportEntity entity) {
+        repository.delete(entity);
+
     }
 
     /**
@@ -42,24 +38,15 @@ public class SportService {
      */
     public void deleteAll(Iterable<SportEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +54,14 @@ public class SportService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<SportEntity>
      */
-    // FIND
     public Iterable<SportEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +82,11 @@ public class SportService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return SportEntity
      */
-    // SAVE
     public SportEntity save(SportEntity entity) {
         return repository.save(entity);
     }

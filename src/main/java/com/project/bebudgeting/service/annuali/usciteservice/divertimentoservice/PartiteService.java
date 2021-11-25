@@ -1,12 +1,12 @@
 package com.project.bebudgeting.service.annuali.usciteservice.divertimentoservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.entity.annuali.uscite.dettagliodivertimento.PartiteEntity;
 import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivertimento.PartiteRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class PartiteService {
@@ -27,14 +27,9 @@ public class PartiteService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(PartiteEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(PartiteEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -42,24 +37,15 @@ public class PartiteService {
      */
     public void deleteAll(Iterable<PartiteEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +53,14 @@ public class PartiteService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<PartiteEntity>
      */
-    // FIND
     public Iterable<PartiteEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +81,11 @@ public class PartiteService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return PartiteEntity
      */
-    // SAVE
     public PartiteEntity save(PartiteEntity entity) {
         return repository.save(entity);
     }

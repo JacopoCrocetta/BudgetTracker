@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorycasa.T
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class TraslocoService {
     @Autowired
@@ -22,17 +20,12 @@ public class TraslocoService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(TraslocoEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(TraslocoEntity entity) {
+        repository.delete(entity);
     }
 
     public void deleteAll() {
@@ -44,24 +37,15 @@ public class TraslocoService {
      */
     public void deleteAll(Iterable<TraslocoEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class TraslocoService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<TraslocoEntity>
      */
-    // FIND
     public Iterable<TraslocoEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class TraslocoService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return TraslocoEntity
      */
-    // SAVE
     public TraslocoEntity save(TraslocoEntity entity) {
         return repository.save(entity);
     }

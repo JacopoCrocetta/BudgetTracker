@@ -1,12 +1,12 @@
 package com.project.bebudgeting.service.annuali.usciteservice.divertimentoservice;
 
+import java.util.Optional;
+
 import com.project.bebudgeting.entity.annuali.uscite.dettagliodivertimento.TeatroEntity;
 import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivertimento.TeatroRepository;
-import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class TeatroService {
@@ -27,14 +27,9 @@ public class TeatroService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(TeatroEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(TeatroEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -42,24 +37,15 @@ public class TeatroService {
      */
     public void deleteAll(Iterable<TeatroEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +53,14 @@ public class TeatroService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<TeatroEntity>
      */
-    // FIND
     public Iterable<TeatroEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +81,11 @@ public class TeatroService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return TeatroEntity
      */
-    // SAVE
     public TeatroEntity save(TeatroEntity entity) {
         return repository.save(entity);
     }

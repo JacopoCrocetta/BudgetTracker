@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivert
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class FilmService {
     @Autowired
@@ -22,17 +20,13 @@ public class FilmService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(FilmEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(FilmEntity entity) {
+        repository.delete(entity);
+
     }
 
     public void deleteAll() {
@@ -44,24 +38,15 @@ public class FilmService {
      */
     public void deleteAll(Iterable<FilmEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +54,14 @@ public class FilmService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<FilmEntity>
      */
-    // FIND
     public Iterable<FilmEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +82,11 @@ public class FilmService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return FilmEntity
      */
-    // SAVE
     public FilmEntity save(FilmEntity entity) {
         return repository.save(entity);
     }

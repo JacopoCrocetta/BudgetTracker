@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydebiti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class ImposteLocaliService {
     @Autowired
@@ -22,17 +20,13 @@ public class ImposteLocaliService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(ImposteLocaliEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(ImposteLocaliEntity entity) {
+        repository.delete(entity);
+
     }
 
     public void deleteAll() {
@@ -44,24 +38,16 @@ public class ImposteLocaliService {
      */
     public void deleteAll(Iterable<ImposteLocaliEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
+
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +55,14 @@ public class ImposteLocaliService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<ImposteLocaliEntity>
      */
-    // FIND
     public Iterable<ImposteLocaliEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +83,11 @@ public class ImposteLocaliService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return ImposteLocaliEntity
      */
-    // SAVE
     public ImposteLocaliEntity save(ImposteLocaliEntity entity) {
         return repository.save(entity);
     }

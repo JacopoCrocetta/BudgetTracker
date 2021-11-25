@@ -22,17 +22,13 @@ public class CarteCreditoService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(CarteCreditoEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(CarteCreditoEntity entity) {
+        repository.delete(entity);
+
     }
 
     public void deleteAll() {
@@ -44,11 +40,7 @@ public class CarteCreditoService {
      */
     public void deleteAll(Iterable<CarteCreditoEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -56,12 +48,8 @@ public class CarteCreditoService {
      * @param id
      * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +57,14 @@ public class CarteCreditoService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<CarteCreditoEntity>
      */
-    // FIND
     public Iterable<CarteCreditoEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +85,11 @@ public class CarteCreditoService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return CarteCreditoEntity
      */
-    // SAVE
     public CarteCreditoEntity save(CarteCreditoEntity entity) {
         return repository.save(entity);
     }
