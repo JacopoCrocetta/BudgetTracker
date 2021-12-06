@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryviaggi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AlimentiViaggiService {
     @Autowired
@@ -22,16 +20,12 @@ public class AlimentiViaggiService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entityToDelete
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(AlimentiViaggiEntity entityToDelete) throws NotFoundException {
-        if (repository.existsById(entityToDelete.getId())) {
-            repository.delete(entityToDelete);
-        }
-        throw new NotFoundException("Item not found");
+    public void delete(AlimentiViaggiEntity entityToDelete) {
+        repository.delete(entityToDelete);
     }
 
     public void deleteAll() {
@@ -43,23 +37,15 @@ public class AlimentiViaggiService {
      */
     public void deleteAll(Iterable<AlimentiViaggiEntity> entitiesToDelete) {
         entitiesToDelete.forEach(alimentiEntity -> {
-            try {
-                this.delete(alimentiEntity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(alimentiEntity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        }
-        throw new NotFoundException("Item not found");
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -67,18 +53,14 @@ public class AlimentiViaggiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AlimentiViaggiEntity>
      */
-    // FIND
     public Iterable<AlimentiViaggiEntity> findAll() {
         return repository.findAll();
     }
@@ -99,11 +81,11 @@ public class AlimentiViaggiService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return AlimentiViaggiEntity
      */
-    // SAVE
     public AlimentiViaggiEntity save(AlimentiViaggiEntity entity) {
         return repository.save(entity);
     }

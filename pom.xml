@@ -146,6 +146,15 @@
 					<mainClass>com.project.bebudgeting.BEbudgetingApplication</mainClass>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkCount>6</forkCount>
+					<reuseForks>true</reuseForks>
+					<argLine>-Xmx2048m -XX:MaxPermSize=2048m</argLine>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

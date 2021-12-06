@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorytecnol
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AltroTecnologiaService {
     @Autowired
@@ -29,14 +27,9 @@ public class AltroTecnologiaService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(AltroTecnologiaEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(AltroTecnologiaEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class AltroTecnologiaService {
      */
     public void deleteAll(Iterable<AltroTecnologiaEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class AltroTecnologiaService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AltroTecnologiaEntity>
      */
-    // FIND
     public Iterable<AltroTecnologiaEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class AltroTecnologiaService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return AltroTecnologiaEntity
      */
-    // SAVE
     public AltroTecnologiaEntity save(AltroTecnologiaEntity entity) {
         return repository.save(entity);
     }

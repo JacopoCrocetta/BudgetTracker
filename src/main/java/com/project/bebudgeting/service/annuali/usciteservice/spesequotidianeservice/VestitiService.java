@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryspeseq
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class VestitiService {
     @Autowired
@@ -29,14 +27,9 @@ public class VestitiService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(VestitiSpeseQuotidianeEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(VestitiSpeseQuotidianeEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,11 +37,7 @@ public class VestitiService {
      */
     public void deleteAll(Iterable<VestitiSpeseQuotidianeEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
@@ -56,12 +45,8 @@ public class VestitiService {
      * @param id
      * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +54,14 @@ public class VestitiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<VestitiSpeseQuotidianeEntity>
      */
-    // FIND
     public Iterable<VestitiSpeseQuotidianeEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +82,11 @@ public class VestitiService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return VestitiSpeseQuotidianeEntity
      */
-    // SAVE
     public VestitiSpeseQuotidianeEntity save(VestitiSpeseQuotidianeEntity entity) {
         return repository.save(entity);
     }

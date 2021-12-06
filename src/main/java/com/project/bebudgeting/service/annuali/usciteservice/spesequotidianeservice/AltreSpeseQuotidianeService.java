@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryspeseq
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class AltreSpeseQuotidianeService {
     @Autowired
@@ -29,14 +27,9 @@ public class AltreSpeseQuotidianeService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(AltroSpeseQuotidianeEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(AltroSpeseQuotidianeEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class AltreSpeseQuotidianeService {
      */
     public void deleteAll(Iterable<AltroSpeseQuotidianeEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class AltreSpeseQuotidianeService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<AltroSpeseQuotidianeEntity>
      */
-    // FIND
     public Iterable<AltroSpeseQuotidianeEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class AltreSpeseQuotidianeService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return AltroSpeseQuotidianeEntity
      */
-    // SAVE
     public AltroSpeseQuotidianeEntity save(AltroSpeseQuotidianeEntity entity) {
         return repository.save(entity);
     }

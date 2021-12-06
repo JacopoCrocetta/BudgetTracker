@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorytecnol
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class ServiziOnlineService {
     @Autowired
@@ -29,14 +27,9 @@ public class ServiziOnlineService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(ServiziOnlineEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(ServiziOnlineEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class ServiziOnlineService {
      */
     public void deleteAll(Iterable<ServiziOnlineEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class ServiziOnlineService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<ServiziOnlineEntity>
      */
-    // FIND
     public Iterable<ServiziOnlineEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class ServiziOnlineService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return ServiziOnlineEntity
      */
-    // SAVE
     public ServiziOnlineEntity save(ServiziOnlineEntity entity) {
         return repository.save(entity);
     }

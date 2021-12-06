@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryspeseq
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class ParrucchiereService {
     @Autowired
@@ -29,14 +27,9 @@ public class ParrucchiereService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(ParrucchiereEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(ParrucchiereEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class ParrucchiereService {
      */
     public void deleteAll(Iterable<ParrucchiereEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class ParrucchiereService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<ParrucchiereEntity>
      */
-    // FIND
     public Iterable<ParrucchiereEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class ParrucchiereService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return ParrucchiereEntity
      */
-    // SAVE
     public ParrucchiereEntity save(ParrucchiereEntity entity) {
         return repository.save(entity);
     }

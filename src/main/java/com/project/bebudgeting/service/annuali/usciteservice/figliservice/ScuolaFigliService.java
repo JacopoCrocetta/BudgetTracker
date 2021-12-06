@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryfigli.
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class ScuolaFigliService {
     @Autowired
@@ -22,17 +20,12 @@ public class ScuolaFigliService {
         return repository.count();
     }
 
+    // DELETE
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    // DELETE
-    public void delete(ScuolaFigliEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item Not Found");
-        }
+    public void delete(ScuolaFigliEntity entity) {
+        repository.delete(entity);
     }
 
     public void deleteAll() {
@@ -44,24 +37,15 @@ public class ScuolaFigliService {
      */
     public void deleteAll(Iterable<ScuolaFigliEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not Found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class ScuolaFigliService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<ScuolaFigliEntity>
      */
-    // FIND
     public Iterable<ScuolaFigliEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class ScuolaFigliService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return ScuolaFigliEntity
      */
-    // SAVE
     public ScuolaFigliEntity save(ScuolaFigliEntity entity) {
         return repository.save(entity);
     }

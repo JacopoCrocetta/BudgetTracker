@@ -8,7 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositorydivert
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//TODO Scrivere i test unitari per questa sezione
 @Service
 public class TVService {
     @Autowired

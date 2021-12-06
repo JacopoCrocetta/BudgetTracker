@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryviaggi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class DivertimentoViaggiService {
     @Autowired
@@ -29,14 +27,9 @@ public class DivertimentoViaggiService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(DivertimentoViaggiEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(DivertimentoViaggiEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class DivertimentoViaggiService {
      */
     public void deleteAll(Iterable<DivertimentoViaggiEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,14 @@ public class DivertimentoViaggiService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<DivertimentoViaggiEntity>
      */
-    // FIND
     public Iterable<DivertimentoViaggiEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +81,11 @@ public class DivertimentoViaggiService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return DivertimentoViaggiEntity
      */
-    // SAVE
     public DivertimentoViaggiEntity save(DivertimentoViaggiEntity entity) {
         return repository.save(entity);
     }

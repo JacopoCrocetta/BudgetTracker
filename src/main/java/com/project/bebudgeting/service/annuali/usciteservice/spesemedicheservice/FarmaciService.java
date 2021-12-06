@@ -8,8 +8,6 @@ import com.project.bebudgeting.repository.annuali.usciteannuali.repositoryspesem
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javassist.NotFoundException;
-
 @Service
 public class FarmaciService {
     @Autowired
@@ -29,14 +27,9 @@ public class FarmaciService {
 
     /**
      * @param entity
-     * @throws NotFoundException
      */
-    public void delete(FarmaciEntity entity) throws NotFoundException {
-        if (repository.existsById(entity.getId())) {
-            repository.delete(entity);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void delete(FarmaciEntity entity) {
+        repository.delete(entity);
     }
 
     /**
@@ -44,24 +37,15 @@ public class FarmaciService {
      */
     public void deleteAll(Iterable<FarmaciEntity> entities) {
         entities.forEach(entity -> {
-            try {
-                this.delete(entity);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.delete(entity);
         });
     }
 
     /**
      * @param id
-     * @throws NotFoundException
      */
-    public void deleteById(int id) throws NotFoundException {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-        } else {
-            throw new NotFoundException("Item not found");
-        }
+    public void deleteById(int id) {
+        repository.deleteById(id);
     }
 
     /**
@@ -69,18 +53,15 @@ public class FarmaciService {
      */
     public void deleteAllById(Iterable<Integer> ids) {
         ids.forEach(id -> {
-            try {
-                this.deleteById(id);
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
+            this.deleteById(id);
         });
     }
 
+    // FIND
     /**
      * @return Iterable<FarmaciEntity>
      */
-    // FIND
+
     public Iterable<FarmaciEntity> findAll() {
         return repository.findAll();
     }
@@ -101,11 +82,11 @@ public class FarmaciService {
         return repository.findById(id);
     }
 
+    // SAVE
     /**
      * @param entity
      * @return FarmaciEntity
      */
-    // SAVE
     public FarmaciEntity save(FarmaciEntity entity) {
         return repository.save(entity);
     }
