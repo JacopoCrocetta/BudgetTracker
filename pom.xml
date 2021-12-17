@@ -122,6 +122,13 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.5.2</version>
 		</dependency>
+
+		<!-- CSV -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.8</version>
+		</dependency>
 		
 		<!-- JetBrains -->
 		<dependency>
