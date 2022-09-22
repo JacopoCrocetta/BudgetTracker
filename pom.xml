@@ -74,6 +74,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- MONGODB -->
+		<dependency>
+    		<groupId>org.springframework.data</groupId>
+    		<artifactId>spring-data-mongodb</artifactId>
+    		<version>3.0.3.RELEASE</version>
+		</dependency>
+
 		<!-- Json Google -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
